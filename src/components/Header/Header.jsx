@@ -1,27 +1,51 @@
-import React from "react"
+import React, { useState } from "react"
 import css from './Header.module.scss'
-import {BiPhoneCall} from 'react-icons/bi'
+import { BiMenuAltRight, BiPhoneCall } from 'react-icons/bi'
+import { motion } from 'framer-motion'
+import { getMenuStyles, headerVariants } from "../../utils/motion"
+import useHeaderShadow from "../../hooks/useHeaderShadow"
 
 const Header = () => {
+
+    const [menuOpened, setMenuOpened] = useState(false)
+    const headerShadow = useHeaderShadow()
+
     return (
-        <div className={`paddings ${css.wrapper}`}>
+        <motion.div
+            initial="hidden"
+            whileInView="show"
+            variants={headerVariants}
+            viewport={{ once: false, amount: 0.25 }}
+            className={`paddings ${css.wrapper}`}
+            style={{boxShadow: headerShadow}}
+        >
+
             <div className={`flexCenter innerWidth ${css.container}`}>
                 <div className={css.name}>
                     Alia
                 </div>
 
-                <ul className={`flexCenter ${css.menu}`}>
+                <ul
+                    style={getMenuStyles(menuOpened)}
+                    className={`flexCenter ${css.menu}`}>
                     <li><a href="">Services</a></li>
                     <li><a href="">Experience</a></li>
                     <li><a href="">Portfolio</a></li>
                     <li><a href="">Testimonials</a></li>
-                    <li>
+                    <li className={`flexCenter ${css.phone}`}>
                         <p>+1 892 892 8392</p>
-                        <BiPhoneCall size={"40px"}/>
+                        <BiPhoneCall size={"40px"} />
                     </li>
                 </ul>
+
+                {/* for medium and small screens */}
+                <div className={css.menuIcon}
+                    onClick={() => setMenuOpened((prev) => !prev)}
+                    >
+                    <BiMenuAltRight size={30} />
+                </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
