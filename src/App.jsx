@@ -1,10 +1,11 @@
-import Header from "./components/Header/Header";
-import css from './styles/app.module.scss';
+import Header from './components/Header/Header'
+import css from './styles/app.module.scss'
+import Hero from './components/hero/hero'
 
 const App = () => {
-  // return <Header/>;
   return <div className={`bg-primary ${css.container}`}>
     <Header/>
+    <Hero/>
   </div>
 };
 
