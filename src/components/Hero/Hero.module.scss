@@ -12,6 +12,13 @@
     }
 
     .lowerElements {
+
+        @media (max-width: $sm), (max-width: $md) {
+            margin-top: 4rem;
+            gap: 2rem;
+            justify-content: center;
+        }
+
         margin-top: 12rem;
         display: flex;
         justify-content: space-between;
@@ -40,6 +47,19 @@
     }
 
     .person {
+        @media (max-width: $sm), (max-width: $md) {
+            position: relative;
+            left: 0;
+            background-size: 20rem;   
+            display: flex;
+            height: 25vh;
+            width: 25vh;
+            align-items: center;
+            justify-content: center;
+            background-position: bottom;
+            box-shadow: 0 0 2rem 1rem #fff, 0 0 3rem 2rem #f0f, 0 0 4rem 3.5rem #0ff;
+        }
+
         position: absolute;
         display: block;
         height: 66%;
@@ -59,6 +79,11 @@
             0 0 140px 90px #0ff;
 
         img {
+
+            @media (max-width: $sm), (max-width: $md) {
+                width: 23rem;
+            }
+            margin-bottom: -5px;
             max-width: 75%;
             max-height: 75%;
             display: block;
