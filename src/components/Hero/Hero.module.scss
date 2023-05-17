@@ -9,11 +9,13 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .lowerElements {
 
-        @media (max-width: $sm), (max-width: $md) {
+        @media (max-width: $sm),
+        (max-width: $md) {
             margin-top: 4rem;
             gap: 2rem;
             justify-content: center;
@@ -28,6 +30,14 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            width: 50%;
+
+            @media (max-width: $sm),
+            (max-width: $md) {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+            }
 
             >:nth-child(2) {
                 line-height: 25px;
@@ -47,17 +57,18 @@
     }
 
     .person {
-        @media (max-width: $sm), (max-width: $md) {
+
+        @media (max-width: $sm), 
+        (max-width: $md) {
             position: relative;
             left: 0;
-            background-size: 20rem;   
             display: flex;
             height: 25vh;
             width: 25vh;
+            margin: 8vh auto;
             align-items: center;
             justify-content: center;
             background-position: bottom;
-            box-shadow: 0 0 2rem 1rem #fff, 0 0 3rem 2rem #f0f, 0 0 4rem 3.5rem #0ff;
         }
 
         position: absolute;
@@ -73,16 +84,18 @@
         top: 25%;
         border-radius: 50%;
         background-color: #fff;
-        box-shadow:
-            0 0 60px 30px #fff,
-            0 0 100px 60px #f0f,
-            0 0 140px 90px #0ff;
+        box-shadow: 0 0 60px 30px #fff,
+        0 0 100px 60px #f0f,
+        0 0 140px 90px #0ff;
+        box-shadow: 0 0 0.2rem 0.1rem #fff, 0 0 0.3rem 0.2rem #f0f, 0 0 0.4rem 0.3rem #0ff;
 
         img {
 
-            @media (max-width: $sm), (max-width: $md) {
+            @media (max-width: $sm),
+            (max-width: $md) {
                 width: 23rem;
             }
+
             margin-bottom: -5px;
             max-width: 75%;
             max-height: 75%;

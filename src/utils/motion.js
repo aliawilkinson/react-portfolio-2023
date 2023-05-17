@@ -147,6 +147,6 @@ export const staggerChildren = {
 
 export const getMenuStyles = (menuOpened) => {
   if (document.documentElement.clientWidth <= 640) {
-    return { right: !menuOpened && "-100%" };
+    return { right: !menuOpened && "-120%" };
   }
 };
