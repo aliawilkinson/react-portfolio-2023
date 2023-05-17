@@ -1,6 +1,6 @@
 import React from 'react'
 import { Document, Page } from 'react-pdf'
-import Resume from '../../assets/Resume.pdf'
+import Resume from '../../../public/Resume.pdf'
 
 const Resume = () => {
     return (
