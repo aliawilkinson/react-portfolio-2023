@@ -1,26 +1,40 @@
 import React from 'react'
 import css from './hero.module.scss'
+import { motion } from 'framer-motion'
+import { staggerChildren, fadeIn, } from "../../utils/motion"
 
 const Hero = () => {
     return (
         <section className={`paddings ${css.wrapper}`}>
-            <div className={`innerWidth ${css.container}`}>
+            <motion.div
+                variants={staggerChildren}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.025 }}
+
+                className={`innerWidth ${css.container}`}>
 
                 <div className={css.upperElements}>
-                    <span className='primaryText'>
+                    <motion.span 
+                    variants={fadeIn("right", "tween", 0.2, 1)}
+                    className='primaryText'>
                         Hey There, <br />
                         I'm Alia.
-                    </span>
-                    <span className='secondaryText'>
+                    </motion.span>
+                    <motion.span
+                    variants={fadeIn("left", "tween", 0.2, 1)}
+                    className='secondaryText'>
                         I come up with novel solutions <br />
                         for real world problems using software, <br />
                         and I love what I do.
-                    </span>
+                    </motion.span>
                 </div>
 
-                <div className={css.person}>
+                <motion.div 
+                variants={fadeIn("up", "tween", 0.3, 1)}
+                className={css.person}>
                     <img src="./rock-portrait.jpg" alt="" />
-                </div>
+                </motion.div>
 
                 <div className={css.lowerElements}>
                     <div className={css.experience}>
@@ -35,12 +49,12 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className={css.certificate}>
-                        <img src='./aws-sol-arch.png' alt="" /> 
+                        <img src='./aws-sol-arch.png' alt="" />
                         <span>CERTIFIED AWS SOLUTIONS ARCHITECT </span>
                         <span>SOFTWARE ENGINEER</span>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
