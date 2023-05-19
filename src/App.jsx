@@ -7,7 +7,7 @@ const App = () => {
   return <div className={`bg-primary ${css.container}`}>
     <Header/>
     <Hero/>
-    {/* <Expertise/> */}
+    <Expertise/>
   </div>
 };
 
