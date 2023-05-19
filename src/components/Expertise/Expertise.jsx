@@ -4,15 +4,13 @@ import css from './Expertise.module.scss'
 import { motion } from 'framer-motion'
 import { fadeIn, staggerContainer, textVariant } from "../../utils/motion"
 
-
-
 const Expertise = () => {
     return (
         <motion.section
             variants={staggerContainer}
             initial='hidden'
             whileInView='show'
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             className={css.wrapper}>
             <div
                 className={` paddings yPaddings flexCenter innerWidth ${css.container}`}
@@ -25,7 +23,8 @@ const Expertise = () => {
                             variants={fadeIn('right','tween',(i+1*0.2,1))}
                             className={css.exp} key={i}>
                                 <div className="flexCenter" style={{ background: exp.bg }}>
-                                    <exp.icon size={25} color="white" />
+                                    {/* below line caused an error - swapping out anyway*/}
+                                    {/* <exp.icon size={25} color="white" /> */}
                                 </div>
 
                                 <div>
@@ -43,7 +42,7 @@ const Expertise = () => {
                     <span className='primaryText'>What I help with</span>
                     {
                         whatIHelpWith.map((paragraph, i) => {
-                            return <span className='secondaryText'>{paragraph}</span>
+                            return <span className='secondaryText' key={i}>{paragraph}</span>
                         })
                     }
 
