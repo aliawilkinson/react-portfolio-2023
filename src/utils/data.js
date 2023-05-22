@@ -3,22 +3,23 @@ import { CiMobile1 } from "react-icons/ci";
 import { MdWorkspacesOutline } from "react-icons/md";
 export const projectExperience = [
   {
-    name: "Website Design",
+    name: "DevOps / Site Reliability Engineering",
     projects: 76,
     icon: HiOutlineDesktopComputer,
-    bg: "#286F6C",
+    bg: "#6D4B8A",
   },
   {
-    name: "Mobile App Design",
+    name: "Automation Projects",
     projects: 63,
     icon: CiMobile1,
-    bg: "#EEC048",
+    bg: "#8897B8",
   },
   {
-    name: "Brand Identity",
+    name: "Full Stack Applications",
     projects: 47,
     icon: MdWorkspacesOutline,
-    bg: "#F26440",
+    bg: "#C83C63",
+    // bg: "#163f0c",
   },
 ];
 
@@ -35,7 +36,7 @@ export const whatIHelpWith = [
   Enterprise's toughest problems.
   
   Let's work together to find a solution to the problem
-  you're eager to solve. I look forward to hearing from you.`,
+  you're eager to solve.`,
 ];
 
 export const workExp = [
@@ -52,6 +53,7 @@ export const workExp = [
       Revamped AWS's Container training program for containers on AWS.
       Received positive customer feedback from several engineers.
       `,
+    dotColor: '#6D4B8A'
   },
   {
     place: "loanDepot LLC",
@@ -66,6 +68,7 @@ export const workExp = [
       Developed approximately 75% of training material, mentored mid and junior engineers, and conducted PowerShell proficiency interviews for new hires.
       Conducted application troubleshooting in Dynatrace, Kibana, and traditional diagnostic methods.
       `,
+      dotColor: '#8897B8'
   },
   {
     place: "COFEBE Inc",
@@ -79,6 +82,7 @@ export const workExp = [
       Organized and directed internal talent, working closely with clients to execute requirements.
       Collaborated with an internal team using PHP 7.1 and Python 3.7 to develop a web application that mocks APIs for front-end developers.
       `,
+      dotColor: '#B8A295'
   },
   {
     place: "A Show For A Change",
@@ -89,6 +93,7 @@ export const workExp = [
       Designed database structure and endpoints using LAMP stack and deployed on AWS.
       Responsible for SCRUM/Agile ceremonies.      
       `,
+      dotColor: '#C83C63'
   },
 ];
 
