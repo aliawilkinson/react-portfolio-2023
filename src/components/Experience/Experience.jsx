@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './Experience.module.scss'
 import { motion } from 'framer-motion'
-import { staggerChildren, textVariant2 } from '../../utils/motion'
+import { staggerChildren, textVariant2, zoomIn, fadeIn } from '../../utils/motion'
 import { workExp } from '../../utils/data'
 
 const Experience = () => {
@@ -21,15 +21,15 @@ const Experience = () => {
                     {
                         workExp.map((exp, i) => {
                             return (
-                                <motion.div className={`flexCenter ${css.exp}`} 
-                                variants={textVariant2}
-                                key={i}>
+                                <motion.div className={`flexCenter ${css.oneExp}`}
+                                    variants={textVariant2}
+                                    key={i}>
                                     <div className={css.post}>
+                                    {/* <span><span className={css.circle} style={{ background: exp.dotColor }}></span></span> */}
                                         <h1>{exp.place}</h1>
                                         <p>{exp.tenure}</p>
                                     </div>
                                     <div className={css.role}>
-
                                         <h1>{exp.role}</h1>
                                         <p>{exp.detail}</p>
 
@@ -38,16 +38,15 @@ const Experience = () => {
                             )
                         })
                     }
-                </div>
-                <div className={css.progressbar}>
-                    <div className={css.line}></div>
-                    <div className={css.circle} style={{background:'#0D2F3F'}}></div>
-                    <div className={css.circle} style={{background:'#286F6C'}}></div>
-                    <div className={css.circle} style={{background:'#360c3f'}}></div>
+                    <motion.div variants={zoomIn(1, 1)} className={css.progressbar}>
+                        <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line}></motion.div>
+                    </motion.div>
                 </div>
             </div>
         </motion.section>
     )
 }
-
+// 6D4B8A
+// 8897B8
+// B8A295
 export default Experience
