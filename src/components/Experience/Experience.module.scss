@@ -1,9 +1,10 @@
 @import '../../styles/constants.scss';
 
-.wrapper{
-    .container{
+.wrapper {
+    .container {
         flex-direction: column;
         gap: 2rem;
+        overflow: auto;
 
         .experiences {
             width: 100%;
