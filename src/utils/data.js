@@ -41,7 +41,7 @@ export const whatIHelpWith = [
 
 export const workExp = [
   {
-    place: "Amazon Web Services (AWS) - remote",
+    place: "Amazon Web Services (AWS)",
     tenure: "Nov 2022 - Present",
     role: "DevOps Architect Consultant",
     detail:
