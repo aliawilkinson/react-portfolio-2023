@@ -13,7 +13,7 @@ const Reviews = () => {
             viewport={{ once: false, amount: 0.25 }}
             section className={`paddings ${css.wrapper}`}>
 
-            <a className="anchor" id="Reviews"></a>
+            <a className="anchor" id="reviews"></a>
 
             <motion.div
                 variants={footerVariants}
@@ -23,10 +23,10 @@ const Reviews = () => {
                 <div className={`flexCenter ${css.heading}`}>
                     <span className="primaryText">People Talk</span>
                     <p style={{ marginTop: "2rem" }}>
-                        Unique solutions for difficult problems
+                        I come up with unique solutions for difficult problems
                     </p>
                     <p>
-                        Allow us to support you in reaching your goals
+                        Allow me to support you in reaching your goals
                     </p>
                 </div>
 
