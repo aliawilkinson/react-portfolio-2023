@@ -21,7 +21,7 @@ const Reviews = () => {
 
 
                 <div className={`flexCenter ${css.heading}`}>
-                    <span className="primaryText">People talk about us</span>
+                    <span className="primaryText">People Talk</span>
                     <p style={{ marginTop: "2rem" }}>
                         Unique solutions for difficult problems
                     </p>
