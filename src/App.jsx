@@ -5,6 +5,7 @@ import Expertise from './components/Expertise/Expertise'
 import Experience from './components/Experience/Experience'
 import Portfolio from './components/Portfolio/Portfolio'
 import Reviews from './components/Reviews/Reviews'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   return <div className={`bg-primary ${css.container}`}>
@@ -14,6 +15,7 @@ const App = () => {
     <Experience/>
     <Portfolio/>
     <Reviews/>
+    <Footer/>
   </div>
 };
 
