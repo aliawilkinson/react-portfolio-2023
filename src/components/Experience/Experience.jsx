@@ -11,11 +11,11 @@ const Experience = () => {
             whileInView="show"
             viewport={{ once: false, amount: 0.25 }}
             className={`paddings ${css.wrapper}`}>
-            <a className="anchor" id="work"></a>
+            <a className="anchor" id="experience"></a>
 
             <div className={`innerWidth flexCenter ${css.container}`}>
                 {/* heading */}
-                <span className="primaryText yPaddings">My Work Experience</span>
+                <span className="primaryText yPaddings">Experience</span>
 
                 <div className={`flexCenter ${css.experiences}`}>
                     {workExp.map((exp, i) => {

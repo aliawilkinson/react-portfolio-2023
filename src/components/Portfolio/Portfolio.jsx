@@ -18,8 +18,8 @@ const Portfolio = () => {
 
                 <motion.div variants={textVariant(.4)} className={`flexCenter ${css.heading}`}>
                     <div>
-                        <span className="primaryText">Latest Works</span>
-                        <p style={{ marginTop: "10px" }}>Perfect solutions for digital experience</p>
+                        <span className="primaryText">Case Studies</span>
+                        <p style={{ marginTop: "10px" }}>Efficient solutions for digital experience</p>
                     </div>
                     <span className="secondaryText">Explore More Works</span>
                 </motion.div>

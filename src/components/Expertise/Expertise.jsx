@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer, textVariant } from '../../utils/motion.js'
 const Expertise = () => {
     return (
         <section className={css.wrapper}>
-            <a className="anchor" id="experties"></a>
+            <a className="anchor" id="expertise"></a>
             <motion.div
                 variants={staggerContainer}
                 initial="hidden"
