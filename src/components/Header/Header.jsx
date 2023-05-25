@@ -33,10 +33,10 @@ const Header = () => {
                     <li><a href="#portfolio">Case Studies</a></li>
                     <li><a href="#reviews">Testimonials</a></li>
                     <li><a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</a></li>
-                    <li className={`flexCenter ${css.contact}`}>
+                    {/* <li className={`flexCenter ${css.contact}`}>
                         <p>Contact</p>
                         <BiPhoneCall size={"40px"} />
-                    </li>
+                    </li> */}
                 </ul>
 
                 {/* for medium and small screens */}
