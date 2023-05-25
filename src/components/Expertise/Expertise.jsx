@@ -39,7 +39,7 @@ const Expertise = () => {
                     variants={textVariant(0.5)}
                     className={css.rightSide}>
 
-                    <span className='primaryText'>What do I help? </span>
+                    <span className='primaryText'>What I help with </span>
                     {whatIHelpWith.map((paragraph, i) => <span className='secondaryText' key={i}>{paragraph}</span>)}
 
 
