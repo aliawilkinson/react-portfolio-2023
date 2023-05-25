@@ -21,21 +21,20 @@ const Footer = () => {
                         amazing together.
                     </span>
                     <span className="primaryText">
-                        Start by <a href="https://https://www.linkedin.com/in/aliawilkinson/" target="_blank">saying hi</a>
+                        Start by <a href="mailto:zainkeepscode@gmail.com">saying hi</a>
                     </span>
                 </div>
 
                 <div className={css.right}>
                     <div className={css.info}>
                         <span className="secondaryText">Information</span>
-                        <p>Made in Sunny Southern California</p>
+                        <p>Made with Love in Sunny California</p>
                     </div>
                     <ul className={css.menu}>
                         <li><a href="#expertise">Services</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#portfolio">Case Studies</a></li>
                         <li><a href="#reviews">Testimonials</a></li>
-                        <li><a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </div>
             </motion.div>
