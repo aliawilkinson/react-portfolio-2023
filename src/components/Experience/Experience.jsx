@@ -3,6 +3,7 @@ import { workExp } from "../../utils/data";
 import css from "./Experience.module.scss";
 import { motion } from 'framer-motion'
 import { fadeIn, slideIn, staggerChildren, textVariant2, zoomIn } from "../../utils/motion";
+import Parser from 'html-react-parser';
 
 const Experience = () => {
     return (
@@ -29,7 +30,7 @@ const Experience = () => {
                                 </div>
                                 <div className={css.role}>
                                     <h1>{exp.role}</h1>
-                                    <p>{exp.detail}</p>
+                                    <div>{Parser(exp.detail)}</div>
                                 </div>
                             </motion.div>
                         );
