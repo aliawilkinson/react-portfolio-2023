@@ -26,6 +26,17 @@
                 }
             }
 
+            @media (max-width: $sm) {
+                .exp {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .progressbar {
+                    display: none;
+                }
+            }
+
             .progressbar {
                 position: absolute;
                 height: 100%;
@@ -35,6 +46,10 @@
                 left: 45%;
 
                 .line {
+
+                    @media (max-width: $sm) {
+                        display: none;
+                    }
                     position: absolute;
                     height: 92%;
                     width: 2px;
@@ -53,6 +68,9 @@
                     z-index: 2;
 
                     .circle {
+                        @media (max-width: $sm) {
+                        display: none;
+                    }
                         border-radius: 50%;
                         background: black;
                         width: 1.2rem;

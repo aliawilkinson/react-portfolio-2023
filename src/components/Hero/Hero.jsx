@@ -1,5 +1,6 @@
 import React from 'react'
 import css from './Hero.module.scss'
+import { calculateYearDifference } from '../../utils/data'
 import { motion } from 'framer-motion'
 import { staggerChildren, fadeIn, } from "../../utils/motion"
 
@@ -38,7 +39,7 @@ const Hero = () => {
 
                 <div className={css.lowerElements}>
                     <div className={css.experience}>
-                        <div className="primaryText">7</div>
+                        <div className="primaryText">{calculateYearDifference()}</div>
                         <div className="secondaryText">
                             <div>
                                 Years

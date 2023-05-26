@@ -17,6 +17,12 @@
             flex-direction: column;
             gap: 2rem;
 
+            @media (max-width: $sm){
+                margin-right: 0;
+                margin-left: 0;
+                width: 100%;
+            }
+
             .exp {
                 display: flex;
                 align-items: center;
@@ -46,29 +52,32 @@
                     gap: 1rem;
 
                     >:nth-child(1) {
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
                         font-weight: bold;
+                        word-wrap: break-word; /* Added property to allow word wrapping */
                     }
                 }
             }
+        }
 
-            .rightSide {
-                @media (max-width: $sm){
-                    text-align: center;
-                }
+        .rightSide {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            @media (max-width: $sm){
+                align-items: center;
+            }
+
+            .stats {
                 display: flex;
                 flex-direction: column;
-                gap: 2rem;
+                gap: 4rem;
 
-                .stats {
+                .stat {
+                    display: flex;
+                    flex-direction: column;
                     justify-content: flex-start;
-                    gap: 4rem;
-
-                    .stat {
-                        flex-direction: column;
-                        justify-content: flex-start;
-                    }
-
                 }
             }
         }

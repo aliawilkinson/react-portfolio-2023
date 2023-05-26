@@ -10,7 +10,7 @@ const Reviews = () => {
             variants={staggerChildren}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             section className={`paddings ${css.wrapper}`}>
 
             <a className="anchor" id="reviews"></a>

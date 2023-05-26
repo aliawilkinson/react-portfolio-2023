@@ -8,7 +8,7 @@ const Footer = () => {
             variants={staggerChildren}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             className={`paddings ${css.wrapper}`}>
 
 
@@ -27,8 +27,8 @@ const Footer = () => {
 
                 <div className={css.right}>
                     <div className={css.info}>
-                        <span className="secondaryText">Information</span>
-                        <p>Made with Love in Sunny California</p>
+                        {/* <span className="secondaryText">Made with Love in Sunny California</span> */}
+                        <p className="secondaryText">Made with Love in Sunny California</p>
                     </div>
                     <ul className={css.menu}>
                         <li><a href="#expertise">Services</a></li>

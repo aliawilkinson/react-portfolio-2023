@@ -1,6 +1,19 @@
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { CiMobile1 } from "react-icons/ci";
 import { MdWorkspacesOutline } from "react-icons/md";
+
+export function calculateYearDifference() {
+  var startDate = new Date('January 1, 2016');
+  var today = new Date();
+
+  var millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Account for leap years
+  var differenceInMilliseconds = today - startDate;
+  var differenceInYears = differenceInMilliseconds / millisecondsPerYear;
+
+  return differenceInYears.toFixed(1);
+}
+
+
 export const projectExperience = [
   {
     name: "DevOps / Site Reliability Engineering",
@@ -31,7 +44,7 @@ export const whatIHelpWith = [
   and security in multiple environments, including on-prem VMware VMs, Azure, 
   and AWS. I've deployed over 1,000 three-tier+ applications in and out of 
   containers in Enterprise environments. I came to DevOps from the App Dev route initially
-  by deploying my own applications in containers. Since then I've worked with some of the
+  by deploying applications I developed in containers. Since then I've worked with some of the
   most brilliant Network and Infrastructure engineers, teaming up to solve some of 
   Enterprise's toughest problems.
   
@@ -159,7 +172,7 @@ export const comments = [
     post: "Vice President, DevOps Engineering",
     comment:
       "Alia radiates calm and quiet competence every day. She is a top performer on my team. She consistently gives 100 percent effort to the team and plays a significant role in complex devops engineering work. She's willing to jump into any situation and provide technical expertise, whether it's a minor hiccup or an all-hands-on-deck emergency. She has formidable powershell, infrastructure, and automation skills that she leverages on the daily, and she's always excited to learn new tools and technologies",
-    img: "./people2.jfif",
+    img: "./jesse_logo.png",
   },
 ];
 
