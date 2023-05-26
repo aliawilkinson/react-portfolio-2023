@@ -8,7 +8,7 @@ const Footer = () => {
             variants={staggerChildren}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             className={`paddings ${css.wrapper}`}>
 
 

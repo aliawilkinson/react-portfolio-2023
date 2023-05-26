@@ -12,7 +12,7 @@ const Expertise = () => {
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.25 }}
+                viewport={{ once: true, amount: 0.25 }}
                 className={`paddings yPaddings innerWidth flexCenter ${css.container}`}>
 
 
@@ -39,18 +39,18 @@ const Expertise = () => {
                     variants={textVariant(0.5)}
                     className={css.rightSide}>
 
-                    <span className='primaryText'>What I help with </span>
+                    <span className='primaryText'>Skills </span>
                     {whatIHelpWith.map((paragraph, i) => <span className='secondaryText' key={i}>{paragraph}</span>)}
 
 
                     <div className={`flexCenter ${css.stats}`}>
                         <div className={`flexCenter ${css.stat}`}>
-                            <span className='primaryText'>285+</span>
-                            <span className='secondaryText'>Project Completed</span>
+                            <span className='primaryText'>1267+</span>
+                            <span className='secondaryText'>Components Deployed and Managed</span>
                         </div>
                         <div className={`flexCenter ${css.stat}`}>
-                            <span className='primaryText'>190+</span>
-                            <span className='secondaryText'>Happy Clients</span>
+                            <span className='primaryText'>267%</span>
+                            <span className='secondaryText'>Increased up time for customer platforms</span>
                         </div>
                     </div>
                 </motion.div>

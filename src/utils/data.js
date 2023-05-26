@@ -1,6 +1,23 @@
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { CiMobile1 } from "react-icons/ci";
 import { MdWorkspacesOutline } from "react-icons/md";
+
+export function calculateYearDifference() {
+  var startDate = new Date('January 1, 2016');
+  var today = new Date();
+
+  var millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Account for leap years
+  var differenceInMilliseconds = today - startDate;
+  var differenceInYears = differenceInMilliseconds / millisecondsPerYear;
+
+  return differenceInYears.toFixed(1);
+}
+
+// Usage
+var yearDifference = calculateYearDifference();
+console.log(yearDifference);
+
+
 export const projectExperience = [
   {
     name: "DevOps / Site Reliability Engineering",
@@ -31,7 +48,7 @@ export const whatIHelpWith = [
   and security in multiple environments, including on-prem VMware VMs, Azure, 
   and AWS. I've deployed over 1,000 three-tier+ applications in and out of 
   containers in Enterprise environments. I came to DevOps from the App Dev route initially
-  by deploying my own applications in containers. Since then I've worked with some of the
+  by deploying applications I developed in containers. Since then I've worked with some of the
   most brilliant Network and Infrastructure engineers, teaming up to solve some of 
   Enterprise's toughest problems.
   
