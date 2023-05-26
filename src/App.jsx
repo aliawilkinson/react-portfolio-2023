@@ -3,8 +3,8 @@ import css from './styles/app.module.scss'
 import Hero from './components/Hero/Hero'
 import Expertise from './components/Expertise/Expertise'
 import Experience from './components/Experience/Experience'
-import Portfolio from './components/Portfolio/Portfolio'
-import Reviews from './components/Reviews/Reviews'
+import CaseStudies from './components/CaseStudies/CaseStudies'
+import Testimonials from './components/Testimonials/Testimonials'
 import Footer from './components/Footer/Footer'
 
 const App = () => {
@@ -12,9 +12,9 @@ const App = () => {
     <Header/>
     <Hero/>
     <Expertise/>
+    <CaseStudies/>
+    <Testimonials/>
     <Experience/>
-    <Portfolio/>
-    <Reviews/>
     <Footer/>
   </div>
 };

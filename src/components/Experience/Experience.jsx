@@ -4,6 +4,7 @@ import css from "./Experience.module.scss";
 import { motion } from 'framer-motion'
 import { fadeIn, slideIn, staggerChildren, textVariant2, zoomIn } from "../../utils/motion";
 import Parser from 'html-react-parser';
+import { Link } from 'react-router-dom';
 
 const Experience = () => {
     return (
@@ -14,7 +15,7 @@ const Experience = () => {
             viewport={{ once: false, amount: 0.1 }}
             className={`paddings ${css.wrapper}`}
         >
-            <a className="anchor" id="experience"></a>
+            <Link to="experience" className="anchor" id="experience" />
 
             <div className={`innerWidth flexCenter ${css.container}`}>
                 {/* heading */}

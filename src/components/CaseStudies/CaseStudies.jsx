@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import css from "./Portfolio.module.scss";
+import css from "./CaseStudies.module.scss";
 import { fadeIn, staggerChildren, textVariant, textVariant2 } from "../../utils/motion";
-const Portfolio = () => {
+const CaseStudies = () => {
     return (
         <motion.section
             variants={staggerChildren}
@@ -11,7 +11,7 @@ const Portfolio = () => {
             viewport={{ once: true, amount: 0.10 }}
             className={`paddings ${css.wrapper}`}>
 
-            <a className="anchor" id="portfolio"></a>
+            <a className="anchor" id="CaseStudies"></a>
 
             <div className={`innerWidth flexCenter ${css.container}`}>
 
@@ -36,4 +36,4 @@ const Portfolio = () => {
     );
 };
 
-export default Portfolio;
+export default CaseStudies;

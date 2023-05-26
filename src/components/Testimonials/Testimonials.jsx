@@ -1,10 +1,10 @@
 import React from "react";
 import { comments, sliderSettings } from "../../utils/data";
-import css from "./Reviews.module.scss";
+import css from "./Testimonials.module.scss";
 import Slider from "react-slick";
 import { motion } from 'framer-motion'
 import { footerVariants, staggerChildren, textVariant, textVariant2 } from "../../utils/motion";
-const Reviews = () => {
+const Testimonials = () => {
     return (
         <motion.section
             variants={staggerChildren}
@@ -13,7 +13,7 @@ const Reviews = () => {
             viewport={{ once: true, amount: 0.10 }}
             section className={`paddings ${css.wrapper}`}>
 
-            <a className="anchor" id="reviews"></a>
+            <a className="anchor" id="Testimonials"></a>
 
             <motion.div
                 variants={footerVariants}
@@ -58,4 +58,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+export default Testimonials;
