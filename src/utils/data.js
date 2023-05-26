@@ -1,7 +1,3 @@
-import { HiOutlineDesktopComputer } from "react-icons/hi";
-import { CiMobile1 } from "react-icons/ci";
-import { MdWorkspacesOutline } from "react-icons/md";
-
 export function calculateYearDifference() {
   var startDate = new Date('January 1, 2016');
   var today = new Date();
@@ -17,27 +13,25 @@ export function calculateYearDifference() {
 export const projectExperience = [
   {
     name: "DevOps / Site Reliability Engineering",
-    projects: 76,
-    icon: HiOutlineDesktopComputer,
+    years: 4,
     bg: "#6D4B8A",
   },
   {
     name: "Automation Projects",
-    projects: 63,
-    icon: CiMobile1,
+    years: 6,
     bg: "#8897B8",
   },
   {
     name: "Full Stack Applications",
-    projects: 47,
-    icon: MdWorkspacesOutline,
+    years: 4,
     bg: "#C83C63",
-    // bg: "#163f0c",
   },
 ];
 
 export const whatIHelpWith = [
-  `I'm a passionate DevOps Architect specializing in testing, documentation, mentoring, teamwork, and pipeline efficiency. I optimize code, streamline deployments, and ensure high uptime. With a focus on collaboration and mentorship, I empower developers for continuous improvement. Let me enhance your process and deliver superior solutions.`,
+  `I'm a passionate DevOps Architect specializing in testing, documentation, mentoring, teamwork, and pipeline efficiency. 
+  I optimize code, streamline deployments, and ensure high availability. I came from the app dev side and love making full stack applications to solve operational problems.
+  With a focus on collaboration and mentorship, I empower developers for continuous improvement. Let me enhance your process and deliver superior solutions.`,
 ];
 
 export const workExp = [
@@ -206,3 +200,18 @@ export const sliderSettings = {
     },
   ],
 };
+
+export const CaseStudies = [
+  {
+    "title": '',
+    "content": ''
+  },
+  {
+    "title": '',
+    "content": ''
+  },
+  {
+    "title": '',
+    "content": ''
+  }
+]
