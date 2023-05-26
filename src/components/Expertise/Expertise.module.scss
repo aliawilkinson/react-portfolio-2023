@@ -65,13 +65,20 @@
             flex-direction: column;
             gap: 2rem;
 
+            span{
+                width: auto;
+            }
+
             @media (max-width: $sm){
                 align-items: center;
             }
 
             .stats {
+                @media (max-width: $sm){
+                    flex-direction: column;
+                }
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 gap: 4rem;
 
                 .stat {
