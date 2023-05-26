@@ -11,7 +11,7 @@ const Hero = () => {
                 variants={staggerChildren}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.025 }}
+                viewport={{ once: false, amount: 0.025 }}
 
                 className={`innerWidth ${css.container}`}>
 

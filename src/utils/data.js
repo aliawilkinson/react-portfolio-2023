@@ -13,10 +13,6 @@ export function calculateYearDifference() {
   return differenceInYears.toFixed(1);
 }
 
-// Usage
-var yearDifference = calculateYearDifference();
-console.log(yearDifference);
-
 
 export const projectExperience = [
   {
@@ -176,7 +172,7 @@ export const comments = [
     post: "Vice President, DevOps Engineering",
     comment:
       "Alia radiates calm and quiet competence every day. She is a top performer on my team. She consistently gives 100 percent effort to the team and plays a significant role in complex devops engineering work. She's willing to jump into any situation and provide technical expertise, whether it's a minor hiccup or an all-hands-on-deck emergency. She has formidable powershell, infrastructure, and automation skills that she leverages on the daily, and she's always excited to learn new tools and technologies",
-    img: "./people2.jfif",
+    img: "./jesse_logo.png",
   },
 ];
 

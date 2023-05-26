@@ -3,14 +3,16 @@ import { workExp } from "../../utils/data";
 import css from "./Experience.module.scss";
 import { motion } from 'framer-motion'
 import { fadeIn, slideIn, staggerChildren, textVariant2, zoomIn } from "../../utils/motion";
+
 const Experience = () => {
     return (
         <motion.section
             variants={staggerChildren}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className={`paddings ${css.wrapper}`}>
+            viewport={{ once: false, amount: 0.1 }}
+            className={`paddings ${css.wrapper}`}
+        >
             <a className="anchor" id="experience"></a>
 
             <div className={`innerWidth flexCenter ${css.container}`}>
@@ -33,7 +35,6 @@ const Experience = () => {
                         );
                     })}
 
-
                     <motion.div variants={zoomIn(1, 1)} className={css.progressbar}>
                         <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line}></motion.div>
                         <div><div className={css.circle} style={{ background: "#6D4B8A" }}></div></div>
@@ -41,7 +42,6 @@ const Experience = () => {
                         <div><div className={css.circle} style={{ background: "#B8A295" }}></div></div>
                         <div><div className={css.circle} style={{ background: "#EEC048" }}></div></div>
                     </motion.div>
-
                 </div>
             </div>
         </motion.section>
