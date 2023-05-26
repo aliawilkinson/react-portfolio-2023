@@ -10,6 +10,7 @@ const Footer = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.10 }}
             className={`paddings ${css.wrapper}`}>
+            <a className="anchor" id="footer"></a>
 
 
             <motion.div
@@ -21,7 +22,7 @@ const Footer = () => {
                         amazing together.
                     </span>
                     <span className="primaryText">
-                        Start by <a href="mailto:zainkeepscode@gmail.com">saying hi</a>
+                        Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">saying hi</a>
                     </span>
                 </div>
 
@@ -31,10 +32,10 @@ const Footer = () => {
                         <p className="secondaryText">Made with Love in Sunny California</p>
                     </div>
                     <ul className={css.menu}>
-                        <li><a href="#expertise">Services</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
                         <li><a href="#experience">Experience</a></li>
-                        <li><a href="#portfolio">Case Studies</a></li>
-                        <li><a href="#reviews">Testimonials</a></li>
+                        <li><a href="#CaseStudies">Case Studies</a></li>
+                        <li><a href="#Testimonials">Testimonials</a></li>
                     </ul>
                 </div>
             </motion.div>
