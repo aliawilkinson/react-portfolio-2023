@@ -149,7 +149,7 @@ export const content = {
 
     "amplifyReactMigApp": {
         "title": " Transforming App Migrations with Amplify React",
-        "imgSrc": "mig-app.png",
+        "imgSrc": "./infoposts/mig-app.png",
         "post": `
 
     <h2>Situation:</h2>
@@ -240,7 +240,7 @@ export const content = {
         "imgSrc": "./infoposts/alia-digital-nomad-portrait.jpeg",
         "post": `
     <p>Hi, I’m Alia. My hair color changes every few months. My headphones have cat ears and I won’t take them off. 
-    I love to travel and flit about the world regularly - time zone calculation is a daily headache. When I’m not coding my ass off, 
+    I love to travel and flit about the world regularly - time zone calculation is a daily headache. When I’m not coding, 
     I’m bouncing around at live music shows and visiting the most beautiful natural scenes and monuments in the world. I love museums 
     and art and am obsessed with anthropology, history, and light displays.</p>
 
