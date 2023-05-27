@@ -4,6 +4,7 @@ import { BiMenuAltRight } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import { getMenuStyles, headerVariants } from "../../utils/motion"
 import useHeaderShadow from "../../hooks/useHeaderShadow"
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -28,12 +29,13 @@ const Header = () => {
                 <ul
                     style={getMenuStyles(menuOpened)}
                     className={`flexCenter ${css.menu}`}>
-                    <li><a href="#hero">Home</a></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#CaseStudies">Case Studies</a></li>
                     <li><a href="#Testimonials">Testimonials</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#footer">Contact</a></li>
+                    <li><Link to='/about' target="_blank">About</Link></li>
                     <li><a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</a></li>
                 </ul>
 

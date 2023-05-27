@@ -1,8 +1,14 @@
 @import '../../styles/constants.scss';
 
-.wrapper{
+.wrapper {
     background: white;
     overflow: hidden;
-    .container{
+
+    .container {
+        .infoPost {
+            >h1 {
+                padding: 1rem;
+            }
+        }
     }
 }
