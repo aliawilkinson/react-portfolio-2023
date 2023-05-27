@@ -1,9 +1,10 @@
-// Content for case studies and about in html format 
+// posts for case studies and about in html format 
 
-export const releaseOfReleases = {
-    'title': 'Realease of Releases - Release Orchestration through Automation',
-    'imgSrc': '',
-    'content': `
+export const content = {
+    "releaseofreleases": {
+        "title": "Release of Releases - Release Orchestration through Automation",
+        "imgSrc": "./infoposts/ror.png",
+        "post": `
     <h2>Situation:</h2>
     <p>As a Senior DevOps Lead Engineer, I enhanced the release management process for both cloud and on-premises deployments at loanDepot. The existing system lacked efficiency due to manual error-prone processes. It had significant dependencies that caused delays and errors. My goal was to create a customer orchestration solution using Azure DevOps, pipelines, and PowerShell to streamline the release process and ensure proper dependency management. Spoiler alert: we went from 26 teams manually deploying their products to full automation for over 1200+ components and releases that went until 4 or 6:30 am to releases that ended a little after midnight, on average. I love giving people their time back.</p>
     
@@ -35,12 +36,12 @@ export const releaseOfReleases = {
     
     <p>By leveraging Azure DevOps, pipelines, and PowerShell, I successfully designed and implemented a customer orchestration solution for cloud and on-premises releases. This solution streamlined the release process, improved dependency management, increased deployment flexibility, and ultimately contributed to improved time-to-market for the organization.</p>
     `
-}
+    },
 
-export const iacPipelineValidation = {
-    'title': 'Who Tests the Testers - IaC Pipeline Validation',
-    'imgSrc': '',
-    'content': `<h2>Situation:</h2>
+    "iacPipelineValidation": {
+        "title": "Who Tests the Testers - IaC Pipeline Validation",
+        "imgSrc": "./infoposts/iac-pipeline-test.png",
+        "post": `<h2>Situation:</h2>
     <p>As a team, we decided to set up a system where multiple teams could contribute to and use modules using Bicep modules (the Azure version of Terraform IaC, which we also used). Very quickly the trustworthiness of code added to this repo became questionable, breaking deployments due to untested modules being tested, approved, and merged. Seeing this as an issue that could bloom into a long-term headache, I rushed to create a pipeline that tested the modules before they were merged to ensure efficacy of what we had in our repo.</p>
     
     <h2>Task:</h2>
@@ -51,7 +52,7 @@ export const iacPipelineValidation = {
     
     <ol>
     <li><strong>Bicep Module Development:</strong> I wrote a significant number of Bicep modules as reusable components for different Azure services. These modules served as building blocks that could be easily pulled and integrated by various operations and development teams across the organization. By adopting the DRY principle using Terragrunt’s tried and tested method of scaffolding modules, I ensured consistency, reduced redundancy, and facilitated code maintenance.</li>
-    <li><strong>Pipeline Creation:</strong> I designed and implemented a pipeline in ADO to validate the efficacy of the Bicep modules. This pipeline encompassed multiple stages, including linting, unit testing, integration testing, and security scanning. Each stage aimed to identify potential issues and validate the modules' integrity and functionality. As one might imagine, integration testing is time-consuming.</li>
+    <li><strong>Pipeline Creation:</strong> I designed and implemented a pipeline in ADO to validate the efficacy of the Bicep modules. This pipeline encompassed multiple stages, including linting, unit testing, integration testing, and security scanning. Each stage aimed to identify potential issues and validate the modules" integrity and functionality. As one might imagine, integration testing is time-consuming.</li>
     <li><strong>Automated Publishing:</strong> Once the Bicep modules successfully passed all tests, I implemented an automated process to publish them to the ACR. The pipeline utilized semantic versioning (semver) to tag and store the published modules, ensuring traceability and easy retrieval for consuming teams.</li>
     <li><strong>State Tracking:</strong> To keep track of the test results and maintain the state of the modules post-commit, I utilized Azure resource group tagging. By associating tags with the resource groups, I stored the state information as JSON strings, enabling easy decoding and retrieval for modules that depended on those specific resource groups.</li>
     </ol>
@@ -66,14 +67,14 @@ export const iacPipelineValidation = {
     <li><strong>Enhanced State Tracking:</strong> Utilizing Azure resource group tagging and storing the state as JSON strings provided a convenient and reliable way to track the test results and maintain the state of the modules. This approach ensured transparency and simplified the identification of dependencies and potential issues.</li>
     </ol>
     
-    <p>In conclusion, as a Senior DevOps Engineer, I successfully developed a pipeline in ADO to validate the efficacy of IaC Bicep modules before their automatic publication to the ACR. Additionally, I wrote numerous Bicep modules as reusable components and kept the structure consistent throughout the organization, following Gruntwork's Terragrunt format. Through these efforts, I enhanced the efficiency of module development, improved testing and validation processes, automated publishing and versioning, and implemented effective state tracking. The outcome was a more reliable and streamlined infrastructure deployment process for the entire company.</p>
+    <p>In conclusion, as a Senior DevOps Engineer, I successfully developed a pipeline in ADO to validate the efficacy of IaC Bicep modules before their automatic publication to the ACR. Additionally, I wrote numerous Bicep modules as reusable components and kept the structure consistent throughout the organization, following Gruntwork"s Terragrunt format. Through these efforts, I enhanced the efficiency of module development, improved testing and validation processes, automated publishing and versioning, and implemented effective state tracking. The outcome was a more reliable and streamlined infrastructure deployment process for the entire company.</p>
     `
-}
+    },
 
-export const cmdletCreationTemplate = {
-    'title': 'Empowering DevOps Excellence: Training and Guardrails for Those New to Powershell',
-    'imgSrc': '',
-    'content': `
+    "cmdletCreationTemplate": {
+        "title": "Empowering DevOps Excellence: Training and Guardrails for Those New to Powershell",
+        "imgSrc": "./infoposts/cmdletautomation.png",
+        "post": `
     <h2>Situation:</h2>
 
     <p>As a Senior DevOps Engineer, I observed inconsistent PowerShell practices within my team, 
@@ -144,12 +145,12 @@ export const cmdletCreationTemplate = {
     consistency, efficiency, and reliability in managing our distributed systems and internal operations. Our 
     dedication to continuous learning and improvement ensures that we remain at the forefront of DevOps excellence.</p>
     `
-}
+    },
 
-export const amplifyReactMigApp = {
-    'title': ' Transforming App Migrations with Amplify React',
-    'imgSrc': '',
-    'content': `
+    "amplifyReactMigApp": {
+        "title": " Transforming App Migrations with Amplify React",
+        "imgSrc": "mig-app.png",
+        "post": `
 
     <h2>Situation:</h2>
 
@@ -209,7 +210,7 @@ export const amplifyReactMigApp = {
     <ul>
     <li>Significant improvement in speed and efficiency, with the time spent on migrations reduced by half.</li>
     <li>Enhanced security measures, ensuring the secure deployment of products to AWS Service Catalog.</li>
-    <li>Drastic reduction in errors, thanks to the application's validation checks and error handling mechanisms.</li>
+    <li>Drastic reduction in errors, thanks to the application"s validation checks and error handling mechanisms.</li>
     <li>Positive Reviews:</li>
         <ul>
         <li>Business Stakeholder: "The Amplify React application developed by our Senior DevOps Architect 
@@ -232,13 +233,12 @@ export const amplifyReactMigApp = {
     CodeDeploy pipelines has further enhanced our deployment capabilities, making our operations more efficient and effective. 
     The success of this project demonstrates the power of innovation and collaboration in driving positive change within our organization.</p>
     `
-}
+    },
 
-export const AboutMe = {
-    'title': 'A Word About My Background',
-    'imgSrc': '',
-    'content': `
-    <h2>About Alia:</h2>
+    "about": {
+        "title": "A Word About My Background",
+        "imgSrc": "./infoposts/alia-digital-nomad-portrait.jpeg",
+        "post": `
     <p>Hi, I’m Alia. My hair color changes every few months. My headphones have cat ears and I won’t take them off. 
     I love to travel and flit about the world regularly - time zone calculation is a daily headache. When I’m not coding my ass off, 
     I’m bouncing around at live music shows and visiting the most beautiful natural scenes and monuments in the world. I love museums 
@@ -262,7 +262,7 @@ export const AboutMe = {
     in everyone I meet by creating meaningful, concise training material, games, documentation, rubrics, and rigorous testing 
     pipelines for code to reduce the chance for human error due to overcomplicated systems. Everything I learn I document, 
     streamline, and duplicate. I love working with others, highlighting their strengths, and transmuting them into something 
-    everyone in the vicinity can recognize and benefit from. We all deserve to share and magnify each other's light.</p>
+    everyone in the vicinity can recognize and benefit from. We all deserve to share and magnify each other"s light.</p>
 
     <p>I’m passionate about education, housing, and opportunity. I volunteer with Habitat for Humanity. I like painting,
     woodworking, and helping people achieve their dreams, whether it’s a safe place to live or getting that job they 
@@ -279,4 +279,5 @@ export const AboutMe = {
     <p>Much love and light,<br>
     Alia</p>
     `
+    }
 }

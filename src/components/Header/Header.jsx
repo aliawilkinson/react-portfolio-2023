@@ -28,6 +28,7 @@ const Header = () => {
                 <ul
                     style={getMenuStyles(menuOpened)}
                     className={`flexCenter ${css.menu}`}>
+                    <li><a href="#hero">Home</a></li>
                     <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#CaseStudies">Case Studies</a></li>
                     <li><a href="#Testimonials">Testimonials</a></li>

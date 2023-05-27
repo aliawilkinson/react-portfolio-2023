@@ -15,25 +15,27 @@ const Hero = () => {
 
                 className={`innerWidth ${css.container}`}>
 
+                <a className="anchor" id="hero"></a>
+
                 <div className={css.upperElements}>
-                    <motion.span 
-                    variants={fadeIn("right", "tween", 0.2, 1)}
-                    className='primaryText'>
+                    <motion.span
+                        variants={fadeIn("right", "tween", 0.2, 1)}
+                        className='primaryText'>
                         Hey There, <br />
                         I'm Alia.
                     </motion.span>
                     <motion.span
-                    variants={fadeIn("left", "tween", 0.2, 1)}
-                    className='secondaryText'>
+                        variants={fadeIn("left", "tween", 0.2, 1)}
+                        className='secondaryText'>
                         I come up with novel solutions <br />
                         for real world problems using software, <br />
                         and I love what I do.
                     </motion.span>
                 </div>
 
-                <motion.div 
-                variants={fadeIn("up", "tween", 0.3, 1)}
-                className={css.person}>
+                <motion.div
+                    variants={fadeIn("up", "tween", 0.3, 1)}
+                    className={css.person}>
                     <img src="./rock-portrait.jpg" alt="" />
                 </motion.div>
 

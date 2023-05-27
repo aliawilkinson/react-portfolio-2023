@@ -1,21 +1,16 @@
-import Header from './components/Header/Header'
+import Home from './components/Home/Home'
 import css from './styles/app.module.scss'
-import Hero from './components/Hero/Hero'
-import Expertise from './components/Expertise/Expertise'
-import Experience from './components/Experience/Experience'
-import CaseStudies from './components/CaseStudies/CaseStudies'
-import Testimonials from './components/Testimonials/Testimonials'
-import Footer from './components/Footer/Footer'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import InfoPost from './components/InfoPost/InfoPost'
 
 const App = () => {
   return <div className={`bg-primary ${css.container}`}>
-    <Header/>
-    <Hero/>
-    <Expertise/>
-    <CaseStudies/>
-    <Testimonials/>
-    <Experience/>
-    <Footer/>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/about' element={<InfoPost post='about'/>}></Route>
+      <Route path='/about' element={<InfoPost post='about'/>}></Route>
+      <Route path='/about' element={<InfoPost post='about'/>}></Route>
+    </Routes>
   </div>
 };
 
