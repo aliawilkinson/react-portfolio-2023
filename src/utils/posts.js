@@ -81,13 +81,13 @@ export const content = {
     hindering our efficiency and reliability in managing distributed systems and internal operations. 
     Recognizing the need for a standardized approach, I embarked on a mission to revolutionize our PowerShell conventions.</p>
 
-    <p><strong>Task:</strong></p>
+    <h2><strong>Task:</strong></h2>
 
     <p>I took the initiative to create cmdlets and templates that would not only teach but also 
     reinforce good PowerShell conventions. By leveraging my expertise in distributed systems and 
     internal operations, I aimed to establish code best practices that would elevate our DevOps processes.</p>
 
-    <p><strong>Action:</strong></p>
+    <h2><strong>Action:</strong></h2>
 
     <p>1. Recognizing the Need for Consistency:</p>
 
@@ -126,7 +126,7 @@ export const content = {
     <li>We embraced a culture of continuous learning, enabling us to constantly improve our conventions and stay ahead in the DevOps landscape.</li>
     </ul>
 
-    <p><strong>Result:</strong></p>
+    <h2><strong>Result:</strong></h2>
 
     <p>By implementing these actions, I successfully empowered our team with consistent PowerShell conventions:</p>
 
@@ -138,7 +138,7 @@ export const content = {
     <li>Cultivated a culture of continuous learning, enabling us to stay at the forefront of DevOps excellence.</li>
     </ul>
 
-    <p><strong>Conclusion:</strong></p>
+    <h2><strong>Conclusion:</strong></h2>
 
     <p>Through my efforts as a Senior DevOps Engineer, I successfully revolutionized our PowerShell conventions. 
     By creating educational cmdlets, custom templates, and fostering collaboration, we achieved a new level of 
@@ -158,13 +158,13 @@ export const content = {
     and enhance the migration process for deploying products to AWS Service Catalog. The existing manual 
     approach was time-consuming and prone to errors, hampering speed and efficiency in our operations.</p>
 
-    <p><strong>Task:</strong></p>
+    <h2><strong>Task:</strong></h2>
 
     <p>I took the initiative to create an Amplify React full stack application that would revolutionize the 
     migration process for our engineers. My goal was to improve speed, efficiency, and security while 
     reducing errors, ultimately cutting the time spent on migrations in half.</p>
 
-    <p><strong>Action:</strong></p>
+    <h2><strong>Action:</strong></h2>
 
     <p>1. Assessing the Challenges:</p>
 
@@ -203,7 +203,7 @@ export const content = {
     <li>Through collaborative iterations and feedback loops, I fine-tuned the application to address their requirements effectively.</li>
     </ul>
 
-    <p><strong>Result:</strong></p>
+    <h2><strong>Result:</strong></h2>
 
     <p>By implementing these actions, I successfully transformed the migration process for the major healthcare company:</p>
 
@@ -211,7 +211,7 @@ export const content = {
     <li>Significant improvement in speed and efficiency, with the time spent on migrations reduced by half.</li>
     <li>Enhanced security measures, ensuring the secure deployment of products to AWS Service Catalog.</li>
     <li>Drastic reduction in errors, thanks to the application"s validation checks and error handling mechanisms.</li>
-    <li>Positive Reviews:</li>
+    <h2>Positive Reviews:</h2>
         <ul>
         <li>Business Stakeholder: "The Amplify React application developed by our Senior DevOps Architect 
         revolutionized our migration process. It saved us valuable time and resources while ensuring secure and swift 
@@ -222,7 +222,7 @@ export const content = {
         </ul>
     </ul>
 
-    <p><strong>Conclusion:</strong></p>
+    <h2><strong>Conclusion:</strong></h2>
 
     <p>As a Senior DevOps Architect, the creation of an Amplify React
     application revolutionized the migration process for our major healthcare company. By improving speed, efficiency, 

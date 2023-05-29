@@ -2,6 +2,8 @@ import React from "react";
 import { footerVariants, staggerChildren } from "../../utils/motion";
 import css from "./Footer.module.scss";
 import { motion } from 'framer-motion'
+import { HashLink } from 'react-router-hash-link'
+
 const Footer = () => {
     return (
         <motion.section
@@ -32,10 +34,15 @@ const Footer = () => {
                         <p className="secondaryText">Made with Love in Sunny California</p>
                     </div>
                     <ul className={css.menu}>
-                        <li><a href="#expertise">Expertise</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#CaseStudies">Case Studies</a></li>
-                        <li><a href="#Testimonials">Testimonials</a></li>
+                    <li><HashLink to='/#hero'>Home</HashLink></li>
+                    <li><HashLink smooth to="/#expertise">Expertise</HashLink></li>
+                    <li><HashLink smooth to="/#CaseStudies">Case Studies</HashLink></li>
+                    <li><HashLink smooth to="/#Testimonials">Testimonials</HashLink></li>
+                    <li><HashLink smooth to="/#experience">Experience</HashLink></li>
+                    <li><HashLink smooth to="/#footer">Contact</HashLink></li>
+                    <li><HashLink smooth to='/about#infoPost'>About</HashLink></li>
+                    <li><HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn <img style={{'height':'1rem'}} src='./public/linkedin-svg.svg' /></HashLink></li>
+                    <li><HashLink smooth to="https://github.com/aliawilkinson" target="_blank">GitHub <img style={{'height':'1rem'}} src='./public/github-mark.svg' /></HashLink></li>
                     </ul>
                 </div>
             </motion.div>
