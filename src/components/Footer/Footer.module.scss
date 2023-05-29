@@ -46,7 +46,7 @@
             }
 
             .menu {
-                @media (max-width: $sm) {
+                @media (max-width: $lg) {
                     flex-direction: row;
                     flex-wrap: wrap;
                     justify-content: center;

@@ -21,6 +21,7 @@
     "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "sass": "^1.57.1",
+    "sendgrid": "^5.2.3",
     "start": "^5.1.0"
   },
   "devDependencies": {
