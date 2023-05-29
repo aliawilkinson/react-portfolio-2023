@@ -14,25 +14,23 @@ export const content = {
     <h2>Action:</h2>
     <p>To address these challenges, I designed and implemented a comprehensive release orchestration system using Azure DevOps, pipelines, additions to the company’s bespoke CMDB, and custom PowerShell for orchestration with Windows Task Manager to ensure proper dependency handling between on-prem and cloud components. These were my tactics:</p>
     
-    <ol>
-    <li><strong>Planning and Design:</strong> I collaborated with cross-functional teams, including developers, testers, and operations, to understand their requirements and establish a clear roadmap for the project. We defined the desired workflow, identified the critical dependencies, and outlined the necessary stages for both cloud and on-premises deployments.</li>
-    <li><strong>Azure DevOps Setup:</strong> I configured Azure DevOps to support the new release orchestration process. This involved creating a dedicated project, setting up repositories, and configuring pipelines for different deployment environments.</li>
-    <li><strong>Dependency Mapping:</strong> Using Azure DevOps, I developed a dependency mapping system that allowed teams to define and track dependencies between different components using the company’s pre-existing custom CMDB. This information was stored in a centralized repository and served as the foundation for orchestrating the release process in the correct order.</li>
-    <li><strong>Pipeline Creation:</strong> Leveraging Azure Pipelines, I created a series of automated release pipelines tailored to the specific requirements of each component using PowerShell automation and cleansed data from the CMDB. These pipelines included stages for building, testing, and deploying the software artifacts. To ensure proper dependency management, I integrated the dependency mapping system with the pipelines, enabling the release orchestration process to execute in the correct order.</li>
-    <li><strong>PowerShell Scripting:</strong> To facilitate the customization of the release process, I developed a PowerShell script called “Release of Releases” that allowed teams to define their specific deployment requirements and execute them seamlessly within the pipelines. This script orchestrated the deployment, removing human error and increasing the speed of the process by 3 or 4 hours on average. The DevTools front end created in Angular enabled teams to add their app settings and deploy the applications and infrastructure components in the desired sequence through automation, further enhancing the dependency management capabilities.</li>
-    </ol>
+    <ul>
+    <h3><strong>Planning and Design:</strong></h3> <li>I collaborated with cross-functional teams, including developers, testers, and operations, to understand their requirements and establish a clear roadmap for the project. We defined the desired workflow, identified the critical dependencies, and outlined the necessary stages for both cloud and on-premises deployments.</li>
+    <h3><li><strong>Azure DevOps Setup:</strong></h3> I configured Azure DevOps to support the new release orchestration process. This involved creating a dedicated project, setting up repositories, and configuring pipelines for different deployment environments.</li>
+    <h3><li><strong>Dependency Mapping:</strong></h3> Using Azure DevOps, I developed a dependency mapping system that allowed teams to define and track dependencies between different components using the company’s pre-existing custom CMDB. This information was stored in a centralized repository and served as the foundation for orchestrating the release process in the correct order.</li>
+    <h3><li><strong>Pipeline Creation:</strong></h3> Leveraging Azure Pipelines, I created a series of automated release pipelines tailored to the specific requirements of each component using PowerShell automation and cleansed data from the CMDB. These pipelines included stages for building, testing, and deploying the software artifacts. To ensure proper dependency management, I integrated the dependency mapping system with the pipelines, enabling the release orchestration process to execute in the correct order.</li>
+    <h3><li><strong>PowerShell Scripting:</strong></h3> To facilitate the customization of the release process, I developed a PowerShell script called “Release of Releases” that allowed teams to define their specific deployment requirements and execute them seamlessly within the pipelines. This script orchestrated the deployment, removing human error and increasing the speed of the process by 3 or 4 hours on average. The DevTools front end created in Angular enabled teams to add their app settings and deploy the applications and infrastructure components in the desired sequence through automation, further enhancing the dependency management capabilities.</li>
+    </ul>
     
     <h2>Result:</h2>
     <p>By implementing the customer orchestration solution for cloud and on-premises releases using Azure DevOps, pipelines, and PowerShell, I achieved the following outcomes:</p>
     
-    <ol>
-    <li><strong>Streamlined Release Process:</strong
-    
-    > The new release orchestration system significantly improved the coordination and communication among teams, eliminating delays and reducing the risk of conflicts during deployments. No more struggling to resolve side effect errors during a live deployment, no more deployment collisions for on-prem components deployed on the same servers, and no more 4 or 6 am releases.</li>
-    <li><strong>Enhanced Dependency Management:</strong> The dependency mapping system and the integration with the pipelines ensured that releases occurred in the correct order, minimizing errors and maximizing the overall efficiency of the process.</li>
-    <li><strong>Increased Deployment Flexibility:</strong> The PowerShell scripts provided teams with the ability to customize their deployment requirements, enabling them to adapt the release process to their specific needs without sacrificing the standardized orchestration framework.</li>
-    <li><strong>Improved Time-to-Market:</strong> The efficient release management process enabled faster deployments, allowing the company to deliver new features and updates to customers more quickly, enhancing their overall experience.</li>
-    </ol>
+    <ul>
+    <h3><strong>Streamlined Release Process:</strong></h3> <li>The new release orchestration system significantly improved the coordination and communication among teams, eliminating delays and reducing the risk of conflicts during deployments. No more struggling to resolve side effect errors during a live deployment, no more deployment collisions for on-prem components deployed on the same servers, and no more 4 or 6 am releases.</li>
+    <h3><strong>Enhanced Dependency Management:</strong></h3> <li>The dependency mapping system and the integration with the pipelines ensured that releases occurred in the correct order, minimizing errors and maximizing the overall efficiency of the process.</li>
+    <h3><strong>Increased Deployment Flexibility:</strong></h3> <li>The PowerShell scripts provided teams with the ability to customize their deployment requirements, enabling them to adapt the release process to their specific needs without sacrificing the standardized orchestration framework.</li>
+    <h3><strong>Improved Time-to-Market:</strong></h3> <li>The efficient release management process enabled faster deployments, allowing the company to deliver new features and updates to customers more quickly, enhancing their overall experience.</li>
+    </ul>
     
     <p>By leveraging Azure DevOps, pipelines, and PowerShell, I successfully designed and implemented a customer orchestration solution for cloud and on-premises releases. This solution streamlined the release process, improved dependency management, increased deployment flexibility, and ultimately contributed to improved time-to-market for the organization.</p>
     `
@@ -50,22 +48,22 @@ export const content = {
     <h2>Action:</h2>
     <p>To accomplish these objectives, I followed the following steps:</p>
     
-    <ol>
+    <ul>
     <li><strong>Bicep Module Development:</strong> I wrote a significant number of Bicep modules as reusable components for different Azure services. These modules served as building blocks that could be easily pulled and integrated by various operations and development teams across the organization. By adopting the DRY principle using Terragrunt’s tried and tested method of scaffolding modules, I ensured consistency, reduced redundancy, and facilitated code maintenance.</li>
     <li><strong>Pipeline Creation:</strong> I designed and implemented a pipeline in ADO to validate the efficacy of the Bicep modules. This pipeline encompassed multiple stages, including linting, unit testing, integration testing, and security scanning. Each stage aimed to identify potential issues and validate the modules" integrity and functionality. As one might imagine, integration testing is time-consuming.</li>
     <li><strong>Automated Publishing:</strong> Once the Bicep modules successfully passed all tests, I implemented an automated process to publish them to the ACR. The pipeline utilized semantic versioning (semver) to tag and store the published modules, ensuring traceability and easy retrieval for consuming teams.</li>
     <li><strong>State Tracking:</strong> To keep track of the test results and maintain the state of the modules post-commit, I utilized Azure resource group tagging. By associating tags with the resource groups, I stored the state information as JSON strings, enabling easy decoding and retrieval for modules that depended on those specific resource groups.</li>
-    </ol>
+    </ul>
     
     <h2>Result:</h2>
     <p>The efforts invested in writing Bicep modules, establishing a robust pipeline, and implementing effective state tracking yielded the following outcomes:</p>
     
-    <ol>
+    <ul>
     <li><strong>Efficient Module Development:</strong> The creation of numerous reusable Bicep modules as components significantly streamlined the workflows of operations and development teams. By providing a standardized structure and utilizing the Terragrunt format, I ensured consistency and accelerated development cycles.</li>
     <li><strong>Reliable Testing and Validation:</strong> The pipeline in ADO effectively tested the Bicep modules, including linting, unit testing, integration testing, and security scanning. This comprehensive approach improved the quality and reliability of the modules, reducing the risk of deployment issues and enhancing overall system stability.</li>
     <li><strong>Automated Publishing and Versioning:</strong> The pipeline automatically published the tested Bicep modules to the ACR, allowing multiple teams to pull down the modules based on their specific requirements. By leveraging semantic versioning, teams could easily manage and track module versions, ensuring smooth and controlled deployments.</li>
     <li><strong>Enhanced State Tracking:</strong> Utilizing Azure resource group tagging and storing the state as JSON strings provided a convenient and reliable way to track the test results and maintain the state of the modules. This approach ensured transparency and simplified the identification of dependencies and potential issues.</li>
-    </ol>
+    </ul>
     
     <p>In conclusion, as a Senior DevOps Engineer, I successfully developed a pipeline in ADO to validate the efficacy of IaC Bicep modules before their automatic publication to the ACR. Additionally, I wrote numerous Bicep modules as reusable components and kept the structure consistent throughout the organization, following Gruntwork"s Terragrunt format. Through these efforts, I enhanced the efficiency of module development, improved testing and validation processes, automated publishing and versioning, and implemented effective state tracking. The outcome was a more reliable and streamlined infrastructure deployment process for the entire company.</p>
     `
