@@ -8,8 +8,7 @@ import './styles/global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter> 
-    <ScrollToTop />
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
