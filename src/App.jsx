@@ -7,6 +7,7 @@ const App = () => {
   return <div className={`bg-primary ${css.container}`}>
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/hero' element={<Home />}></Route>
         <Route path='/about' element={<InfoPost post='about' />}></Route>
         <Route path='/releaseofreleases' element={<InfoPost post='releaseofreleases' />}></Route>
         <Route path='/iacPipelineValidation' element={<InfoPost post='iacPipelineValidation' />}></Route>

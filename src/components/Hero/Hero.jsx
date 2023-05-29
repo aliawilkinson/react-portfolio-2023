@@ -3,6 +3,7 @@ import css from './Hero.module.scss'
 import { calculateYearDifference } from '../../utils/data'
 import { motion } from 'framer-motion'
 import { staggerChildren, fadeIn, } from "../../utils/motion"
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
     return (
@@ -14,8 +15,7 @@ const Hero = () => {
                 viewport={{ once: false, amount: 0.025 }}
 
                 className={`innerWidth ${css.container}`}>
-
-                <a className="anchor" id="hero"></a>
+                <Link to="hero" className="anchor" id="hero" />
 
                 <div className={css.upperElements}>
                     <motion.span
