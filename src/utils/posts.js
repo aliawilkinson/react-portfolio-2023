@@ -274,8 +274,7 @@ export const content = {
     is in a cost-effective manner. I have extensive experience doing all of these things. If you’d like more specifics, check 
     out Case Studies on my website, <a href="https://www.aliawilkinson.com">aliawilkinson.com</a>. I look forward to your 
         unique situation being a case study someday, and I look forward to hearing from you. If you talk to me, I promise I’ll listen.</p
-    <p>Much love and light,<br>
-    Alia</p>
+    <p>Much love and light, Alia</p>
     `
     }
 }
