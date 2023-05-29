@@ -6,6 +6,7 @@ import { content } from "../../utils/posts"
 import Parser from 'html-react-parser'
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
+import { Link } from 'react-router-dom'
 
 const InfoPost = ({ post }) => {
     return (
@@ -16,6 +17,7 @@ const InfoPost = ({ post }) => {
             viewport={{ once: true, amount: 0.10 }}
             className={`paddings ${css.wrapper} infoPost`}>
             <Header />
+            <Link to="infoPost" className="anchor" id="infoPost" />
             <h1>{content[post].title}</h1>
             <img src={content[post].imgSrc} />
             {Parser(content[post].post)}

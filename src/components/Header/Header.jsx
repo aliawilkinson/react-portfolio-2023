@@ -4,8 +4,9 @@ import { BiMenuAltRight } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import { getMenuStyles, headerVariants } from "../../utils/motion"
 import useHeaderShadow from "../../hooks/useHeaderShadow"
-import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
+
 
 const Header = () => {
 
@@ -36,7 +37,7 @@ const Header = () => {
                     <li><HashLink smooth to="/#Testimonials">Testimonials</HashLink></li>
                     <li><HashLink smooth to="/#experience">Experience</HashLink></li>
                     <li><HashLink smooth to="/#footer">Contact</HashLink></li>
-                    <li><Link to='/about'>About</Link></li>
+                    <li><HashLink smooth to='/about#infoPost'>About</HashLink></li>
                     <li><HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</HashLink></li>
                 </ul>
 
