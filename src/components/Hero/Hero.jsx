@@ -13,7 +13,6 @@ const Hero = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.025 }}
-
                 className={`innerWidth ${css.container}`}>
                 <Link to="hero" className="anchor" id="hero" />
 

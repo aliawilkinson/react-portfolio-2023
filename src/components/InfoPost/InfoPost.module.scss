@@ -1,14 +1,96 @@
 @import '../../styles/constants.scss';
 
-.wrapper {
-    background: white;
-    overflow: hidden;
+/* styles.css */
 
+/* Global styles */
+
+.wrapper {
     .container {
-        .infoPost {
-            >h1 {
-                padding: 1rem;
-            }
+        max-width: 80vw;
+        margin: 0 auto 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+        .post-image {
+            max-width: 70vw;
+            border-radius: 20px;
+        }
+    }
+
+    h1 {
+        padding: 2rem;
+        margin: auto;
+    }
+
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 1.6rem;
+        padding: 1rem;
+        max-width: 70vw;
+        margin: auto;
+    }
+
+    ol {
+        padding-left: 20px;
+    }
+
+    ul {
+        padding-left: 5rem;
+        list-style-type: none
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    /* Specific styles for the blog post */
+    .post-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .post-content {
+        margin-bottom: 40px;
+    }
+
+    .post-content p:first-child {
+        margin-top: 0;
+    }
+
+    .post-content p:last-child {
+        margin-bottom: 0;
+        right: 0;
+    }
+
+    .post-content ul,
+    .post-content ol {
+        margin-bottom: 20px;
+    }
+
+    .post-content li {
+        margin-bottom: 5px;
+    }
+
+    .post-content strong {
+        font-weight: bold;
+        color: #555;
+    }
+
+    /* Media query for responsive design */
+    @media screen and (max-width: 600px) {
+        .container {
+            padding: 10px;
+            max-width: 90vw;
+            padding: 1rem;
         }
     }
 }

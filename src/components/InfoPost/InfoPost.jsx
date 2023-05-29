@@ -6,6 +6,7 @@ import { content } from "../../utils/posts"
 import Parser from 'html-react-parser'
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
+import CaseStudies from "../CaseStudies/CaseStudies"
 import { Link } from 'react-router-dom'
 
 const InfoPost = ({ post }) => {
@@ -15,13 +16,20 @@ const InfoPost = ({ post }) => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.10 }}
-            className={`paddings ${css.wrapper} infoPost`}>
+            className={`${css.wrapper}`}>
             <Header />
-            <Link to="infoPost" className="anchor" id="infoPost" />
-            <h1>{content[post].title}</h1>
-            <img src={content[post].imgSrc} />
-            {Parser(content[post].post)}
-            <Footer/>
+            <div className={`innerWidth ${css.container}`}>
+                <Link to="infoPost" className="anchor" id="infoPost" />
+                <h1 className="post-title">{content[post].title}</h1>
+                <div className="post-image">
+                    <img src={content[post].imgSrc} />
+                </div>
+                <div className="post-content">
+                    {Parser(content[post].post)}
+                </div>
+            </div>
+            <CaseStudies/>
+            <Footer />
         </motion.section>
     )
 }
