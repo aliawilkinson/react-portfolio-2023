@@ -4,7 +4,9 @@ import { BiMenuAltRight } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import { getMenuStyles, headerVariants } from "../../utils/motion"
 import useHeaderShadow from "../../hooks/useHeaderShadow"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
+
 
 const Header = () => {
 
@@ -30,13 +32,13 @@ const Header = () => {
                     style={getMenuStyles(menuOpened)}
                     className={`flexCenter ${css.menu}`}>
                     <li><Link to='/'>Home</Link></li>
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#CaseStudies">Case Studies</a></li>
-                    <li><a href="#Testimonials">Testimonials</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                    <li><Link to='/about' target="_blank">About</Link></li>
-                    <li><a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</a></li>
+                    <li><HashLink smooth to="/#expertise">Expertise</HashLink></li>
+                    <li><HashLink smooth to="/#CaseStudies">Case Studies</HashLink></li>
+                    <li><HashLink smooth to="/#Testimonials">Testimonials</HashLink></li>
+                    <li><HashLink smooth to="/#experience">Experience</HashLink></li>
+                    <li><HashLink smooth to="/#footer">Contact</HashLink></li>
+                    <li><HashLink smooth to='/about#infoPost'>About</HashLink></li>
+                    <li><HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</HashLink></li>
                 </ul>
 
                 {/* for medium and small screens */}
