@@ -4,6 +4,11 @@ import { BiMenuAltRight } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import { getMenuStyles, headerVariants } from "../../utils/motion"
 import useHeaderShadow from "../../hooks/useHeaderShadow"
+import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
+import linkedin from '../../../public/linkedin-svg.svg'
+import github from '../../../public/github-mark.svg'
+
 
 const Header = () => {
 
@@ -28,13 +33,16 @@ const Header = () => {
                 <ul
                     style={getMenuStyles(menuOpened)}
                     className={`flexCenter ${css.menu}`}>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#expertise">Expertise</a></li>
-                    <li><a href="#CaseStudies">Case Studies</a></li>
-                    <li><a href="#Testimonials">Testimonials</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                    <li><a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn</a></li>
+                    <li><HashLink to='/#hero'>Home</HashLink></li>
+                    <li><HashLink smooth to="/#expertise">Expertise</HashLink></li>
+                    <li><HashLink smooth to="/#CaseStudies">Case Studies</HashLink></li>
+                    <li><HashLink smooth to="/#Testimonials">Testimonials</HashLink></li>
+                    <li><HashLink smooth to="/#experience">Experience</HashLink></li>
+                    <li><HashLink smooth to="/#footer">Contact</HashLink></li>
+                    <li><HashLink smooth to='/about#infoPost'>About</HashLink></li>
+                    <li><HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank">LinkedIn 
+                    <img style={{'height':'1rem'}} src={linkedin} /></HashLink></li>
+                    <li><HashLink smooth to="https://github.com/aliawilkinson" target="_blank">GitHub <img style={{'height':'1rem'}} src={github} /></HashLink></li>
                 </ul>
 
                 {/* for medium and small screens */}

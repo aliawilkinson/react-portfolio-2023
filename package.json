@@ -17,9 +17,11 @@
     "react-icons": "^4.7.1",
     "react-pdf": "^6.2.2",
     "react-router-dom": "^6.11.2",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "sass": "^1.57.1",
+    "sendgrid": "^5.2.3",
     "start": "^5.1.0"
   },
   "devDependencies": {

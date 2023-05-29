@@ -1,32 +1,35 @@
-import React from "react";
-import { motion } from "framer-motion";
-import css from "./InfoPost.module.scss";
-import { fadeIn, staggerChildren, textVariant, textVariant2 } from "../../utils/motion";
-import { content } from "../../utils/posts";
-import Parser from 'html-react-parser';
+import React from "react"
+import { motion } from "framer-motion"
+import css from "./InfoPost.module.scss"
+import { staggerChildren } from "../../utils/motion"
+import { content } from "../../utils/posts"
+import Parser from 'html-react-parser'
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
+import CaseStudies from "../CaseStudies/CaseStudies"
+import { Link } from 'react-router-dom'
 
 const InfoPost = ({ post }) => {
-    content.post.title
-    content.post.imgSrc
-    content.post.post
-    // "releaseofreleases": {
-    //     "title": "Release of Releases - Release Orchestration through Automation",
-    //     "imgSrc": "./infoposts/ror.png",
-    //     "post": `
-
     return (
         <motion.section
             variants={staggerChildren}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.10 }}
-            className={`paddings ${css.wrapper}`}>
-            <h1>{content.post.title}</h1>
-            <img src={content.post.imgSrc} />
-            {Parser(content.post.post)}
-
+            className={`${css.wrapper}`}>
+            <Header />
+            <div className={`innerWidth ${css.container}`}>
+                <Link to="infoPost" className="anchor" id="infoPost" />
+                <h1 className="post-title">{content[post].title}</h1>
+                <img src={content[post].imgSrc} />
+                <div className="post-content">
+                    {Parser(content[post].post)}
+                </div>
+            </div>
+            <CaseStudies/>
+            <Footer />
         </motion.section>
-    );
-};
+    )
+}
 
-export default InfoPost;
+export default InfoPost

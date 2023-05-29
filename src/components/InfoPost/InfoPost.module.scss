@@ -1,8 +1,111 @@
 @import '../../styles/constants.scss';
 
-.wrapper{
-    background: white;
-    overflow: hidden;
-    .container{
+/* styles.css */
+
+/* Global styles */
+
+.wrapper {
+    .container {
+        max-width: 80vw;
+        margin: 0 auto 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+        img {
+            margin: auto;
+            display: block;
+            border-radius: 20px;
+            max-width: 60vw;
+            max-height: 59vw;
+            box-shadow: 0px 21px 13px rgba(0, 0, 0, 0.13);
+        }
+        
+        div {
+            @media screen and (max-width: $lg) {
+                padding: 2rem;
+            }
+            padding: 10rem;
+        }
+    }
+
+    h1 {
+        padding: 2rem;
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        padding: 1rem 1rem 1rem 0;
+    }
+
+    p {
+        line-height: 1.6rem;
+        padding: 1rem;
+        max-width: 70vw;
+        margin: auto;
+    }
+
+    ol {
+        padding-left: 20px;
+    }
+
+    ul {
+        @media screen and (max-width: $lg) {
+            padding: 2rem;
+        }
+        padding-left: 5rem;
+        list-style-type: none
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    /* Specific styles for the blog post */
+    .post-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .post-content p:first-child {
+        margin-top: 0;
+    }
+
+    .post-content p:last-child {
+        margin-bottom: 0;
+        right: 0;
+    }
+
+    .post-content ul,
+    .post-content ol {
+        margin-bottom: 20px;
+    }
+
+    .post-content li {
+        margin-bottom: 5px;
+    }
+
+    .post-content strong {
+        font-weight: bold;
+        color: #555;
+    }
+
+    /* Media query for responsive design */
+    @media screen and (max-width: $lg) {
+        .container {
+            max-width: 90vw;
+            padding: 1rem;
+        }
     }
 }

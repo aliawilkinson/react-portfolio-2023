@@ -40,15 +40,17 @@
                     display: block;
                 }
 
-                >p{
+                >p {
                     left: 0;
                 }
             }
 
             .menu {
-                @media (max-width: $sm) {
+                @media (max-width: $lg) {
                     flex-direction: row;
                     flex-wrap: wrap;
+                    justify-content: center;
+                    padding-left: 0;
                 }
 
                 display: flex;
