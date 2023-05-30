@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import css from "./CaseStudies.module.scss"
 import { fadeIn, staggerChildren, textVariant, textVariant2 } from "../../utils/motion"
 import { Link } from 'react-router-dom'
+import Resume from '../Resume/Resume'
 
 const CaseStudies = () => {
     return (
@@ -13,7 +14,7 @@ const CaseStudies = () => {
             viewport={{ once: true, amount: 0.10 }}
             className={`paddings ${css.wrapper} bg-primary`}>
 
-            <a className="anchor" id="CaseStudies"></a>
+            <Link to="CaseStudies" className="anchor" id="CaseStudies" />
 
             <div className={`innerWidth flexCenter ${css.container}`}>
 
@@ -29,16 +30,16 @@ const CaseStudies = () => {
 
                 <div className={`flexCenter ${css.showCase}`}>
                     <Link to='/cmdletCreationTemplate' target="_blank">
-                    <motion.img variants={fadeIn("up", "tween", .5, .6)} src="./infoposts/cmdletautomation.png" alt="project" />
+                        <motion.img variants={fadeIn("up", "tween", .5, .6)} src="./infoposts/cmdletautomation.png" alt="project" />
                     </Link>
                     <Link to='/releaseofreleases' target="_blank">
-                    <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/ror.png" alt="project" />
+                        <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/ror.png" alt="project" />
                     </Link>
                     <Link to='/iacPipelineValidation' target="_blank">
-                    <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/iac-pipeline-test.png" alt="project" />
+                        <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/iac-pipeline-test.png" alt="project" />
                     </Link>
                     <Link to='/amplifyReactMigApp' target="_blank">
-                    <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/mig-app.png" alt="project" />
+                        <motion.img variants={fadeIn("up", "tween", .7, .6)} src="./infoposts/mig-app.png" alt="project" />
                     </Link>
                 </div>
             </div>

@@ -6,8 +6,8 @@ import { getMenuStyles, headerVariants } from "../../utils/motion"
 import useHeaderShadow from "../../hooks/useHeaderShadow"
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
-import linkedin from '../../../public/linkedin-svg.svg'
-import github from '../../../public/github-mark.svg'
+import linkedin from '../../../src/assets/linkedin-svg.svg'
+import github from '../../../src/assets/github-mark.svg'
 
 
 const Header = () => {
