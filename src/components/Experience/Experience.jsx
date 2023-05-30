@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { fadeIn, slideIn, staggerChildren, textVariant2, zoomIn } from "../../utils/motion";
 import Parser from 'html-react-parser';
 import { Link } from 'react-router-dom';
+import Resume from "../Resume/Resume";
 
 const Experience = () => {
     return (
@@ -20,7 +21,7 @@ const Experience = () => {
             <div className={`innerWidth flexCenter ${css.container}`}>
                 {/* heading */}
                 <span className="primaryText yPaddings">Experience</span>
-
+                {/* <Resume /> */}
                 <div className={`flexCenter ${css.experiences}`}>
                     {workExp.map((exp, i) => {
                         return (
