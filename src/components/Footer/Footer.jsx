@@ -3,8 +3,8 @@ import { footerVariants, staggerChildren } from "../../utils/motion"
 import css from "./Footer.module.scss"
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
-import linkedin from '../../../public/linkedin-svg.svg'
-import github from '../../../public/github-mark.svg'
+import linkedin from '../../../src/assets/linkedin-svg.svg'
+import github from '../../../src/assets/github-mark.svg'
 
 const Footer = () => {
     return (
