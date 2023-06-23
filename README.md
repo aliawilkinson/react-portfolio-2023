@@ -1,6 +1,7 @@
-# Personal-Portfolio-2-starter-pack
-  * https://youtubebinjanportfolio.pages.dev
+# Software Engineering Portfolio
+  * https://aliawilkinson.com
 
+# Dependencies
 ## Fonts link
   * https://stijndv.com/fonts/Eudoxus-Sans.css
 
@@ -14,7 +15,8 @@
   
 ## Git
   * https://git-scm.com/downloads
- 
+
+# Usage
 ## To run
 ```
 yarn
