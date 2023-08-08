@@ -36,8 +36,24 @@ export const whatIHelpWith = [
 
 export const workExp = [
   {
+    place: "Source 70 Consulting",
+    tenure: "June 2023 - Present",
+    role: "Principle DevOps Architect",
+    detail:
+      `<ul>
+        <li>Professional Services Consulting for AWS, Certified Architect</li>
+        <li>Built an Amplify React application to help operations engineers migrate services and business apps faster with fewer errors.</li>
+        <li>Educated the team on how to develop and deploy web applications in a cost-effective, secure, and efficient manner.</li>
+        <li>Built automated CI/CD pipelines in CodeDeploy.</li>
+        <li>Created AWS's Cost Optimization rubrics and training programs for Cloud.</li>
+        <li>Revamped AWS's Container training program for containers on AWS.</li>
+        <li>Received positive customer feedback on several occasions for training, pipeline efficiency and documentation.</li>
+      </ul>`,
+    dotColor: '#C83C63'
+  },
+  {
     place: "Amazon Web Services (AWS)",
-    tenure: "Nov 2022 - Present",
+    tenure: "Nov 2022 - June 2023",
     role: "DevOps Architect Consultant",
     detail:
       `<ul>
