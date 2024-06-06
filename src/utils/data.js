@@ -29,15 +29,27 @@ export const projectExperience = [
 ];
 
 export const whatIHelpWith = [
-  `I'm a passionate DevOps Architect specializing in testing, documentation, mentoring, teamwork, and pipeline efficiency. 
+  `I'm a passionate DevOps Architect specializing in testing, documentation, mentoring, teamwork, and pipeline efficiency.
   I optimize code, streamline deployments, and ensure high availability. I came from the app dev side and love making full stack applications to solve operational problems.
   With a focus on collaboration and mentorship, I empower developers for continuous improvement. Let me enhance your process and deliver superior solutions.`,
 ];
 
 export const workExp = [
   {
+    place: "Cube Software",
+    tenure: "Sept 2023 - June 2024",
+    role: "Backend Software Engineer",
+    detail:
+      `<ul>
+        <li>Financial Planning and Analysis (FP&A) Company </li>
+        <li>Built APIs for interacting with 3rd part ETLs</li>
+        <li>Added full stack edit connection funcationality</li>
+      </ul>`,
+    dotColor: '#B8A295'
+  },
+  {
     place: "Source 70 Consulting",
-    tenure: "June 2023 - Present",
+    tenure: "June 2023 - Sept 2023",
     role: "Principle DevOps Architect",
     detail:
       `<ul>
