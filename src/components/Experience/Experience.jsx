@@ -40,6 +40,8 @@ const Experience = () => {
 
                     <motion.div variants={zoomIn(1, 1)} className={css.progressbar}>
                         <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line}></motion.div>
+                        <div><div className={css.circle} style={{ background: "#8897B8" }}></div></div>
+                        <div><div className={css.circle} style={{ background: "#B8A295" }}></div></div>
                         <div><div className={css.circle} style={{ background: "#6D4B8A" }}></div></div>
                         <div><div className={css.circle} style={{ background: "#8897B8" }}></div></div>
                         <div><div className={css.circle} style={{ background: "#B8A295" }}></div></div>
