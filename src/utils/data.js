@@ -1,5 +1,5 @@
 export function calculateYearDifference() {
-  const startDate = new Date('January 1, 2015');
+  const startDate = new Date('October 1, 2018');
   const today = new Date();
   const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // account for leap years
   const differenceInMilliseconds = today - startDate;
@@ -11,7 +11,7 @@ export function calculateYearDifference() {
 export const projectExperience = [
   {
     name: "AWS / Terraform Architecture",
-    years: "8+",
+    years: "7+",
     bg: "#6D4B8A",
   },
   {

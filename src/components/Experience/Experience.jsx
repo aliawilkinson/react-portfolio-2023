@@ -3,7 +3,6 @@ import css from "./Experience.module.scss";
 import { motion } from 'framer-motion';
 import { fadeIn, textVariant2, zoomIn } from "../../utils/motion";
 import Parser from 'html-react-parser';
-import { Link } from 'react-router-dom';
 
 const Experience = () => {
   return (
@@ -14,7 +13,7 @@ const Experience = () => {
       viewport={{ once: true, amount: 0.1 }}
       className={`paddings ${css.wrapper}`}
     >
-      <Link to="experience" className="anchor" id="experience" />
+      <span className="anchor" id="experience" />
 
       <div className={`innerWidth flexCenter ${css.container}`}>
         <span className="primaryText yPaddings">Experience</span>
@@ -27,7 +26,7 @@ const Experience = () => {
           </motion.div>
 
           {workExp.map((exp) => (
-            <motion.div variants={textVariant2} key={exp.place} className={css.exp}>
+            <motion.div variants={textVariant2} key={`${exp.place}-${exp.role}-${exp.tenure}`} className={css.exp}>
               {/* left: company + tenure */}
               <div className={css.post}>
                 <h1>{exp.place}</h1>

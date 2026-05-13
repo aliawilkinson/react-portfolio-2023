@@ -13,7 +13,7 @@ const CaseStudies = () => {
       viewport={{ once: true, amount: 0.10 }}
       className={`paddings ${css.wrapper} bg-primary`}
     >
-      <Link to="CaseStudies" className="anchor" id="CaseStudies" />
+      <span className="anchor" id="CaseStudies" />
 
       <div className={`innerWidth flexCenter ${css.container}`}>
         <motion.div variants={textVariant(.4)} className={`flexCenter ${css.heading}`}>

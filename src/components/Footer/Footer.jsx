@@ -2,19 +2,19 @@ import React from "react"
 import { footerVariants, staggerChildren } from "../../utils/motion"
 import css from "./Footer.module.scss"
 import { motion } from 'framer-motion'
-import { HashLink } from 'react-router-hash-link'
+import { Link } from 'react-router-dom'
 import linkedin from '../../assets/linkedin-svg.svg'
 import github from '../../assets/github-mark.svg'
 import lagunaBeach from '../../assets/free-photo-of-sunny-laguna-beach-coastline-with-palm-trees.jpeg'
 
 const footerLinks = [
-  { label: 'Home', to: '/#hero' },
-  { label: 'Expertise', to: '/#expertise' },
-  { label: 'Case Studies', to: '/#CaseStudies' },
-  { label: 'Testimonials', to: '/#Testimonials' },
-  { label: 'Experience', to: '/#experience' },
-  { label: 'Contact', to: '/#footer' },
-  { label: 'About', to: '/about#infoPost' },
+  { label: 'Home', to: '/' },
+  { label: 'Expertise', to: '/expertise' },
+  { label: 'Case Studies', to: '/case-studies' },
+  { label: 'Testimonials', to: '/testimonials' },
+  { label: 'Experience', to: '/experience' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'About', to: '/about' },
 ]
 
 const Footer = () => {
@@ -53,17 +53,17 @@ const Footer = () => {
 
           <ul className={css.menu}>
             {footerLinks.map((link) => (
-              <li key={link.to}><HashLink smooth to={link.to}>{link.label}</HashLink></li>
+              <li key={link.to}><Link to={link.to}>{link.label}</Link></li>
             ))}
             <li>
-              <HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">
                 LinkedIn <img className={css.navIcon} src={linkedin} alt="LinkedIn" />
-              </HashLink>
+              </a>
             </li>
             <li>
-              <HashLink smooth to="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer">
                 GitHub <img className={css.navIcon} src={github} alt="GitHub" />
-              </HashLink>
+              </a>
             </li>
           </ul>
         </div>
