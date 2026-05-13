@@ -5,6 +5,17 @@ import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
 import linkedin from '../../assets/linkedin-svg.svg'
 import github from '../../assets/github-mark.svg'
+import lagunaBeach from '../../assets/free-photo-of-sunny-laguna-beach-coastline-with-palm-trees.jpeg'
+
+const footerLinks = [
+  { label: 'Home', to: '/#hero' },
+  { label: 'Expertise', to: '/#expertise' },
+  { label: 'Case Studies', to: '/#CaseStudies' },
+  { label: 'Testimonials', to: '/#Testimonials' },
+  { label: 'Experience', to: '/#experience' },
+  { label: 'Contact', to: '/#footer' },
+  { label: 'About', to: '/about#infoPost' },
+]
 
 const Footer = () => {
   return (
@@ -32,17 +43,18 @@ const Footer = () => {
         </div>
 
         <div className={css.right}>
-          <div className={css.info}>
-            <p className="secondaryText">Made with Love in Sunny California</p>
+          <div className={css.postcard}>
+            <img src={lagunaBeach} alt="Sunny Laguna Beach coastline with palm trees" />
+            <div className={css.postcardOverlay}>
+              <span>Sunny California</span>
+              <p>Made with love, salt air, and a stubborn belief that software can feel human.</p>
+            </div>
           </div>
+
           <ul className={css.menu}>
-            <li><HashLink to='/#hero'>Home</HashLink></li>
-            <li><HashLink smooth to="/#expertise">Expertise</HashLink></li>
-            <li><HashLink smooth to="/#CaseStudies">Case Studies</HashLink></li>
-            <li><HashLink smooth to="/#Testimonials">Testimonials</HashLink></li>
-            <li><HashLink smooth to="/#experience">Experience</HashLink></li>
-            <li><HashLink smooth to="/#footer">Contact</HashLink></li>
-            <li><HashLink smooth to='/about#infoPost'>About</HashLink></li>
+            {footerLinks.map((link) => (
+              <li key={link.to}><HashLink smooth to={link.to}>{link.label}</HashLink></li>
+            ))}
             <li>
               <HashLink smooth to="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">
                 LinkedIn <img className={css.navIcon} src={linkedin} alt="LinkedIn" />

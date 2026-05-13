@@ -43,7 +43,7 @@
         .menu {
 
             @media (max-width: $sm),
-            (max-width: $md) {
+            (max-width: 900px) {
                 position: absolute;
                 list-style: none;
                 gap: 2rem;
@@ -101,7 +101,7 @@
             z-index: 3;
 
             @media (max-width: $sm),
-            (max-width: $md) {
+            (max-width: 900px) {
                 display: flex;
                 width: 2.5rem;
                 height: 2.5rem;
