@@ -90,7 +90,7 @@ public/             # static assets (images, portrait, cert logo)
 
 The site deploys automatically to Vercel on every push to `main` via GitHub Actions (`.github/workflows/deploy.yml`). Pull requests get a preview deploy automatically.
 
-Vercel is configured via `vercel.json` to use **Node 24**, Vite as the framework, and `dist` as the output directory.
+Vercel is configured via `vercel.json` to use Vite as the framework and `dist` as the output directory. **Node version is set in the Vercel dashboard** under Project Settings → General → Node.js Version → select **24.x**.
 
 ### First-time GitHub Actions setup
 
