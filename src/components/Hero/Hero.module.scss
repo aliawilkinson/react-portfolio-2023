@@ -1,113 +1,159 @@
 @use '../../styles/constants.scss' as *;
 
+// ─── section wrapper ─────────────────────────────────────────────────────────
+.wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+
+    @media (min-width: $md) {
+        min-height: 92vh;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+// ─── container ───────────────────────────────────────────────────────────────
+// Mobile: single column stack
+// Desktop: 3-col grid  [headline | portrait | tagline]
+//                      [  years  |          |  cert  ]
 .container {
-    position: relative;
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-    .upperElements {
-        display: flex;
+    @media (min-width: $md) {
+        display: grid;
+        grid-template-columns: 1fr clamp(260px, 28vw, 380px) 1fr;
+        grid-template-rows: 1fr auto;
+        gap: 0 3rem;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem;
     }
+}
 
-    .lowerElements {
+// ─── headline (top-left) ─────────────────────────────────────────────────────
+.headline {
+    @media (min-width: $md) {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+        text-align: left;
+    }
+}
 
-        @media (max-width: $sm),
-        (max-width: $md) {
-            margin-top: 4rem;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        margin-top: 12rem;
+// ─── tagline (top-right) ─────────────────────────────────────────────────────
+.tagline {
+    @media (min-width: $md) {
+        grid-column: 3;
+        grid-row: 1;
+        align-self: center;
+        text-align: right;
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        .experience {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            width: 50%;
-
-            @media (max-width: $sm),
-            (max-width: $md) {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-            }
-
-            >:nth-child(2) {
-                line-height: 25px;
-            }
-        }
-
-        .certificate {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            img {
-                margin-bottom: 1rem;
-                width: 3.5rem;
-            }
-        }
+        justify-content: flex-end;
     }
 
-    .person {
+    // kill the global .secondaryText left-offset that causes overflow
+    :global(.secondaryText) {
+        position: static;
+        left: unset;
+        width: auto;
+        line-height: 1.6;
+    }
+}
 
-        @media (max-width: $sm), 
-        (max-width: $md) {
-            position: relative;
-            left: 0;
-            display: flex;
-            height: 25vh;
-            width: 25vh;
-            margin: 8vh auto;
-            align-items: center;
-            justify-content: center;
-            background-position: bottom;
-        }
+// ─── portrait (center, spans both rows) ──────────────────────────────────────
+.person {
+    // Mobile: centered block in normal flow
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: min(60vw, 200px);
+    height: min(60vw, 200px);
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: #fff;
+    box-shadow:
+        0 0 0.2rem 0.1rem #fff,
+        0 0 0.3rem 0.2rem #f0f,
+        0 0 0.4rem 0.3rem #0ff;
 
-        position: absolute;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
         display: block;
-        height: 66%;
-        width: 33%;
-        bottom: -2rem;
-        margin: auto;
-        background-image: url('../solar-flare.gif');
+    }
+
+    // Desktop: center column, spans both rows
+    @media (min-width: $md) {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: clamp(260px, 28vw, 380px);
+        height: clamp(260px, 28vw, 380px);
+        background-image: url('/solar-flare.gif');
         background-repeat: no-repeat;
-        left: 33%;
-        border-radius: 50%;
-        top: 25%;
-        border-radius: 50%;
-        background-color: #fff;
-        box-shadow: 0 0 60px 30px #fff,
-        0 0 100px 60px #f0f,
-        0 0 140px 90px #0ff;
-        box-shadow: 0 0 0.2rem 0.1rem #fff, 0 0 0.3rem 0.2rem #f0f, 0 0 0.4rem 0.3rem #0ff;
+        background-size: cover;
+        background-position: center;
+        position: relative;
 
         img {
-
-            @media (max-width: $sm),
-            (max-width: $md) {
-                width: 23rem;
-            }
-
-            margin-bottom: -5px;
-            max-width: 75%;
-            max-height: 75%;
-            display: block;
-            border-radius: 50%;
-            margin: 0;
             position: absolute;
             top: 50%;
             left: 50%;
-            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            width: 88%;
+            height: 88%;
+            object-fit: cover;
+            border-radius: 50%;
         }
+    }
+}
 
+// ─── years experience (bottom-left) ──────────────────────────────────────────
+.experience {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: $md) {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: center;
+        padding-top: 2rem;
+    }
+
+    > :nth-child(2) {
+        line-height: 1.4;
+        position: static;
+        left: unset;
+        width: auto;
+    }
+}
+
+// ─── cert badge (bottom-right) ───────────────────────────────────────────────
+.certificate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+
+    @media (min-width: $md) {
+        grid-column: 3;
+        grid-row: 2;
+        align-self: center;
+        padding-top: 2rem;
+        align-items: flex-end;
+    }
+
+    img {
+        width: 3rem;
+    }
+
+    span {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
     }
 }
