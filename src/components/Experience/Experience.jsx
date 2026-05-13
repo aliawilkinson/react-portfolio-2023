@@ -12,13 +12,13 @@ const Experience = () => {
       variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.5 } } }}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.1 }}
       className={`paddings ${css.wrapper}`}
     >
       <Link to="experience" className="anchor" id="experience" />
 
       <div className={`innerWidth flexCenter ${css.container}`}>
-        <span className="primaryText yPaddings">Experience</span>
+        <span className="primaryText">Experience</span>
 
         <div className={`flexCenter ${css.experiences}`}>
           {workExp.map((exp) => (

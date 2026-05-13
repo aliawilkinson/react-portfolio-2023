@@ -1,6 +1,8 @@
 @use '../../styles/constants.scss' as *;
 
 .wrapper {
+    padding-bottom: 4rem;
+
     .container {
         flex-direction: column;
         gap: 2rem;
