@@ -1,5 +1,5 @@
 export function calculateYearDifference() {
-  const startDate = new Date('January 1, 2016');
+  const startDate = new Date('January 1, 2015');
   const today = new Date();
   const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // account for leap years
   const differenceInMilliseconds = today - startDate;
@@ -10,41 +10,56 @@ export function calculateYearDifference() {
 
 export const projectExperience = [
   {
-    name: "DevOps / Site Reliability Engineering",
-    years: 4,
+    name: "AWS / Terraform Architecture",
+    years: "8+",
     bg: "#6D4B8A",
   },
   {
-    name: "Automation Projects",
-    years: 6,
+    name: "SRE / CI/CD Reliability",
+    years: "6+",
     bg: "#8897B8",
   },
   {
-    name: "Full Stack Applications",
-    years: 4,
+    name: "Developer Experience Tooling",
+    years: "6+",
     bg: "#C83C63",
   },
 ];
 
 export const whatIHelpWith = [
-  `I'm a passionate Principal Software Architect specializing in testing, documentation, mentoring, teamwork, and pipeline efficiency.
-  I optimize code, streamline deployments, and ensure high availability. I came from the app dev side and love making full stack applications to solve operational problems.
-  With a focus on collaboration and mentorship, I empower developers for continuous improvement. Let me enhance your process and deliver superior solutions.`,
+  `I'm a Southern California-based Principal Software Engineer and AWS Certified Solutions Architect focused on infrastructure architecture, Terraform, developer experience, and remote cross-team delivery.
+  Daily, I waltz through the intersection where AWS design, CI/CD, testing standards, application code patterns, Jira workflows, cost optimization, team building, and production troubleshooting meet.
+  I build frameworks, metadata maps, release automation, docs, trainings, and internal tools that help teams ship in regulated environments in repeatable, easy-to-understand ways.`,
 ];
 
 export const workExp = [
   {
-    place: "TransAmerica",
-    tenure: "June 2024 - Present",
-    role: "Principal Software Engineer",
+    place: "Transamerica",
+    tenure: "April 2026 - Present",
+    role: "Principal Engineer - Developer Experience",
     detail:
       `<ul>
-        <li>Financial Services Company </li>
-        <li>AWS and Azure architecture for the Asset and Liability Management space</li>
-        <li>POCs, presentations, consulting with multiple teams on functionality, troubleshooting issues in app design, and infrastructure.</li>
-        <li>Python, Bash, groovy, Jenkins Pipelines, AWS Services</li>
+        <li>Principal Engineer on the WFG team focused on developer experience, architecture direction, and cross-functional technical coordination.</li>
+        <li>Design AWS infrastructure architecture, Terraform patterns, application testing standards, infrastructure testing approaches, reusable app code patterns, and cost-aware cloud practices.</li>
+        <li>Built an internal application that analyzes repositories and Jira tickets to map applications, ownership, settings, and delivery context across the organization.</li>
+        <li>Lead DACA presentations, technical direction, trainings, Agile coaching, Jira administration and automation, CI/CD troubleshooting, and high-priority production support sessions.</li>
+        <li>Python, Bash, Groovy, Jenkins Pipelines, AWS, Azure, Terraform, FastAPI, React, Jira automation.</li>
       </ul>`,
     dotColor: '#B8A295'
+  },
+  {
+    place: "Transamerica",
+    tenure: "June 2024 - April 2026",
+    role: "Principal Software Engineer - ALM Hypercare",
+    detail:
+      `<ul>
+        <li>Supported ALM and hedging modernization through hypercare, architecture review, production troubleshooting, and cross-team technical coordination.</li>
+        <li>Designed secure AWS data flows, cloud migration approaches, EMR upgrade and decommission planning, and cross-account replication strategies.</li>
+        <li>Created reusable Python API and React standards with FastAPI, auth, logging, CI/CD, and dependency maintenance patterns for modeling and analytics teams.</li>
+        <li>Partnered across CI/CD, GTS, modeling, and platform teams on secure development, testing, secrets management, and pipeline reliability.</li>
+        <li>Python, Bash, Groovy, Jenkins Pipelines, AWS, Azure, FastAPI, React.</li>
+      </ul>`,
+    dotColor: '#8897B8'
   },
   {
     place: "Cube Software",
@@ -96,9 +111,10 @@ export const workExp = [
     role: "Senior DevOps Engineer",
     detail:
       `<ul>
-        <li>Managed 1200 components and 800+ both on-prem (f5, VMWare, a closet in Foothill Ranch) and Azure (VMs and SaaS/PaaS).</li>
+        <li>Led DevOps engineers through a period of rapid organizational growth during the pandemic, keeping release work steady as the engineering footprint roughly doubled.</li>
+        <li>Managed 1200 components and 800+ products across on-prem (F5, VMWare, a closet in Foothill Ranch) and Azure (VMs and SaaS/PaaS).</li>
+        <li>Automated release orchestration and app configuration workflows, with deployment metadata, settings, and component-product relationships tracked in a custom CMDB built on ELK.</li>
         <li>Promoted from Mid to Senior Engineer in 2021.</li>
-        <li>Utilized PowerShell automation to orchestrate all on-prem releases, with release configurations managed in a custom CMDB built on ELK stack.</li>
         <li>Designed version control systems for disaster recovery and a hotfix environment, implementing semantic Git versioning for bicep modules stored in the Azure Container Registry.</li>
         <li>Built LD's first dockerized build pipeline to build and release a Chrome extension.</li>
         <li>Developed approximately 75% of training material, mentored mid and junior engineers, and conducted PowerShell proficiency interviews for new hires.</li>

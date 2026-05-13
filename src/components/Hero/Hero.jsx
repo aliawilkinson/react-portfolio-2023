@@ -38,9 +38,9 @@ const Hero = () => {
                     variants={fadeIn("left", "tween", 0.2, 1)}
                     className={css.tagline}>
                     <span className='secondaryText'>
-                        I come up with novel solutions <br />
-                        for real world problems using software, <br />
-                        and I love what I do.
+                        SoCal-based Principal Engineer <br />
+                        focused on SRE, developer experience, <br />
+                        and calm delivery. I love what I do.
                     </span>
                 </motion.div>
 

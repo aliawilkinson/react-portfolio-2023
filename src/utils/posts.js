@@ -212,23 +212,27 @@ export const content = {
         "post": `
     <p>Hi, I'm Alia.</p>
 
-    <p>I'm a software engineer, systems architect, artist, and educator obsessed with building elegant solutions to messy human problems. I've spent most of my career designing and automating large-scale systems, but what really drives me is understanding how people interact with technology, information, and each other.</p>
+    <p>I'm a Southern California-based Principal Software Engineer, AWS Certified Solutions Architect, systems thinker, artist, and educator. I work remotely with distributed teams on AWS infrastructure architecture, Terraform, developer experience, CI/CD, testing standards, automation, and the connective tissue between applications, platforms, and delivery process.</p>
 
-    <p>I grew up near the border in Southern California and spent years teaching English in Colombia after earning my TEFL certification. Those experiences shaped the way I approach engineering and leadership: intelligence is universal, but access, language, confidence, and opportunity are not. Some of the smartest people I've met would never describe themselves that way. I try to build systems that make complexity easier to navigate instead of using it as a gatekeeping mechanism.</p>
+    <p>At Transamerica, I was on ALM Hypercare from June 2024 to April 2026, working across hedging modernization, secure AWS data flows, reusable Python API and React standards, architecture review, CI/CD troubleshooting, testing standards, and production support. In April 2026, I started as Principal Engineer - Developer Experience on the WFG team, where my work now includes infrastructure architecture, Terraform patterns, DACA presentations, Jira administration and automation, Agile training, cost-aware cloud practices, and cross-functional technical direction.</p>
+
+    <p>Recently, I built an internal app that analyzes repositories and Jira tickets to map applications across the organization. It carries forward a pattern I learned at loanDepot, where I helped lead DevOps engineers through rapid pandemic-era growth by automating releases, standardizing app configuration, and working on a custom metadata/configuration database that tracked products, components, settings, and deployable relationships in one place.</p>
+
+    <p>That is the kind of work I like most: turning scattered technical signals into something teams can use to understand ownership, risk, dependencies, and next steps. I am also unusually comfortable in high-pressure situations, which makes me useful in production support, architecture review, release coordination, and the sort of troubleshooting sessions where everyone needs the room to get calmer and more precise.</p>
+
+    <p>I grew up near the border in Southern California and spent years teaching English in Colombia after earning my TEFL certification. Those experiences shaped the way I lead: assume intelligence, explain clearly, make room for questions, and help people build confidence through useful structure.</p>
 
     <p>I'm deeply drawn to travel, anthropology, architecture, history, art, music, and the emotional atmosphere of places. I feel most alive exploring unfamiliar cities, wandering museums for hours, sitting in beautiful natural landscapes, or discovering the strange little details that make cultures feel alive. I'm endlessly curious about why people build the worlds they build.</p>
 
-    <p>Technically, my background spans full-stack engineering, DevOps, cloud architecture, automation, SRE, distributed systems, CI/CD, and infrastructure design across both cloud and hybrid environments. I love solving difficult problems — especially the ones people assume are impossible, too political, or too operationally messy to untangle cleanly.</p>
+    <p>Technically, my background spans full-stack engineering, DevOps, cloud architecture, automation, SRE, distributed systems, CI/CD, and infrastructure design across both cloud and hybrid environments. I like work that sits between code, infrastructure, process, and people: the kind where a good answer has to be understandable, repeatable, secure, and practical enough for teams to keep using after the meeting ends.</p>
 
-    <p>But more than anything, I love creating clarity.</p>
+    <p>I document thoroughly, test thoughtfully, and look for the small design choices that make a platform easier to trust. Whether I'm reviewing Terraform, shaping app code standards, writing training material, architecting infrastructure, or jumping into an incident call, my goal is steady: make the next right action visible.</p>
 
-    <p>I document aggressively, streamline relentlessly, and design systems that reduce friction for the humans using them. Whether I'm building developer tooling, writing training material, architecting infrastructure, or mentoring engineers, my goal is always the same: make things more understandable, more resilient, and more humane.</p>
+    <p>Outside of engineering, I'm building creative and entrepreneurial projects focused on beauty, storytelling, wellness, and self-reinvention. I like technical rigor with a little color in it: clean systems, good taste, practical outcomes, and just enough eccentricity to keep the work alive.</p>
 
-    <p>Outside of engineering, I'm building creative and entrepreneurial projects focused on beauty, storytelling, wellness, and human connection. I'm especially interested in the intersection between technology, psychology, aesthetics, and self-reinvention.</p>
+    <p>I believe good leadership is a mix of standards and steadiness: tell the truth, make the path visible, give people useful tools, and help the team leave things better than they found them.</p>
 
-    <p>I believe people flourish when they feel safe enough to explore, capable enough to contribute, and seen clearly for who they are.</p>
-
-    <p>If you'd like to collaborate, build something meaningful, or solve a difficult problem together, I'd love to hear from you.</p>
+    <p>If you'd like to collaborate, build something useful, or untangle a complex system with someone who enjoys the work, I'd love to hear from you.</p>
     `
     }
 }

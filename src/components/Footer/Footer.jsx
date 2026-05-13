@@ -46,8 +46,8 @@ const Footer = () => {
           <div className={css.postcard}>
             <img src={lagunaBeach} alt="Sunny Laguna Beach coastline with palm trees" />
             <div className={css.postcardOverlay}>
-              <span>Sunny California</span>
-              <p>Made with love, salt air, and a stubborn belief that software can feel human.</p>
+              <span>SoCal based / Remote friendly</span>
+              <p>AWS architecture, developer tooling, and a little sunlight in the process.</p>
             </div>
           </div>
 

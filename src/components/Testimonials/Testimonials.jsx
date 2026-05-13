@@ -26,10 +26,10 @@ const Testimonials = () => {
         <div className={`flexCenter ${css.heading}`}>
           <span className="primaryText">People Talk</span>
           <p className={css.subheading}>
-            I come up with unique solutions for difficult problems
+            Cross-functional technical leadership, from people who have seen it up close
           </p>
           <p>
-            Allow me to support you in reaching your goals
+            Let's make a little magic and build something resilient together
           </p>
         </div>
 
