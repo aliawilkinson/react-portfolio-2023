@@ -5,11 +5,24 @@
     display: flex;
     align-items: center;
     min-height: 100svh;
+    padding-top: 5rem;
 
     @media (min-width: $md) {
         min-height: 92vh;
         padding-top: 5rem;
         padding-bottom: 5rem;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+        min-height: calc(100svh - 0.5rem);
+        padding-top: 2.25rem;
+        padding-bottom: 2rem;
+    }
+
+    @media (max-width: $sm) {
+        min-height: auto;
+        padding-top: 4.5rem;
+        padding-bottom: 3.5rem;
     }
 }
 
@@ -20,7 +33,11 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.55rem;
+    max-width: min(88vw, 24rem);
+    margin: 0 auto;
+    text-align: center;
 
     @media (min-width: $md) {
         display: grid;
@@ -28,36 +45,90 @@
         grid-template-rows: 1fr auto;
         gap: 0 3rem;
         align-items: center;
+        max-width: none;
+        text-align: initial;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+        grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 300px);
+        grid-template-rows: auto auto auto;
+        gap: 1.1rem 2.4rem;
+        max-width: min(78vw, 880px);
+    }
+
+    @media (min-width: $lg) and (max-width: $xl) {
+        max-width: min(84vw, 1080px);
+        margin: 0 auto;
     }
 }
 
 // ─── headline (top-left) ─────────────────────────────────────────────────────
 .headline {
+    :global(.primaryText) {
+        line-height: 1.12;
+    }
+
     @media (min-width: $md) {
         grid-column: 1;
         grid-row: 1;
         align-self: center;
         text-align: left;
     }
+
+    @media (max-width: $sm) {
+        :global(.primaryText) {
+            font-size: clamp(2.65rem, 13vw, 3.65rem);
+        }
+    }
 }
 
 // ─── tagline (top-right) ─────────────────────────────────────────────────────
 .tagline {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 2;
+
     @media (min-width: $md) {
         grid-column: 3;
         grid-row: 1;
+        order: initial;
         align-self: center;
         text-align: right;
         display: flex;
         justify-content: flex-end;
     }
 
+    @media (min-width: $md) and (max-width: $lg) {
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
     // kill the global .secondaryText left-offset that causes overflow
     :global(.secondaryText) {
+        display: block;
         position: static;
         left: unset;
         width: auto;
+        max-width: min(100%, 34rem);
         line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    @media (max-width: $sm) {
+        max-width: min(100%, 18.5rem);
+
+        :global(.secondaryText) {
+            width: 100%;
+            max-width: 100%;
+            font-size: 0.98rem;
+            line-height: 1.55;
+            text-align: center;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
     }
 }
 
@@ -68,11 +139,12 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    width: min(60vw, 200px);
-    height: min(60vw, 200px);
+    width: clamp(190px, 62vw, 245px);
+    height: clamp(190px, 62vw, 245px);
     border-radius: 50%;
     flex-shrink: 0;
     background-color: #fff;
+    order: 3;
     box-shadow:
         0 0 0.2rem 0.1rem #fff,
         0 0 0.3rem 0.2rem #f0f,
@@ -90,6 +162,7 @@
     @media (min-width: $md) {
         grid-column: 2;
         grid-row: 1 / 3;
+        order: initial;
         width: clamp(260px, 28vw, 380px);
         height: clamp(260px, 28vw, 380px);
         background-image: url('/solar-flare.gif');
@@ -109,6 +182,13 @@
             border-radius: 50%;
         }
     }
+
+    @media (min-width: $md) and (max-width: $lg) {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: clamp(220px, 25vw, 260px);
+        height: clamp(220px, 25vw, 260px);
+    }
 }
 
 // ─── years experience (bottom-left) ──────────────────────────────────────────
@@ -116,12 +196,22 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: center;
+    order: 4;
 
     @media (min-width: $md) {
         grid-column: 1;
         grid-row: 2;
+        order: initial;
         align-self: center;
         padding-top: 2rem;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+        grid-column: 1;
+        grid-row: 3;
+        justify-content: flex-start;
+        padding-top: 0.25rem;
     }
 
     > :nth-child(2) {
@@ -129,6 +219,15 @@
         position: static;
         left: unset;
         width: auto;
+    }
+
+    @media (max-width: $sm) {
+        width: fit-content;
+        border: 1px solid rgba(13, 47, 63, 0.12);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.52);
+        box-shadow: 0 14px 28px rgba(13, 47, 63, 0.08);
     }
 }
 
@@ -139,13 +238,24 @@
     align-items: center;
     text-align: center;
     gap: 0.4rem;
+    order: 5;
 
     @media (min-width: $md) {
         grid-column: 3;
         grid-row: 2;
+        order: initial;
         align-self: center;
         padding-top: 2rem;
         align-items: flex-end;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+        grid-column: 2;
+        grid-row: 3;
+        justify-self: center;
+        align-self: center;
+        align-items: center;
+        padding-top: 0;
     }
 
     img {

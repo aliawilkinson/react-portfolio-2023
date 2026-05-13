@@ -4,6 +4,17 @@ import css from './Expertise.module.scss'
 import { motion } from 'framer-motion'
 import { fadeIn, staggerContainer, textVariant } from '../../utils/motion.js'
 
+const metrics = [
+    {
+        value: '1267+',
+        label: 'components deployed and managed',
+    },
+    {
+        value: '267%',
+        label: 'uptime lift for customer platforms',
+    },
+]
+
 const Expertise = () => {
     return (
         <section className={css.wrapper}>
@@ -13,47 +24,62 @@ const Expertise = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.10 }}
-                className={`paddings yPaddings innerWidth flexCenter ${css.container}`}>
+                className={`paddings yPaddings innerWidth ${css.container}`}>
 
 
-                {/* left side */}
-                <div className={css.leftSide}>
-                    {
-                        projectExperience.map((exp, i) => {
-                            return <motion.div variants={fadeIn("right", "tween", (i + 1) * 0.2, 1)} className={css.exp} key={i}>
-                                <div style={{ background: exp.bg }} className="flexCenter">
-                                    {/* <exp.icon size={25} color="white"/> */}
-                                </div>
-                                <div>
-                                    <span>{exp.name}</span>
-                                    <span className='secondaryText'>{exp.years} Years Experience</span>
-                                </div>
-                            </motion.div>
-                        })
-                    }
-                </div>
-
-
-                {/* right */}
                 <motion.div
                     variants={textVariant(0.5)}
-                    className={css.rightSide}>
-
+                    className={css.intro}>
+                    <span className={css.eyebrow}>Operations console</span>
                     <span className='primaryText'>Expertise</span>
-                    {whatIHelpWith.map((paragraph, i) => <span className='secondaryText' key={i}>{paragraph}</span>)}
+                    {whatIHelpWith.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
+                </motion.div>
 
-
-                    <div className={`flexCenter ${css.stats}`}>
-                        <div className={`flexCenter ${css.stat}`}>
-                            <span className='primaryText'>1267+</span>
-                            <span className='secondaryText'>Components Deployed and Managed</span>
-                        </div>
-                        <div className={`flexCenter ${css.stat}`}>
-                            <span className='primaryText'>267%</span>
-                            <span className='secondaryText'>Increased up time for customer platforms</span>
+                <div className={css.dashboard}>
+                    <div className={css.dashboardBar}>
+                        <span>Capability Map</span>
+                        <div aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
-                </motion.div>
+
+                    <div className={css.capabilities}>
+                        {
+                            projectExperience.map((exp, i) => {
+                                return <motion.div variants={fadeIn("up", "tween", (i + 1) * 0.16, 1)} className={css.exp} key={exp.name}>
+                                    <div className={css.expMarker} style={{ background: exp.bg }}>
+                                        <span></span>
+                                    </div>
+                                    <div>
+                                        <span>{exp.name}</span>
+                                        <span>{exp.years} years deep</span>
+                                    </div>
+                                </motion.div>
+                            })
+                        }
+                    </div>
+
+                    <div className={css.stats}>
+                        {metrics.map((metric) => (
+                            <div className={css.stat} key={metric.label}>
+                                <span>{metric.value}</span>
+                                <span>{metric.label}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={css.signalPanel}>
+                        <span>Current signal</span>
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
             </motion.div>
         </section>
     )
