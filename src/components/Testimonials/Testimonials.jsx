@@ -1,9 +1,12 @@
 import React from "react";
 import { comments, sliderSettings } from "../../utils/data";
 import css from "./Testimonials.module.scss";
-import Slider from "react-slick";
+import SliderLib from "react-slick";
 import { motion } from 'framer-motion';
 import { footerVariants, staggerChildren } from "../../utils/motion";
+
+// react-slick is a CJS module — Vite wraps it so the component sits at .default
+const Slider = SliderLib.default ?? SliderLib;
 
 const Testimonials = () => {
   return (
