@@ -35,7 +35,7 @@ const Hero = () => {
                 <motion.div
                     variants={fadeIn("up", "tween", 0.3, 1)}
                     className={css.person}>
-                    <img src="./rock-portrait.jpg" alt="" />
+                    <img src="./rock-portrait.jpg" alt="Alia Wilkinson" />
                 </motion.div>
 
                 <div className={css.lowerElements}>

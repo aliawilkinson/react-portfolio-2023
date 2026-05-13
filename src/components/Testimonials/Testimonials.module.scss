@@ -5,6 +5,10 @@
         .heading {
             flex-direction: column;
 
+            .subheading {
+                margin-top: 2rem;
+            }
+
             p {
                 line-height: 30px;
                 text-align: center;

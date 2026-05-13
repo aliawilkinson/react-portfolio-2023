@@ -1,11 +1,9 @@
 export function calculateYearDifference() {
-  var startDate = new Date('January 1, 2016');
-  var today = new Date();
-
-  var millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Account for leap years
-  var differenceInMilliseconds = today - startDate;
-  var differenceInYears = differenceInMilliseconds / millisecondsPerYear;
-
+  const startDate = new Date('January 1, 2016');
+  const today = new Date();
+  const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // account for leap years
+  const differenceInMilliseconds = today - startDate;
+  const differenceInYears = differenceInMilliseconds / millisecondsPerYear;
   return differenceInYears.toFixed(1);
 }
 
@@ -216,18 +214,3 @@ export const sliderSettings = {
     },
   ],
 };
-
-export const CaseStudies = [
-  {
-    "title": '',
-    "content": ''
-  },
-  {
-    "title": '',
-    "content": ''
-  },
-  {
-    "title": '',
-    "content": ''
-  }
-]
