@@ -1,4 +1,3 @@
-import React from "react";
 import { workExp } from "../../utils/data";
 import css from "./Experience.module.scss";
 import { motion } from 'framer-motion';
@@ -18,15 +17,29 @@ const Experience = () => {
       <Link to="experience" className="anchor" id="experience" />
 
       <div className={`innerWidth flexCenter ${css.container}`}>
-        <span className="primaryText">Experience</span>
+        <span className="primaryText yPaddings">Experience</span>
 
-        <div className={`flexCenter ${css.experiences}`}>
+        <div className={css.experiences}>
+
+          {/* the vertical dashed line — one element, full height, sits behind all dots */}
+          <motion.div variants={zoomIn(1, 1)} className={css.lineTrack}>
+            <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line} />
+          </motion.div>
+
           {workExp.map((exp) => (
-            <motion.div variants={textVariant2} key={exp.place} className={`flexCenter ${css.exp}`}>
+            <motion.div variants={textVariant2} key={exp.place} className={css.exp}>
+              {/* left: company + tenure */}
               <div className={css.post}>
                 <h1>{exp.place}</h1>
                 <p>{exp.tenure}</p>
               </div>
+
+              {/* center: dot — lives in the row, always aligned */}
+              <div className={css.dotCol}>
+                <div className={css.circle} style={{ background: exp.dotColor }} />
+              </div>
+
+              {/* right: role + detail */}
               <div className={css.role}>
                 <h1>{exp.role}</h1>
                 <div>{Parser(exp.detail)}</div>
@@ -34,14 +47,6 @@ const Experience = () => {
             </motion.div>
           ))}
 
-          <motion.div variants={zoomIn(1, 1)} className={css.progressbar}>
-            <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line} />
-            {workExp.map((exp) => (
-              <div key={exp.place}>
-                <div className={css.circle} style={{ background: exp.dotColor }} />
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </motion.section>
