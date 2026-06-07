@@ -51,11 +51,33 @@
     line-height: 40px;
 
     @media (max-width: $sm) {
-        grid-template-columns: 2rem 1fr;
+        grid-template-columns: 0.45rem 1fr;
         grid-template-areas:
-            "dot post"
-            "dot role";
-        row-gap: 0.5rem;
+            "accent post"
+            "accent role";
+        row-gap: 0.65rem;
+        line-height: 1.45;
+        padding: 1.05rem 1rem 1.1rem;
+        background: white;
+        border: 1px solid rgba($primary, 0.08);
+        border-radius: 8px;
+        box-shadow: rgb(0 0 0 / 5%) -3px 11px 13px 0px;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            content: "";
+            grid-area: accent;
+            align-self: stretch;
+            width: 0.45rem;
+            min-height: 100%;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        &+& {
+            margin-top: 1rem;
+        }
     }
 }
 
@@ -81,7 +103,19 @@
         grid-area: post;
         text-align: left;
         padding-right: 0;
-        padding-left: 0.75rem;
+        padding-left: 0.85rem;
+
+        h1 {
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-top: 0.2rem;
+            font-size: 0.78rem;
+            line-height: 1.35;
+            color: rgba($primary, 0.58);
+        }
     }
 }
 
@@ -107,6 +141,7 @@
     height: 1.1rem;
     border-radius: 50%;
     flex-shrink: 0;
+    background: var(--accent);
 
     @media (max-width: $sm) {
         display: none;
@@ -132,6 +167,37 @@
 
     @media (max-width: $sm) {
         grid-area: role;
-        padding-left: 0.75rem;
+        padding-left: 0.85rem;
+
+        h1 {
+            color: $secondary;
+            font-size: 0.95rem;
+            line-height: 1.25;
+            margin-bottom: 0.65rem;
+        }
+
+        ul {
+            display: grid;
+            gap: 0.45rem;
+            color: rgba($primary, 0.82);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+
+        li {
+            position: relative;
+            padding-left: 0.85rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0.58em;
+                width: 0.28rem;
+                height: 0.28rem;
+                border-radius: 50%;
+                background: var(--accent);
+            }
+        }
     }
 }

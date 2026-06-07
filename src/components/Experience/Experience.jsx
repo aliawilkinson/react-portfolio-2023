@@ -26,7 +26,12 @@ const Experience = () => {
           </motion.div>
 
           {workExp.map((exp) => (
-            <motion.div variants={textVariant2} key={`${exp.place}-${exp.role}-${exp.tenure}`} className={css.exp}>
+            <motion.div
+              variants={textVariant2}
+              key={`${exp.place}-${exp.role}-${exp.tenure}`}
+              className={css.exp}
+              style={{ "--accent": exp.dotColor }}
+            >
               {/* left: company + tenure */}
               <div className={css.post}>
                 <h1>{exp.place}</h1>
@@ -35,7 +40,7 @@ const Experience = () => {
 
               {/* center: dot — lives in the row, always aligned */}
               <div className={css.dotCol}>
-                <div className={css.circle} style={{ background: exp.dotColor }} />
+                <div className={css.circle} />
               </div>
 
               {/* right: role + detail */}
