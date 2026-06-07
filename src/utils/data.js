@@ -1,5 +1,5 @@
 export function calculateYearDifference() {
-  const startDate = new Date('October 1, 2018');
+  const startDate = new Date('October 1, 2015');
   const today = new Date();
   const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // account for leap years
   const differenceInMilliseconds = today - startDate;
@@ -151,7 +151,7 @@ export const workExp = [
   },
   {
     place: "Sunghost Industries",
-    tenure: "Oct 2015 - Mar 2019",
+    tenure: "Oct 2015 - Oct 2018",
     role: "Software Engineer",
     detail:
       `<ul>
