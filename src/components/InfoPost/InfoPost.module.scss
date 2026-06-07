@@ -139,10 +139,17 @@
             line-height: 1.15;
         }
 
-        .post-content {
+        .container :global(.post-content) {
             display: grid;
-            gap: 1.1rem;
-            padding-top: 1.5rem;
+            gap: 1.35rem;
+            padding-top: 1.75rem;
+            padding-bottom: 0.5rem;
+
+            p {
+                line-height: 1.7;
+                width: 100%;
+                margin: 0;
+            }
         }
     }
 }
