@@ -149,6 +149,18 @@ export const workExp = [
       </ul>`,
     dotColor: '#C83C63'
   },
+  {
+    place: "Sunghost Industries",
+    tenure: "Oct 2015 - Mar 2019",
+    role: "Software Engineer",
+    detail:
+      `<ul>
+        <li>SEO and GIS analysis for small businesses.</li>
+        <li>Designed sales funnels for businesses.</li>
+        <li>Created websites for local small businesses.</li>
+      </ul>`,
+    dotColor: '#C83C63'
+  },
 ];
 
 
