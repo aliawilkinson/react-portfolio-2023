@@ -22,10 +22,15 @@
         }
         
         div {
+            padding: 10rem;
+
             @media screen and (max-width: $lg) {
                 padding: 2rem;
             }
-            padding: 10rem;
+
+            @media screen and (max-width: $sm) {
+                padding: 0;
+            }
         }
     }
 
@@ -50,6 +55,12 @@
         padding: 1rem;
         max-width: 70vw;
         margin: auto;
+
+        @media screen and (max-width: $sm) {
+            max-width: none;
+            padding: 0;
+            line-height: 1.65;
+        }
     }
 
     ol {
@@ -106,6 +117,32 @@
         .container {
             max-width: 90vw;
             padding: 1rem;
+        }
+    }
+
+    @media screen and (max-width: $sm) {
+        .container {
+            max-width: calc(100vw - 2rem);
+            padding: 1.25rem;
+            border-radius: 8px;
+
+            img {
+                max-width: min(100%, 18rem);
+                max-height: none;
+                border-radius: 12px;
+            }
+        }
+
+        h1 {
+            padding: 0.75rem 0 1.25rem;
+            font-size: 2rem;
+            line-height: 1.15;
+        }
+
+        .post-content {
+            display: grid;
+            gap: 1.1rem;
+            padding-top: 1.5rem;
         }
     }
 }

@@ -10,8 +10,7 @@ const InfoPost = ({ post }) => {
     <motion.section
       variants={staggerChildren}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.10 }}
+      animate="show"
       className={`${css.wrapper}`}
     >
       <div className={`innerWidth ${css.container}`}>
