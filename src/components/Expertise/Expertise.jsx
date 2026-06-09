@@ -8,11 +8,11 @@ import { calculateYearDifference } from '../../utils/data'
 const metrics = [
     {
         value: '1200+',
-        label: 'components managed across delivery systems',
+        label: 'components orchestrated through automated delivery',
     },
     {
         value: '10+',
-        label: 'teams enabled through platform & standards work',
+        label: 'teams enabled to self-serve through platform design',
     },
 ]
 
@@ -31,8 +31,8 @@ const Expertise = () => {
                 <motion.div
                     variants={textVariant(0.5)}
                     className={css.intro}>
-                    <span className={css.eyebrow}>Systems &amp; leverage</span>
-                    <span className='primaryText'>What I Build</span>
+                    <span className={css.eyebrow}>Leverage through architecture</span>
+                    <span className='primaryText'>What I Design</span>
                     {whatIHelpWith.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
                 </motion.div>
 

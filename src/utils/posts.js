@@ -212,27 +212,23 @@ export const content = {
         "post": `
     <p>Hi, I'm Alia.</p>
 
-    <p>I'm a Southern California-based Principal Software Engineer, AWS Certified Solutions Architect, systems thinker, artist, and educator. I work remotely with distributed teams on AWS infrastructure architecture, Terraform, developer experience, CI/CD, testing standards, automation, and the connective tissue between applications, platforms, and delivery process.</p>
+    <p>I'm a Systems Architect for Developer Leverage — a Southern California-based Principal Engineer, AWS Certified Solutions Architect, and the person teams bring in when they want to stop firefighting and start compounding. I design the platforms, automation, and delivery systems that make engineering organizations fast, safe, and autonomous.</p>
 
-    <p>At Transamerica, I was on ALM Hypercare from June 2024 to April 2026, working across hedging modernization, secure AWS data flows, reusable Python API and React standards, architecture review, CI/CD troubleshooting, testing standards, and production support. In April 2026, I started as Principal Engineer - Developer Experience on the WFG team, where my work now includes infrastructure architecture, Terraform patterns, DACA presentations, Jira administration and automation, Agile training, cost-aware cloud practices, and cross-functional technical direction.</p>
+    <p>My work focuses on the infrastructure layer that most teams struggle to get right: release orchestration, self-service platforms, CI/CD architecture, IaC frameworks, developer environment tooling, and the systems that turn tribal knowledge into codified, repeatable patterns. I don't fix broken things — I design systems where things don't break in the first place.</p>
 
-    <p>Recently, I built an internal app that analyzes repositories and Jira tickets to map applications across the organization. It carries forward a pattern I learned at loanDepot, where I helped lead DevOps engineers through rapid pandemic-era growth by automating releases, standardizing app configuration, and working on a custom metadata/configuration database that tracked products, components, settings, and deployable relationships in one place.</p>
+    <p>At Transamerica, I set technical direction for WFG Digital as Principal Engineer — Developer Experience & Platform. I design AWS architecture patterns, Terraform standards, infrastructure testing approaches, and internal tooling that teams adopt because it makes their work easier, not because they're told to. Before that, I shaped ALM modernization, cloud data architecture, and engineering standards across hedging and analytics business units.</p>
 
-    <p>That is the kind of work I like most: turning scattered technical signals into something teams can use to understand ownership, risk, dependencies, and next steps. I am also unusually comfortable in high-pressure situations, which makes me useful in production support, architecture review, release coordination, and the sort of troubleshooting sessions where everyone needs the room to get calmer and more precise.</p>
+    <p>At AWS Professional Services, I consulted on cloud migration architecture, cost optimization, and delivery system design for enterprise clients. At loanDepot, I led release engineering through pandemic-era hypergrowth — automating the orchestration of 1200+ components, cutting multi-hour release windows down to predictable, dependency-aware automated deployments, and building the custom CMDB that mapped ownership and deployable relationships across the org.</p>
 
-    <p>I grew up near the border in Southern California and spent years teaching English in Colombia after earning my TEFL certification. Those experiences shaped the way I lead: assume intelligence, explain clearly, make room for questions, and help people build confidence through useful structure.</p>
+    <p>The through-line in my career is always the same question: what system can I build now that removes the need for heroics later? I'm drawn to the work that sits between code, infrastructure, process, and people — where a good answer has to be understandable, repeatable, secure, and practical enough for teams to trust after the architect leaves the room.</p>
 
-    <p>I'm deeply drawn to travel, anthropology, architecture, history, art, music, and the emotional atmosphere of places. I feel most alive exploring unfamiliar cities, wandering museums for hours, sitting in beautiful natural landscapes, or discovering the strange little details that make cultures feel alive. I'm endlessly curious about why people build the worlds they build.</p>
+    <p>Currently, I'm exploring the intersection of AI-augmented developer workflows, agentic tooling, and platform engineering — building toward systems that don't just automate tasks but actively prevent failure and surface the next right action.</p>
 
-    <p>Technically, my background spans full-stack engineering, DevOps, cloud architecture, automation, SRE, distributed systems, CI/CD, and infrastructure design across both cloud and hybrid environments. I like work that sits between code, infrastructure, process, and people: the kind where a good answer has to be understandable, repeatable, secure, and practical enough for teams to keep using after the meeting ends.</p>
+    <p>I grew up near the border in Southern California and spent years teaching English in Colombia. Those experiences shaped how I lead: assume intelligence, explain clearly, make room for questions, and help people build confidence through useful structure rather than authority.</p>
 
-    <p>I document thoroughly, test thoughtfully, and look for the small design choices that make a platform easier to trust. Whether I'm reviewing Terraform, shaping app code standards, writing training material, architecting infrastructure, or jumping into an incident call, my goal is steady: make the next right action visible.</p>
+    <p>Outside of engineering, I'm drawn to travel, anthropology, architecture, art, and the emotional atmosphere of places. I feel most alive exploring unfamiliar cities, wandering museums, or discovering the details that make cultures feel real. That curiosity shows up in my engineering too — I want to understand why systems were built the way they were before I redesign them.</p>
 
-    <p>Outside of engineering, I'm building creative and entrepreneurial projects focused on beauty, storytelling, wellness, and self-reinvention. I like technical rigor with a little color in it: clean systems, good taste, practical outcomes, and just enough eccentricity to keep the work alive.</p>
-
-    <p>I believe good leadership is a mix of standards and steadiness: tell the truth, make the path visible, give people useful tools, and help the team leave things better than they found them.</p>
-
-    <p>If you'd like to collaborate, build something useful, or untangle a complex system with someone who enjoys the work, I'd love to hear from you.</p>
+    <p>If you're building a team or platform where strong systems design matters upfront — not after the first outage — I'd like to talk.</p>
     `
     }
 }

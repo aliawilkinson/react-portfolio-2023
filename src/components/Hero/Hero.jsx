@@ -20,8 +20,9 @@ const Hero = () => {
                     variants={fadeIn("right", "tween", 0.2, 1)}
                     className={css.headline}>
                     <span className='primaryText'>
-                        Hey There, <br />
-                        I'm Alia.
+                        I'm Alia. <br />
+                        I design systems <br />
+                        that create leverage.
                     </span>
                 </motion.div>
 
@@ -37,10 +38,10 @@ const Hero = () => {
                     variants={fadeIn("left", "tween", 0.2, 1)}
                     className={css.tagline}>
                     <span className='secondaryText'>
-                        Principal Engineer building <br />
-                        the systems that help teams ship. <br />
-                        Platform architecture, developer experience, <br />
-                        and technical direction from SoCal.
+                        Systems Architect for Developer Leverage. <br />
+                        I build platforms, delivery systems, and automation <br />
+                        that prevent failure and compound engineering velocity. <br />
+                        Remote from SoCal.
                     </span>
                 </motion.div>
 
@@ -61,7 +62,7 @@ const Hero = () => {
                     className={css.certificate}>
                     <img src='./aws-sol-arch.png' alt="AWS Solutions Architect badge" />
                     <span>AWS SOLUTIONS ARCHITECT</span>
-                    <span>PLATFORM ENGINEERING</span>
+                    <span>SYSTEMS ARCHITECTURE &amp; DEVELOPER LEVERAGE</span>
                 </motion.div>
 
             </motion.div>

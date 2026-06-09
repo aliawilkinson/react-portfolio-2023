@@ -12,36 +12,36 @@ export function calculateYearDifference(startDateInput = 'October 1, 2015') {
 
 export const projectExperience = [
   {
-    name: "Platform & Infrastructure Architecture",
+    name: "Systems Architecture & Failure Prevention",
     date_started: "November 1, 2018",
     bg: "#6D4B8A",
   },
   {
-    name: "Delivery Systems & CI/CD",
+    name: "Delivery Automation & Release Engineering",
     date_started: "January 15, 2019",
     bg: "#8897B8",
   },
   {
-    name: "Developer Experience & Enablement",
+    name: "Developer Experience & Internal Platforms",
     date_started: "June 1, 2018",
     bg: "#C83C63",
   },
   {
-    name: "Full Stack Product Development",
+    name: "Infrastructure as Code & Cloud Design",
     date_started: "March 1, 2016",
     bg: "#B8A295",
   },
   {
-    name: "Technical Leadership & Coordination",
-    date_started: "November 1, 2018",
+    name: "AI-Augmented Tooling & Agentic Workflows",
+    date_started: "January 1, 2024",
     bg: "#4A90A4",
   },
 ];
 
 export const whatIHelpWith = [
-  `I build the systems that engineering teams use to ship. Platform architecture, delivery pipelines, internal tooling, engineering standards — I design the infrastructure layer that makes teams faster, more reliable, and less dependent on tribal knowledge.`,
-  `I get pulled into high-complexity situations where systems, delivery, or coordination are breaking down. My work sits at the intersection of cloud architecture, CI/CD reliability, developer experience, and technical leadership. I set direction, mentor engineers, unblock teams, and build leverage that compounds.`,
-  `Currently a Principal Engineer at Transamerica, setting technical direction across platform engineering, infrastructure patterns, and developer enablement for WFG Digital. Previously shaped ALM modernization, data platform architecture, and engineering standards across multiple business units.`,
+  `I design systems that prevent failure and create leverage. Platform architecture, delivery automation, infrastructure patterns, and internal tooling — built so engineering teams ship faster without firefighting. The goal is always the same: make the system do the work so engineers can focus on what matters.`,
+  `My work sits at the intersection of cloud architecture, release engineering, developer experience, and AI-augmented workflows. I don't get called in to fix what's broken — I design what hasn't been built yet. Self-service platforms, automated delivery pipelines, infrastructure guardrails, and the connective tissue that turns an engineering org from reactive to compounding.`,
+  `Currently a Principal Engineer at Transamerica, setting systems architecture and technical direction for WFG Digital. Previously designed release orchestration systems, cloud migration architecture, and internal platforms at AWS Professional Services, loanDepot, and COFEBE.`,
 ];
 
 export const workExp = [
@@ -51,10 +51,10 @@ export const workExp = [
     role: "Principal Engineer — Developer Experience & Platform",
     detail:
       `<ul>
-        <li>Setting technical direction for WFG Digital: platform architecture, infrastructure patterns, delivery systems, and engineering standards across teams.</li>
-        <li>Built an internal metadata platform that maps repositories, ownership, Jira delivery context, and application settings across the organization — turning scattered knowledge into navigable infrastructure.</li>
-        <li>Design AWS architecture patterns, Terraform standards, infrastructure testing approaches, reusable application frameworks, and cost-aware cloud practices that teams actually adopt.</li>
-        <li>Lead technical direction presentations, engineering trainings, Agile process design, CI/CD troubleshooting, and production incident coordination.</li>
+        <li>Setting systems architecture and technical direction for WFG Digital: platform design, infrastructure patterns, delivery automation, and engineering standards that teams adopt by choice.</li>
+        <li>Designed and built an internal metadata platform that maps repositories, ownership, Jira delivery context, and application settings — turning scattered signals into navigable, self-service infrastructure intelligence.</li>
+        <li>Architect AWS patterns, Terraform standards, infrastructure testing approaches, reusable frameworks, and cost-aware cloud practices that prevent failure before it starts.</li>
+        <li>Drive technical direction presentations, engineering trainings, and delivery system design that enables teams to self-serve rather than depend on tribal knowledge.</li>
         <li>Python, Bash, Groovy, Jenkins, AWS, Azure, Terraform, FastAPI, React, Jira automation.</li>
       </ul>`,
     dotColor: '#B8A295'
@@ -65,10 +65,10 @@ export const workExp = [
     role: "Principal Engineer — ALM Platform & Modernization",
     detail:
       `<ul>
-        <li>Shaped ALM modernization through architecture review, platform design, production troubleshooting, and cross-team technical coordination across hedging and analytics systems.</li>
-        <li>Designed secure AWS data flows, cloud migration strategies, EMR lifecycle planning, and cross-account data replication patterns for financial modeling workloads.</li>
-        <li>Built reusable engineering standards: Python API frameworks (FastAPI), React patterns, auth/logging conventions, CI/CD templates, and dependency maintenance strategies adopted across modeling teams.</li>
-        <li>Partnered across CI/CD, infrastructure, modeling, and platform teams on delivery reliability, secrets management, testing standards, and pipeline architecture.</li>
+        <li>Designed platform architecture for ALM modernization — architecture review, system design, and cross-team technical coordination across hedging and analytics platforms.</li>
+        <li>Architected secure AWS data flows, cloud migration strategies, EMR lifecycle planning, and cross-account data replication patterns for financial modeling workloads.</li>
+        <li>Built reusable engineering standards: Python API frameworks (FastAPI), React patterns, auth/logging conventions, CI/CD templates, and dependency strategies adopted across modeling teams.</li>
+        <li>Designed delivery reliability patterns, secrets management architecture, testing standards, and pipeline systems that reduced incident surface area.</li>
         <li>Python, Bash, Groovy, Jenkins, AWS, Azure, Terraform, FastAPI, React.</li>
       </ul>`,
     dotColor: '#8897B8'
@@ -90,10 +90,10 @@ export const workExp = [
     role: "Principal DevOps Architect",
     detail:
       `<ul>
-        <li>AWS Professional Services consulting — architecture, cost optimization, and delivery enablement for enterprise clients.</li>
-        <li>Built a React migration application on Amplify that reduced human error and accelerated service migrations for operations teams.</li>
-        <li>Created cost optimization rubrics, container training programs, and CI/CD pipeline patterns in CodeDeploy.</li>
-        <li>Repeatedly cited in customer feedback for training quality, pipeline efficiency, and documentation clarity.</li>
+        <li>AWS Professional Services consulting — systems architecture, cost optimization, and delivery enablement for enterprise clients.</li>
+        <li>Designed and built a React migration application on Amplify that eliminated human error and accelerated service migrations for operations teams.</li>
+        <li>Created cost optimization frameworks, container training programs, and CI/CD pipeline architecture in CodeDeploy.</li>
+        <li>Repeatedly cited in customer feedback for training quality, pipeline design, and documentation clarity.</li>
       </ul>`,
     dotColor: '#C83C63'
   },
@@ -103,36 +103,35 @@ export const workExp = [
     role: "DevOps Architect — Professional Services",
     detail:
       `<ul>
-        <li>Consulting engagement focused on cloud migration architecture, developer enablement, and delivery system design.</li>
-        <li>Built migration tooling, automated CI/CD pipelines, and training programs that scaled across multiple client engagements.</li>
-        <li>Designed cost-aware deployment patterns and container orchestration strategies for enterprise workloads.</li>
+        <li>Consulting engagement focused on cloud migration architecture, developer enablement, and delivery system design for enterprise clients.</li>
+        <li>Designed migration tooling, automated CI/CD pipeline architecture, and training programs that scaled across multiple engagements.</li>
+        <li>Architected cost-aware deployment patterns and container orchestration strategies that prevented cost overruns and deployment failures.</li>
       </ul>`,
     dotColor: '#6D4B8A'
   },
   {
     place: "loanDepot LLC",
     tenure: "Jan 2020 - Nov 2022",
-    role: "Senior DevOps Engineer → Release Systems Lead",
+    role: "Senior DevOps Engineer → Release Systems Architect",
     detail:
       `<ul>
-        <li>Led release engineering through pandemic-era hypergrowth — kept delivery velocity steady as the engineering org roughly doubled in size.</li>
-        <li>Managed 1200+ components and 800+ products across on-prem (F5, VMWare) and Azure (VMs, SaaS/PaaS), building a custom CMDB on ELK to track deployment metadata and component relationships.</li>
-        <li>Automated release orchestration and configuration workflows that became the team's operating standard.</li>
-        <li>Designed version control strategies for disaster recovery, built LD's first containerized build pipeline, and implemented semantic versioning for Bicep modules in Azure Container Registry.</li>
-        <li>Developed ~75% of team training material, mentored junior/mid engineers, and conducted technical interviews.</li>
-        <li>Promoted from Mid to Senior in 2021 based on delivery impact and leadership contributions.</li>
+        <li>Designed release orchestration architecture through pandemic-era hypergrowth — maintained delivery velocity as the engineering org doubled in size without adding headcount to release engineering.</li>
+        <li>Architected automated deployment orchestration for 1200+ components and 800+ products across on-prem (F5, VMWare) and Azure, eliminating multi-hour manual release windows.</li>
+        <li>Built a custom CMDB on ELK that mapped deployment metadata, component relationships, and ownership — making the invisible dependency graph navigable and actionable.</li>
+        <li>Designed version control strategies for disaster recovery, built LD's first containerized build pipeline, and implemented semantic versioning for Bicep modules in ACR.</li>
+        <li>Developed ~75% of team training material, mentored engineers, and designed systems that made the next person's job easier without requiring heroics.</li>
       </ul>`,
     dotColor: '#8897B8'
   },
   {
     place: "COFEBE Inc",
     tenure: "Nov 2018 - Dec 2019",
-    role: "Software Engineer → Team Lead",
+    role: "Software Engineer → Team Lead — Data Platform",
     detail:
       `<ul>
         <li>Promoted from engineer to team lead on data platform projects within the first year.</li>
-        <li>Built data pipelines and a data lake on AWS (Redshift, Athena, CodeDeploy, Luigi) with backward-compatible Python (2.7/3.x) supporting legacy and modern consumers.</li>
-        <li>Wrote QA test suites in Bash, unit tests in Python, and SQL transform scripts for PostgreSQL ETL workflows.</li>
+        <li>Designed data pipelines and a data lake architecture on AWS (Redshift, Athena, CodeDeploy, Luigi) with backward-compatible Python (2.7/3.x) supporting legacy and modern consumers.</li>
+        <li>Built QA test suites and ETL validation patterns that caught failures before production rather than after.</li>
         <li>Directed internal talent and coordinated directly with clients on requirements, delivery, and technical tradeoffs.</li>
       </ul>`,
     dotColor: '#B8A295'
