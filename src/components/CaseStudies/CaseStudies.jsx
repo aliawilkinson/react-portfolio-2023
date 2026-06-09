@@ -19,7 +19,7 @@ const CaseStudies = () => {
         <motion.div variants={textVariant(.4)} className={`flexCenter ${css.heading}`}>
           <div>
             <span className="primaryText">Case Studies</span>
-            <p className={css.subheading}>Efficient solutions for digital experiences</p>
+            <p className={css.subheading}>Systems I've built and problems I've solved</p>
           </div>
         </motion.div>
 

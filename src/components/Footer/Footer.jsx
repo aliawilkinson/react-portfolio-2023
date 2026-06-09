@@ -34,11 +34,11 @@ const Footer = () => {
       >
         <div className={css.left}>
           <span className="primaryText">
-            Let's make something <br />
-            amazing together.
+            Let's build something <br />
+            that compounds.
           </span>
           <span className="primaryText">
-            Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">saying hi</a>
+            Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">reaching out</a>
           </span>
         </div>
 
@@ -46,8 +46,8 @@ const Footer = () => {
           <div className={css.postcard}>
             <img src={lagunaBeach} alt="Sunny Laguna Beach coastline with palm trees" />
             <div className={css.postcardOverlay}>
-              <span>SoCal based / Remote friendly</span>
-              <p>AWS architecture, developer tooling, and a little sunlight in the process.</p>
+              <span>SoCal based / Remote first</span>
+              <p>Platform architecture, developer experience, and systems that make teams faster.</p>
             </div>
           </div>
 

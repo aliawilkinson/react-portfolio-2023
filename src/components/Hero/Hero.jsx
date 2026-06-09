@@ -37,9 +37,10 @@ const Hero = () => {
                     variants={fadeIn("left", "tween", 0.2, 1)}
                     className={css.tagline}>
                     <span className='secondaryText'>
-                        SoCal-based Principal Engineer <br />
-                        focused on SRE, developer experience, <br />
-                        and calm delivery. I love what I do.
+                        Principal Engineer building <br />
+                        the systems that help teams ship. <br />
+                        Platform architecture, developer experience, <br />
+                        and technical direction from SoCal.
                     </span>
                 </motion.div>
 
@@ -59,8 +60,8 @@ const Hero = () => {
                     variants={fadeIn("left", "tween", 0.4, 1)}
                     className={css.certificate}>
                     <img src='./aws-sol-arch.png' alt="AWS Solutions Architect badge" />
-                    <span>CERTIFIED AWS SOLUTIONS ARCHITECT</span>
-                    <span>SOFTWARE ENGINEER</span>
+                    <span>AWS SOLUTIONS ARCHITECT</span>
+                    <span>PLATFORM ENGINEERING</span>
                 </motion.div>
 
             </motion.div>

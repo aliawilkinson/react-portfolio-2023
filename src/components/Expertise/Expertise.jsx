@@ -3,15 +3,16 @@ import { projectExperience, whatIHelpWith } from '../../utils/data'
 import css from './Expertise.module.scss'
 import { motion } from 'framer-motion'
 import { fadeIn, staggerContainer, textVariant } from '../../utils/motion.js'
+import { calculateYearDifference } from '../../utils/data'
 
 const metrics = [
     {
-        value: '1267+',
-        label: 'components deployed and managed',
+        value: '1200+',
+        label: 'components managed across delivery systems',
     },
     {
-        value: '267%',
-        label: 'uptime lift for customer platforms',
+        value: '10+',
+        label: 'teams enabled through platform & standards work',
     },
 ]
 
@@ -30,8 +31,8 @@ const Expertise = () => {
                 <motion.div
                     variants={textVariant(0.5)}
                     className={css.intro}>
-                    <span className={css.eyebrow}>Operations console</span>
-                    <span className='primaryText'>Expertise</span>
+                    <span className={css.eyebrow}>Systems &amp; leverage</span>
+                    <span className='primaryText'>What I Build</span>
                     {whatIHelpWith.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
                 </motion.div>
 
@@ -54,7 +55,7 @@ const Expertise = () => {
                                     </div>
                                     <div>
                                         <span>{exp.name}</span>
-                                        <span>{exp.years} years deep</span>
+                                        <span>{calculateYearDifference(exp.date_started)} years deep</span>
                                     </div>
                                 </motion.div>
                             })
