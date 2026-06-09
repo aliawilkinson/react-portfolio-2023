@@ -12,7 +12,7 @@ export function calculateYearDifference(startDateInput = 'October 1, 2015') {
 
 export const projectExperience = [
   {
-    name: "Systems Architecture & Failure Prevention",
+    name: "Systems Architecture & High Availability Design",
     date_started: "November 1, 2018",
     bg: "#6D4B8A",
   },
@@ -38,25 +38,70 @@ export const projectExperience = [
   },
 ];
 
+export const caseStudies = [
+  {
+    slug: "agenticWorkflowApp",
+    imgSrc: "./infoposts/agentic-workflow.png",
+    alt: "Agentic Workflow App: production intelligence through git and Jira analysis",
+    bg: "#6D4B8A",
+  },
+  {
+    slug: "cognitoIdentityArchitecture",
+    imgSrc: "./infoposts/cognito-identity.png",
+    alt: "Cognito Cloud Archiecture: auth for 250K agents",
+    bg: "#4A90A4",
+  },
+  {
+    slug: "almModernization",
+    imgSrc: "./infoposts/alm-modernization.png",
+    alt: "ALM Modernization: replacing legacy systems with event-driven AWS patterns",
+    bg: "#C83C63",
+  },
+  {
+    slug: "releaseofreleases",
+    imgSrc: "./infoposts/ror.png",
+    alt: "Release of Releases: release orchestration through automation",
+    bg: "#8897B8",
+  },
+  {
+    slug: "iacPipelineValidation",
+    imgSrc: "./infoposts/iac-pipeline-test.png",
+    alt: "IaC Pipeline Validation: who tests the testers",
+    bg: "#B8A295",
+  },
+  {
+    slug: "cmdletCreationTemplate",
+    imgSrc: "./infoposts/cmdletautomation.png",
+    alt: "Empowering DevOps Excellence: PowerShell cmdlet automation",
+    bg: "#6D4B8A",
+  },
+  {
+    slug: "amplifyReactMigApp",
+    imgSrc: "./infoposts/mig-app.png",
+    alt: "Transforming app migrations with Amplify React",
+    bg: "#4A90A4",
+  },
+];
+
 export const whatIHelpWith = [
-  `I design systems that prevent failure and create leverage. Identity architecture, delivery automation, infrastructure patterns, and internal tooling — built so engineering teams ship faster without firefighting. The goal is always the same: make the system do the work so engineers can focus on what matters.`,
-  `My work sits at the intersection of cloud architecture, release engineering, developer experience, and AI-augmented workflows. I don't get called in to fix what's broken — I design what hasn't been built yet. Auth systems for platforms serving hundreds of thousands of users, agentic tools that surface production intelligence, CI/CD gates that make engineering hygiene automatic, and the connective tissue that turns an engineering org from reactive to compounding.`,
-  `Currently a Principal Engineer at Transamerica / WFG Digital, operating across architecture and implementation on high-stakes platform work. Previously designed release orchestration systems, cloud migration architecture, and internal platforms at AWS Professional Services, loanDepot, and COFEBE.`,
+  `I build systems so engineering teams ship faster without firefighting. The goal is always the same: make the system do the work so engineers can focus on what matters.`,
+  `My work sits at the intersection of cloud architecture, app development, release engineering, developer experience, and AI-augmented workflows for small companies and large enterprises alike. I design, evaluate, and build or buy then execute what hasn't been built yet. Auth systems for platforms serving hundreds of thousands of users, agentic tools that surface production intelligence, CI/CD gates that make engineering hygiene automatic, and the connective tissue that turns an engineering org from reactive to compounding.`,
+  `Currently happily designing these systems at Transamerica for Architecture.`,
 ];
 
 export const workExp = [
   {
     place: "Transamerica / WFG Digital",
     tenure: "April 2026 - Present",
-    role: "Principal Engineer — Systems Architecture & Developer Leverage",
+    role: "Principal Engineer - Systems Architecture & Developer Leverage",
     detail:
       `<ul>
-        <li>Recruited into WFG to raise the level of architecture, platform, and delivery on high-stakes work requiring real technical depth — operating as Principal Engineer across architecture and implementation.</li>
+        <li>Recruited into WFG to raise the level of architecture, platform, and delivery on high-stakes work requiring real technical depth - operating as Principal Engineer across architecture and implementation.</li>
         <li>Drove Cognito + enterprise identity integration for WFG Digital Portal: Terraform, IAM, API Gateway, and auth flow design for a platform serving ~250K external agents.</li>
-        <li>Built an agentic workflow app that identifies and analyzes production apps using git analysis combined with Jira release and runbook data — turning scattered signals into navigable infrastructure intelligence.</li>
+        <li>Built an agentic workflow app that identifies and analyzes production apps using git analysis combined with Jira release and runbook data - turning scattered signals into navigable infrastructure intelligence.</li>
         <li>Designing developer workflow tooling: testing suites, versioning strategies, branch protections, CI/CD gates, and configuration management apps that make engineering hygiene automatic rather than heroic.</li>
         <li>Step in across architecture, infrastructure, and delivery gaps to unblock teams, make decisions in motion, and keep work moving when ownership is fragmented or systems are stuck.</li>
-        <li>Built internal apps, repeatable web app patterns, and authentication tooling that teams adopt as standard — designing leverage that compounds across the org.</li>
+        <li>Built internal apps, repeatable web app patterns, and authentication tooling that teams adopt as standard - designing leverage that compounds across the org.</li>
         <li>Python, Terraform, AWS (Cognito, API Gateway, IAM), React, Jira automation, agentic AI tooling.</li>
       </ul>`,
     dotColor: '#B8A295'
@@ -64,15 +109,15 @@ export const workExp = [
   {
     place: "Transamerica / ALM",
     tenure: "June 2024 - April 2026",
-    role: "Principal Engineer — ALM Modernization & Architecture",
+    role: "Principal Engineer - ALM Modernization & Architecture",
     detail:
       `<ul>
-        <li>Led modernization of ALM hedging systems, replacing legacy on-prem/EC2 workflows with AWS-native patterns (Lambda, S3, event-driven pipelines) — improving reliability and reducing operational overhead.</li>
+        <li>Led modernization of ALM hedging systems, replacing legacy on-prem/EC2 workflows with AWS-native patterns (Lambda, S3, event-driven pipelines) - improving reliability and reducing operational overhead.</li>
         <li>Designed and improved data ingestion and processing pipelines for high-volume financial, market, and policy data serving risk, finance, and executive stakeholders.</li>
-        <li>Acted as architect for web applications and data infrastructure — built a web application POC to replace existing Windows Service systems and replaced manual email-based reporting with a centralized, self-service data platform.</li>
+        <li>Acted as architect for web applications and data infrastructure - built a web application POC to replace existing Windows Service systems and replaced manual email-based reporting with a centralized, self-service data platform.</li>
         <li>Created reusable Python API + React frameworks with Engineering Excellence to standardize internal application development across modeling teams.</li>
         <li>Unblocked teams on Terraform, CI/CD, and infrastructure issues; established repeatable deployment and development patterns that reduced dependency on tribal knowledge.</li>
-        <li>Taught and set up ALM developers with AI agentic workflows (Amazon Q, Kiro) — introduced AI-assisted development patterns that improved developer productivity across the org.</li>
+        <li>Taught and set up ALM developers with AI agentic workflows (Amazon Q, Kiro) - introduced AI-assisted development patterns that improved developer productivity across the org.</li>
         <li>Contributed architecture direction for cloud migration, resiliency, and technical debt reduction across ALM and Finance systems.</li>
         <li>Python, AWS (Lambda, S3, EMR), Terraform, FastAPI, React, Jenkins, AI/agentic tooling.</li>
       </ul>`,
@@ -81,7 +126,7 @@ export const workExp = [
   {
     place: "Cube Software",
     tenure: "Sept 2023 - June 2024",
-    role: "Senior Software Engineer — FP&A Platform",
+    role: "Senior Software Engineer - FP&A Platform",
     detail:
       `<ul>
         <li>Built APIs to integrate with third-party ETL systems, enabling data ingestion and downstream processing for financial planning and analytics (FP&A) systems.</li>
@@ -94,26 +139,26 @@ export const workExp = [
   {
     place: "Source 70 Consulting",
     tenure: "June 2023 - Sept 2023",
-    role: "DevSecOps Architect — AWS & Azure Government Cloud",
+    role: "DevSecOps Architect - AWS & Azure Government Cloud",
     detail:
       `<ul>
         <li>Built DevSecOps pipelines focused on automation, security, and cost optimization across AWS and Azure Government Cloud for compliant, reliable deployments.</li>
         <li>Developed ETL data pipelines on AWS GovCloud for secure utility data ingestion and processing.</li>
         <li>Implemented Infrastructure as Code (Terraform, Bicep, ARM, AWS CDK in Python) to create reproducible, maintainable environments.</li>
         <li>Applied cost optimization at the infrastructure and code level to reduce operational overhead for business-critical systems.</li>
-        <li>Co-developed and presented a NASPI seminar on storing synchrophasor data in the cloud — explored architecture patterns for high-frequency, time-series data in distributed cloud environments.</li>
+        <li>Co-developed and presented a NASPI seminar on storing synchrophasor data in the cloud - explored architecture patterns for high-frequency, time-series data in distributed cloud environments.</li>
       </ul>`,
     dotColor: '#C83C63'
   },
   {
     place: "Amazon Web Services (AWS)",
     tenure: "Nov 2022 - June 2023",
-    role: "DevOps Architect — Professional Services",
+    role: "DevOps Architect - Professional Services",
     detail:
       `<ul>
-        <li>Provided Professional Services consulting for AWS customers — designed solutions for business problems using AWS services, automation, and architecture patterns focused on scalability, security, and cost efficiency.</li>
-        <li>Built an Amplify + React application that helped operations engineers migrate services more reliably with fewer errors — eliminating manual toil from the migration process.</li>
-        <li>Created a Cost Optimization Blueprint to help companies save money during a downturn — architecture-level decisions, not just resource trimming.</li>
+        <li>Provided Professional Services consulting for AWS customers - designed solutions for business problems using AWS services, automation, and architecture patterns focused on scalability, security, and cost efficiency.</li>
+        <li>Built an Amplify + React application that helped operations engineers migrate services more reliably with fewer errors - eliminating manual toil from the migration process.</li>
+        <li>Created a Cost Optimization Blueprint to help companies save money during a downturn - architecture-level decisions, not just resource trimming.</li>
         <li>Modernized internal training for AWS consultants: container SME training, cost optimization practices, and patterns for building secure, cost-effective web applications.</li>
         <li>Improved application reliability and uptime through better architecture patterns and operational practices.</li>
       </ul>`,
@@ -122,18 +167,18 @@ export const workExp = [
   {
     place: "loanDepot LLC",
     tenure: "Feb 2021 - Nov 2022",
-    role: "Senior DevOps Engineer — Lead",
+    role: "Senior DevOps Engineer - Lead",
     detail:
       `<ul>
         <li>Built and maintained DevOps pipelines across a large Azure environment supporting hundreds of projects and thousands of deployable components.</li>
-        <li>Automated on-prem batch release processes across teams — standardized deployments and reduced manual error through orchestration design.</li>
+        <li>Automated on-prem batch release processes across teams - standardized deployments and reduced manual error through orchestration design.</li>
         <li>Automated and managed thousands of releases in Azure DevOps using YAML pipelines, significantly improving deployment speed and reliability.</li>
         <li>Built a full enterprise-grade Terraform module suite for infrastructure provisioning, later re-implementing it in Bicep to support Azure-specific preview features and improve development velocity.</li>
         <li>Owned and maintained a custom internal configuration database supporting deployment coordination and system state across the org.</li>
-        <li>Designed and implemented the company's technical interview process end-to-end — evaluation standards, interview structure, and hiring criteria for the DevOps team.</li>
+        <li>Designed and implemented the company's technical interview process end-to-end - evaluation standards, interview structure, and hiring criteria for the DevOps team.</li>
         <li>Created ~75% of internal training materials, improving onboarding and standardizing engineering practices across the team.</li>
         <li>Identified gaps in tooling and workflows, built automation and systems around them, and turned those into repeatable practices adopted by other engineers.</li>
-        <li>Served as on-call escalation point — ran releases and debugged production issues in real time with development teams.</li>
+        <li>Served as on-call escalation point - ran releases and debugged production issues in real time with development teams.</li>
       </ul>`,
     dotColor: '#8897B8'
   },
@@ -143,20 +188,20 @@ export const workExp = [
     role: "DevOps Engineer",
     detail:
       `<ul>
-        <li>Hired from COFEBE contract — ramped into release engineering and pipeline automation across a large .NET/Azure environment.</li>
+        <li>Hired from COFEBE contract - ramped into release engineering and pipeline automation across a large .NET/Azure environment.</li>
         <li>Automated the on-prem release process for batch releases, laying the groundwork for the orchestration system later scaled as Senior/Lead.</li>
         <li>Created CI/CD pipelines for builds, releases, and environment promotion using Azure DevOps and PowerShell.</li>
         <li>Built Terraform templates for deployments to Azure, establishing early IaC patterns the team later standardized on.</li>
         <li>Monitored and troubleshot production systems using ELK and Dynatrace during outages.</li>
         <li>Created ~50% of interviewing material and documented difficult-to-track legacy processes for future use.</li>
-        <li>Promoted to Senior DevOps Engineer — Lead in Feb 2021 based on delivery impact and systems thinking.</li>
+        <li>Promoted to Senior DevOps Engineer - Lead in Feb 2021 based on delivery impact and systems thinking.</li>
       </ul>`,
     dotColor: '#8897B8'
   },
   {
     place: "COFEBE Inc",
     tenure: "Nov 2018 - Dec 2019",
-    role: "Software Engineer → Team Lead — Data Platform",
+    role: "Software Engineer → Team Lead - Data Platform",
     detail:
       `<ul>
         <li>Promoted from engineer to team lead on data platform projects within the first year.</li>
@@ -180,10 +225,10 @@ export const workExp = [
   {
     place: "Sunghost Industries",
     tenure: "Oct 2015 - Oct 2018",
-    role: "Software Engineer — Web & Analytics",
+    role: "Software Engineer - Web & Analytics",
     detail:
       `<ul>
-        <li>Built websites, SEO systems, and GIS analysis tooling for small business clients. First professional engineering role — learned to ship end to end.</li>
+        <li>Built websites, SEO systems, and GIS analysis tooling for small business clients. First professional engineering role - learned to ship end to end.</li>
       </ul>`,
     dotColor: '#C83C63'
   },

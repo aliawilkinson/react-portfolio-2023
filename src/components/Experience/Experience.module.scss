@@ -9,7 +9,7 @@
     }
 }
 
-// outer list — position:relative so the absolute line track can span it
+// outer list - position:relative so the absolute line track can span it
 .experiences {
     width: 100%;
     display: flex;
@@ -42,7 +42,7 @@
     border-radius: 5px;
 }
 
-// each job row — three columns: post | dot | role
+// each job row - three columns: post | dot | role
 .exp {
     display: grid;
     grid-template-columns: 45% 2rem 1fr;
@@ -119,7 +119,7 @@
     }
 }
 
-// center column — dot sits here, line runs behind it
+// center column - dot sits here, line runs behind it
 .dotCol {
     display: flex;
     justify-content: center;

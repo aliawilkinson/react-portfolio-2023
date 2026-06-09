@@ -20,7 +20,7 @@ const Experience = () => {
 
         <div className={css.experiences}>
 
-          {/* the vertical dashed line — one element, full height, sits behind all dots */}
+          {/* the vertical dashed line - one element, full height, sits behind all dots */}
           <motion.div variants={zoomIn(1, 1)} className={css.lineTrack}>
             <motion.div variants={fadeIn("down", "tween", 2, 1.5)} className={css.line} />
           </motion.div>
@@ -38,7 +38,7 @@ const Experience = () => {
                 <p>{exp.tenure}</p>
               </div>
 
-              {/* center: dot — lives in the row, always aligned */}
+              {/* center: dot - lives in the row, always aligned */}
               <div className={css.dotCol}>
                 <div className={css.circle} />
               </div>

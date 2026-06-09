@@ -1,4 +1,4 @@
-# Alia Wilkinson — Portfolio
+# Alia Wilkinson - Portfolio
 
 Personal portfolio site built with React, Vite, Framer Motion, and SCSS Modules.
 
@@ -38,10 +38,10 @@ Opens the app at **http://localhost:5173** automatically. Checks your Node versi
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/download/) v24 (LTS) — install via [nvm](https://github.com/coreybutler/nvm-windows) (Windows) or [nvm-sh](https://github.com/nvm-sh/nvm) (Mac/Linux)
+- [Node.js](https://nodejs.org/en/download/) v24 (LTS) - install via [nvm](https://github.com/coreybutler/nvm-windows) (Windows) or [nvm-sh](https://github.com/nvm-sh/nvm) (Mac/Linux)
 - [Git](https://git-scm.com/downloads)
 
-If you use nvm, the `.nvmrc` file pins the version — just run:
+If you use nvm, the `.nvmrc` file pins the version - just run:
 
 ```bash
 nvm install   # installs 24.15.0 if not already present
@@ -75,7 +75,7 @@ src/
   components/       # one folder per component, co-located with its SCSS module
   hooks/            # useHeaderShadow, useOutsideAlerter
   utils/
-    data.js         # work experience, testimonials, expertise — edit content here
+    data.js         # work experience, testimonials, expertise - edit content here
     posts.js        # case study and about page content (HTML strings)
     motion.js       # Framer Motion animation variants
   styles/           # global styles, SCSS constants, utility classes
@@ -108,7 +108,7 @@ npx vercel link
 cat .vercel/project.json
 ```
 
-Add `.vercel/` to `.gitignore` — don't commit those IDs.
+Add `.vercel/` to `.gitignore` - don't commit those IDs.
 
 ---
 
@@ -125,7 +125,7 @@ Add `.vercel/` to `.gitignore` — don't commit those IDs.
 
 See [CHANGELOG.md](./CHANGELOG.md) for the full list. Summary:
 
-- Header/Footer lifted to `App.jsx` — no longer duplicated per route
+- Header/Footer lifted to `App.jsx` - no longer duplicated per route
 - Mobile menu toggle changed from `div` to accessible `button` with `aria-label`
 - All images have descriptive `alt` attributes
 - Progress bar dots in Experience now driven by data instead of hardcoded

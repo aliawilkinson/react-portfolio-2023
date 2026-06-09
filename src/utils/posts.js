@@ -206,29 +206,120 @@ export const content = {
     `
     },
 
+    "agenticWorkflowApp": {
+        "title": "Agentic Workflow App: Turning Scattered Production Signals into Infrastructure Intelligence",
+        "imgSrc": "./infoposts/agentic-workflow.png",
+        "post": `
+    <h2>Situation:</h2>
+    <p>At WFG Digital, production applications were scattered across repositories with no centralized way to understand what existed, who owned it, how it was deployed, or what its release history looked like. Runbooks lived in wikis nobody maintained. Jira tracked work but not systems. Git history contained truth but nobody was reading it systematically. Teams were making decisions - architecture, staffing, priority - without a clear map of the landscape they were working in.</p>
+
+    <h2>Task:</h2>
+    <p>I needed to build a system that could identify, catalog, and analyze WFG production applications by combining signals from multiple sources - git repositories, Jira release data, and runbook documentation - into a single navigable interface. The goal wasn't just a dashboard. It was infrastructure intelligence: a system that surfaces ownership, deployment patterns, risk indicators, and relationship data that teams can act on.</p>
+
+    <h2>Action:</h2>
+    <ul>
+    <li><strong>Agentic Architecture:</strong> Designed the app as an agentic workflow - AI-driven analysis pipelines that ingest git metadata, parse Jira tickets for release context, and cross-reference runbook data to build a composite picture of each application's state, ownership, and operational patterns.</li>
+    <li><strong>Git Analysis Engine:</strong> Built automated analysis of repository structure, commit patterns, contributor graphs, and deployment artifact relationships to identify active vs. dormant applications, ownership concentration, and architectural patterns.</li>
+    <li><strong>Jira Integration:</strong> Connected release and delivery data from Jira to map deployment cadence, incident frequency, and team velocity per application - turning project management data into operational intelligence.</li>
+    <li><strong>Self-Service Interface:</strong> Built an internal web application that lets teams explore the production landscape, understand dependencies, and make informed decisions without needing to ask someone who "just knows."</li>
+    </ul>
+
+    <h2>Result:</h2>
+    <ul>
+    <li><strong>Visibility:</strong> For the first time, teams could see the full landscape of production applications - what exists, who owns it, how often it deploys, and where the risks concentrate.</li>
+    <li><strong>Decision Quality:</strong> Architecture and staffing decisions became data-informed rather than tribal-knowledge-dependent.</li>
+    <li><strong>Leverage Pattern:</strong> The app embodies the core principle: build a system once that continuously generates intelligence, rather than relying on people to manually track and communicate state.</li>
+    </ul>
+
+    <p>This project represents the kind of work I find most valuable - turning scattered technical signals into something teams can use to understand ownership, risk, dependencies, and next steps. The system does the work so people don't have to.</p>
+    `
+    },
+
+    "cognitoIdentityArchitecture": {
+        "title": "Cognito + Enterprise Identity: Auth Architecture for 250K External Agents",
+        "imgSrc": "./infoposts/cognito-identity.png",
+        "post": `
+    <h2>Situation:</h2>
+    <p>WFG Digital Portal needed a secure, scalable authentication system to serve approximately 250,000 external agents. The platform required enterprise identity integration - connecting Cognito to existing corporate identity providers while maintaining the security posture, session management, and access patterns appropriate for a financial services platform with external users at scale.</p>
+
+    <h2>Task:</h2>
+    <p>Design and implement the full authentication architecture: Cognito configuration, enterprise identity provider integration, IAM policies, API Gateway authorization, Terraform infrastructure, and the auth flow patterns that would serve as the foundation for the portal. This wasn't just "set up Cognito" - it was designing the identity layer for a platform where getting auth wrong means regulatory risk, user friction, and security exposure at scale.</p>
+
+    <h2>Action:</h2>
+    <ul>
+    <li><strong>Architecture Design:</strong> Designed the complete auth flow - user pools, identity pools, enterprise federation, token management, session handling, and the integration points between Cognito, API Gateway, and downstream services.</li>
+    <li><strong>Terraform Implementation:</strong> Built the entire identity infrastructure as code - Cognito user pools, app clients, identity providers, IAM roles and policies, API Gateway authorizers - all reproducible, auditable, and environment-promotable.</li>
+    <li><strong>IAM & API Gateway:</strong> Designed fine-grained IAM policies and API Gateway authorization patterns that enforce least-privilege access while keeping the developer experience clean for teams building on top of the platform.</li>
+    <li><strong>Enterprise Federation:</strong> Integrated with corporate identity providers to enable SSO flows while maintaining the Cognito-native patterns that external agents would authenticate through.</li>
+    <li><strong>Security Posture:</strong> Designed MFA flows, token rotation, session management, and account recovery patterns appropriate for financial services compliance requirements.</li>
+    </ul>
+
+    <h2>Result:</h2>
+    <ul>
+    <li><strong>Scale-Ready Auth:</strong> A production identity system serving ~250K external agents with enterprise-grade security, built entirely in Terraform and designed to be maintained by the team long after initial implementation.</li>
+    <li><strong>Developer Leverage:</strong> Teams building features on the portal inherit a well-designed auth layer - they don't need to think about identity, tokens, or authorization patterns because the platform handles it correctly by default.</li>
+    <li><strong>Compliance Foundation:</strong> The architecture satisfies financial services security requirements by design, not by afterthought - audit trails, session controls, and access patterns are baked into the infrastructure layer.</li>
+    </ul>
+
+    <p>Cloud Archiecture is one of those systems where getting it right early creates enormous leverage - every team building on the platform benefits from decisions made once at the foundation layer. Getting it wrong creates compounding technical debt and security risk. This project was about getting it right.</p>
+    `
+    },
+
+    "almModernization": {
+        "title": "ALM Modernization: Replacing Legacy Systems with Event-Driven AWS Patterns",
+        "imgSrc": "./infoposts/alm-modernization.png",
+        "post": `
+    <h2>Situation:</h2>
+    <p>Transamerica's ALM (Asset Liability Management) hedging systems ran on legacy on-premises and EC2-based workflows - batch-oriented, manually triggered, operationally expensive, and fragile. The modeling teams depended on Windows Service systems for data processing and email-based reporting for finance, risk, and executive stakeholders. When something broke, recovery was manual and tribal-knowledge-dependent. The systems worked, but they didn't scale, didn't self-heal, and didn't give teams the operational visibility they needed.</p>
+
+    <h2>Task:</h2>
+    <p>Lead the modernization of ALM hedging systems - replace legacy workflows with AWS-native patterns that improve reliability, reduce operational overhead, and create a foundation that modeling teams can build on rather than work around. Simultaneously, replace the manual email-based reporting system with a centralized, self-service data platform.</p>
+
+    <h2>Action:</h2>
+    <ul>
+    <li><strong>Event-Driven Architecture:</strong> Designed and implemented replacements for legacy batch workflows using Lambda, S3, and event-driven pipeline patterns - moving from "someone runs this manually" to "the system reacts to data arriving."</li>
+    <li><strong>Data Pipeline Design:</strong> Redesigned data ingestion and processing pipelines for high-volume financial, market, and policy data - improving throughput, reliability, and observability across the pipeline stages.</li>
+    <li><strong>Self-Service Data Platform:</strong> Replaced manual email-based reporting with a centralized data platform that finance, risk, and executive stakeholders could query directly - removing the dependency on someone generating and sending reports manually.</li>
+    <li><strong>Web Application POC:</strong> Built a web application proof-of-concept to replace existing Windows Service systems, demonstrating that the same processing could be handled by modern, maintainable, observable services rather than opaque background processes.</li>
+    <li><strong>Standards & Frameworks:</strong> Created reusable Python API + React frameworks with Engineering Excellence to standardize internal application development across modeling teams - so the modernization pattern could be repeated without re-inventing it each time.</li>
+    <li><strong>AI-Assisted Development:</strong> Introduced agentic AI workflows (Amazon Q, Kiro) to ALM developers, improving productivity and establishing patterns for AI-assisted development that teams adopted independently.</li>
+    </ul>
+
+    <h2>Result:</h2>
+    <ul>
+    <li><strong>Operational Improvement:</strong> Reduced operational overhead by replacing manual, batch-oriented workflows with event-driven systems that self-trigger, self-monitor, and surface failures automatically rather than silently.</li>
+    <li><strong>Stakeholder Self-Service:</strong> Finance, risk, and executive stakeholders gained direct access to the data they needed without waiting for someone to generate and email a report - decisions happen faster when data access doesn't have a human bottleneck.</li>
+    <li><strong>Repeatable Patterns:</strong> The frameworks and standards built during this work became the default for new internal applications - each new project starts further ahead because the foundation patterns already exist.</li>
+    <li><strong>Developer Productivity:</strong> AI-assisted development patterns improved how teams write and review code, with adoption spreading organically beyond the initial ALM teams.</li>
+    </ul>
+
+    <p>This project exemplifies the transition from "systems that work when someone watches them" to "systems that work because they're designed to." The goal was never just to migrate to AWS - it was to build the kind of infrastructure that makes the next team's job easier, not harder.</p>
+    `
+    },
+
     "about": {
         "title": "About Alia",
         "imgSrc": "./infoposts/alia-digital-nomad-portrait.jpeg",
         "post": `
     <p>Hi, I'm Alia.</p>
 
-    <p>I'm a Systems Architect for Developer Leverage — a Southern California-based Principal Engineer, AWS Certified Solutions Architect, and the person teams bring in when they want to stop firefighting and start compounding. I design the platforms, automation, and delivery systems that make engineering organizations fast, safe, and autonomous.</p>
+    <p>I'm a Systems Architect for Developer Experience - a Southern California-based Principal Engineer, AWS Certified Solutions Architect, and the person teams bring in when they want to stop firefighting and start compounding. I design the platforms, automation, and delivery systems that make engineering organizations fast, safe, and autonomous.</p>
 
-    <p>My work focuses on the infrastructure layer that most teams struggle to get right: release orchestration, self-service platforms, CI/CD architecture, IaC frameworks, developer environment tooling, and the systems that turn tribal knowledge into codified, repeatable patterns. I don't fix broken things — I design systems where things don't break in the first place.</p>
+    <p>My work focuses on the infrastructure layer that most teams struggle to get right: release orchestration, self-service platforms, CI/CD architecture, IaC frameworks, developer environment tooling, and the systems that turn tribal knowledge into codified, repeatable patterns. I don't fix broken things - I design systems where things don't break in the first place.</p>
 
-    <p>At Transamerica, I set technical direction for WFG Digital as Principal Engineer — Developer Experience & Platform. I design AWS architecture patterns, Terraform standards, infrastructure testing approaches, and internal tooling that teams adopt because it makes their work easier, not because they're told to. Before that, I shaped ALM modernization, cloud data architecture, and engineering standards across hedging and analytics business units.</p>
+    <p>At Transamerica, I set technical direction for WFG Digital as Principal Engineer - Developer Experience & Platform. I design AWS architecture patterns, Terraform standards, infrastructure testing approaches, and internal tooling that teams adopt because it makes their work easier, not because they're told to. Before that, I shaped ALM modernization, cloud data architecture, and engineering standards across hedging and analytics business units.</p>
 
-    <p>At AWS Professional Services, I consulted on cloud migration architecture, cost optimization, and delivery system design for enterprise clients. At loanDepot, I led release engineering through pandemic-era hypergrowth — automating the orchestration of 1200+ components, cutting multi-hour release windows down to predictable, dependency-aware automated deployments, and building the custom CMDB that mapped ownership and deployable relationships across the org.</p>
+    <p>At AWS Professional Services, I consulted on cloud migration architecture, cost optimization, and delivery system design for enterprise clients. At loanDepot, I led release engineering through pandemic-era hypergrowth - automating the orchestration of 1200+ components, cutting multi-hour release windows down to predictable, dependency-aware automated deployments, and building the custom CMDB that mapped ownership and deployable relationships across the org.</p>
 
-    <p>The through-line in my career is always the same question: what system can I build now that removes the need for heroics later? I'm drawn to the work that sits between code, infrastructure, process, and people — where a good answer has to be understandable, repeatable, secure, and practical enough for teams to trust after the architect leaves the room.</p>
+    <p>The through-line in my career is always the same question: what system can I build now that removes the need for heroics later? I'm drawn to the work that sits between code, infrastructure, process, and people - where a good answer has to be understandable, repeatable, secure, and practical enough for teams to trust after the architect leaves the room.</p>
 
-    <p>Currently, I'm exploring the intersection of AI-augmented developer workflows, agentic tooling, and platform engineering — building toward systems that don't just automate tasks but actively prevent failure and surface the next right action.</p>
+    <p>Currently, I'm exploring the intersection of AI-augmented developer workflows, agentic tooling, and platform engineering - building toward systems that don't just automate tasks but actively increase resilience and surface the next right action.</p>
 
     <p>I grew up near the border in Southern California and spent years teaching English in Colombia. Those experiences shaped how I lead: assume intelligence, explain clearly, make room for questions, and help people build confidence through useful structure rather than authority.</p>
 
-    <p>Outside of engineering, I'm drawn to travel, anthropology, architecture, art, and the emotional atmosphere of places. I feel most alive exploring unfamiliar cities, wandering museums, or discovering the details that make cultures feel real. That curiosity shows up in my engineering too — I want to understand why systems were built the way they were before I redesign them.</p>
+    <p>Outside of engineering, I'm drawn to travel, anthropology, architecture, art, and the emotional atmosphere of places. I feel most alive exploring unfamiliar cities, wandering museums, or discovering the details that make cultures feel real. That curiosity shows up in my engineering too - I want to understand why systems were built the way they were before I redesign them.</p>
 
-    <p>If you're building a team or platform where strong systems design matters upfront — not after the first outage — I'd like to talk.</p>
+    <p>If you're building a team or platform where strong systems design matters upfront - not after the first outage - I'd like to talk.</p>
     `
     }
 }

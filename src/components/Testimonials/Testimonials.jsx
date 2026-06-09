@@ -5,7 +5,7 @@ import SliderLib from "react-slick";
 import { motion } from 'framer-motion';
 import { footerVariants, staggerChildren } from "../../utils/motion";
 
-// react-slick is a CJS module — Vite wraps it so the component sits at .default
+// react-slick is a CJS module - Vite wraps it so the component sits at .default
 const Slider = SliderLib.default ?? SliderLib;
 
 const getViewportSliderSettings = () => {

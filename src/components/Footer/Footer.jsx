@@ -34,8 +34,8 @@ const Footer = () => {
       >
         <div className={css.left}>
           <span className="primaryText">
-            Let's design something <br />
-            that prevents the next fire.
+            Let's build something <br />
+            that compounds.
           </span>
           <span className="primaryText">
             Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">reaching out</a>
@@ -47,7 +47,7 @@ const Footer = () => {
             <img src={lagunaBeach} alt="Sunny Laguna Beach coastline with palm trees" />
             <div className={css.postcardOverlay}>
               <span>SoCal based / Remote first</span>
-              <p>Systems architecture, developer leverage, and platforms that make failure unlikely.</p>
+              <p>Systems architecture, developer leverage, and platforms that make resilience a practice.</p>
             </div>
           </div>
 
