@@ -19,11 +19,11 @@ const Hero = () => {
                 <motion.div
                     variants={fadeIn("right", "tween", 0.2, 1)}
                     className={css.headline}>
-                    <span className='primaryText'>
+                    <h1 className='primaryText'>
                         Hi, I'm Alia. <br />
                         I design systems <br />
                         that create leverage.
-                    </span>
+                    </h1>
                 </motion.div>
 
                 {/* center: portrait - spans both grid rows on desktop */}

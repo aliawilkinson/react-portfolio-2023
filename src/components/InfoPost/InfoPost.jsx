@@ -4,8 +4,12 @@ import css from "./InfoPost.module.scss"
 import { staggerChildren } from "../../utils/motion"
 import { content } from "../../utils/posts"
 import Parser from 'html-react-parser'
+import SEO from "../SEO/SEO"
+import { seoData } from "../../utils/seoData"
 
 const InfoPost = ({ post }) => {
+  const metadata = seoData[post] || {}
+
   return (
     <motion.section
       variants={staggerChildren}
@@ -13,6 +17,12 @@ const InfoPost = ({ post }) => {
       animate="show"
       className={`${css.wrapper}`}
     >
+      <SEO
+        title={metadata.title}
+        description={metadata.description}
+        url={metadata.url}
+        image={metadata.image}
+      />
       <div className={`innerWidth ${css.container}`}>
         <span className="anchor" id="infoPost" />
         <h1 className="post-title">{content[post].title}</h1>

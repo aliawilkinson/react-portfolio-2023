@@ -39,14 +39,14 @@ const CaseStudies = () => {
       <div className={`innerWidth flexCenter ${css.container}`}>
         <motion.div variants={textVariant(.4)} className={`flexCenter ${css.heading}`}>
           <div>
-            <span className="primaryText">Case Studies</span>
+            <h2 className="primaryText">Case Studies</h2>
             <p className={css.subheading}>Systems I've designed to increase resilience and create leverage</p>
           </div>
         </motion.div>
 
         <div className={`flexCenter ${css.showCase}`}>
           {caseStudies.map((study, i) => (
-            <Link to={`/${study.slug}`} target="_blank" key={study.slug}>
+            <Link to={`/${study.slug}`} key={study.slug}>
               <motion.div variants={fadeIn("up", "tween", 0.5 + i * 0.15, 0.6)}>
                 <CaseStudyCard study={study} />
               </motion.div>

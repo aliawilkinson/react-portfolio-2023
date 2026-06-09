@@ -16,7 +16,7 @@ const Experience = () => {
       <span className="anchor" id="experience" />
 
       <div className={`innerWidth flexCenter ${css.container}`}>
-        <span className="primaryText yPaddings">Experience</span>
+        <h2 className="primaryText yPaddings">Experience</h2>
 
         <div className={css.experiences}>
 
@@ -34,7 +34,7 @@ const Experience = () => {
             >
               {/* left: company + tenure */}
               <div className={css.post}>
-                <h1>{exp.place}</h1>
+                <h3>{exp.place}</h3>
                 <p>{exp.tenure}</p>
               </div>
 
@@ -45,7 +45,7 @@ const Experience = () => {
 
               {/* right: role + detail */}
               <div className={css.role}>
-                <h1>{exp.role}</h1>
+                <h3>{exp.role}</h3>
                 <div>{Parser(exp.detail)}</div>
               </div>
             </motion.div>

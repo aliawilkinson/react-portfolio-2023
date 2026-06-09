@@ -1,4 +1,3 @@
-import React from 'react'
 import { projectExperience, whatIHelpWith } from '../../utils/data'
 import css from './Expertise.module.scss'
 import { motion } from 'framer-motion'
@@ -27,12 +26,11 @@ const Expertise = () => {
                 viewport={{ once: true, amount: 0.10 }}
                 className={`paddings yPaddings innerWidth ${css.container}`}>
 
-
                 <motion.div
                     variants={textVariant(0.5)}
                     className={css.intro}>
                     <span className={css.eyebrow}>Leverage through architecture</span>
-                    <span className='primaryText'>What I Design</span>
+                    <h2 className='primaryText'>What I Design</h2>
                     {whatIHelpWith.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
                 </motion.div>
 

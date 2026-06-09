@@ -84,8 +84,8 @@ export const caseStudies = [
 ];
 
 export const whatIHelpWith = [
-  `I build systems so engineering teams ship faster without firefighting. The goal is always the same: make the system do the work so engineers can focus on what matters.`,
-  `My work sits at the intersection of cloud architecture, app development, release engineering, developer experience, and AI-augmented workflows for small companies and large enterprises alike. I design, evaluate, and build or buy then execute what hasn't been built yet. Auth systems for platforms serving hundreds of thousands of users, agentic tools that surface production intelligence, CI/CD gates that make engineering hygiene automatic, and the connective tissue that turns an engineering org from reactive to compounding.`,
+  `I build systems that create leverage — platform architecture, delivery automation, infrastructure patterns, and internal tooling designed so engineering teams stay fast and autonomous as they scale.`,
+  `My work sits at the intersection of cloud architecture, app development, release engineering, developer experience, and AI-augmented workflows for small companies and large enterprises alike. I design, evaluate, build or buy, then execute. Auth systems for platforms serving hundreds of thousands of users, agentic tools that surface production intelligence, CI/CD gates that make engineering hygiene automatic, and the connective tissue that compounds velocity across an org.`,
   `Currently happily designing these systems at Transamerica for Architecture.`,
 ];
 
