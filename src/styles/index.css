@@ -6,4 +6,8 @@
     font-family: "Eudoxus Sans", sans-serif;
     cursor: default;
   }
+
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
   

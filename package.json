@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-sitemap.js && node scripts/validate-seo.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/generate-sitemap.js",
+    "build:validate": "vite build && node scripts/prerender.js && node scripts/generate-sitemap.js && node scripts/validate-seo.js",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -25,8 +26,7 @@
     "react-icons": "4.12.0",
     "react-router-dom": "6.30.3",
     "react-slick": "0.31.0",
-    "sass": "1.99.0",
-    "vite-plugin-prerender": "^1.0.8"
+    "sass": "1.99.0"
   },
   "devDependencies": {
     "@types/react": "18.3.28",
@@ -34,6 +34,7 @@
     "@vitejs/plugin-react": "6.0.1",
     "fast-check": "^4.8.0",
     "jsdom": "^28.1.0",
+    "puppeteer": "^25.2.1",
     "vite": "8.0.12",
     "vitest": "^4.1.8"
   }

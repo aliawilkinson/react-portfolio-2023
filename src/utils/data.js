@@ -84,7 +84,7 @@ export const caseStudies = [
 ];
 
 export const whatIHelpWith = [
-  `I build systems that create leverage — platform architecture, delivery automation, infrastructure patterns, and internal tooling designed so engineering teams stay fast and autonomous as they scale.`,
+  `I build systems that create leverage: platform architecture, delivery automation, infrastructure patterns, and internal tooling designed so engineering teams stay fast and autonomous as they scale.`,
   `My work sits at the intersection of cloud architecture, app development, release engineering, developer experience, and AI-augmented workflows for small companies and large enterprises alike. I design, evaluate, build or buy, then execute. Auth systems for platforms serving hundreds of thousands of users, agentic tools that surface production intelligence, CI/CD gates that make engineering hygiene automatic, and the connective tissue that compounds velocity across an org.`,
   `Currently happily designing these systems at Transamerica for Architecture.`,
 ];
@@ -298,6 +298,24 @@ export const comments = [
     comment:
       "Alia radiates calm and quiet competence every day. She is a top performer on my team. She consistently gives 100 percent effort to the team and plays a significant role in complex devops engineering work. She's willing to jump into any situation and provide technical expertise, whether it's a minor hiccup or an all-hands-on-deck emergency. She has formidable powershell, infrastructure, and automation skills that she leverages on the daily, and she's always excited to learn new tools and technologies",
     img: "./jesse_logo.png",
+  },
+];
+
+export const projects = [
+  {
+    slug: "music",
+    title: "Music",
+    subtitle: "Saint Modern / Ambiguous Records",
+    description: "Debut album Solar Bloom Era, released under Ambiguous Records. Available on all platforms.",
+    bg: "#6D4B8A",
+    imgSrc: "./solar-bloom-era.jpeg",
+    soundcloudUrl: "https://soundcloud.com/afterlight-994069544/sets/solar-bloom-era",
+    links: [
+      { label: "SoundCloud", url: "https://soundcloud.com/afterlight-994069544" },
+      { label: "YouTube", url: "https://www.youtube.com/channel/UCgmou1Q1J5MB9hsS4T7HknQ" },
+      { label: "Spotify", url: "#" },
+      { label: "Apple Music", url: "#" },
+    ],
   },
 ];
 

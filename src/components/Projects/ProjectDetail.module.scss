@@ -1,0 +1,87 @@
+@use '../../styles/constants.scss' as *;
+
+.wrapper {
+    min-height: 60vh;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .backLink {
+        color: $secondary;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: opacity 180ms ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 900;
+        line-height: 1.1;
+        color: $primary;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: rgba(13, 47, 63, 0.65);
+    }
+
+    .description {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: $primary;
+    }
+
+    .player {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+        iframe {
+            display: block;
+        }
+    }
+
+    .links {
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: $primary;
+        }
+    }
+
+    .linkGrid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .platformLink {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        background: rgba(13, 47, 63, 0.08);
+        color: $primary;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background 180ms ease, transform 180ms ease;
+
+        &:hover {
+            background: rgba(13, 47, 63, 0.15);
+            transform: translateY(-2px);
+        }
+    }
+}

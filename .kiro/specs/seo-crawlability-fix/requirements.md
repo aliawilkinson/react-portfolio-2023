@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document defines the technical SEO and crawlability requirements for aliawilkinson.com, a React + Vite portfolio site deployed on Vercel. The site currently renders entirely client-side, meaning search engines and AI tools see only an empty `<div id="root">` when fetching pages. The goal is to make all pages — especially case study pages — fully readable, crawlable, and indexable without changing the existing content or requiring a framework migration.
+This document defines the technical SEO and crawlability requirements for aliawilkinson.com, a React + Vite portfolio site deployed on Vercel. The site currently renders entirely client-side, meaning search engines and AI tools see only an empty `<div id="root">` when fetching pages. The goal is to make all pages :especially case study pages :fully readable, crawlable, and indexable without changing the existing content or requiring a framework migration.
 
 ## Glossary
 

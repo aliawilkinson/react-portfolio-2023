@@ -6,6 +6,7 @@ const routeTargets = {
   '/hero': 'hero',
   '/expertise': 'expertise',
   '/case-studies': 'CaseStudies',
+  '/projects': 'projects',
   '/testimonials': 'Testimonials',
   '/experience': 'experience',
   '/contact': 'footer',

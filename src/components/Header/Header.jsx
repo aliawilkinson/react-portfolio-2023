@@ -12,20 +12,24 @@ import github from '../../assets/github-mark.svg'
 const navLinks = [
   { label: 'Home', to: '/', targetId: 'hero', message: "you're already home :)" },
   { label: 'Expertise', to: '/expertise', targetId: 'expertise', message: "you're already at expertise :)" },
-  { label: 'Case Studies', to: '/case-studies', targetId: 'CaseStudies', message: "you're already reading the case files :)" },
+  { label: 'Case Studies', to: '/case-studies', targetId: 'CaseStudies', message: "you're already reading the case studies :)" },
   { label: 'Testimonials', to: '/testimonials', targetId: 'Testimonials', message: "you're already where the nice things are :)" },
   { label: 'Experience', to: '/experience', targetId: 'experience', message: "you're already in the timeline :)" },
+  { label: 'Projects', to: '/projects', targetId: 'projects', message: "you're already in the lab :)" },
   { label: 'Contact', to: '/contact', targetId: 'footer', message: "you're already at the signal flare :)" },
+  { label: 'Blog', to: '/blog', targetId: null, message: "" },
   { label: 'About', to: '/about', targetId: 'infoPost', message: "you're already in the lore :)" },
 ]
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [navNote, setNavNote] = useState('');
+  const [notePosition, setNotePosition] = useState({ left: 'auto', right: 0 });
   const location = useLocation();
   const headerShadow = useHeaderShadow();
   const menuRef = useRef(null);
   const noteTimerRef = useRef(null);
+  const containerRef = useRef(null);
 
   useOutsideAlerter({ menuRef, setMenuOpened });
 
@@ -36,7 +40,14 @@ const Header = () => {
     return () => clearTimeout(noteTimerRef.current);
   }, []);
 
-  const showAlreadyHereNote = (message) => {
+  const showAlreadyHereNote = (message, clickedElement) => {
+    // Position the note under the clicked nav item
+    if (clickedElement && containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const itemRect = clickedElement.getBoundingClientRect();
+      const itemCenter = itemRect.left + itemRect.width / 2 - containerRect.left;
+      setNotePosition({ left: `${itemCenter}px`, right: 'auto', transform: 'translateX(-50%) translateY(0)' });
+    }
     setNavNote(message);
     clearTimeout(noteTimerRef.current);
     noteTimerRef.current = setTimeout(() => setNavNote(''), 2600);
@@ -65,7 +76,7 @@ const Header = () => {
     if (isAlreadyAtTarget(link)) {
       event.preventDefault();
       closeMenu();
-      showAlreadyHereNote(link.message);
+      showAlreadyHereNote(link.message, event.currentTarget);
       return;
     }
 
@@ -81,7 +92,7 @@ const Header = () => {
       className={`paddings ${css.wrapper}`}
       style={{ boxShadow: headerShadow }}
     >
-      <div className={`flexCenter innerWidth ${css.container}`}>
+      <div ref={containerRef} className={`flexCenter innerWidth ${css.container}`}>
         <div className={css.name}>Alia</div>
 
         <ul
@@ -121,7 +132,12 @@ const Header = () => {
           <BiMenuAltRight size={30} />
         </button>
 
-        <div className={`${css.navNote} ${navNote ? css.navNoteVisible : ''}`} role="status" aria-live="polite">
+        <div
+          className={`${css.navNote} ${navNote ? css.navNoteVisible : ''}`}
+          style={navNote ? notePosition : {}}
+          role="status"
+          aria-live="polite"
+        >
           {navNote}
         </div>
       </div>

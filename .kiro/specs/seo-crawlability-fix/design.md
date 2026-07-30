@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design addresses the core technical SEO problem: aliawilkinson.com is a client-side rendered React SPA where crawlers see only an empty `<div id="root">`. The fix uses **vite-plugin-prerender** (formerly prerender-spa-plugin, rebuilt for Vite) to generate static HTML snapshots at build time for every route. This approach requires minimal architectural changes — no framework migration, no server-side rendering runtime — while delivering fully crawlable HTML for every page.
+This design addresses the core technical SEO problem: aliawilkinson.com is a client-side rendered React SPA where crawlers see only an empty `<div id="root">`. The fix uses **vite-plugin-prerender** (formerly prerender-spa-plugin, rebuilt for Vite) to generate static HTML snapshots at build time for every route. This approach requires minimal architectural changes :no framework migration, no server-side rendering runtime :while delivering fully crawlable HTML for every page.
 
 The solution adds:
 1. Build-time pre-rendering via vite-plugin-prerender
@@ -44,7 +44,7 @@ graph TD
 
 ### Why vite-plugin-prerender
 
-- Drop-in Vite plugin — no framework migration needed
+- Drop-in Vite plugin :no framework migration needed
 - Works with existing react-router-dom setup
 - Generates static HTML that Vercel serves directly
 - No runtime server needed (pure static output)
@@ -190,7 +190,7 @@ interface ValidationResult {
 
 ## Correctness Properties
 
-*A property is a characteristic or behavior that should hold true across all valid executions of a system — essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
+*A property is a characteristic or behavior that should hold true across all valid executions of a system :essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
 
 ### Property 1: Pre-rendered content completeness
 
@@ -230,7 +230,7 @@ interface ValidationResult {
 
 ### Property 7: Heading hierarchy
 
-*For any* page rendered by the application, the heading elements shall follow proper hierarchical order — no heading level shall be skipped (e.g., h1 followed directly by h3 without an intervening h2).
+*For any* page rendered by the application, the heading elements shall follow proper hierarchical order :no heading level shall be skipped (e.g., h1 followed directly by h3 without an intervening h2).
 
 **Validates: Requirements 6.2**
 

@@ -120,7 +120,7 @@ Implement pre-rendering, per-page SEO metadata, sitemap generation, robots.txt, 
 ## Notes
 
 - Tasks marked with `*` are optional and can be skipped for faster MVP
-- The project uses JavaScript (not TypeScript) — all new files should be .js/.jsx
+- The project uses JavaScript (not TypeScript) :all new files should be .js/.jsx
 - react-helmet-async is needed instead of react-helmet because it supports SSR/pre-rendering contexts
 - The pre-rendering step requires a headless browser (Puppeteer) which vite-plugin-prerender handles internally
 - Property tests use fast-check and run minimum 100 iterations each

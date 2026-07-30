@@ -4,7 +4,7 @@ const DEFAULT_IMAGE = `${BASE_URL}/og-default.png`
 export const seoDefaults = {
   title: 'Alia Wilkinson | Systems Architect & Principal Engineer',
   description:
-    'Portfolio of Alia Wilkinson — Principal Engineer specializing in systems architecture, developer leverage, platform engineering, and cloud infrastructure design.',
+    'Portfolio of Alia Wilkinson :Principal Engineer specializing in systems architecture, developer leverage, platform engineering, and cloud infrastructure design.',
   url: BASE_URL,
   image: DEFAULT_IMAGE,
 }
@@ -13,7 +13,7 @@ export const seoData = {
   home: {
     title: 'Alia Wilkinson | Systems Architect & Principal Engineer',
     description:
-      'Principal Engineer building systems that create leverage — platform architecture, delivery automation, infrastructure patterns, and developer experience tooling.',
+      'Principal Engineer building systems that create leverage :platform architecture, delivery automation, infrastructure patterns, and developer experience tooling.',
     url: BASE_URL,
     image: DEFAULT_IMAGE,
   },
@@ -41,7 +41,7 @@ export const seoData = {
   almModernization: {
     title: 'ALM Modernization | Alia Wilkinson',
     description:
-      'Replacing legacy on-prem systems with event-driven AWS patterns — Lambda, S3, and self-service data platforms for ALM hedging and analytics teams.',
+      'Replacing legacy on-prem systems with event-driven AWS patterns :Lambda, S3, and self-service data platforms for ALM hedging and analytics teams.',
     url: `${BASE_URL}/almModernization`,
     image: DEFAULT_IMAGE,
   },
@@ -55,7 +55,7 @@ export const seoData = {
   iacPipelineValidation: {
     title: 'IaC Pipeline Validation | Alia Wilkinson',
     description:
-      'Building integration test pipelines for Bicep IaC modules — automated testing, semantic versioning, and ACR publishing to keep infrastructure code trustworthy.',
+      'Building integration test pipelines for Bicep IaC modules :automated testing, semantic versioning, and ACR publishing to keep infrastructure code trustworthy.',
     url: `${BASE_URL}/iacPipelineValidation`,
     image: DEFAULT_IMAGE,
   },
@@ -69,7 +69,7 @@ export const seoData = {
   amplifyReactMigApp: {
     title: 'Amplify React Migration App | Alia Wilkinson',
     description:
-      'Full-stack Amplify React application that cut AWS migration time in half — improving speed, security, and error reduction for healthcare deployments.',
+      'Full-stack Amplify React application that cut AWS migration time in half :improving speed, security, and error reduction for healthcare deployments.',
     url: `${BASE_URL}/amplifyReactMigApp`,
     image: DEFAULT_IMAGE,
   },

@@ -117,7 +117,6 @@
         .navNote {
             position: absolute;
             top: calc(100% + 1.2rem);
-            right: 0;
             z-index: 2;
             max-width: min(22rem, calc(100vw - 3rem));
             border: 1px solid rgba(13, 47, 63, 0.16);
@@ -129,32 +128,21 @@
             font-size: 0.95rem;
             font-weight: 800;
             opacity: 0;
-            transform: translateY(-0.35rem);
+            transform: translateX(-50%) translateY(-0.35rem);
             pointer-events: none;
             transition: opacity 180ms ease, transform 180ms ease;
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: -0.45rem;
-                right: 1.1rem;
-                width: 0.8rem;
-                height: 0.8rem;
-                background: #F8F7F1;
-                border-left: 1px solid rgba(13, 47, 63, 0.16);
-                border-top: 1px solid rgba(13, 47, 63, 0.16);
-                transform: rotate(45deg);
-            }
+            white-space: nowrap;
 
             @media (max-width: $md) {
                 right: 0;
+                left: auto;
+                transform: translateY(-0.35rem);
                 top: calc(100% + 1rem);
             }
         }
 
         .navNoteVisible {
             opacity: 1;
-            transform: translateY(0);
         }
     }
 }
