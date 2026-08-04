@@ -8,10 +8,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["new beginnings", "innocence", "leap of faith"],
-        "reversed": ["recklessness", "fear of change", "poor judgment"]
+        "upright": [
+          "new beginnings",
+          "innocence",
+          "leap of faith"
+        ],
+        "reversed": [
+          "recklessness",
+          "fear of change",
+          "poor judgment"
+        ]
       },
-      "themes": ["journey", "potential", "freedom"],
+      "themes": [
+        "journey",
+        "potential",
+        "freedom"
+      ],
       "element": "air",
       "astrology": "uranus",
       "archetype": "wanderer",
@@ -28,10 +40,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["manifestation", "resourcefulness", "willpower"],
-        "reversed": ["manipulation", "untapped potential", "deception"]
+        "upright": [
+          "manifestation",
+          "resourcefulness",
+          "willpower"
+        ],
+        "reversed": [
+          "manipulation",
+          "untapped potential",
+          "deception"
+        ]
       },
-      "themes": ["creation", "skill", "power"],
+      "themes": [
+        "creation",
+        "skill",
+        "power"
+      ],
       "element": "air",
       "astrology": "mercury",
       "archetype": "alchemist",
@@ -48,10 +72,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["intuition", "mystery", "inner knowing"],
-        "reversed": ["secrets", "disconnection", "ignored instincts"]
+        "upright": [
+          "intuition",
+          "mystery",
+          "inner knowing"
+        ],
+        "reversed": [
+          "secrets",
+          "disconnection",
+          "ignored instincts"
+        ]
       },
-      "themes": ["intuition", "wisdom", "subconscious"],
+      "themes": [
+        "intuition",
+        "wisdom",
+        "subconscious"
+      ],
       "element": "water",
       "astrology": "moon",
       "archetype": "oracle",
@@ -68,10 +104,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["abundance", "nurturing", "creativity"],
-        "reversed": ["neglect", "creative block", "dependence"]
+        "upright": [
+          "abundance",
+          "nurturing",
+          "creativity"
+        ],
+        "reversed": [
+          "neglect",
+          "creative block",
+          "dependence"
+        ]
       },
-      "themes": ["fertility", "growth", "nurturing"],
+      "themes": [
+        "fertility",
+        "growth",
+        "nurturing"
+      ],
       "element": "earth",
       "astrology": "venus",
       "archetype": "mother",
@@ -88,10 +136,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["authority", "structure", "stability"],
-        "reversed": ["rigidity", "tyranny", "lack of discipline"]
+        "upright": [
+          "authority",
+          "structure",
+          "stability"
+        ],
+        "reversed": [
+          "rigidity",
+          "tyranny",
+          "lack of discipline"
+        ]
       },
-      "themes": ["leadership", "order", "foundation"],
+      "themes": [
+        "leadership",
+        "order",
+        "foundation"
+      ],
       "element": "fire",
       "astrology": "aries",
       "archetype": "ruler",
@@ -108,10 +168,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["tradition", "mentorship", "spiritual guidance"],
-        "reversed": ["rebellion", "unconventional path", "dogma"]
+        "upright": [
+          "tradition",
+          "mentorship",
+          "spiritual guidance"
+        ],
+        "reversed": [
+          "rebellion",
+          "unconventional path",
+          "dogma"
+        ]
       },
-      "themes": ["teaching", "institutions", "belief"],
+      "themes": [
+        "teaching",
+        "institutions",
+        "belief"
+      ],
       "element": "earth",
       "astrology": "taurus",
       "archetype": "teacher",
@@ -128,10 +200,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["alignment", "partnership", "conscious choice"],
-        "reversed": ["disharmony", "misalignment", "avoidance"]
+        "upright": [
+          "alignment",
+          "partnership",
+          "conscious choice"
+        ],
+        "reversed": [
+          "disharmony",
+          "misalignment",
+          "avoidance"
+        ]
       },
-      "themes": ["relationships", "choice", "values"],
+      "themes": [
+        "relationships",
+        "choice",
+        "values"
+      ],
       "element": "air",
       "astrology": "gemini",
       "archetype": "partner",
@@ -148,10 +232,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["determination", "victory", "focused will"],
-        "reversed": ["aggression", "lack of direction", "scattered force"]
+        "upright": [
+          "determination",
+          "victory",
+          "focused will"
+        ],
+        "reversed": [
+          "aggression",
+          "lack of direction",
+          "scattered force"
+        ]
       },
-      "themes": ["willpower", "triumph", "control"],
+      "themes": [
+        "willpower",
+        "triumph",
+        "control"
+      ],
       "element": "water",
       "astrology": "cancer",
       "archetype": "warrior",
@@ -168,10 +264,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["courage", "patience", "inner power"],
-        "reversed": ["self-doubt", "raw impulse", "burnout"]
+        "upright": [
+          "courage",
+          "patience",
+          "inner power"
+        ],
+        "reversed": [
+          "self-doubt",
+          "raw impulse",
+          "burnout"
+        ]
       },
-      "themes": ["resilience", "compassion", "mastery"],
+      "themes": [
+        "resilience",
+        "compassion",
+        "mastery"
+      ],
       "element": "fire",
       "astrology": "leo",
       "archetype": "gentle force",
@@ -188,10 +296,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["introspection", "solitude", "inner guidance"],
-        "reversed": ["isolation", "avoidance", "loneliness"]
+        "upright": [
+          "introspection",
+          "solitude",
+          "inner guidance"
+        ],
+        "reversed": [
+          "isolation",
+          "avoidance",
+          "loneliness"
+        ]
       },
-      "themes": ["wisdom", "solitude", "searching"],
+      "themes": [
+        "wisdom",
+        "solitude",
+        "searching"
+      ],
       "element": "earth",
       "astrology": "virgo",
       "archetype": "sage",
@@ -208,10 +328,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["cycles", "turning point", "destiny"],
-        "reversed": ["bad luck", "resistance to change", "stagnation"]
+        "upright": [
+          "cycles",
+          "turning point",
+          "destiny"
+        ],
+        "reversed": [
+          "bad luck",
+          "resistance to change",
+          "stagnation"
+        ]
       },
-      "themes": ["fate", "cycles", "change"],
+      "themes": [
+        "fate",
+        "cycles",
+        "change"
+      ],
       "element": "fire",
       "astrology": "jupiter",
       "archetype": "fate",
@@ -228,10 +360,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["fairness", "truth", "accountability"],
-        "reversed": ["dishonesty", "avoidance", "unfairness"]
+        "upright": [
+          "fairness",
+          "truth",
+          "accountability"
+        ],
+        "reversed": [
+          "dishonesty",
+          "avoidance",
+          "unfairness"
+        ]
       },
-      "themes": ["balance", "law", "consequence"],
+      "themes": [
+        "balance",
+        "law",
+        "consequence"
+      ],
       "element": "air",
       "astrology": "libra",
       "archetype": "judge",
@@ -248,10 +392,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["surrender", "new perspective", "pause"],
-        "reversed": ["stalling", "resistance", "martyrdom"]
+        "upright": [
+          "surrender",
+          "new perspective",
+          "pause"
+        ],
+        "reversed": [
+          "stalling",
+          "resistance",
+          "martyrdom"
+        ]
       },
-      "themes": ["sacrifice", "patience", "perspective"],
+      "themes": [
+        "sacrifice",
+        "patience",
+        "perspective"
+      ],
       "element": "water",
       "astrology": "neptune",
       "archetype": "martyr",
@@ -268,10 +424,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["transformation", "endings", "release"],
-        "reversed": ["resistance", "fear of change", "stagnation"]
+        "upright": [
+          "transformation",
+          "endings",
+          "release"
+        ],
+        "reversed": [
+          "resistance",
+          "fear of change",
+          "stagnation"
+        ]
       },
-      "themes": ["transition", "renewal", "letting go"],
+      "themes": [
+        "transition",
+        "renewal",
+        "letting go"
+      ],
       "element": "water",
       "astrology": "scorpio",
       "archetype": "transformer",
@@ -288,10 +456,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["balance", "moderation", "integration"],
-        "reversed": ["excess", "imbalance", "impatience"]
+        "upright": [
+          "balance",
+          "moderation",
+          "integration"
+        ],
+        "reversed": [
+          "excess",
+          "imbalance",
+          "impatience"
+        ]
       },
-      "themes": ["harmony", "patience", "alchemy"],
+      "themes": [
+        "harmony",
+        "patience",
+        "alchemy"
+      ],
       "element": "fire",
       "astrology": "sagittarius",
       "archetype": "healer",
@@ -308,10 +488,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["bondage", "shadow", "attachment"],
-        "reversed": ["liberation", "release", "reclaiming power"]
+        "upright": [
+          "bondage",
+          "shadow",
+          "attachment"
+        ],
+        "reversed": [
+          "liberation",
+          "release",
+          "reclaiming power"
+        ]
       },
-      "themes": ["temptation", "addiction", "materialism"],
+      "themes": [
+        "temptation",
+        "addiction",
+        "materialism"
+      ],
       "element": "earth",
       "astrology": "capricorn",
       "archetype": "shadow",
@@ -328,10 +520,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["upheaval", "revelation", "sudden change"],
-        "reversed": ["avoidance", "delayed disaster", "fear of change"]
+        "upright": [
+          "upheaval",
+          "revelation",
+          "sudden change"
+        ],
+        "reversed": [
+          "avoidance",
+          "delayed disaster",
+          "fear of change"
+        ]
       },
-      "themes": ["destruction", "awakening", "liberation"],
+      "themes": [
+        "destruction",
+        "awakening",
+        "liberation"
+      ],
       "element": "fire",
       "astrology": "mars",
       "archetype": "destroyer",
@@ -348,10 +552,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["hope", "renewal", "inspiration"],
-        "reversed": ["despair", "disconnection", "self-doubt"]
+        "upright": [
+          "hope",
+          "renewal",
+          "inspiration"
+        ],
+        "reversed": [
+          "despair",
+          "disconnection",
+          "self-doubt"
+        ]
       },
-      "themes": ["healing", "faith", "serenity"],
+      "themes": [
+        "healing",
+        "faith",
+        "serenity"
+      ],
       "element": "air",
       "astrology": "aquarius",
       "archetype": "healer",
@@ -368,10 +584,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["illusion", "fear", "subconscious"],
-        "reversed": ["clarity emerging", "facing fears", "release"]
+        "upright": [
+          "illusion",
+          "fear",
+          "subconscious"
+        ],
+        "reversed": [
+          "clarity emerging",
+          "facing fears",
+          "release"
+        ]
       },
-      "themes": ["deception", "anxiety", "dreams"],
+      "themes": [
+        "deception",
+        "anxiety",
+        "dreams"
+      ],
       "element": "water",
       "astrology": "pisces",
       "archetype": "dreamer",
@@ -388,10 +616,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["joy", "vitality", "clarity"],
-        "reversed": ["dimmed joy", "overconfidence", "burnout"]
+        "upright": [
+          "joy",
+          "vitality",
+          "clarity"
+        ],
+        "reversed": [
+          "dimmed joy",
+          "overconfidence",
+          "burnout"
+        ]
       },
-      "themes": ["success", "warmth", "truth"],
+      "themes": [
+        "success",
+        "warmth",
+        "truth"
+      ],
       "element": "fire",
       "astrology": "sun",
       "archetype": "child",
@@ -408,10 +648,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["calling", "reckoning", "rebirth"],
-        "reversed": ["self-doubt", "ignoring the call", "avoidance"]
+        "upright": [
+          "calling",
+          "reckoning",
+          "rebirth"
+        ],
+        "reversed": [
+          "self-doubt",
+          "ignoring the call",
+          "avoidance"
+        ]
       },
-      "themes": ["purpose", "awakening", "accountability"],
+      "themes": [
+        "purpose",
+        "awakening",
+        "accountability"
+      ],
       "element": "fire",
       "astrology": "pluto",
       "archetype": "awakener",
@@ -428,10 +680,22 @@
       "suit": null,
       "rank": null,
       "keywords": {
-        "upright": ["completion", "integration", "achievement"],
-        "reversed": ["incompletion", "shortcuts", "unfinished business"]
+        "upright": [
+          "completion",
+          "integration",
+          "achievement"
+        ],
+        "reversed": [
+          "incompletion",
+          "shortcuts",
+          "unfinished business"
+        ]
       },
-      "themes": ["wholeness", "fulfillment", "cycles"],
+      "themes": [
+        "wholeness",
+        "fulfillment",
+        "cycles"
+      ],
       "element": "earth",
       "astrology": "saturn",
       "archetype": "dancer",
@@ -440,45 +704,1797 @@
         "reversed": "You're in the last stretch but not crossing the finish line - or declaring done what still needs integration."
       }
     },
-    {"id":"wa01","name":"Ace of Wands","arcana":"minor","number":1,"suit":"wands","rank":"Ace","keywords":{"upright":["inspiration","new venture","creative spark"],"reversed":["delays","blocked creativity","false start"]},"themes":["creation","potential","ignition"],"element":"fire","astrology":null,"archetype":null,"summary":{"upright":"A spark of creative energy arrives - an idea, an opportunity, a sudden drive. Act on it before the flame cools.","reversed":"The spark is there but can't catch. Something is blocking the ignition - timing, fear, or scattered energy preventing launch."}},
-    {"id":"wa02","name":"Two of Wands","arcana":"minor","number":2,"suit":"wands","rank":"Two","keywords":{"upright":["planning","decisions","future vision"],"reversed":["indecision","playing safe","fear of unknown"]},"themes":["strategy","ambition","choice"],"element":"fire","astrology":"mars in aries","archetype":null,"summary":{"upright":"You're holding the map and choosing the route. The planning phase is active - commit to a direction before the window closes.","reversed":"Analysis paralysis or choosing comfort over growth. You can see the bigger world but won't leave the castle walls."}},
-    {"id":"wa03","name":"Three of Wands","arcana":"minor","number":3,"suit":"wands","rank":"Three","keywords":{"upright":["expansion","foresight","progress"],"reversed":["delays","obstacles","frustration"]},"themes":["growth","exploration","momentum"],"element":"fire","astrology":"sun in aries","archetype":null,"summary":{"upright":"Your plans are taking shape and the horizon is opening. Ships are sailing - what you set in motion is gaining momentum.","reversed":"Expected progress stalls. External obstacles or poor planning mean the ships haven't left port yet."}},
-    {"id":"wa04","name":"Four of Wands","arcana":"minor","number":4,"suit":"wands","rank":"Four","keywords":{"upright":["celebration","homecoming","harmony"],"reversed":["tension at home","instability","lack of support"]},"themes":["community","joy","milestones"],"element":"fire","astrology":"venus in aries","archetype":null,"summary":{"upright":"A moment of genuine celebration and stability. Something has landed well - honor the milestone before moving to the next thing.","reversed":"The foundation feels shaky or the celebration rings hollow. Home base needs attention before you can build higher."}},
-    {"id":"wa05","name":"Five of Wands","arcana":"minor","number":5,"suit":"wands","rank":"Five","keywords":{"upright":["conflict","competition","tension"],"reversed":["avoidance","inner conflict","resolution"]},"themes":["struggle","rivalry","growth through friction"],"element":"fire","astrology":"saturn in leo","archetype":null,"summary":{"upright":"Creative friction and competing agendas. This isn't destructive - it's the messy middle where ideas sharpen against each other.","reversed":"You're either avoiding necessary confrontation or the conflict has moved internal. Name the tension to resolve it."}},
-    {"id":"wa06","name":"Six of Wands","arcana":"minor","number":6,"suit":"wands","rank":"Six","keywords":{"upright":["victory","recognition","confidence"],"reversed":["ego","fall from grace","private success"]},"themes":["achievement","leadership","pride"],"element":"fire","astrology":"jupiter in leo","archetype":null,"summary":{"upright":"Public recognition for something you've earned. Accept the win and the visibility that comes with it - you've earned this parade.","reversed":"The victory is private, the recognition delayed, or ego is outpacing the actual achievement. Check what's real."}},
-    {"id":"wa07","name":"Seven of Wands","arcana":"minor","number":7,"suit":"wands","rank":"Seven","keywords":{"upright":["perseverance","defense","standing ground"],"reversed":["overwhelmed","giving up","exhaustion"]},"themes":["courage","boundaries","persistence"],"element":"fire","astrology":"mars in leo","archetype":null,"summary":{"upright":"You're being challenged and the high ground is yours to keep - but only if you hold it. Stand firm on what you've built.","reversed":"The defense is exhausting you. You're either fighting battles that aren't worth winning or running out of fuel to hold the line."}},
-    {"id":"wa08","name":"Eight of Wands","arcana":"minor","number":8,"suit":"wands","rank":"Eight","keywords":{"upright":["speed","momentum","swift action"],"reversed":["delays","frustration","waiting"]},"themes":["movement","progress","alignment"],"element":"fire","astrology":"mercury in sagittarius","archetype":null,"summary":{"upright":"Everything is moving fast and in the same direction. Ride the momentum - this is a window of rapid progress and aligned action.","reversed":"Things that should be moving aren't. Frustrating delays, miscommunication, or misaligned timing slow what should be swift."}},
-    {"id":"wa09","name":"Nine of Wands","arcana":"minor","number":9,"suit":"wands","rank":"Nine","keywords":{"upright":["resilience","persistence","last stand"],"reversed":["paranoia","exhaustion","stubbornness"]},"themes":["endurance","boundaries","grit"],"element":"fire","astrology":"moon in sagittarius","archetype":null,"summary":{"upright":"You're wounded but still standing. One more push - this card says you have more reserves than you think, even when you feel spent.","reversed":"Hypervigilance has replaced healthy caution. You're so braced for the next hit that you can't distinguish real threats from shadows."}},
-    {"id":"wa10","name":"Ten of Wands","arcana":"minor","number":10,"suit":"wands","rank":"Ten","keywords":{"upright":["burden","responsibility","overcommitment"],"reversed":["delegation","release","burnout recovery"]},"themes":["weight","duty","limits"],"element":"fire","astrology":"saturn in sagittarius","archetype":null,"summary":{"upright":"You're carrying more than your share and it shows. The load isn't sustainable - something needs to be set down or handed off.","reversed":"You're learning to delegate, or the universe is forcing you to. The burden can't continue - release is coming whether you choose it or not."}},
-    {"id":"wa11","name":"Page of Wands","arcana":"minor","number":11,"suit":"wands","rank":"Page","keywords":{"upright":["enthusiasm","exploration","discovery"],"reversed":["hesitation","lack of direction","immaturity"]},"themes":["curiosity","beginnings","spark"],"element":"fire","astrology":null,"archetype":"student","summary":{"upright":"Fresh creative energy and the excitement of a new direction. You don't need to know the full path - just follow what lights you up.","reversed":"The spark is there but you're second-guessing it into nothing. Stop researching and start experimenting."}},
-    {"id":"wa12","name":"Knight of Wands","arcana":"minor","number":12,"suit":"wands","rank":"Knight","keywords":{"upright":["passion","adventure","boldness"],"reversed":["impulsiveness","burnout","scattered energy"]},"themes":["action","drive","restlessness"],"element":"fire","astrology":null,"archetype":"adventurer","summary":{"upright":"Charge forward with full conviction. This is the energy of bold moves, passionate pursuit, and magnetic confidence in action.","reversed":"All gas, no steering. The passion is real but it's scattered across too many directions or burning bridges on the way through."}},
-    {"id":"wa13","name":"Queen of Wands","arcana":"minor","number":13,"suit":"wands","rank":"Queen","keywords":{"upright":["confidence","warmth","determination"],"reversed":["jealousy","demanding","insecurity"]},"themes":["charisma","leadership","independence"],"element":"fire","astrology":null,"archetype":"queen","summary":{"upright":"Magnetic confidence grounded in genuine warmth. You lead by being fully yourself - people follow because your fire is real, not performed.","reversed":"The confidence has tipped into defensiveness or the warmth has cooled into control. What are you protecting so fiercely?"}},
-    {"id":"wa14","name":"King of Wands","arcana":"minor","number":14,"suit":"wands","rank":"King","keywords":{"upright":["visionary","leadership","big picture"],"reversed":["tyranny","impulsiveness","ruthlessness"]},"themes":["command","vision","enterprise"],"element":"fire","astrology":null,"archetype":"king","summary":{"upright":"Lead with vision and inspire through boldness. You see the full picture and have the charisma to rally others toward it.","reversed":"Vision without empathy becomes tyranny. You're so certain of the destination that you've stopped caring who gets burned on the way."}},
-    {"id":"cu01","name":"Ace of Cups","arcana":"minor","number":1,"suit":"cups","rank":"Ace","keywords":{"upright":["new love","emotional beginning","compassion"],"reversed":["emotional loss","blocked feelings","emptiness"]},"themes":["love","intuition","opening"],"element":"water","astrology":null,"archetype":null,"summary":{"upright":"An emotional new beginning - love, creative inspiration, or spiritual awakening pouring in. Open your hands and receive it.","reversed":"The cup is offered but you can't receive it. Emotional walls, past hurt, or self-protection are blocking what's trying to reach you."}},
-    {"id":"cu02","name":"Two of Cups","arcana":"minor","number":2,"suit":"cups","rank":"Two","keywords":{"upright":["connection","partnership","mutual respect"],"reversed":["imbalance","disharmony","codependence"]},"themes":["union","reciprocity","attraction"],"element":"water","astrology":"venus in cancer","archetype":null,"summary":{"upright":"A genuine meeting of equals - two people seeing each other clearly and choosing to show up. Mutual attraction grounded in respect.","reversed":"The balance is off. One person is giving more, or the connection that looked like partnership is actually codependence."}},
-    {"id":"cu03","name":"Three of Cups","arcana":"minor","number":3,"suit":"cups","rank":"Three","keywords":{"upright":["celebration","friendship","community"],"reversed":["overindulgence","gossip","isolation"]},"themes":["joy","belonging","collaboration"],"element":"water","astrology":"mercury in cancer","archetype":null,"summary":{"upright":"Genuine celebration with people who matter. Creative collaboration, friendship, and the kind of joy that comes from being known.","reversed":"The party has gone too far, or you're on the outside of one. Overindulgence, social exhaustion, or feeling excluded from your own circles."}},
-    {"id":"cu04","name":"Four of Cups","arcana":"minor","number":4,"suit":"cups","rank":"Four","keywords":{"upright":["apathy","contemplation","discontent"],"reversed":["awareness","acceptance","motivation"]},"themes":["boredom","meditation","missed opportunity"],"element":"water","astrology":"moon in cancer","archetype":null,"summary":{"upright":"You're so focused on what's wrong that you can't see what's being offered. The universe is extending a cup - but you're staring at the ground.","reversed":"The fog of apathy is lifting. You're starting to see options that were always there, or finally ready to engage with what's available."}},
-    {"id":"cu05","name":"Five of Cups","arcana":"minor","number":5,"suit":"cups","rank":"Five","keywords":{"upright":["grief","loss","regret"],"reversed":["acceptance","moving forward","forgiveness"]},"themes":["mourning","perspective","recovery"],"element":"water","astrology":"mars in scorpio","archetype":null,"summary":{"upright":"Real grief over real loss - but notice the two cups still standing behind you. The pain is valid AND there's something left to work with.","reversed":"The mourning period is ending. You're turning around, seeing what remains, and deciding to build from there rather than stay in the loss."}},
-    {"id":"cu06","name":"Six of Cups","arcana":"minor","number":6,"suit":"cups","rank":"Six","keywords":{"upright":["nostalgia","innocence","reunion"],"reversed":["stuck in past","idealization","naivety"]},"themes":["memory","childhood","simplicity"],"element":"water","astrology":"sun in scorpio","archetype":null,"summary":{"upright":"Something from the past resurfaces with warmth - a memory, a person, a simpler version of joy. There's medicine in what you've outgrown.","reversed":"You're romanticizing the past rather than living in the present. Nostalgia has become an escape rather than a resource."}},
-    {"id":"cu07","name":"Seven of Cups","arcana":"minor","number":7,"suit":"cups","rank":"Seven","keywords":{"upright":["fantasy","choices","illusion"],"reversed":["clarity","focus","decisiveness"]},"themes":["imagination","distraction","desire"],"element":"water","astrology":"venus in scorpio","archetype":null,"summary":{"upright":"Too many options, most of them fantasies. Not all these cups contain what they promise - discernment is required before choosing.","reversed":"The fog of possibility clears into focus. You're finally narrowing down what you actually want versus what just looks shiny."}},
-    {"id":"cu08","name":"Eight of Cups","arcana":"minor","number":8,"suit":"cups","rank":"Eight","keywords":{"upright":["walking away","seeking depth","disillusionment"],"reversed":["avoidance","fear of change","drifting"]},"themes":["departure","growth","dissatisfaction"],"element":"water","astrology":"saturn in pisces","archetype":null,"summary":{"upright":"What you built is technically fine - but something essential is missing. Walking away from adequacy to seek something real takes courage.","reversed":"You know you should leave but can't bring yourself to. Or you're drifting away without the honesty of a clean departure."}},
-    {"id":"cu09","name":"Nine of Cups","arcana":"minor","number":9,"suit":"cups","rank":"Nine","keywords":{"upright":["contentment","satisfaction","wish fulfilled"],"reversed":["complacency","materialism","dissatisfaction"]},"themes":["pleasure","gratitude","abundance"],"element":"water","astrology":"jupiter in pisces","archetype":null,"summary":{"upright":"The wish card. Something you've wanted is arriving or is already here - genuine emotional satisfaction and contentment earned.","reversed":"You got what you wanted and it's not enough, or you're so focused on the next want that you can't enjoy what's in front of you."}},
-    {"id":"cu10","name":"Ten of Cups","arcana":"minor","number":10,"suit":"cups","rank":"Ten","keywords":{"upright":["emotional fulfillment","family","harmony"],"reversed":["broken bonds","disconnection","unrealistic expectations"]},"themes":["love","belonging","wholeness"],"element":"water","astrology":"mars in pisces","archetype":null,"summary":{"upright":"The full expression of emotional happiness - love, belonging, and alignment with the people who matter most. This is real.","reversed":"The picture-perfect exterior hides real disconnection. Something in the family system or relationship needs honest attention."}},
-    {"id":"cu11","name":"Page of Cups","arcana":"minor","number":11,"suit":"cups","rank":"Page","keywords":{"upright":["creative spark","intuition","wonder"],"reversed":["emotional immaturity","escapism","blocked creativity"]},"themes":["imagination","sensitivity","messages"],"element":"water","astrology":null,"archetype":"student","summary":{"upright":"A message from the subconscious arrives - creative inspiration, a surprising emotional connection, or an invitation to play.","reversed":"Emotional immaturity or using fantasy to escape rather than create. The fish in the cup needs to be looked at, not hidden from."}},
-    {"id":"cu12","name":"Knight of Cups","arcana":"minor","number":12,"suit":"cups","rank":"Knight","keywords":{"upright":["romance","charm","following the heart"],"reversed":["moodiness","unrealistic","jealousy"]},"themes":["devotion","idealism","pursuit"],"element":"water","astrology":null,"archetype":"romantic","summary":{"upright":"Following your heart with grace and conviction. The knight offers his cup - this is romantic pursuit, creative devotion, or emotional courage in action.","reversed":"Charm without substance, or emotions so turbulent they sabotage what you're pursuing. Is this devotion or obsession?"}},
-    {"id":"cu13","name":"Queen of Cups","arcana":"minor","number":13,"suit":"cups","rank":"Queen","keywords":{"upright":["emotional intelligence","compassion","intuition"],"reversed":["martyrdom","codependence","emotional manipulation"]},"themes":["empathy","depth","nurturing"],"element":"water","astrology":null,"archetype":"queen","summary":{"upright":"Deep emotional intelligence and the ability to hold space without drowning. You see what others feel before they name it - use that wisely.","reversed":"Empathy without boundaries becomes martyrdom or manipulation. You're either giving too much or using emotional insight as leverage."}},
-    {"id":"cu14","name":"King of Cups","arcana":"minor","number":14,"suit":"cups","rank":"King","keywords":{"upright":["emotional mastery","diplomacy","calm authority"],"reversed":["emotional manipulation","volatility","coldness"]},"themes":["composure","wisdom","balance"],"element":"water","astrology":null,"archetype":"king","summary":{"upright":"Mastery over emotion without suppression. You navigate turbulent waters with calm because you've done the inner work - not because you've shut down.","reversed":"The calm exterior hides either volatility or emptiness. Emotional control has become emotional suppression or quiet manipulation."}},
-    {"id":"sw01","name":"Ace of Swords","arcana":"minor","number":1,"suit":"swords","rank":"Ace","keywords":{"upright":["clarity","breakthrough","truth"],"reversed":["confusion","misinformation","clouded thinking"]},"themes":["intellect","revelation","precision"],"element":"air","astrology":null,"archetype":null,"summary":{"upright":"A breakthrough in understanding arrives like a blade cutting through fog. Mental clarity, a new idea, or a truth that changes everything.","reversed":"The sword is there but you can't see it clearly. Confusion, misinformation, or your own mental noise is distorting what should be obvious."}},
-    {"id":"sw02","name":"Two of Swords","arcana":"minor","number":2,"suit":"swords","rank":"Two","keywords":{"upright":["stalemate","difficult choice","avoidance"],"reversed":["indecision","information overload","overwhelm"]},"themes":["denial","choice","impasse"],"element":"air","astrology":"moon in libra","archetype":null,"summary":{"upright":"You're blocking out information to avoid making a painful choice. The blindfold is self-imposed - remove it and decide.","reversed":"Information overload has made the decision harder, not easier. Stop gathering data and trust what you already know."}},
-    {"id":"sw03","name":"Three of Swords","arcana":"minor","number":3,"suit":"swords","rank":"Three","keywords":{"upright":["heartbreak","grief","painful truth"],"reversed":["healing","forgiveness","release"]},"themes":["sorrow","clarity through pain","honesty"],"element":"air","astrology":"saturn in libra","archetype":null,"summary":{"upright":"A truth that hurts. The pain is real and you're allowed to feel it fully - but notice that clarity often arrives dressed as heartbreak.","reversed":"The worst of the pain is passing. Healing is happening beneath the surface even if it doesn't feel complete yet."}},
-    {"id":"sw04","name":"Four of Swords","arcana":"minor","number":4,"suit":"swords","rank":"Four","keywords":{"upright":["rest","recovery","contemplation"],"reversed":["restlessness","burnout","forced rest"]},"themes":["stillness","recuperation","sanctuary"],"element":"air","astrology":"jupiter in libra","archetype":null,"summary":{"upright":"Deliberate rest - not collapse, not laziness. You've been through something and your mind needs recovery before the next engagement.","reversed":"You can't rest or won't. Either restlessness drives you back out too soon, or your body forces the rest your mind refuses."}},
-    {"id":"sw05","name":"Five of Swords","arcana":"minor","number":5,"suit":"swords","rank":"Five","keywords":{"upright":["conflict","defeat","hollow victory"],"reversed":["reconciliation","making amends","moving on"]},"themes":["ego","loss","winning at cost"],"element":"air","astrology":"venus in aquarius","archetype":null,"summary":{"upright":"Someone won and everyone lost. This is the hollow victory - technically correct but relationally devastating. Was being right worth the cost?","reversed":"Laying down weapons and walking toward repair. The fight is over - now comes the harder work of reconciliation."}},
-    {"id":"sw06","name":"Six of Swords","arcana":"minor","number":6,"suit":"swords","rank":"Six","keywords":{"upright":["transition","moving on","calmer waters"],"reversed":["stuck","unresolved baggage","resistance"]},"themes":["passage","healing","departure"],"element":"air","astrology":"mercury in aquarius","archetype":null,"summary":{"upright":"Leaving troubled waters for calmer ones. The journey isn't joyful - it's necessary. You're carrying the swords with you, but the shore ahead is better.","reversed":"Unable or unwilling to leave. The boat won't sail because you keep returning to shore, or unresolved baggage weighs it down."}},
-    {"id":"sw07","name":"Seven of Swords","arcana":"minor","number":7,"suit":"swords","rank":"Seven","keywords":{"upright":["strategy","stealth","deception"],"reversed":["confession","imposter syndrome","coming clean"]},"themes":["cunning","secrets","self-deception"],"element":"air","astrology":"moon in aquarius","archetype":null,"summary":{"upright":"Someone is being clever rather than honest - possibly you. Strategy is fine, but check whether this is smart or just sneaky.","reversed":"The secret is coming out, or you're finally being honest about something you've been hiding. Relief lives on the other side of confession."}},
-    {"id":"sw08","name":"Eight of Swords","arcana":"minor","number":8,"suit":"swords","rank":"Eight","keywords":{"upright":["restriction","helplessness","self-imposed limits"],"reversed":["freedom","new perspective","empowerment"]},"themes":["imprisonment","victimhood","mental traps"],"element":"air","astrology":"jupiter in gemini","archetype":null,"summary":{"upright":"You feel trapped - but the bonds are mental, not physical. The blindfold and the ropes are beliefs you could question if you were willing to try.","reversed":"The realization that the cage was always open. A shift in perspective reveals that the restrictions were self-imposed all along."}},
-    {"id":"sw09","name":"Nine of Swords","arcana":"minor","number":9,"suit":"swords","rank":"Nine","keywords":{"upright":["anxiety","nightmares","dread"],"reversed":["hope","recovery","facing fears"]},"themes":["worry","mental anguish","insomnia"],"element":"air","astrology":"mars in gemini","archetype":null,"summary":{"upright":"3 AM anxiety - the kind that spirals in the dark. The fears feel enormous right now, but ask: how many of them are actually real vs. projected?","reversed":"The nightmares lose their grip. You're naming the fears, seeking help, or simply reaching the point where the anxiety breaks."}},
-    {"id":"sw10","name":"Ten of Swords","arcana":"minor","number":10,"suit":"swords","rank":"Ten","keywords":{"upright":["rock bottom","ending","betrayal"],"reversed":["recovery","rising again","worst is over"]},"themes":["finality","surrender","dawn"],"element":"air","astrology":"sun in gemini","archetype":null,"summary":{"upright":"The absolute bottom - but notice the dawn on the horizon. This is over-kill by design. There's nowhere left to fall, which means the only direction is up.","reversed":"The worst has passed. You're facedown but starting to lift your head. Recovery begins not with a leap but with the first exhale."}},
-    {"id":"sw11","name":"Page of Swords","arcana":"minor","number":11,"suit":"swords","rank":"Page","keywords":{"upright":["curiosity","mental agility","vigilance"],"reversed":["gossip","scattered thoughts","cynicism"]},"themes":["inquiry","alertness","communication"],"element":"air","astrology":null,"archetype":"student","summary":{"upright":"Sharp, curious, alert - your mind is hungry and quick right now. Channel that mental energy into research, writing, or truth-seeking.","reversed":"The sharpness has turned to criticism or gossip. Mental energy without direction becomes anxious chatter or cutting words."}},
-    {"id":"sw12","name":"Knight of Swords","arcana":"minor","number":12,"suit":"swords","rank":"Knight","keywords":{"upright":["ambition","action","directness"],"reversed":["recklessness","burnout","tunnel vision"]},"themes":["charge","intellect","speed"],"element":"air","astrology":null,"archetype":"warrior","summary":{"upright":"Charging forward with intellectual certainty and speed. You know what needs to happen and you're doing it - but make sure you're not leaving bodies behind.","reversed":"Moving too fast without thinking, or so locked into one approach that you can't see it's not working. Speed without wisdom is just chaos."}},
-    {"id":"sw13","name":"Queen of Swords","arcana":"minor","number":13,"suit":"swords","rank":"Queen","keywords":{"upright":["clear boundaries","independence","direct truth"],"reversed":["coldness","bitterness","overly guarded"]},"themes":["clarity","perception","self-reliance"],"element":"air","astrology":null,"archetype":"queen","summary":{"upright":"She sees clearly and speaks directly. This is the energy of someone who has been through enough to know what's true - and won't pretend otherwise.","reversed":"The clarity has hardened into coldness, or past hurt has built walls where doors should be. Truth without compassion cuts too deep."}},
-    {"id":"sw14","name":"King of Swords","arcana":"minor","number":14,"suit":"swords","rank":"King","keywords":{"upright":["intellectual authority","truth","clear thinking"],"reversed":["manipulation","cruelty","abuse of power"]},"themes":["logic","justice","mental mastery"],"element":"air","astrology":null,"archetype":"king","summary":{"upright":"Mastery of thought and communication - the ability to cut through noise and speak what's true with authority and precision.","reversed":"Intellect weaponized. Using logic to dominate, manipulate, or dismiss what doesn't fit your framework. Power corrupts clear thinking."}}
+    {
+      "id": "wa01",
+      "name": "Ace of Wands",
+      "arcana": "minor",
+      "number": 1,
+      "suit": "wands",
+      "rank": "Ace",
+      "keywords": {
+        "upright": [
+          "inspiration",
+          "new venture",
+          "creative spark"
+        ],
+        "reversed": [
+          "delays",
+          "blocked creativity",
+          "false start"
+        ]
+      },
+      "themes": [
+        "creation",
+        "potential",
+        "ignition"
+      ],
+      "element": "fire",
+      "astrology": null,
+      "archetype": null,
+      "summary": {
+        "upright": "A spark of creative energy arrives - an idea, an opportunity, a sudden drive. Act on it before the flame cools.",
+        "reversed": "The spark is there but can't catch. Something is blocking the ignition - timing, fear, or scattered energy preventing launch."
+      }
+    },
+    {
+      "id": "wa02",
+      "name": "Two of Wands",
+      "arcana": "minor",
+      "number": 2,
+      "suit": "wands",
+      "rank": "Two",
+      "keywords": {
+        "upright": [
+          "planning",
+          "decisions",
+          "future vision"
+        ],
+        "reversed": [
+          "indecision",
+          "playing safe",
+          "fear of unknown"
+        ]
+      },
+      "themes": [
+        "strategy",
+        "ambition",
+        "choice"
+      ],
+      "element": "fire",
+      "astrology": "mars in aries",
+      "archetype": null,
+      "summary": {
+        "upright": "You're holding the map and choosing the route. The planning phase is active - commit to a direction before the window closes.",
+        "reversed": "Analysis paralysis or choosing comfort over growth. You can see the bigger world but won't leave the castle walls."
+      }
+    },
+    {
+      "id": "wa03",
+      "name": "Three of Wands",
+      "arcana": "minor",
+      "number": 3,
+      "suit": "wands",
+      "rank": "Three",
+      "keywords": {
+        "upright": [
+          "expansion",
+          "foresight",
+          "progress"
+        ],
+        "reversed": [
+          "delays",
+          "obstacles",
+          "frustration"
+        ]
+      },
+      "themes": [
+        "growth",
+        "exploration",
+        "momentum"
+      ],
+      "element": "fire",
+      "astrology": "sun in aries",
+      "archetype": null,
+      "summary": {
+        "upright": "Your plans are taking shape and the horizon is opening. Ships are sailing - what you set in motion is gaining momentum.",
+        "reversed": "Expected progress stalls. External obstacles or poor planning mean the ships haven't left port yet."
+      }
+    },
+    {
+      "id": "wa04",
+      "name": "Four of Wands",
+      "arcana": "minor",
+      "number": 4,
+      "suit": "wands",
+      "rank": "Four",
+      "keywords": {
+        "upright": [
+          "celebration",
+          "homecoming",
+          "harmony"
+        ],
+        "reversed": [
+          "tension at home",
+          "instability",
+          "lack of support"
+        ]
+      },
+      "themes": [
+        "community",
+        "joy",
+        "milestones"
+      ],
+      "element": "fire",
+      "astrology": "venus in aries",
+      "archetype": null,
+      "summary": {
+        "upright": "A moment of genuine celebration and stability. Something has landed well - honor the milestone before moving to the next thing.",
+        "reversed": "The foundation feels shaky or the celebration rings hollow. Home base needs attention before you can build higher."
+      }
+    },
+    {
+      "id": "wa05",
+      "name": "Five of Wands",
+      "arcana": "minor",
+      "number": 5,
+      "suit": "wands",
+      "rank": "Five",
+      "keywords": {
+        "upright": [
+          "conflict",
+          "competition",
+          "tension"
+        ],
+        "reversed": [
+          "avoidance",
+          "inner conflict",
+          "resolution"
+        ]
+      },
+      "themes": [
+        "struggle",
+        "rivalry",
+        "growth through friction"
+      ],
+      "element": "fire",
+      "astrology": "saturn in leo",
+      "archetype": null,
+      "summary": {
+        "upright": "Creative friction and competing agendas. This isn't destructive - it's the messy middle where ideas sharpen against each other.",
+        "reversed": "You're either avoiding necessary confrontation or the conflict has moved internal. Name the tension to resolve it."
+      }
+    },
+    {
+      "id": "wa06",
+      "name": "Six of Wands",
+      "arcana": "minor",
+      "number": 6,
+      "suit": "wands",
+      "rank": "Six",
+      "keywords": {
+        "upright": [
+          "victory",
+          "recognition",
+          "confidence"
+        ],
+        "reversed": [
+          "ego",
+          "fall from grace",
+          "private success"
+        ]
+      },
+      "themes": [
+        "achievement",
+        "leadership",
+        "pride"
+      ],
+      "element": "fire",
+      "astrology": "jupiter in leo",
+      "archetype": null,
+      "summary": {
+        "upright": "Public recognition for something you've earned. Accept the win and the visibility that comes with it - you've earned this parade.",
+        "reversed": "The victory is private, the recognition delayed, or ego is outpacing the actual achievement. Check what's real."
+      }
+    },
+    {
+      "id": "wa07",
+      "name": "Seven of Wands",
+      "arcana": "minor",
+      "number": 7,
+      "suit": "wands",
+      "rank": "Seven",
+      "keywords": {
+        "upright": [
+          "perseverance",
+          "defense",
+          "standing ground"
+        ],
+        "reversed": [
+          "overwhelmed",
+          "giving up",
+          "exhaustion"
+        ]
+      },
+      "themes": [
+        "courage",
+        "boundaries",
+        "persistence"
+      ],
+      "element": "fire",
+      "astrology": "mars in leo",
+      "archetype": null,
+      "summary": {
+        "upright": "You're being challenged and the high ground is yours to keep - but only if you hold it. Stand firm on what you've built.",
+        "reversed": "The defense is exhausting you. You're either fighting battles that aren't worth winning or running out of fuel to hold the line."
+      }
+    },
+    {
+      "id": "wa08",
+      "name": "Eight of Wands",
+      "arcana": "minor",
+      "number": 8,
+      "suit": "wands",
+      "rank": "Eight",
+      "keywords": {
+        "upright": [
+          "speed",
+          "momentum",
+          "swift action"
+        ],
+        "reversed": [
+          "delays",
+          "frustration",
+          "waiting"
+        ]
+      },
+      "themes": [
+        "movement",
+        "progress",
+        "alignment"
+      ],
+      "element": "fire",
+      "astrology": "mercury in sagittarius",
+      "archetype": null,
+      "summary": {
+        "upright": "Everything is moving fast and in the same direction. Ride the momentum - this is a window of rapid progress and aligned action.",
+        "reversed": "Things that should be moving aren't. Frustrating delays, miscommunication, or misaligned timing slow what should be swift."
+      }
+    },
+    {
+      "id": "wa09",
+      "name": "Nine of Wands",
+      "arcana": "minor",
+      "number": 9,
+      "suit": "wands",
+      "rank": "Nine",
+      "keywords": {
+        "upright": [
+          "resilience",
+          "persistence",
+          "last stand"
+        ],
+        "reversed": [
+          "paranoia",
+          "exhaustion",
+          "stubbornness"
+        ]
+      },
+      "themes": [
+        "endurance",
+        "boundaries",
+        "grit"
+      ],
+      "element": "fire",
+      "astrology": "moon in sagittarius",
+      "archetype": null,
+      "summary": {
+        "upright": "You're wounded but still standing. One more push - this card says you have more reserves than you think, even when you feel spent.",
+        "reversed": "Hypervigilance has replaced healthy caution. You're so braced for the next hit that you can't distinguish real threats from shadows."
+      }
+    },
+    {
+      "id": "wa10",
+      "name": "Ten of Wands",
+      "arcana": "minor",
+      "number": 10,
+      "suit": "wands",
+      "rank": "Ten",
+      "keywords": {
+        "upright": [
+          "burden",
+          "responsibility",
+          "overcommitment"
+        ],
+        "reversed": [
+          "delegation",
+          "release",
+          "burnout recovery"
+        ]
+      },
+      "themes": [
+        "weight",
+        "duty",
+        "limits"
+      ],
+      "element": "fire",
+      "astrology": "saturn in sagittarius",
+      "archetype": null,
+      "summary": {
+        "upright": "You're carrying more than your share and it shows. The load isn't sustainable - something needs to be set down or handed off.",
+        "reversed": "You're learning to delegate, or the universe is forcing you to. The burden can't continue - release is coming whether you choose it or not."
+      }
+    },
+    {
+      "id": "wa11",
+      "name": "Page of Wands",
+      "arcana": "minor",
+      "number": 11,
+      "suit": "wands",
+      "rank": "Page",
+      "keywords": {
+        "upright": [
+          "enthusiasm",
+          "exploration",
+          "discovery"
+        ],
+        "reversed": [
+          "hesitation",
+          "lack of direction",
+          "immaturity"
+        ]
+      },
+      "themes": [
+        "curiosity",
+        "beginnings",
+        "spark"
+      ],
+      "element": "fire",
+      "astrology": null,
+      "archetype": "student",
+      "summary": {
+        "upright": "Fresh creative energy and the excitement of a new direction. You don't need to know the full path - just follow what lights you up.",
+        "reversed": "The spark is there but you're second-guessing it into nothing. Stop researching and start experimenting."
+      }
+    },
+    {
+      "id": "wa12",
+      "name": "Knight of Wands",
+      "arcana": "minor",
+      "number": 12,
+      "suit": "wands",
+      "rank": "Knight",
+      "keywords": {
+        "upright": [
+          "passion",
+          "adventure",
+          "boldness"
+        ],
+        "reversed": [
+          "impulsiveness",
+          "burnout",
+          "scattered energy"
+        ]
+      },
+      "themes": [
+        "action",
+        "drive",
+        "restlessness"
+      ],
+      "element": "fire",
+      "astrology": null,
+      "archetype": "adventurer",
+      "summary": {
+        "upright": "Charge forward with full conviction. This is the energy of bold moves, passionate pursuit, and magnetic confidence in action.",
+        "reversed": "All gas, no steering. The passion is real but it's scattered across too many directions or burning bridges on the way through."
+      }
+    },
+    {
+      "id": "wa13",
+      "name": "Queen of Wands",
+      "arcana": "minor",
+      "number": 13,
+      "suit": "wands",
+      "rank": "Queen",
+      "keywords": {
+        "upright": [
+          "confidence",
+          "warmth",
+          "determination"
+        ],
+        "reversed": [
+          "jealousy",
+          "demanding",
+          "insecurity"
+        ]
+      },
+      "themes": [
+        "charisma",
+        "leadership",
+        "independence"
+      ],
+      "element": "fire",
+      "astrology": null,
+      "archetype": "queen",
+      "summary": {
+        "upright": "Magnetic confidence grounded in genuine warmth. You lead by being fully yourself - people follow because your fire is real, not performed.",
+        "reversed": "The confidence has tipped into defensiveness or the warmth has cooled into control. What are you protecting so fiercely?"
+      }
+    },
+    {
+      "id": "wa14",
+      "name": "King of Wands",
+      "arcana": "minor",
+      "number": 14,
+      "suit": "wands",
+      "rank": "King",
+      "keywords": {
+        "upright": [
+          "visionary",
+          "leadership",
+          "big picture"
+        ],
+        "reversed": [
+          "tyranny",
+          "impulsiveness",
+          "ruthlessness"
+        ]
+      },
+      "themes": [
+        "command",
+        "vision",
+        "enterprise"
+      ],
+      "element": "fire",
+      "astrology": null,
+      "archetype": "king",
+      "summary": {
+        "upright": "Lead with vision and inspire through boldness. You see the full picture and have the charisma to rally others toward it.",
+        "reversed": "Vision without empathy becomes tyranny. You're so certain of the destination that you've stopped caring who gets burned on the way."
+      }
+    },
+    {
+      "id": "cu01",
+      "name": "Ace of Cups",
+      "arcana": "minor",
+      "number": 1,
+      "suit": "cups",
+      "rank": "Ace",
+      "keywords": {
+        "upright": [
+          "new love",
+          "emotional beginning",
+          "compassion"
+        ],
+        "reversed": [
+          "emotional loss",
+          "blocked feelings",
+          "emptiness"
+        ]
+      },
+      "themes": [
+        "love",
+        "intuition",
+        "opening"
+      ],
+      "element": "water",
+      "astrology": null,
+      "archetype": null,
+      "summary": {
+        "upright": "An emotional new beginning - love, creative inspiration, or spiritual awakening pouring in. Open your hands and receive it.",
+        "reversed": "The cup is offered but you can't receive it. Emotional walls, past hurt, or self-protection are blocking what's trying to reach you."
+      }
+    },
+    {
+      "id": "cu02",
+      "name": "Two of Cups",
+      "arcana": "minor",
+      "number": 2,
+      "suit": "cups",
+      "rank": "Two",
+      "keywords": {
+        "upright": [
+          "connection",
+          "partnership",
+          "mutual respect"
+        ],
+        "reversed": [
+          "imbalance",
+          "disharmony",
+          "codependence"
+        ]
+      },
+      "themes": [
+        "union",
+        "reciprocity",
+        "attraction"
+      ],
+      "element": "water",
+      "astrology": "venus in cancer",
+      "archetype": null,
+      "summary": {
+        "upright": "A genuine meeting of equals - two people seeing each other clearly and choosing to show up. Mutual attraction grounded in respect.",
+        "reversed": "The balance is off. One person is giving more, or the connection that looked like partnership is actually codependence."
+      }
+    },
+    {
+      "id": "cu03",
+      "name": "Three of Cups",
+      "arcana": "minor",
+      "number": 3,
+      "suit": "cups",
+      "rank": "Three",
+      "keywords": {
+        "upright": [
+          "celebration",
+          "friendship",
+          "community"
+        ],
+        "reversed": [
+          "overindulgence",
+          "gossip",
+          "isolation"
+        ]
+      },
+      "themes": [
+        "joy",
+        "belonging",
+        "collaboration"
+      ],
+      "element": "water",
+      "astrology": "mercury in cancer",
+      "archetype": null,
+      "summary": {
+        "upright": "Genuine celebration with people who matter. Creative collaboration, friendship, and the kind of joy that comes from being known.",
+        "reversed": "The party has gone too far, or you're on the outside of one. Overindulgence, social exhaustion, or feeling excluded from your own circles."
+      }
+    },
+    {
+      "id": "cu04",
+      "name": "Four of Cups",
+      "arcana": "minor",
+      "number": 4,
+      "suit": "cups",
+      "rank": "Four",
+      "keywords": {
+        "upright": [
+          "apathy",
+          "contemplation",
+          "discontent"
+        ],
+        "reversed": [
+          "awareness",
+          "acceptance",
+          "motivation"
+        ]
+      },
+      "themes": [
+        "boredom",
+        "meditation",
+        "missed opportunity"
+      ],
+      "element": "water",
+      "astrology": "moon in cancer",
+      "archetype": null,
+      "summary": {
+        "upright": "You're so focused on what's wrong that you can't see what's being offered. The universe is extending a cup - but you're staring at the ground.",
+        "reversed": "The fog of apathy is lifting. You're starting to see options that were always there, or finally ready to engage with what's available."
+      }
+    },
+    {
+      "id": "cu05",
+      "name": "Five of Cups",
+      "arcana": "minor",
+      "number": 5,
+      "suit": "cups",
+      "rank": "Five",
+      "keywords": {
+        "upright": [
+          "grief",
+          "loss",
+          "regret"
+        ],
+        "reversed": [
+          "acceptance",
+          "moving forward",
+          "forgiveness"
+        ]
+      },
+      "themes": [
+        "mourning",
+        "perspective",
+        "recovery"
+      ],
+      "element": "water",
+      "astrology": "mars in scorpio",
+      "archetype": null,
+      "summary": {
+        "upright": "Real grief over real loss - but notice the two cups still standing behind you. The pain is valid AND there's something left to work with.",
+        "reversed": "The mourning period is ending. You're turning around, seeing what remains, and deciding to build from there rather than stay in the loss."
+      }
+    },
+    {
+      "id": "cu06",
+      "name": "Six of Cups",
+      "arcana": "minor",
+      "number": 6,
+      "suit": "cups",
+      "rank": "Six",
+      "keywords": {
+        "upright": [
+          "nostalgia",
+          "innocence",
+          "reunion"
+        ],
+        "reversed": [
+          "stuck in past",
+          "idealization",
+          "naivety"
+        ]
+      },
+      "themes": [
+        "memory",
+        "childhood",
+        "simplicity"
+      ],
+      "element": "water",
+      "astrology": "sun in scorpio",
+      "archetype": null,
+      "summary": {
+        "upright": "Something from the past resurfaces with warmth - a memory, a person, a simpler version of joy. There's medicine in what you've outgrown.",
+        "reversed": "You're romanticizing the past rather than living in the present. Nostalgia has become an escape rather than a resource."
+      }
+    },
+    {
+      "id": "cu07",
+      "name": "Seven of Cups",
+      "arcana": "minor",
+      "number": 7,
+      "suit": "cups",
+      "rank": "Seven",
+      "keywords": {
+        "upright": [
+          "fantasy",
+          "choices",
+          "illusion"
+        ],
+        "reversed": [
+          "clarity",
+          "focus",
+          "decisiveness"
+        ]
+      },
+      "themes": [
+        "imagination",
+        "distraction",
+        "desire"
+      ],
+      "element": "water",
+      "astrology": "venus in scorpio",
+      "archetype": null,
+      "summary": {
+        "upright": "Too many options, most of them fantasies. Not all these cups contain what they promise - discernment is required before choosing.",
+        "reversed": "The fog of possibility clears into focus. You're finally narrowing down what you actually want versus what just looks shiny."
+      }
+    },
+    {
+      "id": "cu08",
+      "name": "Eight of Cups",
+      "arcana": "minor",
+      "number": 8,
+      "suit": "cups",
+      "rank": "Eight",
+      "keywords": {
+        "upright": [
+          "walking away",
+          "seeking depth",
+          "disillusionment"
+        ],
+        "reversed": [
+          "avoidance",
+          "fear of change",
+          "drifting"
+        ]
+      },
+      "themes": [
+        "departure",
+        "growth",
+        "dissatisfaction"
+      ],
+      "element": "water",
+      "astrology": "saturn in pisces",
+      "archetype": null,
+      "summary": {
+        "upright": "What you built is technically fine - but something essential is missing. Walking away from adequacy to seek something real takes courage.",
+        "reversed": "You know you should leave but can't bring yourself to. Or you're drifting away without the honesty of a clean departure."
+      }
+    },
+    {
+      "id": "cu09",
+      "name": "Nine of Cups",
+      "arcana": "minor",
+      "number": 9,
+      "suit": "cups",
+      "rank": "Nine",
+      "keywords": {
+        "upright": [
+          "contentment",
+          "satisfaction",
+          "wish fulfilled"
+        ],
+        "reversed": [
+          "complacency",
+          "materialism",
+          "dissatisfaction"
+        ]
+      },
+      "themes": [
+        "pleasure",
+        "gratitude",
+        "abundance"
+      ],
+      "element": "water",
+      "astrology": "jupiter in pisces",
+      "archetype": null,
+      "summary": {
+        "upright": "The wish card. Something you've wanted is arriving or is already here - genuine emotional satisfaction and contentment earned.",
+        "reversed": "You got what you wanted and it's not enough, or you're so focused on the next want that you can't enjoy what's in front of you."
+      }
+    },
+    {
+      "id": "cu10",
+      "name": "Ten of Cups",
+      "arcana": "minor",
+      "number": 10,
+      "suit": "cups",
+      "rank": "Ten",
+      "keywords": {
+        "upright": [
+          "emotional fulfillment",
+          "family",
+          "harmony"
+        ],
+        "reversed": [
+          "broken bonds",
+          "disconnection",
+          "unrealistic expectations"
+        ]
+      },
+      "themes": [
+        "love",
+        "belonging",
+        "wholeness"
+      ],
+      "element": "water",
+      "astrology": "mars in pisces",
+      "archetype": null,
+      "summary": {
+        "upright": "The full expression of emotional happiness - love, belonging, and alignment with the people who matter most. This is real.",
+        "reversed": "The picture-perfect exterior hides real disconnection. Something in the family system or relationship needs honest attention."
+      }
+    },
+    {
+      "id": "cu11",
+      "name": "Page of Cups",
+      "arcana": "minor",
+      "number": 11,
+      "suit": "cups",
+      "rank": "Page",
+      "keywords": {
+        "upright": [
+          "creative spark",
+          "intuition",
+          "wonder"
+        ],
+        "reversed": [
+          "emotional immaturity",
+          "escapism",
+          "blocked creativity"
+        ]
+      },
+      "themes": [
+        "imagination",
+        "sensitivity",
+        "messages"
+      ],
+      "element": "water",
+      "astrology": null,
+      "archetype": "student",
+      "summary": {
+        "upright": "A message from the subconscious arrives - creative inspiration, a surprising emotional connection, or an invitation to play.",
+        "reversed": "Emotional immaturity or using fantasy to escape rather than create. The fish in the cup needs to be looked at, not hidden from."
+      }
+    },
+    {
+      "id": "cu12",
+      "name": "Knight of Cups",
+      "arcana": "minor",
+      "number": 12,
+      "suit": "cups",
+      "rank": "Knight",
+      "keywords": {
+        "upright": [
+          "romance",
+          "charm",
+          "following the heart"
+        ],
+        "reversed": [
+          "moodiness",
+          "unrealistic",
+          "jealousy"
+        ]
+      },
+      "themes": [
+        "devotion",
+        "idealism",
+        "pursuit"
+      ],
+      "element": "water",
+      "astrology": null,
+      "archetype": "romantic",
+      "summary": {
+        "upright": "Following your heart with grace and conviction. The knight offers his cup - this is romantic pursuit, creative devotion, or emotional courage in action.",
+        "reversed": "Charm without substance, or emotions so turbulent they sabotage what you're pursuing. Is this devotion or obsession?"
+      }
+    },
+    {
+      "id": "cu13",
+      "name": "Queen of Cups",
+      "arcana": "minor",
+      "number": 13,
+      "suit": "cups",
+      "rank": "Queen",
+      "keywords": {
+        "upright": [
+          "emotional intelligence",
+          "compassion",
+          "intuition"
+        ],
+        "reversed": [
+          "martyrdom",
+          "codependence",
+          "emotional manipulation"
+        ]
+      },
+      "themes": [
+        "empathy",
+        "depth",
+        "nurturing"
+      ],
+      "element": "water",
+      "astrology": null,
+      "archetype": "queen",
+      "summary": {
+        "upright": "Deep emotional intelligence and the ability to hold space without drowning. You see what others feel before they name it - use that wisely.",
+        "reversed": "Empathy without boundaries becomes martyrdom or manipulation. You're either giving too much or using emotional insight as leverage."
+      }
+    },
+    {
+      "id": "cu14",
+      "name": "King of Cups",
+      "arcana": "minor",
+      "number": 14,
+      "suit": "cups",
+      "rank": "King",
+      "keywords": {
+        "upright": [
+          "emotional mastery",
+          "diplomacy",
+          "calm authority"
+        ],
+        "reversed": [
+          "emotional manipulation",
+          "volatility",
+          "coldness"
+        ]
+      },
+      "themes": [
+        "composure",
+        "wisdom",
+        "balance"
+      ],
+      "element": "water",
+      "astrology": null,
+      "archetype": "king",
+      "summary": {
+        "upright": "Mastery over emotion without suppression. You navigate turbulent waters with calm because you've done the inner work - not because you've shut down.",
+        "reversed": "The calm exterior hides either volatility or emptiness. Emotional control has become emotional suppression or quiet manipulation."
+      }
+    },
+    {
+      "id": "sw01",
+      "name": "Ace of Swords",
+      "arcana": "minor",
+      "number": 1,
+      "suit": "swords",
+      "rank": "Ace",
+      "keywords": {
+        "upright": [
+          "clarity",
+          "breakthrough",
+          "truth"
+        ],
+        "reversed": [
+          "confusion",
+          "misinformation",
+          "clouded thinking"
+        ]
+      },
+      "themes": [
+        "intellect",
+        "revelation",
+        "precision"
+      ],
+      "element": "air",
+      "astrology": null,
+      "archetype": null,
+      "summary": {
+        "upright": "A breakthrough in understanding arrives like a blade cutting through fog. Mental clarity, a new idea, or a truth that changes everything.",
+        "reversed": "The sword is there but you can't see it clearly. Confusion, misinformation, or your own mental noise is distorting what should be obvious."
+      }
+    },
+    {
+      "id": "sw02",
+      "name": "Two of Swords",
+      "arcana": "minor",
+      "number": 2,
+      "suit": "swords",
+      "rank": "Two",
+      "keywords": {
+        "upright": [
+          "stalemate",
+          "difficult choice",
+          "avoidance"
+        ],
+        "reversed": [
+          "indecision",
+          "information overload",
+          "overwhelm"
+        ]
+      },
+      "themes": [
+        "denial",
+        "choice",
+        "impasse"
+      ],
+      "element": "air",
+      "astrology": "moon in libra",
+      "archetype": null,
+      "summary": {
+        "upright": "You're blocking out information to avoid making a painful choice. The blindfold is self-imposed - remove it and decide.",
+        "reversed": "Information overload has made the decision harder, not easier. Stop gathering data and trust what you already know."
+      }
+    },
+    {
+      "id": "sw03",
+      "name": "Three of Swords",
+      "arcana": "minor",
+      "number": 3,
+      "suit": "swords",
+      "rank": "Three",
+      "keywords": {
+        "upright": [
+          "heartbreak",
+          "grief",
+          "painful truth"
+        ],
+        "reversed": [
+          "healing",
+          "forgiveness",
+          "release"
+        ]
+      },
+      "themes": [
+        "sorrow",
+        "clarity through pain",
+        "honesty"
+      ],
+      "element": "air",
+      "astrology": "saturn in libra",
+      "archetype": null,
+      "summary": {
+        "upright": "A truth that hurts. The pain is real and you're allowed to feel it fully - but notice that clarity often arrives dressed as heartbreak.",
+        "reversed": "The worst of the pain is passing. Healing is happening beneath the surface even if it doesn't feel complete yet."
+      }
+    },
+    {
+      "id": "sw04",
+      "name": "Four of Swords",
+      "arcana": "minor",
+      "number": 4,
+      "suit": "swords",
+      "rank": "Four",
+      "keywords": {
+        "upright": [
+          "rest",
+          "recovery",
+          "contemplation"
+        ],
+        "reversed": [
+          "restlessness",
+          "burnout",
+          "forced rest"
+        ]
+      },
+      "themes": [
+        "stillness",
+        "recuperation",
+        "sanctuary"
+      ],
+      "element": "air",
+      "astrology": "jupiter in libra",
+      "archetype": null,
+      "summary": {
+        "upright": "Deliberate rest - not collapse, not laziness. You've been through something and your mind needs recovery before the next engagement.",
+        "reversed": "You can't rest or won't. Either restlessness drives you back out too soon, or your body forces the rest your mind refuses."
+      }
+    },
+    {
+      "id": "sw05",
+      "name": "Five of Swords",
+      "arcana": "minor",
+      "number": 5,
+      "suit": "swords",
+      "rank": "Five",
+      "keywords": {
+        "upright": [
+          "conflict",
+          "defeat",
+          "hollow victory"
+        ],
+        "reversed": [
+          "reconciliation",
+          "making amends",
+          "moving on"
+        ]
+      },
+      "themes": [
+        "ego",
+        "loss",
+        "winning at cost"
+      ],
+      "element": "air",
+      "astrology": "venus in aquarius",
+      "archetype": null,
+      "summary": {
+        "upright": "Someone won and everyone lost. This is the hollow victory - technically correct but relationally devastating. Was being right worth the cost?",
+        "reversed": "Laying down weapons and walking toward repair. The fight is over - now comes the harder work of reconciliation."
+      }
+    },
+    {
+      "id": "sw06",
+      "name": "Six of Swords",
+      "arcana": "minor",
+      "number": 6,
+      "suit": "swords",
+      "rank": "Six",
+      "keywords": {
+        "upright": [
+          "transition",
+          "moving on",
+          "calmer waters"
+        ],
+        "reversed": [
+          "stuck",
+          "unresolved baggage",
+          "resistance"
+        ]
+      },
+      "themes": [
+        "passage",
+        "healing",
+        "departure"
+      ],
+      "element": "air",
+      "astrology": "mercury in aquarius",
+      "archetype": null,
+      "summary": {
+        "upright": "Leaving troubled waters for calmer ones. The journey isn't joyful - it's necessary. You're carrying the swords with you, but the shore ahead is better.",
+        "reversed": "Unable or unwilling to leave. The boat won't sail because you keep returning to shore, or unresolved baggage weighs it down."
+      }
+    },
+    {
+      "id": "sw07",
+      "name": "Seven of Swords",
+      "arcana": "minor",
+      "number": 7,
+      "suit": "swords",
+      "rank": "Seven",
+      "keywords": {
+        "upright": [
+          "strategy",
+          "stealth",
+          "deception"
+        ],
+        "reversed": [
+          "confession",
+          "imposter syndrome",
+          "coming clean"
+        ]
+      },
+      "themes": [
+        "cunning",
+        "secrets",
+        "self-deception"
+      ],
+      "element": "air",
+      "astrology": "moon in aquarius",
+      "archetype": null,
+      "summary": {
+        "upright": "Someone is being clever rather than honest - possibly you. Strategy is fine, but check whether this is smart or just sneaky.",
+        "reversed": "The secret is coming out, or you're finally being honest about something you've been hiding. Relief lives on the other side of confession."
+      }
+    },
+    {
+      "id": "sw08",
+      "name": "Eight of Swords",
+      "arcana": "minor",
+      "number": 8,
+      "suit": "swords",
+      "rank": "Eight",
+      "keywords": {
+        "upright": [
+          "restriction",
+          "helplessness",
+          "self-imposed limits"
+        ],
+        "reversed": [
+          "freedom",
+          "new perspective",
+          "empowerment"
+        ]
+      },
+      "themes": [
+        "imprisonment",
+        "victimhood",
+        "mental traps"
+      ],
+      "element": "air",
+      "astrology": "jupiter in gemini",
+      "archetype": null,
+      "summary": {
+        "upright": "You feel trapped - but the bonds are mental, not physical. The blindfold and the ropes are beliefs you could question if you were willing to try.",
+        "reversed": "The realization that the cage was always open. A shift in perspective reveals that the restrictions were self-imposed all along."
+      }
+    },
+    {
+      "id": "sw09",
+      "name": "Nine of Swords",
+      "arcana": "minor",
+      "number": 9,
+      "suit": "swords",
+      "rank": "Nine",
+      "keywords": {
+        "upright": [
+          "anxiety",
+          "nightmares",
+          "dread"
+        ],
+        "reversed": [
+          "hope",
+          "recovery",
+          "facing fears"
+        ]
+      },
+      "themes": [
+        "worry",
+        "mental anguish",
+        "insomnia"
+      ],
+      "element": "air",
+      "astrology": "mars in gemini",
+      "archetype": null,
+      "summary": {
+        "upright": "3 AM anxiety - the kind that spirals in the dark. The fears feel enormous right now, but ask: how many of them are actually real vs. projected?",
+        "reversed": "The nightmares lose their grip. You're naming the fears, seeking help, or simply reaching the point where the anxiety breaks."
+      }
+    },
+    {
+      "id": "sw10",
+      "name": "Ten of Swords",
+      "arcana": "minor",
+      "number": 10,
+      "suit": "swords",
+      "rank": "Ten",
+      "keywords": {
+        "upright": [
+          "rock bottom",
+          "ending",
+          "betrayal"
+        ],
+        "reversed": [
+          "recovery",
+          "rising again",
+          "worst is over"
+        ]
+      },
+      "themes": [
+        "finality",
+        "surrender",
+        "dawn"
+      ],
+      "element": "air",
+      "astrology": "sun in gemini",
+      "archetype": null,
+      "summary": {
+        "upright": "The absolute bottom - but notice the dawn on the horizon. This is over-kill by design. There's nowhere left to fall, which means the only direction is up.",
+        "reversed": "The worst has passed. You're facedown but starting to lift your head. Recovery begins not with a leap but with the first exhale."
+      }
+    },
+    {
+      "id": "sw11",
+      "name": "Page of Swords",
+      "arcana": "minor",
+      "number": 11,
+      "suit": "swords",
+      "rank": "Page",
+      "keywords": {
+        "upright": [
+          "curiosity",
+          "mental agility",
+          "vigilance"
+        ],
+        "reversed": [
+          "gossip",
+          "scattered thoughts",
+          "cynicism"
+        ]
+      },
+      "themes": [
+        "inquiry",
+        "alertness",
+        "communication"
+      ],
+      "element": "air",
+      "astrology": null,
+      "archetype": "student",
+      "summary": {
+        "upright": "Sharp, curious, alert - your mind is hungry and quick right now. Channel that mental energy into research, writing, or truth-seeking.",
+        "reversed": "The sharpness has turned to criticism or gossip. Mental energy without direction becomes anxious chatter or cutting words."
+      }
+    },
+    {
+      "id": "sw12",
+      "name": "Knight of Swords",
+      "arcana": "minor",
+      "number": 12,
+      "suit": "swords",
+      "rank": "Knight",
+      "keywords": {
+        "upright": [
+          "ambition",
+          "action",
+          "directness"
+        ],
+        "reversed": [
+          "recklessness",
+          "burnout",
+          "tunnel vision"
+        ]
+      },
+      "themes": [
+        "charge",
+        "intellect",
+        "speed"
+      ],
+      "element": "air",
+      "astrology": null,
+      "archetype": "warrior",
+      "summary": {
+        "upright": "Charging forward with intellectual certainty and speed. You know what needs to happen and you're doing it - but make sure you're not leaving bodies behind.",
+        "reversed": "Moving too fast without thinking, or so locked into one approach that you can't see it's not working. Speed without wisdom is just chaos."
+      }
+    },
+    {
+      "id": "sw13",
+      "name": "Queen of Swords",
+      "arcana": "minor",
+      "number": 13,
+      "suit": "swords",
+      "rank": "Queen",
+      "keywords": {
+        "upright": [
+          "clear boundaries",
+          "independence",
+          "direct truth"
+        ],
+        "reversed": [
+          "coldness",
+          "bitterness",
+          "overly guarded"
+        ]
+      },
+      "themes": [
+        "clarity",
+        "perception",
+        "self-reliance"
+      ],
+      "element": "air",
+      "astrology": null,
+      "archetype": "queen",
+      "summary": {
+        "upright": "She sees clearly and speaks directly. This is the energy of someone who has been through enough to know what's true - and won't pretend otherwise.",
+        "reversed": "The clarity has hardened into coldness, or past hurt has built walls where doors should be. Truth without compassion cuts too deep."
+      }
+    },
+    {
+      "id": "sw14",
+      "name": "King of Swords",
+      "arcana": "minor",
+      "number": 14,
+      "suit": "swords",
+      "rank": "King",
+      "keywords": {
+        "upright": [
+          "intellectual authority",
+          "truth",
+          "clear thinking"
+        ],
+        "reversed": [
+          "manipulation",
+          "cruelty",
+          "abuse of power"
+        ]
+      },
+      "themes": [
+        "logic",
+        "justice",
+        "mental mastery"
+      ],
+      "element": "air",
+      "astrology": null,
+      "archetype": "king",
+      "summary": {
+        "upright": "Mastery of thought and communication - the ability to cut through noise and speak what's true with authority and precision.",
+        "reversed": "Intellect weaponized. Using logic to dominate, manipulate, or dismiss what doesn't fit your framework. Power corrupts clear thinking."
+      }
+    },
+    {
+      "id": "pe01",
+      "name": "Ace of Pentacles",
+      "arcana": "minor",
+      "number": 1,
+      "suit": "pentacles",
+      "rank": "Ace",
+      "keywords": {
+        "upright": [
+          "opportunity",
+          "prosperity",
+          "new venture"
+        ],
+        "reversed": [
+          "missed chance",
+          "scarcity",
+          "poor planning"
+        ]
+      },
+      "themes": [
+        "material",
+        "abundance",
+        "foundation"
+      ],
+      "element": "earth",
+      "astrology": null,
+      "archetype": null,
+      "summary": {
+        "upright": "A material opportunity arrives - financial, career, or physical. The seed is real and the soil is ready. Plant it now.",
+        "reversed": "The opportunity was offered and slipped by. Scarcity mindset or poor planning prevented you from seizing what was available."
+      }
+    },
+    {
+      "id": "pe02",
+      "name": "Two of Pentacles",
+      "arcana": "minor",
+      "number": 2,
+      "suit": "pentacles",
+      "rank": "Two",
+      "keywords": {
+        "upright": [
+          "balance",
+          "adaptability",
+          "juggling"
+        ],
+        "reversed": [
+          "overwhelmed",
+          "disorganized",
+          "overcommitted"
+        ]
+      },
+      "themes": [
+        "flexibility",
+        "priorities",
+        "flow"
+      ],
+      "element": "earth",
+      "astrology": "jupiter in capricorn",
+      "archetype": null,
+      "summary": {
+        "upright": "Balancing competing demands with flexibility. The juggle is sustainable if you stay adaptable and honest about capacity.",
+        "reversed": "Dropping balls because you won't admit you're overcommitted. Something has to give before everything does."
+      }
+    },
+    {
+      "id": "pe03",
+      "name": "Three of Pentacles",
+      "arcana": "minor",
+      "number": 3,
+      "suit": "pentacles",
+      "rank": "Three",
+      "keywords": {
+        "upright": [
+          "teamwork",
+          "craftsmanship",
+          "collaboration"
+        ],
+        "reversed": [
+          "mediocrity",
+          "isolation",
+          "poor quality"
+        ]
+      },
+      "themes": [
+        "skill",
+        "cooperation",
+        "mastery"
+      ],
+      "element": "earth",
+      "astrology": "mars in capricorn",
+      "archetype": null,
+      "summary": {
+        "upright": "Quality work through collaboration. The cathedral gets built when skilled people combine their expertise and respect the craft.",
+        "reversed": "Working in isolation when collaboration would help, or cutting corners that compromise the outcome."
+      }
+    },
+    {
+      "id": "pe04",
+      "name": "Four of Pentacles",
+      "arcana": "minor",
+      "number": 4,
+      "suit": "pentacles",
+      "rank": "Four",
+      "keywords": {
+        "upright": [
+          "security",
+          "conservation",
+          "control"
+        ],
+        "reversed": [
+          "greed",
+          "hoarding",
+          "material obsession"
+        ]
+      },
+      "themes": [
+        "stability",
+        "possession",
+        "boundaries"
+      ],
+      "element": "earth",
+      "astrology": "sun in capricorn",
+      "archetype": null,
+      "summary": {
+        "upright": "Holding on to what you've built. There's wisdom in conservation - but check if security has crossed into hoarding.",
+        "reversed": "Clutching so tightly that nothing can flow in or out. Financial anxiety driving decisions that make life smaller."
+      }
+    },
+    {
+      "id": "pe05",
+      "name": "Five of Pentacles",
+      "arcana": "minor",
+      "number": 5,
+      "suit": "pentacles",
+      "rank": "Five",
+      "keywords": {
+        "upright": [
+          "hardship",
+          "loss",
+          "isolation"
+        ],
+        "reversed": [
+          "recovery",
+          "accepting help",
+          "turning point"
+        ]
+      },
+      "themes": [
+        "poverty",
+        "struggle",
+        "resilience"
+      ],
+      "element": "earth",
+      "astrology": "mercury in taurus",
+      "archetype": null,
+      "summary": {
+        "upright": "Financial or material hardship. But notice the lit window - help exists nearby if you're willing to ask for it.",
+        "reversed": "The worst passes. Recovery begins, help is accepted, or you finally walk through the door you've been too proud to enter."
+      }
+    },
+    {
+      "id": "pe06",
+      "name": "Six of Pentacles",
+      "arcana": "minor",
+      "number": 6,
+      "suit": "pentacles",
+      "rank": "Six",
+      "keywords": {
+        "upright": [
+          "generosity",
+          "sharing",
+          "fairness"
+        ],
+        "reversed": [
+          "strings attached",
+          "power imbalance",
+          "debt"
+        ]
+      },
+      "themes": [
+        "charity",
+        "reciprocity",
+        "balance"
+      ],
+      "element": "earth",
+      "astrology": "moon in taurus",
+      "archetype": null,
+      "summary": {
+        "upright": "Giving and receiving in balance. Generosity that flows naturally and financial fairness in relationships.",
+        "reversed": "Help with strings attached, or a power dynamic disguised as generosity. Who holds the scales matters."
+      }
+    },
+    {
+      "id": "pe07",
+      "name": "Seven of Pentacles",
+      "arcana": "minor",
+      "number": 7,
+      "suit": "pentacles",
+      "rank": "Seven",
+      "keywords": {
+        "upright": [
+          "patience",
+          "long-term view",
+          "investment"
+        ],
+        "reversed": [
+          "impatience",
+          "lack of growth",
+          "frustration"
+        ]
+      },
+      "themes": [
+        "cultivation",
+        "assessment",
+        "perseverance"
+      ],
+      "element": "earth",
+      "astrology": "saturn in taurus",
+      "archetype": null,
+      "summary": {
+        "upright": "Long-term investment is growing. The harvest isn't instant but the vine is healthy - keep tending it with patience.",
+        "reversed": "Effort without visible results breeds frustration. Either the strategy needs adjusting or you're measuring too soon."
+      }
+    },
+    {
+      "id": "pe08",
+      "name": "Eight of Pentacles",
+      "arcana": "minor",
+      "number": 8,
+      "suit": "pentacles",
+      "rank": "Eight",
+      "keywords": {
+        "upright": [
+          "mastery",
+          "dedication",
+          "skill building"
+        ],
+        "reversed": [
+          "perfectionism",
+          "shortcuts",
+          "misdirected effort"
+        ]
+      },
+      "themes": [
+        "craft",
+        "discipline",
+        "practice"
+      ],
+      "element": "earth",
+      "astrology": "sun in virgo",
+      "archetype": null,
+      "summary": {
+        "upright": "Dedicated practice and skill development through repetition. The work itself is the teacher - show up and do the reps.",
+        "reversed": "Perfectionism preventing completion, or taking shortcuts that undermine quality. The craft demands honesty."
+      }
+    },
+    {
+      "id": "pe09",
+      "name": "Nine of Pentacles",
+      "arcana": "minor",
+      "number": 9,
+      "suit": "pentacles",
+      "rank": "Nine",
+      "keywords": {
+        "upright": [
+          "self-sufficiency",
+          "luxury",
+          "independence"
+        ],
+        "reversed": [
+          "overwork",
+          "surface success",
+          "emptiness"
+        ]
+      },
+      "themes": [
+        "abundance",
+        "refinement",
+        "freedom"
+      ],
+      "element": "earth",
+      "astrology": "venus in virgo",
+      "archetype": null,
+      "summary": {
+        "upright": "Financial independence and self-sufficiency earned through real effort. You built this garden - enjoy standing in it.",
+        "reversed": "Success that looks great from outside but costs you everything else. The garden is beautiful and you're exhausted."
+      }
+    },
+    {
+      "id": "pe10",
+      "name": "Ten of Pentacles",
+      "arcana": "minor",
+      "number": 10,
+      "suit": "pentacles",
+      "rank": "Ten",
+      "keywords": {
+        "upright": [
+          "legacy",
+          "wealth",
+          "family"
+        ],
+        "reversed": [
+          "family conflict",
+          "financial loss",
+          "instability"
+        ]
+      },
+      "themes": [
+        "inheritance",
+        "tradition",
+        "permanence"
+      ],
+      "element": "earth",
+      "astrology": "mercury in virgo",
+      "archetype": null,
+      "summary": {
+        "upright": "Long-term wealth, legacy, and family stability. What you build here endures beyond you and supports those who follow.",
+        "reversed": "Family disputes over money or resources. Wealth that came at the cost of the relationships meant to inherit it."
+      }
+    },
+    {
+      "id": "pe11",
+      "name": "Page of Pentacles",
+      "arcana": "minor",
+      "number": 11,
+      "suit": "pentacles",
+      "rank": "Page",
+      "keywords": {
+        "upright": [
+          "ambition",
+          "study",
+          "new skill"
+        ],
+        "reversed": [
+          "procrastination",
+          "unfocused",
+          "no follow-through"
+        ]
+      },
+      "themes": [
+        "learning",
+        "diligence",
+        "beginnings"
+      ],
+      "element": "earth",
+      "astrology": null,
+      "archetype": "student",
+      "summary": {
+        "upright": "A new financial or educational opportunity calling for genuine enthusiasm and willingness to learn from scratch.",
+        "reversed": "Collecting knowledge without applying it. The courses pile up but nothing ships. Start doing."
+      }
+    },
+    {
+      "id": "pe12",
+      "name": "Knight of Pentacles",
+      "arcana": "minor",
+      "number": 12,
+      "suit": "pentacles",
+      "rank": "Knight",
+      "keywords": {
+        "upright": [
+          "reliability",
+          "routine",
+          "steady progress"
+        ],
+        "reversed": [
+          "stagnation",
+          "workaholism",
+          "stubbornness"
+        ]
+      },
+      "themes": [
+        "discipline",
+        "consistency",
+        "endurance"
+      ],
+      "element": "earth",
+      "astrology": null,
+      "archetype": "worker",
+      "summary": {
+        "upright": "Slow and steady progress through discipline and routine. Not flashy, but the compound effect is undeniable.",
+        "reversed": "Stuck in routine or working yourself into the ground without questioning why. Reliability becomes rigidity."
+      }
+    },
+    {
+      "id": "pe13",
+      "name": "Queen of Pentacles",
+      "arcana": "minor",
+      "number": 13,
+      "suit": "pentacles",
+      "rank": "Queen",
+      "keywords": {
+        "upright": [
+          "nurturing",
+          "practical",
+          "abundant"
+        ],
+        "reversed": [
+          "work-life imbalance",
+          "neglect",
+          "smothering"
+        ]
+      },
+      "themes": [
+        "security",
+        "generosity",
+        "groundedness"
+      ],
+      "element": "earth",
+      "astrology": null,
+      "archetype": "queen",
+      "summary": {
+        "upright": "Practical nurturing combined with financial security. Abundance that's grounded, shared, and genuinely warm.",
+        "reversed": "Taking care of everything and everyone except yourself. The garden thrives but the gardener is depleted."
+      }
+    },
+    {
+      "id": "pe14",
+      "name": "King of Pentacles",
+      "arcana": "minor",
+      "number": 14,
+      "suit": "pentacles",
+      "rank": "King",
+      "keywords": {
+        "upright": [
+          "wealth",
+          "leadership",
+          "security"
+        ],
+        "reversed": [
+          "greed",
+          "materialism",
+          "stubbornness"
+        ]
+      },
+      "themes": [
+        "mastery",
+        "enterprise",
+        "stability"
+      ],
+      "element": "earth",
+      "astrology": null,
+      "archetype": "king",
+      "summary": {
+        "upright": "Material mastery and the grounded leadership of someone who built something real through expertise and patience.",
+        "reversed": "Measuring everything in money, or success that's hollow underneath. Rich in resources, poor in connection."
+      }
+    }
+  ]
+}
