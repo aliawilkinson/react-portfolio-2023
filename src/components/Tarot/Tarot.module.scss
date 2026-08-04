@@ -97,10 +97,11 @@
 
 // Reading area layouts
 .readingArea {
-    min-height: 300px;
+    min-height: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 1rem;
 }
 
 .singleLayout {
@@ -228,10 +229,6 @@
 
         .meaning {
             font-size: 0.75rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         .cardDesc {
@@ -350,12 +347,8 @@
 
 // Card meaning
 .cardMeaning {
-    max-width: 280px;
+    max-width: 320px;
     text-align: center;
-
-    @media (min-width: 640px) {
-        max-width: 220px;
-    }
 }
 
 .cardName {
@@ -384,11 +377,6 @@
     color: rgba(13, 47, 63, 0.6);
     margin-bottom: 0.5rem;
     line-height: 1.4;
-    display: none;
-
-    @media (min-width: 768px) {
-        display: block;
-    }
 }
 
 .meaning {
