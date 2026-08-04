@@ -3,7 +3,6 @@ import Hero from '../Hero/Hero'
 import Expertise from '../Expertise/Expertise'
 import Experience from '../Experience/Experience'
 import CaseStudies from '../CaseStudies/CaseStudies'
-import Projects from '../Projects/Projects'
 import Testimonials from '../Testimonials/Testimonials'
 import SEO from '../SEO/SEO'
 import { seoData } from '../../utils/seoData'
@@ -22,7 +21,6 @@ const Home = () => {
       <CaseStudies />
       <Testimonials />
       <Experience />
-      <Projects />
     </div>
   );
 };

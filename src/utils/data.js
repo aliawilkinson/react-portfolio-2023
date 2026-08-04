@@ -303,10 +303,20 @@ export const comments = [
 
 export const projects = [
   {
+    slug: "tarot",
+    title: "Tarot",
+    subtitle: "Interactive tarot reading app",
+    description: "A tarot card reading app for fun and reflection.",
+    category: "Apps",
+    bg: "#4A90A4",
+    externalUrl: "/tarot",
+  },
+  {
     slug: "music",
     title: "Music",
     subtitle: "Saint Modern / Ambiguous Records",
     description: "Debut album Solar Bloom Era, released under Ambiguous Records. Available on all platforms.",
+    category: "Music",
     bg: "#6D4B8A",
     imgSrc: "./solar-bloom-era.jpeg",
     soundcloudUrl: "https://soundcloud.com/afterlight-994069544/sets/solar-bloom-era",
