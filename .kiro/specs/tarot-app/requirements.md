@@ -2,127 +2,135 @@
 
 ## Introduction
 
-This document defines the requirements for a Tarot reading app feature integrated into an existing React + Vite portfolio site. The feature provides interactive tarot card reading experiences including single card draws and three-card spreads, with support for card reversals and animated card reveals. Card data is sourced from the tarotapi.dev API, with card images from sacred-texts.com using public domain Rider-Waite imagery.
+This document defines the requirements for a Tarot reading app integrated into an existing React + Vite portfolio site. The app provides interactive tarot card drawing with manual deck interaction, automatic spreads, AI-powered interpretation, and self-reflection framing. Card data is sourced from a local JSON file (`src/data/tarotDeck.json`). The app uses framer-motion for animations and SCSS modules for styling.
 
 ## Glossary
 
-- **Tarot_App**: The React component and associated modules providing tarot reading functionality at the `/tarot` route
-- **Card_Deck**: The complete set of 78 tarot cards (22 Major Arcana + 56 Minor Arcana)
-- **Major_Arcana**: The 22 trump cards of the tarot deck (The Fool through The World)
-- **Minor_Arcana**: The 56 suit cards divided into four suits (Wands, Cups, Swords, Pentacles), each with cards Ace through King
-- **Card_Orientation**: Whether a card is displayed upright or reversed (upside down)
-- **Upright_Card**: A card displayed in its normal orientation, showing its standard meaning
-- **Reversed_Card**: A card displayed upside down (180° rotation), showing its reversed meaning
-- **Card_Back**: The decorative reverse side of a tarot card shown before reveal
-- **Card_Face**: The front of a tarot card showing its imagery and name
-- **Single_Card_Draw**: A reading type where one card is drawn for quick insight or daily guidance
-- **Three_Card_Spread**: A reading type where three cards are drawn representing past, present, and future
-- **Card_Flip_Animation**: The visual transition from showing Card_Back to revealing Card_Face
-- **Fallback_Card**: A styled placeholder displayed when a card image fails to load, showing the card name
-- **Tarot_API**: The external REST API at tarotapi.dev providing card data
-- **Image_Source**: The sacred-texts.com server hosting public domain Rider-Waite card images
+- **Tarot_App**: The React component and associated modules providing tarot reading functionality
+- **Deck**: The visual representation of the tarot deck displayed as a single face-down card; the primary interaction point for drawing cards
+- **Spread**: The collection of drawn cards currently displayed in the reading area
+- **Card_Orientation**: Whether a card is upright or reversed (180° rotation)
+- **Interpretation**: An AI-generated reading of drawn cards considering question, card names, positions, and orientations
+- **Auto_Mode**: A mode where the user selects a card count and the system automatically draws and interprets
+- **Reset_Deck**: An action that returns all drawn cards to the deck, clears the spread, shuffles, and removes any interpretation
+- **Shuffle_Deck**: An action that shuffles remaining undealt cards without affecting the current spread
+- **Spread_Preset**: A predefined spread layout such as Single Card, Three Card (Past/Present/Future), or Celtic Cross
 
 ## Requirements
 
-### Requirement 1: Card Deck Data Management
+### Requirement 1: Layout and Header
 
-**User Story:** As a user, I want the app to have access to the complete 78-card tarot deck, so that I can receive authentic tarot readings.
-
-#### Acceptance Criteria
-
-1. WHEN the Tarot_App initializes, THE Tarot_App SHALL fetch card data from the Tarot_API endpoint `GET /api/v1/cards`
-2. THE Card_Deck SHALL contain exactly 22 Major_Arcana cards and 56 Minor_Arcana cards
-3. WHEN the Tarot_API returns card data, THE Tarot_App SHALL store name, name_short, value, suit, type, meaning_up, meaning_rev, and desc for each card
-4. IF the Tarot_API request fails, THEN THE Tarot_App SHALL display an error message and provide a retry option
-5. WHILE the Tarot_API request is pending, THE Tarot_App SHALL display a loading indicator
-
-### Requirement 2: Card Image Display
-
-**User Story:** As a user, I want to see beautiful tarot card images, so that I can have an immersive reading experience.
+**User Story:** As a user, I want a clear, focused layout for the tarot app, so that I understand what the app does and how to interact with it.
 
 #### Acceptance Criteria
 
-1. WHEN displaying a card, THE Tarot_App SHALL construct the image URL using the pattern `https://sacred-texts.com/tarot/pkt/img/{name_short}.jpg`
-2. IF a card image fails to load, THEN THE Tarot_App SHALL display a Fallback_Card showing the card name in a styled design
-3. THE Fallback_Card SHALL use a gradient background consistent with the site's color palette
-4. WHEN a Reversed_Card is displayed, THE Tarot_App SHALL rotate the card image 180 degrees
+1. THE Tarot_App SHALL display a header with the title "TAROT"
+2. THE Tarot_App SHALL display a subtitle "Ask a question for reflection or draw cards." beneath the title
+3. THE Tarot_App SHALL display a question input area below the header
+4. THE Tarot_App SHALL display the Deck below the question area
+5. THE Tarot_App SHALL display the Spread below the Deck
+6. THE Tarot_App SHALL display control buttons below the Spread
 
-### Requirement 3: Shuffle Functionality
+### Requirement 2: Question Input
 
-**User Story:** As a user, I want to shuffle the deck before drawing cards, so that I can feel the randomness and ritual of a tarot reading.
-
-#### Acceptance Criteria
-
-1. WHEN a user initiates a shuffle, THE Tarot_App SHALL randomize the Card_Deck order using the Tarot_API random endpoint or client-side shuffle
-2. WHEN a shuffle completes, THE Tarot_App SHALL assign a random Card_Orientation (upright or reversed) to each card with approximately 50% probability for each
-3. THE Tarot_App SHALL provide visual feedback during the shuffle operation
-4. WHEN a shuffle is initiated, THE Tarot_App SHALL reset any previously drawn cards
-
-### Requirement 4: Single Card Draw
-
-**User Story:** As a user, I want to draw a single card for a quick daily reading, so that I can get guidance without committing to a full spread.
+**User Story:** As a user, I want to optionally enter a question for reflection, so that my reading can be contextualized to my situation.
 
 #### Acceptance Criteria
 
-1. WHEN a user selects single card draw mode, THE Tarot_App SHALL display one Card_Back in the reading area
-2. WHEN a user clicks on the Card_Back, THE Tarot_App SHALL play a Card_Flip_Animation revealing the Card_Face
-3. WHEN the card is revealed, THE Tarot_App SHALL display the card in its assigned Card_Orientation
-4. WHEN an Upright_Card is revealed, THE Tarot_App SHALL display the meaning_up text
-5. WHEN a Reversed_Card is revealed, THE Tarot_App SHALL display the meaning_rev text
-6. WHEN a card is revealed, THE Tarot_App SHALL display the card name and description
+1. THE Tarot_App SHALL display a text input with placeholder text "What would you like to reflect on?"
+2. THE Tarot_App SHALL display an "Analyze" button adjacent to the text input
+3. THE Tarot_App SHALL treat the question input as optional for all interactions
 
-### Requirement 5: Three Card Spread
+### Requirement 3: Deck Display and Manual Card Drawing
 
-**User Story:** As a user, I want to perform a three-card past/present/future spread, so that I can gain deeper insight into my situation.
+**User Story:** As a user, I want to draw cards by clicking the deck, so that I can interactively build my own spread one card at a time.
 
 #### Acceptance Criteria
 
-1. WHEN a user selects three card spread mode, THE Tarot_App SHALL display three Card_Backs labeled "Past", "Present", and "Future"
-2. WHEN a user clicks on any Card_Back, THE Tarot_App SHALL play a Card_Flip_Animation revealing that specific Card_Face
-3. THE Tarot_App SHALL allow cards to be revealed in any order chosen by the user
-4. WHEN all three cards are revealed, THE Tarot_App SHALL ensure each card is unique (no duplicate cards in a single reading)
-5. WHEN displaying a revealed card, THE Tarot_App SHALL show the position label (Past/Present/Future), card name, and appropriate meaning based on Card_Orientation
+1. THE Deck SHALL display as a single full-size face-down tarot card that visually represents the top of a real deck
+2. WHEN a user clicks or taps the Deck, THE Tarot_App SHALL draw a random card from the remaining deck and immediately reveal it in the Spread
+3. WHEN a user clicks the Deck again, THE Tarot_App SHALL draw another random card and add it to the existing Spread
+4. THE Tarot_App SHALL display drawn cards next to each other in a row within the Spread
+5. WHEN the Spread row becomes too wide for the viewport, THE Tarot_App SHALL wrap cards to the next line
+6. THE Tarot_App SHALL keep all previously drawn cards visible until the deck is reset
+7. THE Tarot_App SHALL prevent duplicate cards from being drawn within a single session
+8. WHEN a card is drawn, THE Tarot_App SHALL remove that card from the available deck until reset
 
-### Requirement 6: Card Flip Animation
+### Requirement 4: Analyze Behavior
 
-**User Story:** As a user, I want cards to flip over with a smooth animation, so that the reveal feels magical and engaging.
-
-#### Acceptance Criteria
-
-1. THE Card_Flip_Animation SHALL use framer-motion to animate a 3D rotation effect
-2. THE Card_Flip_Animation SHALL transition from Card_Back to Card_Face over a duration between 0.5 and 1 second
-3. WHILE a card is flipping, THE Tarot_App SHALL prevent additional clicks on that card
-4. THE Card_Flip_Animation SHALL maintain the card's assigned rotation (upright or reversed) throughout the animation
-
-### Requirement 7: Mobile Responsiveness
-
-**User Story:** As a mobile user, I want the tarot app to work well on my phone, so that I can do readings anywhere.
+**User Story:** As a user, I want to analyze my drawn cards or get an automatic reading, so that I can receive a meaningful interpretation.
 
 #### Acceptance Criteria
 
-1. WHEN viewed on screens narrower than 640px, THE Tarot_App SHALL display cards in a single column layout
-2. WHEN viewed on screens wider than 640px, THE Tarot_App SHALL display the three card spread in a horizontal row
-3. THE Tarot_App SHALL ensure all cards are fully visible without horizontal scrolling on any screen size
-4. THE Tarot_App SHALL scale card sizes proportionally to available screen width while maintaining aspect ratio
+1. WHEN the user clicks Analyze and no cards have been drawn, THE Tarot_App SHALL automatically draw 3 random cards and generate an Interpretation
+2. WHEN the user clicks Analyze and cards have already been drawn, THE Tarot_App SHALL generate an Interpretation using the currently displayed Spread without drawing additional cards
+3. WHEN generating an Interpretation, THE Tarot_App SHALL use the entered question if one is provided
+4. WHEN generating an Interpretation, THE Tarot_App SHALL use card names, card positions, and Card_Orientation
 
-### Requirement 8: Visual Design Integration
+### Requirement 5: Controls — Reset Deck
 
-**User Story:** As a site visitor, I want the tarot app to match the existing portfolio site styling, so that the experience feels cohesive.
-
-#### Acceptance Criteria
-
-1. THE Tarot_App SHALL use the existing site color palette (primary: #0D2F3F, secondary: #286F6C, background: #F8F7F1)
-2. THE Tarot_App SHALL use framer-motion animations consistent with other site components (staggerChildren, fadeIn, textVariant patterns)
-3. THE Tarot_App SHALL use SCSS modules following the existing project pattern
-4. THE Card_Back design SHALL incorporate colors from the site's accent palette (#6D4B8A purple, #4A90A4 teal gradient)
-
-### Requirement 9: Reading State Management
-
-**User Story:** As a user, I want to start a new reading easily, so that I can do multiple readings in one session.
+**User Story:** As a user, I want to reset the deck, so that I can start a completely fresh reading session.
 
 #### Acceptance Criteria
 
-1. THE Tarot_App SHALL provide a "New Reading" button to reset the current reading
-2. WHEN a new reading is started, THE Tarot_App SHALL return all drawn cards to the deck and re-shuffle
-3. THE Tarot_App SHALL allow switching between single card and three card spread modes at any time
-4. WHEN switching reading modes, THE Tarot_App SHALL reset the current reading state
+1. THE Tarot_App SHALL provide a "Reset Deck" button in the controls area
+2. WHEN the user clicks Reset Deck, THE Tarot_App SHALL return all drawn cards to the deck
+3. WHEN the user clicks Reset Deck, THE Tarot_App SHALL clear the Spread
+4. WHEN the user clicks Reset Deck, THE Tarot_App SHALL shuffle the full deck
+5. WHEN the user clicks Reset Deck, THE Tarot_App SHALL remove any displayed Interpretation
+
+### Requirement 6: Controls — Shuffle Deck
+
+**User Story:** As a user, I want to shuffle the remaining cards without losing my current spread, so that I can randomize what comes next.
+
+#### Acceptance Criteria
+
+1. THE Tarot_App SHALL provide a "Shuffle Deck" button in the controls area
+2. WHEN the user clicks Shuffle Deck, THE Tarot_App SHALL randomize the order of remaining undealt cards
+3. WHEN the user clicks Shuffle Deck, THE Tarot_App SHALL keep currently drawn cards visible in the Spread
+4. WHEN the user clicks Shuffle Deck, THE Tarot_App SHALL assign a new random Card_Orientation to each remaining card
+
+### Requirement 7: Controls — Auto Mode
+
+**User Story:** As a user, I want an auto mode that draws a set number of cards and interprets them, so that I can get a quick complete reading.
+
+#### Acceptance Criteria
+
+1. THE Tarot_App SHALL provide Auto Mode card count buttons: "1 Card", "3 Cards", "5 Cards"
+2. WHEN the user selects an Auto Mode card count, THE Tarot_App SHALL draw that number of cards from the deck
+3. WHEN Auto Mode draws cards, THE Tarot_App SHALL immediately reveal them in the Spread
+4. WHEN Auto Mode draws cards, THE Tarot_App SHALL automatically generate an Interpretation using the drawn cards and any entered question
+
+### Requirement 8: Spread Presets
+
+**User Story:** As a user, I want to use common tarot spread layouts, so that I can perform traditional readings with positional meaning.
+
+#### Acceptance Criteria
+
+1. THE Tarot_App SHALL support a Single Card spread representing the core message
+2. THE Tarot_App SHALL support a Three Card Spread with positions labeled "Past", "Present", "Future"
+3. THE Tarot_App SHALL support a Celtic Cross spread using 10 cards in the traditional layout
+4. WHEN a spread preset is used, THE Tarot_App SHALL assign position labels to each drawn card
+
+### Requirement 9: Interpretation Output
+
+**User Story:** As a user, I want a thoughtful interpretation of my cards, so that I can use the reading for self-reflection.
+
+#### Acceptance Criteria
+
+1. THE Interpretation SHALL include an overall reading summary
+2. THE Interpretation SHALL include reflection points for the user
+3. THE Interpretation SHALL include connections between the drawn cards
+4. THE Interpretation SHALL consider Card_Orientation (upright or reversed) for each card
+5. THE Tarot_App SHALL present tarot as a self-reflection tool rather than a future prediction tool
+6. WHEN a question is provided, THE Interpretation SHALL incorporate the question as context for the reading
+
+### Requirement 10: Card Orientation
+
+**User Story:** As a user, I want cards to appear upright or reversed randomly, so that my readings have the full range of traditional tarot meanings.
+
+#### Acceptance Criteria
+
+1. WHEN cards are shuffled, THE Tarot_App SHALL assign a random Card_Orientation (upright or reversed) to each card with approximately 50% probability
+2. WHEN a reversed card is displayed, THE Tarot_App SHALL rotate the card image 180 degrees
+3. THE Tarot_App SHALL preserve the assigned Card_Orientation for a card throughout the session until reset

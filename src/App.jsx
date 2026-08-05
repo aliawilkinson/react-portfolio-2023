@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import Home from './components/Home/Home'
 import css from './styles/app.module.scss'
 import { Routes, Route, Navigate, useParams } from 'react-router-dom'
@@ -6,10 +7,11 @@ import OtherProjectsList from './components/OtherProjects/OtherProjectsList'
 import OtherProjectDetail from './components/OtherProjects/OtherProjectDetail'
 import BlogList from './components/Blog/BlogList'
 import BlogPost from './components/Blog/BlogPost'
-import Tarot from './components/Tarot/Tarot'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import RouteScroller from './components/RouteScroller/RouteScroller'
+
+const Tarot = lazy(() => import('./components/Tarot/Tarot'))
 
 // Redirect wrapper for /projects/:slug -> /other-projects/:slug
 const ProjectSlugRedirect = () => {
@@ -34,7 +36,7 @@ const App = () => {
         <Route path='/projects/:slug' element={<ProjectSlugRedirect />} />
         <Route path='/blog' element={<BlogList />} />
         <Route path='/blog/:slug' element={<BlogPost />} />
-        <Route path='/tarot' element={<Tarot />} />
+        <Route path='/tarot' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><Tarot /></Suspense>} />
         <Route path='/testimonials' element={<Home />} />
         <Route path='/experience' element={<Home />} />
         <Route path='/contact' element={<Home />} />

@@ -1,262 +1,181 @@
-# Design Document: Tarot Reading App
+# Design Document: Tarot App
 
 ## Overview
 
-This design document describes the technical architecture for a Tarot reading app integrated into an existing React + Vite portfolio site. The app provides single card draws and three-card spreads with card flip animations, reversals support, and mobile responsiveness.
+This design describes a complete rewrite of the Tarot reading app within the existing React + Vite portfolio site. The new architecture centers around a deck-first interaction model: users click a face-down deck to draw cards one at a time, building a spread manually. An "Analyze" button triggers interpretation of drawn cards (or auto-draws 3 if none exist). Controls allow reset, shuffle, and auto-mode with preset card counts.
 
-The implementation leverages the existing project infrastructure including framer-motion for animations, SCSS modules for styling, and the established component patterns. Card data is fetched from tarotapi.dev, with images sourced from sacred-texts.com's public domain Rider-Waite collection.
+Key changes from the prior design:
+- **No external API** — card data is loaded from local `src/data/tarotDeck.json`
+- **Deck-centric interaction** — a single face-down card is the primary draw mechanism
+- **Incremental spread building** — cards accumulate in a row, wrapping as needed
+- **Interpretation engine** — generates reflection-oriented readings from card data
+- **Auto Mode** — one-click draws of 1, 3, or 5 cards with automatic interpretation
+- **Spread presets** — Single Card, Three Card (Past/Present/Future), Celtic Cross (10 cards)
 
 ## Architecture
 
 ```mermaid
 graph TB
     subgraph "React Components"
-        Tarot[Tarot.jsx<br/>Main Container]
-        ReadingArea[ReadingArea.jsx<br/>Card Display]
-        TarotCard[TarotCard.jsx<br/>Individual Card]
-        CardControls[CardControls.jsx<br/>Mode Selection & Actions]
+        Tarot[Tarot.jsx — Main Container]
+        QuestionInput[QuestionInput.jsx — Text input + Analyze button]
+        DeckView[DeckView.jsx — Clickable face-down deck card]
+        Spread[Spread.jsx — Row of drawn cards]
+        SpreadCard[SpreadCard.jsx — Individual revealed card]
+        Controls[Controls.jsx — Reset, Shuffle, Auto Mode]
+        Interpretation[Interpretation.jsx — AI reading display]
     end
-    
+
     subgraph "Hooks"
-        useTarotDeck[useTarotDeck<br/>Deck Management]
-        useReading[useReading<br/>Reading State]
+        useTarotDeck[useTarotDeck.js — Deck state, shuffle, draw]
+        useReading[useReading.js — Spread state, analysis trigger]
     end
-    
+
     subgraph "Services"
-        TarotService[tarotService.js<br/>API Integration]
+        interpretationService[interpretationService.js — Generate reading text]
     end
-    
-    subgraph "External"
-        TarotAPI[tarotapi.dev<br/>Card Data]
-        ImageSource[sacred-texts.com<br/>Card Images]
+
+    subgraph "Data"
+        tarotDeck[tarotDeck.json — 78 card definitions]
     end
-    
-    Tarot --> ReadingArea
-    Tarot --> CardControls
-    ReadingArea --> TarotCard
+
+    Tarot --> QuestionInput
+    Tarot --> DeckView
+    Tarot --> Spread
+    Tarot --> Controls
+    Tarot --> Interpretation
+    Spread --> SpreadCard
     Tarot --> useTarotDeck
     Tarot --> useReading
-    useTarotDeck --> TarotService
-    TarotService --> TarotAPI
-    TarotCard --> ImageSource
+    useReading --> interpretationService
+    useTarotDeck --> tarotDeck
 ```
 
 ### Component Hierarchy
 
 ```
 Tarot (main container)
-├── CardControls (mode selection, shuffle, new reading)
-└── ReadingArea (card display area)
-    └── TarotCard (individual card with flip animation)
+├── QuestionInput (text input + Analyze button)
+├── DeckView (clickable face-down deck)
+├── Spread (row of drawn/revealed cards)
+│   └── SpreadCard (individual card with image + meaning)
+├── Controls (Reset Deck, Shuffle Deck, Auto Mode buttons)
+└── Interpretation (generated reading output)
 ```
 
 ## Components and Interfaces
 
-### TarotCard Component
+### Tarot (Main Container)
 
-The core card component handles display, flip animation, and fallback rendering.
+Orchestrates all sub-components. Connects hooks and passes callbacks down.
 
 ```jsx
-// TarotCard.jsx
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+// Tarot.jsx
+const Tarot = () => {
+  const { remainingDeck, drawnCards, drawCard, shuffleDeck, resetDeck, drawMultiple } = useTarotDeck()
+  const { question, setQuestion, interpretation, analyze, clearInterpretation } = useReading()
 
-/**
- * @typedef {Object} TarotCardProps
- * @property {Object} card - Card data from API
- * @property {string} card.name - Full card name
- * @property {string} card.name_short - Short name for image URL
- * @property {string} card.meaning_up - Upright meaning
- * @property {string} card.meaning_rev - Reversed meaning
- * @property {string} card.desc - Card description
- * @property {boolean} isReversed - Whether card is reversed
- * @property {boolean} isRevealed - Whether card face is showing
- * @property {string} [label] - Position label (Past/Present/Future)
- * @property {function} onReveal - Callback when card is clicked to reveal
- */
-
-const TarotCard = ({ card, isReversed, isRevealed, label, onReveal }) => {
-  const [imageError, setImageError] = useState(false)
-  const [isFlipping, setIsFlipping] = useState(false)
-  
-  const imageUrl = `https://sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`
-  
-  const handleClick = () => {
-    if (!isRevealed && !isFlipping) {
-      setIsFlipping(true)
-      onReveal()
+  const handleAnalyze = () => {
+    if (drawnCards.length === 0) {
+      // Auto-draw 3, then analyze
+      const newCards = drawMultiple(3)
+      analyze(newCards, question)
+    } else {
+      analyze(drawnCards, question)
     }
   }
-  
-  const handleFlipComplete = () => {
-    setIsFlipping(false)
+
+  const handleReset = () => {
+    resetDeck()
+    clearInterpretation()
   }
-  
+
+  const handleAutoMode = (count) => {
+    resetDeck()
+    clearInterpretation()
+    const newCards = drawMultiple(count)
+    analyze(newCards, question)
+  }
+
+  // ...renders QuestionInput, DeckView, Spread, Controls, Interpretation
+}
+```
+
+### QuestionInput
+
+```jsx
+// QuestionInput.jsx
+/**
+ * @typedef {Object} QuestionInputProps
+ * @property {string} question - Current question text
+ * @property {function} onQuestionChange - Updates question state
+ * @property {function} onAnalyze - Triggers analysis
+ */
+const QuestionInput = ({ question, onQuestionChange, onAnalyze }) => {
   return (
-    <div className={css.cardContainer}>
-      {label && <span className={css.positionLabel}>{label}</span>}
-      <motion.div
-        className={css.card}
-        onClick={handleClick}
-        animate={{ rotateY: isRevealed ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        onAnimationComplete={handleFlipComplete}
+    <div className={css.questionArea}>
+      <input
+        type="text"
+        placeholder="What would you like to reflect on?"
+        value={question}
+        onChange={(e) => onQuestionChange(e.target.value)}
+      />
+      <button onClick={onAnalyze}>Analyze</button>
+    </div>
+  )
+}
+```
+
+### DeckView
+
+Displays a single full-size face-down card. Click draws a card.
+
+```jsx
+// DeckView.jsx
+/**
+ * @typedef {Object} DeckViewProps
+ * @property {number} remainingCount - Cards left in deck
+ * @property {function} onDraw - Callback to draw a card
+ * @property {boolean} isEmpty - Whether deck has no cards left
+ */
+const DeckView = ({ remainingCount, onDraw, isEmpty }) => {
+  return (
+    <div className={css.deckArea}>
+      <div
+        className={`${css.deckCard} ${isEmpty ? css.deckEmpty : ''}`}
+        onClick={!isEmpty ? onDraw : undefined}
       >
-        {/* Card Back */}
-        <div className={css.cardBack}>
-          {/* Decorative back design */}
+        <div className={css.deckCardInner}>
+          <span>✦</span>
+          {!isEmpty && <span className={css.deckCount}>{remainingCount}</span>}
+          {isEmpty && <span className={css.deckEmptyLabel}>Empty</span>}
         </div>
-        
-        {/* Card Face */}
-        <div 
-          className={css.cardFace}
-          style={{ transform: isReversed ? 'rotate(180deg)' : 'none' }}
-        >
-          {imageError ? (
-            <FallbackCard name={card.name} />
-          ) : (
-            <img 
-              src={imageUrl} 
-              alt={card.name}
-              onError={() => setImageError(true)}
-            />
-          )}
-        </div>
-      </motion.div>
-      
-      {isRevealed && (
-        <CardMeaning 
-          card={card} 
-          isReversed={isReversed} 
-        />
-      )}
-    </div>
-  )
-}
-```
-
-### FallbackCard Component
-
-Displays when image loading fails.
-
-```jsx
-// FallbackCard.jsx
-/**
- * @typedef {Object} FallbackCardProps
- * @property {string} name - Card name to display
- */
-
-const FallbackCard = ({ name }) => {
-  return (
-    <div className={css.fallbackCard}>
-      <span className={css.fallbackIcon}>🔮</span>
-      <span className={css.fallbackName}>{name}</span>
-    </div>
-  )
-}
-```
-
-### CardControls Component
-
-Handles user interaction for mode selection and reading actions.
-
-```jsx
-// CardControls.jsx
-/**
- * @typedef {'single' | 'three'} ReadingMode
- * 
- * @typedef {Object} CardControlsProps
- * @property {ReadingMode} mode - Current reading mode
- * @property {function} onModeChange - Callback when mode changes
- * @property {function} onShuffle - Callback to shuffle deck
- * @property {function} onNewReading - Callback to start new reading
- * @property {boolean} isShuffling - Whether shuffle is in progress
- * @property {boolean} hasRevealedCards - Whether any cards have been revealed
- */
-
-const CardControls = ({ 
-  mode, 
-  onModeChange, 
-  onShuffle, 
-  onNewReading,
-  isShuffling,
-  hasRevealedCards 
-}) => {
-  return (
-    <div className={css.controls}>
-      <div className={css.modeSelector}>
-        <button 
-          className={mode === 'single' ? css.active : ''}
-          onClick={() => onModeChange('single')}
-        >
-          Single Card
-        </button>
-        <button 
-          className={mode === 'three' ? css.active : ''}
-          onClick={() => onModeChange('three')}
-        >
-          Three Card Spread
-        </button>
-      </div>
-      
-      <div className={css.actions}>
-        <button onClick={onShuffle} disabled={isShuffling}>
-          {isShuffling ? 'Shuffling...' : 'Shuffle'}
-        </button>
-        {hasRevealedCards && (
-          <button onClick={onNewReading}>
-            New Reading
-          </button>
-        )}
       </div>
     </div>
   )
 }
 ```
 
-### ReadingArea Component
+### Spread
 
-Displays the card layout based on reading mode.
+Displays drawn cards in a wrapping row.
 
 ```jsx
-// ReadingArea.jsx
+// Spread.jsx
 /**
- * @typedef {Object} DrawnCard
- * @property {Object} card - Card data
- * @property {boolean} isReversed - Reversal state
- * @property {boolean} isRevealed - Reveal state
+ * @typedef {Object} SpreadProps
+ * @property {Array<DrawnCard>} drawnCards - Cards currently in the spread
+ * @property {Object} spreadPreset - Optional preset with position labels
  */
-
-/**
- * @typedef {Object} ReadingAreaProps
- * @property {ReadingMode} mode - Current reading mode
- * @property {DrawnCard[]} drawnCards - Cards for current reading
- * @property {function} onRevealCard - Callback when card is revealed
- * @property {boolean} isLoading - Whether data is loading
- * @property {string} [error] - Error message if any
- */
-
-const SPREAD_LABELS = ['Past', 'Present', 'Future']
-
-const ReadingArea = ({ mode, drawnCards, onRevealCard, isLoading, error }) => {
-  if (isLoading) {
-    return <LoadingIndicator />
-  }
-  
-  if (error) {
-    return <ErrorDisplay message={error} />
-  }
-  
+const Spread = ({ drawnCards, spreadPreset }) => {
   return (
-    <div className={mode === 'single' ? css.singleLayout : css.spreadLayout}>
+    <div className={css.spread}>
       {drawnCards.map((drawn, index) => (
-        <TarotCard
+        <SpreadCard
           key={drawn.card.name_short}
           card={drawn.card}
           isReversed={drawn.isReversed}
-          isRevealed={drawn.isRevealed}
-          label={mode === 'three' ? SPREAD_LABELS[index] : undefined}
-          onReveal={() => onRevealCard(index)}
+          label={spreadPreset?.labels?.[index] || null}
         />
       ))}
     </div>
@@ -264,40 +183,182 @@ const ReadingArea = ({ mode, drawnCards, onRevealCard, isLoading, error }) => {
 }
 ```
 
-## Custom Hooks
+### SpreadCard
 
-### useTarotDeck Hook
+An already-revealed card displayed in the spread.
 
-Manages deck state, fetching, and shuffling.
+```jsx
+// SpreadCard.jsx
+const SpreadCard = ({ card, isReversed, label }) => {
+  const [imageError, setImageError] = useState(false)
+  const imageUrl = getCardImageUrl(card.name_short)
+
+  return (
+    <motion.div
+      className={css.spreadCard}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      {label && <span className={css.positionLabel}>{label}</span>}
+      <div className={css.spreadCardImage}>
+        {imageError ? (
+          <FallbackCard name={card.name} />
+        ) : (
+          <img
+            src={imageUrl}
+            alt={card.name}
+            style={{ transform: isReversed ? 'rotate(180deg)' : 'none' }}
+            onError={() => setImageError(true)}
+          />
+        )}
+      </div>
+      <div className={css.spreadCardInfo}>
+        <span className={css.cardName}>
+          {card.name}
+          {isReversed && <span className={css.reversedBadge}>Reversed</span>}
+        </span>
+      </div>
+    </motion.div>
+  )
+}
+```
+
+### Controls
+
+```jsx
+// Controls.jsx
+/**
+ * @typedef {Object} ControlsProps
+ * @property {function} onReset - Reset deck callback
+ * @property {function} onShuffle - Shuffle remaining cards callback
+ * @property {function} onAutoMode - Auto mode callback (receives card count)
+ * @property {boolean} isShuffling - Whether shuffle is in progress
+ * @property {boolean} hasDrawnCards - Whether any cards are in the spread
+ */
+const Controls = ({ onReset, onShuffle, onAutoMode, isShuffling, hasDrawnCards }) => {
+  return (
+    <div className={css.controls}>
+      <div className={css.actions}>
+        <button onClick={onReset}>Reset Deck</button>
+        <button onClick={onShuffle} disabled={isShuffling}>
+          {isShuffling ? 'Shuffling...' : 'Shuffle Deck'}
+        </button>
+      </div>
+      <div className={css.autoMode}>
+        <span className={css.autoLabel}>Auto Mode:</span>
+        <button onClick={() => onAutoMode(1)}>1 Card</button>
+        <button onClick={() => onAutoMode(3)}>3 Cards</button>
+        <button onClick={() => onAutoMode(5)}>5 Cards</button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Interpretation
+
+```jsx
+// Interpretation.jsx
+/**
+ * @typedef {Object} InterpretationProps
+ * @property {Object|null} reading - Generated interpretation object
+ * @property {boolean} isGenerating - Whether interpretation is being generated
+ */
+const Interpretation = ({ reading, isGenerating }) => {
+  if (!reading && !isGenerating) return null
+
+  return (
+    <div className={css.interpretation}>
+      {isGenerating ? (
+        <p className={css.generating}>Generating your reading...</p>
+      ) : (
+        <>
+          <h3>Your Reading</h3>
+          <p className={css.summary}>{reading.summary}</p>
+          <h4>Reflection Points</h4>
+          <ul>{reading.reflections.map((r, i) => <li key={i}>{r}</li>)}</ul>
+          <h4>Card Connections</h4>
+          <p>{reading.connections}</p>
+        </>
+      )}
+    </div>
+  )
+}
+```
+
+## Data Models
+
+### Card (from tarotDeck.json)
+
+```typescript
+interface Card {
+  name: string          // "The Fool"
+  name_short: string    // "ar00"
+  type: "major" | "minor"
+  suit: string | null   // null for Major Arcana; "wands" | "cups" | "swords" | "pentacles"
+  desc: string          // Card imagery description
+  meaning_up: string    // Upright interpretation
+  meaning_rev: string   // Reversed interpretation
+}
+```
+
+### DrawnCard
+
+```typescript
+interface DrawnCard {
+  card: Card
+  isReversed: boolean
+}
+```
+
+### DeckState (managed by useTarotDeck)
+
+```typescript
+interface DeckState {
+  fullDeck: Card[]           // All 78 cards (immutable reference)
+  remainingDeck: DrawnCard[] // Shuffled cards not yet drawn
+  drawnCards: DrawnCard[]    // Cards drawn into spread (in order)
+  isShuffling: boolean
+}
+```
+
+### InterpretationResult
+
+```typescript
+interface InterpretationResult {
+  summary: string        // Overall reading narrative
+  reflections: string[]  // Bullet-point reflection prompts
+  connections: string    // Narrative connecting cards to each other
+}
+```
+
+### Spread Presets
+
+```typescript
+interface SpreadPreset {
+  name: string
+  cardCount: number
+  labels: string[]
+}
+
+const PRESETS = {
+  single: { name: "Single Card", cardCount: 1, labels: ["Core Message"] },
+  three: { name: "Three Card Spread", cardCount: 3, labels: ["Past", "Present", "Future"] },
+  celtic: { name: "Celtic Cross", cardCount: 10, labels: [
+    "Present", "Challenge", "Foundation", "Past", "Crown",
+    "Future", "Self", "Environment", "Hopes/Fears", "Outcome"
+  ]}
+}
+```
+
+### useTarotDeck Hook (Revised)
 
 ```jsx
 // hooks/useTarotDeck.js
-import { useState, useEffect, useCallback } from 'react'
-import { fetchAllCards } from '../services/tarotService'
+import { useState, useCallback } from 'react'
+import { tarotDeck } from '../data/tarotDeck'
 
-/**
- * @typedef {Object} Card
- * @property {string} name
- * @property {string} name_short
- * @property {string} value
- * @property {string} suit
- * @property {string} type
- * @property {string} meaning_up
- * @property {string} meaning_rev
- * @property {string} desc
- */
-
-/**
- * @typedef {Object} ShuffledCard
- * @property {Card} card
- * @property {boolean} isReversed
- */
-
-/**
- * Fisher-Yates shuffle algorithm
- * @param {any[]} array 
- * @returns {any[]}
- */
 const shuffleArray = (array) => {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -307,430 +368,289 @@ const shuffleArray = (array) => {
   return shuffled
 }
 
-/**
- * @returns {Object} Deck management state and functions
- */
 const useTarotDeck = () => {
-  const [cards, setCards] = useState([])
-  const [shuffledDeck, setShuffledDeck] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [remainingDeck, setRemainingDeck] = useState(() =>
+    shuffleArray(tarotDeck).map(card => ({ card, isReversed: Math.random() < 0.5 }))
+  )
+  const [drawnCards, setDrawnCards] = useState([])
   const [isShuffling, setIsShuffling] = useState(false)
 
-  // Fetch cards on mount
-  useEffect(() => {
-    const loadCards = async () => {
-      try {
-        setIsLoading(true)
-        setError(null)
-        const data = await fetchAllCards()
-        setCards(data)
-        // Initial shuffle
-        shuffleDeck(data)
-      } catch (err) {
-        setError('Failed to load tarot cards. Please try again.')
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    loadCards()
+  // Draw one card from the top of remaining deck
+  const drawCard = useCallback(() => {
+    if (remainingDeck.length === 0) return null
+    const [drawn, ...rest] = remainingDeck
+    setRemainingDeck(rest)
+    setDrawnCards(prev => [...prev, drawn])
+    return drawn
+  }, [remainingDeck])
+
+  // Draw multiple cards at once
+  const drawMultiple = useCallback((count) => {
+    const toDraw = remainingDeck.slice(0, count)
+    setRemainingDeck(prev => prev.slice(count))
+    setDrawnCards(prev => [...prev, ...toDraw])
+    return toDraw
+  }, [remainingDeck])
+
+  // Shuffle only remaining (undealt) cards
+  const shuffleDeck = useCallback(() => {
+    setIsShuffling(true)
+    setTimeout(() => {
+      setRemainingDeck(prev =>
+        shuffleArray(prev.map(d => d.card)).map(card => ({
+          card, isReversed: Math.random() < 0.5
+        }))
+      )
+      setIsShuffling(false)
+    }, 400)
   }, [])
 
-  const shuffleDeck = useCallback((deckCards = cards) => {
+  // Reset: return all cards, reshuffle full deck
+  const resetDeck = useCallback(() => {
     setIsShuffling(true)
-    
-    // Simulate shuffle animation delay
     setTimeout(() => {
-      const shuffled = shuffleArray(deckCards).map(card => ({
-        card,
-        isReversed: Math.random() < 0.5
-      }))
-      setShuffledDeck(shuffled)
+      setRemainingDeck(
+        shuffleArray(tarotDeck).map(card => ({ card, isReversed: Math.random() < 0.5 }))
+      )
+      setDrawnCards([])
       setIsShuffling(false)
-    }, 500)
-  }, [cards])
-
-  const drawCards = useCallback((count) => {
-    return shuffledDeck.slice(0, count)
-  }, [shuffledDeck])
-
-  const retry = useCallback(() => {
-    // Re-trigger the fetch
-    setIsLoading(true)
-    setError(null)
-    fetchAllCards()
-      .then(data => {
-        setCards(data)
-        shuffleDeck(data)
-      })
-      .catch(() => setError('Failed to load tarot cards. Please try again.'))
-      .finally(() => setIsLoading(false))
-  }, [shuffleDeck])
+    }, 400)
+  }, [])
 
   return {
-    cards,
-    shuffledDeck,
-    isLoading,
-    error,
+    remainingDeck,
+    drawnCards,
     isShuffling,
+    drawCard,
+    drawMultiple,
     shuffleDeck,
-    drawCards,
-    retry
+    resetDeck,
+    remainingCount: remainingDeck.length
   }
 }
+
+export default useTarotDeck
 ```
 
-### useReading Hook
-
-Manages the current reading state.
+### useReading Hook (Revised)
 
 ```jsx
 // hooks/useReading.js
 import { useState, useCallback } from 'react'
+import { generateInterpretation } from '../services/interpretationService'
 
-/**
- * @typedef {Object} ReadingState
- * @property {ReadingMode} mode
- * @property {DrawnCard[]} drawnCards
- * @property {boolean} hasStarted
- */
+const useReading = () => {
+  const [question, setQuestion] = useState('')
+  const [interpretation, setInterpretation] = useState(null)
+  const [isGenerating, setIsGenerating] = useState(false)
 
-const useReading = (drawCards) => {
-  const [mode, setMode] = useState('single')
-  const [drawnCards, setDrawnCards] = useState([])
-  const [hasStarted, setHasStarted] = useState(false)
-
-  const startReading = useCallback((shuffledCards) => {
-    const count = mode === 'single' ? 1 : 3
-    const cards = shuffledCards.slice(0, count).map(item => ({
-      ...item,
-      isRevealed: false
-    }))
-    setDrawnCards(cards)
-    setHasStarted(true)
-  }, [mode])
-
-  const revealCard = useCallback((index) => {
-    setDrawnCards(prev => prev.map((card, i) => 
-      i === index ? { ...card, isRevealed: true } : card
-    ))
+  const analyze = useCallback((cards, questionText) => {
+    setIsGenerating(true)
+    const result = generateInterpretation(cards, questionText)
+    setInterpretation(result)
+    setIsGenerating(false)
   }, [])
 
-  const changeMode = useCallback((newMode) => {
-    setMode(newMode)
-    setDrawnCards([])
-    setHasStarted(false)
+  const clearInterpretation = useCallback(() => {
+    setInterpretation(null)
   }, [])
-
-  const resetReading = useCallback(() => {
-    setDrawnCards([])
-    setHasStarted(false)
-  }, [])
-
-  const hasRevealedCards = drawnCards.some(c => c.isRevealed)
-  const allRevealed = drawnCards.length > 0 && drawnCards.every(c => c.isRevealed)
 
   return {
-    mode,
-    drawnCards,
-    hasStarted,
-    hasRevealedCards,
-    allRevealed,
-    startReading,
-    revealCard,
-    changeMode,
-    resetReading
+    question,
+    setQuestion,
+    interpretation,
+    isGenerating,
+    analyze,
+    clearInterpretation
   }
 }
+
+export default useReading
 ```
 
-## Services
-
-### Tarot API Service
+### Interpretation Service
 
 ```jsx
-// services/tarotService.js
-import axios from 'axios'
-
-const API_BASE = 'https://tarotapi.dev/api/v1'
+// services/interpretationService.js
 
 /**
- * Fetches all 78 tarot cards
- * @returns {Promise<Card[]>}
+ * Generates a tarot reading interpretation from drawn cards.
+ * Frames all output as self-reflection (not prediction).
+ *
+ * @param {DrawnCard[]} cards - Array of drawn cards with orientation
+ * @param {string} question - Optional user question
+ * @returns {InterpretationResult}
  */
-export const fetchAllCards = async () => {
-  const response = await axios.get(`${API_BASE}/cards`)
-  return response.data.cards
+export const generateInterpretation = (cards, question = '') => {
+  const cardSummaries = cards.map((drawn, i) => {
+    const meaning = drawn.isReversed ? drawn.card.meaning_rev : drawn.card.meaning_up
+    return { name: drawn.card.name, meaning, isReversed: drawn.isReversed, position: i }
+  })
+
+  const summary = buildSummary(cardSummaries, question)
+  const reflections = buildReflections(cardSummaries, question)
+  const connections = buildConnections(cardSummaries)
+
+  return { summary, reflections, connections }
 }
 
-/**
- * Fetches random cards from API
- * @param {number} count - Number of cards to fetch
- * @returns {Promise<Card[]>}
- */
-export const fetchRandomCards = async (count) => {
-  const response = await axios.get(`${API_BASE}/cards/random?n=${count}`)
-  return response.data.cards
-}
-
-/**
- * Constructs image URL for a card
- * @param {string} nameShort - Card's short name
- * @returns {string}
- */
-export const getCardImageUrl = (nameShort) => {
-  return `https://sacred-texts.com/tarot/pkt/img/${nameShort}.jpg`
-}
+// Internal helpers build narrative from card meanings
+// Implementation will compose card meanings into cohesive text
 ```
-
-## Data Models
-
-### Card Data Structure
-
-```typescript
-// Types for reference (implemented as JSDoc in actual code)
-interface Card {
-  name: string           // "The Fool"
-  name_short: string     // "ar00" (used for image URL)
-  value: string          // "0"
-  suit: string | null    // null for Major Arcana, "wands"/"cups"/"swords"/"pentacles" for Minor
-  type: "major" | "minor"
-  meaning_up: string     // Upright interpretation
-  meaning_rev: string    // Reversed interpretation
-  desc: string           // Card description
-}
-
-interface ShuffledCard {
-  card: Card
-  isReversed: boolean
-}
-
-interface DrawnCard extends ShuffledCard {
-  isRevealed: boolean
-}
-
-interface ReadingState {
-  mode: 'single' | 'three'
-  drawnCards: DrawnCard[]
-  hasStarted: boolean
-}
-```
-
-### Image URL Pattern
-
-Card images follow this pattern:
-- Base URL: `https://sacred-texts.com/tarot/pkt/img/`
-- File format: `{name_short}.jpg`
-- Examples:
-  - The Fool: `ar00.jpg`
-  - Ace of Wands: `waac.jpg`
-  - Queen of Cups: `cuqu.jpg`
-
 
 
 ## Correctness Properties
 
 *A property is a characteristic or behavior that should hold true across all valid executions of a system—essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
 
-### Property 1: Deck Composition Invariant
+### Property 1: Deck Partition Invariant
 
-*For any* valid card deck loaded from the API, the deck SHALL contain exactly 22 cards with type "major" and exactly 56 cards with type "minor", totaling 78 cards.
+*For any* sequence of draw operations from a full 78-card deck, the union of remaining cards and drawn cards SHALL always equal the original full deck (same cards, no duplicates, no missing cards).
 
-**Validates: Requirements 1.2**
+**Validates: Requirements 3.7, 3.8**
 
-### Property 2: Card Data Field Preservation
+### Property 2: Reset Restores Initial State
 
-*For any* card returned from the API and stored in state, the stored card SHALL contain all required fields: name, name_short, value, suit, type, meaning_up, meaning_rev, and desc.
+*For any* deck state (after arbitrary draws, shuffles, and interpretations), calling reset SHALL result in exactly 78 remaining cards, 0 drawn cards, and no interpretation displayed.
 
-**Validates: Requirements 1.3**
+**Validates: Requirements 5.2, 5.3, 5.4, 5.5**
 
-### Property 3: Image URL Construction
+### Property 3: Shuffle Preserves Partition
 
-*For any* card with a name_short value, the constructed image URL SHALL equal `https://sacred-texts.com/tarot/pkt/img/{name_short}.jpg` where {name_short} is substituted with the card's name_short property.
+*For any* deck state with N remaining cards and M drawn cards, calling shuffle SHALL result in N remaining cards containing the same card set (potentially reordered) and M drawn cards completely unchanged.
 
-**Validates: Requirements 2.1**
+**Validates: Requirements 6.2, 6.3**
 
-### Property 4: Reversed Card Rotation
+### Property 4: Orientation Distribution
 
-*For any* card marked as reversed, when displayed the card image SHALL have a 180-degree rotation transform applied.
+*For any* shuffle operation producing N cards (where N > 50), the proportion of reversed cards SHALL fall within [0.30, 0.70] (approximately 50% with reasonable variance for random sampling).
 
-**Validates: Requirements 2.4**
+**Validates: Requirements 10.1, 6.4**
 
-### Property 5: Shuffle Produces Valid Permutation
+### Property 5: Orientation Preservation
 
-*For any* deck before and after shuffling, the shuffled deck SHALL contain exactly the same cards as the original deck (same elements, potentially different order), and the shuffled deck length SHALL equal the original deck length.
+*For any* drawn card, its isReversed value SHALL remain constant across all operations (draw, shuffle, analyze) until a reset is performed.
 
-**Validates: Requirements 3.1**
+**Validates: Requirements 10.3**
 
-### Property 6: Shuffle Reversal Distribution
+### Property 6: Analyze Preserves Existing Spread
 
-*For any* sufficiently large sample of shuffled cards (n > 100), the proportion of reversed cards SHALL be within the range [0.35, 0.65] (approximately 50% with reasonable variance).
+*For any* non-empty spread of drawn cards, calling analyze SHALL not modify the drawn cards array (no cards added or removed).
 
-**Validates: Requirements 3.2**
+**Validates: Requirements 4.2**
 
-### Property 7: Shuffle Resets Drawn Cards
+### Property 7: Interpretation Incorporates Question
 
-*For any* reading state with drawn cards, when a shuffle is initiated, the drawn cards array SHALL become empty.
+*For any* non-empty question string and any set of drawn cards, the generated interpretation's summary SHALL contain or reference the provided question text.
 
-**Validates: Requirements 3.4**
+**Validates: Requirements 4.3, 9.6**
 
-### Property 8: Revealed Card Meaning Matches Orientation
+### Property 8: Interpretation Uses Correct Card Meanings
 
-*For any* revealed card, IF the card is upright THEN the displayed meaning SHALL equal meaning_up, AND IF the card is reversed THEN the displayed meaning SHALL equal meaning_rev.
+*For any* set of drawn cards, the interpretation SHALL reference each card's name, and for each card use meaning_up when upright or meaning_rev when reversed.
 
-**Validates: Requirements 4.4, 4.5**
+**Validates: Requirements 4.4, 9.4**
 
-### Property 9: Revealed Card Shows Name and Description
+### Property 9: Interpretation Completeness
 
-*For any* revealed card, the display SHALL include the card's name property and desc property.
+*For any* valid set of drawn cards (1 or more), the generated interpretation SHALL contain a non-empty summary, at least one reflection point, and a non-empty connections section.
 
-**Validates: Requirements 4.6**
+**Validates: Requirements 9.1, 9.2, 9.3**
 
-### Property 10: Three-Card Spread Uniqueness
+### Property 10: Auto Mode Draws Exact Count
 
-*For any* three-card spread reading, all three drawn cards SHALL have distinct name_short values (no duplicates).
+*For any* auto mode card count (1, 3, or 5) and a deck with sufficient remaining cards, auto mode SHALL draw exactly that number of cards into the spread.
 
-**Validates: Requirements 5.4**
+**Validates: Requirements 7.2, 7.3**
 
-### Property 11: Spread Card Display Completeness
+### Property 11: Spread Preset Labels
 
-*For any* revealed card in a three-card spread at position index i, the display SHALL include the position label from ["Past", "Present", "Future"][i], the card name, and the correct meaning based on orientation.
+*For any* spread preset with N positions and N drawn cards, each card at index i SHALL be assigned the label at preset.labels[i].
 
-**Validates: Requirements 5.5**
+**Validates: Requirements 8.4**
 
-### Property 12: Click Prevention During Flip
+### Property 12: Question Optionality
 
-*For any* card in a flipping state (isFlipping = true), click events on that card SHALL not trigger a reveal action.
+*For any* operation (draw, analyze, auto mode, reset, shuffle), the operation SHALL succeed regardless of whether the question input is empty or non-empty.
 
-**Validates: Requirements 6.3**
-
-### Property 13: Orientation Preserved Through Reveal
-
-*For any* card with an assigned orientation (isReversed value), after the card is revealed, the displayed orientation SHALL match the originally assigned orientation.
-
-**Validates: Requirements 4.3, 6.4**
-
-### Property 14: New Reading Resets State
-
-*For any* reading state when a new reading is started, the drawn cards array SHALL become empty AND a new shuffle SHALL be triggered.
-
-**Validates: Requirements 9.2**
-
-### Property 15: Mode Switch Resets Reading
-
-*For any* reading mode change (single to three or three to single), the current drawn cards SHALL be cleared and hasStarted SHALL become false.
-
-**Validates: Requirements 9.4**
+**Validates: Requirements 2.3**
 
 ## Error Handling
 
-### API Errors
-
 | Error Condition | Handling Strategy |
 |----------------|-------------------|
-| Network failure on card fetch | Display error message with retry button; preserve any cached data |
-| API returns non-200 status | Show user-friendly error message; log detailed error for debugging |
-| API returns malformed data | Validate response structure; show error if required fields missing |
-| Request timeout | Set reasonable timeout (10s); show timeout-specific message with retry |
+| Draw from empty deck | Disable deck click, show "Empty" state on deck card |
+| Image fails to load | Display FallbackCard component with card name and gradient |
+| Auto mode with insufficient remaining cards | Draw as many as available, generate interpretation with available cards |
+| Interpretation generation fails | Display error message with option to retry |
+| Invalid card data in deck | Skip malformed entries during initialization; log warning |
 
-### Image Loading Errors
+### Image Loading Strategy
 
-| Error Condition | Handling Strategy |
-|----------------|-------------------|
-| Image fails to load (404) | Display FallbackCard component with card name |
-| Image loads slowly | Show loading placeholder while image loads |
-| Sacred-texts.com unavailable | Gracefully degrade to FallbackCard for all cards |
+Cards use the pattern `https://sacred-texts.com/tarot/pkt/img/{name_short}.jpg`. Since external images may fail:
+- Each SpreadCard handles its own `onError` with local state
+- FallbackCard shows a gradient background with the card name
+- No retry for images — fallback is the permanent state once error occurs
 
-### State Errors
+### Graceful Degradation
 
-| Error Condition | Handling Strategy |
-|----------------|-------------------|
-| Attempt to draw from empty deck | Prevent draw; show message to shuffle first |
-| Attempt to reveal already revealed card | No-op; card remains in revealed state |
-| Invalid mode value | Default to 'single' mode |
-
-### Implementation
-
-```jsx
-// Error boundary for component-level errors
-class TarotErrorBoundary extends React.Component {
-  state = { hasError: false }
-  
-  static getDerivedStateFromError() {
-    return { hasError: true }
-  }
-  
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className={css.errorFallback}>
-          <p>Something went wrong with the tarot reading.</p>
-          <button onClick={() => window.location.reload()}>
-            Refresh Page
-          </button>
-        </div>
-      )
-    }
-    return this.props.children
-  }
-}
-```
+- If all images fail (e.g., sacred-texts.com down), the app remains fully functional with FallbackCards
+- Interpretation service is synchronous and local — no network failures possible
+- Card data is bundled locally — no loading state needed after initial render
 
 ## Testing Strategy
 
 ### Dual Testing Approach
 
-This feature requires both unit tests and property-based tests for comprehensive coverage:
-
-- **Unit tests**: Verify specific examples, edge cases, integration points, and error conditions
-- **Property tests**: Verify universal properties across many randomly generated inputs
+- **Unit tests**: Verify specific examples (component rendering, preset definitions, edge cases)
+- **Property tests**: Verify universal invariants across randomized inputs (deck operations, interpretation generation)
 
 ### Property-Based Testing Configuration
 
-- **Library**: fast-check (already installed in project)
+- **Library**: fast-check (already installed)
+- **Test runner**: vitest (already configured)
 - **Minimum iterations**: 100 per property test
 - **Tag format**: `Feature: tarot-app, Property {number}: {property_text}`
 
-### Unit Tests
+### Unit Test Coverage
 
 | Test Area | Test Cases |
 |-----------|------------|
-| API Service | Successful fetch returns cards; Error handling on failure; Timeout handling |
-| Image URL | URL construction with various name_short values |
-| Card Component | Renders card back when not revealed; Renders card face when revealed; Shows fallback on image error |
-| Controls | Mode switching triggers reset; Shuffle button disabled during shuffle |
-| Reading Flow | Single card draw shows one card; Three card spread shows three cards |
+| DeckView | Renders face-down card; shows count; disables when empty |
+| SpreadCard | Shows card image; applies reversed rotation; shows fallback on error |
+| Controls | All buttons render; shuffle disables during operation |
+| QuestionInput | Input accepts text; Analyze button fires callback |
+| Interpretation | Renders all sections; shows loading state; hidden when null |
+| Spread Presets | Single/Three/Celtic preset definitions correct |
 
-### Property Tests
+### Property Test Plan
 
-Each correctness property from the design document SHALL be implemented as a property-based test:
-
-| Property | Test Implementation |
-|----------|---------------------|
-| Property 1: Deck Composition | Generate mock API responses; verify 22 major + 56 minor |
-| Property 2: Field Preservation | Generate cards with all fields; verify none lost in processing |
-| Property 3: Image URL | Generate random name_short strings; verify URL pattern |
-| Property 5: Shuffle Permutation | Generate decks; shuffle; verify same cards present |
-| Property 6: Reversal Distribution | Generate many shuffles; verify ~50% reversed |
-| Property 8: Meaning Selection | Generate cards with both meanings; verify correct selection |
-| Property 10: Three-Card Uniqueness | Generate many three-card draws; verify no duplicates |
-| Property 13: Orientation Preservation | Generate cards with orientations; verify preserved through reveal |
-| Property 15: Mode Switch Reset | Generate reading states; verify reset on mode change |
+| Property | Test Strategy |
+|----------|---------------|
+| Property 1: Deck Partition | Generate random draw sequences; verify union = full deck |
+| Property 2: Reset State | Generate random state mutations then reset; verify clean state |
+| Property 3: Shuffle Partition | Draw random cards, shuffle; verify remaining set unchanged, drawn unchanged |
+| Property 4: Orientation Distribution | Generate multiple shuffles; verify ~50% distribution |
+| Property 5: Orientation Preservation | Draw cards, perform operations; verify isReversed unchanged |
+| Property 6: Analyze Preserves Spread | Draw random cards, call analyze; verify drawn unchanged |
+| Property 7: Question in Interpretation | Generate random questions + cards; verify question in output |
+| Property 8: Correct Meanings | Generate cards with orientations; verify correct meaning used |
+| Property 9: Interpretation Completeness | Generate random card sets; verify all sections non-empty |
+| Property 10: Auto Mode Count | For each count (1,3,5); verify exact draw count |
+| Property 11: Preset Labels | Generate card draws with presets; verify label assignment |
+| Property 12: Question Optionality | Run all operations with/without question; verify success |
 
 ### Test File Structure
 
 ```
-tests/
-├── unit/
-│   └── tarot/
-│       ├── tarotService.test.js
-│       ├── TarotCard.test.jsx
-│       ├── useTarotDeck.test.js
-│       └── useReading.test.js
-└── property/
-    └── tarot/
-        ├── deckComposition.property.test.js
-        ├── shuffleProperties.property.test.js
-        ├── cardDisplay.property.test.js
-        └── readingState.property.test.js
+src/
+├── hooks/
+│   ├── useTarotDeck.test.js      (unit + property tests for deck logic)
+│   └── useReading.test.js        (unit + property tests for reading state)
+├── services/
+│   └── interpretationService.test.js (property tests for interpretation)
+└── components/Tarot/
+    ├── Tarot.test.jsx             (integration tests)
+    ├── SpreadCard.test.jsx        (unit tests)
+    └── Controls.test.jsx          (unit tests)
 ```
