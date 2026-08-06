@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import css from './Tarot.module.scss'
 import { staggerChildren, fadeIn } from '../../utils/motion'
@@ -10,6 +10,14 @@ import DeckView from './DeckView'
 import Spread from './Spread'
 import Controls from './Controls'
 import Interpretation from './Interpretation'
+
+const getInitialTextSize = () => {
+  try {
+    return sessionStorage.getItem('tarot-large-text') === 'true'
+  } catch {
+    return false
+  }
+}
 
 const Tarot = () => {
   const wrapperRef = useRef(null)
@@ -35,21 +43,29 @@ const Tarot = () => {
   } = useReading()
 
   const [activePreset, setActivePreset] = useState(null)
-  const [largeText, setLargeText] = useState(false)
+  const [largeText, setLargeText] = useState(getInitialTextSize)
 
   const scrollToTop = () => {
     wrapperRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const toggleTextSize = useCallback(() => {
+    setLargeText(prev => {
+      const next = !prev
+      try { sessionStorage.setItem('tarot-large-text', String(next)) } catch {}
+      return next
+    })
+  }, [])
+
+  // Analyze always produces a fresh reading
   const handleAnalyze = () => {
-    if (drawnCards.length === 0) {
-      const newCards = drawMultiple(3)
-      analyze(newCards, question)
-    } else {
-      analyze(drawnCards, question)
-    }
+    clearInterpretation()
+    setActivePreset(null)
+    const newCards = resetAndDraw(3)
+    analyze(newCards, question)
   }
 
+  // Enter with a question — same as Analyze (fresh 3-card reading)
   const handleSubmitQuestion = () => {
     clearInterpretation()
     setActivePreset(null)
@@ -57,10 +73,12 @@ const Tarot = () => {
     analyze(newCards, question)
   }
 
+  // Reset clears everything including the question field
   const handleReset = () => {
     resetDeck()
     clearInterpretation()
     setActivePreset(null)
+    setQuestion('')
     scrollToTop()
   }
 
@@ -70,10 +88,9 @@ const Tarot = () => {
   }
 
   const handleAutoMode = (count) => {
-    resetDeck()
     clearInterpretation()
     setActivePreset(null)
-    const newCards = drawMultiple(count)
+    const newCards = resetAndDraw(count)
     analyze(newCards, question)
     scrollToTop()
   }
@@ -81,10 +98,9 @@ const Tarot = () => {
   const handlePreset = (presetKey) => {
     const preset = SPREAD_PRESETS[presetKey]
     if (!preset) return
-    resetDeck()
     clearInterpretation()
     setActivePreset(preset)
-    const newCards = drawMultiple(preset.cardCount)
+    const newCards = resetAndDraw(preset.cardCount)
     analyze(newCards, question)
     scrollToTop()
   }
@@ -106,9 +122,6 @@ const Tarot = () => {
         <motion.div className={css.header} variants={fadeIn('up', 'tween', 0, 0.5)}>
           <h1 className={css.title}>TAROT</h1>
           <p className={css.subtitle}>Ask a question for reflection or draw cards.</p>
-          <button className={css.textSizeBtn} onClick={() => setLargeText(!largeText)}>
-            {largeText ? 'Aa' : 'A+'}
-          </button>
         </motion.div>
 
         <QuestionInput
@@ -118,6 +131,12 @@ const Tarot = () => {
           onSubmitQuestion={handleSubmitQuestion}
           onReset={handleReset}
         />
+        {drawnCards.length > 0 && (
+          <p className={css.pulledMessage}>
+            ✨ {drawnCards.length} card{drawnCards.length > 1 ? 's' : ''} drawn{question ? ` for "${question}"` : ''}. Trust what resonates.
+          </p>
+        )}
+        <Spread drawnCards={drawnCards} spreadPreset={activePreset} />
         <DeckView
           remainingCount={remainingCount}
           onDraw={handleDraw}
@@ -130,13 +149,9 @@ const Tarot = () => {
           onPreset={handlePreset}
           isShuffling={isShuffling}
           hasDrawnCards={drawnCards.length > 0}
+          largeText={largeText}
+          onToggleTextSize={toggleTextSize}
         />
-        {drawnCards.length > 0 && (
-          <p className={css.pulledMessage}>
-            ✨ {drawnCards.length} card{drawnCards.length > 1 ? 's' : ''} drawn{question ? ` for "${question}"` : ''} — trust what resonates.
-          </p>
-        )}
-        <Spread drawnCards={drawnCards} spreadPreset={activePreset} />
         <Interpretation reading={interpretation} isGenerating={isGenerating} />
       </div>
     </motion.section>

@@ -15,7 +15,7 @@ const navLinks = [
   { label: 'Case Studies', to: '/case-studies', targetId: 'CaseStudies', message: "you're already reading the case studies :)" },
   { label: 'Testimonials', to: '/testimonials', targetId: 'Testimonials', message: "you're already where the nice things are :)" },
   { label: 'Experience', to: '/experience', targetId: 'experience', message: "you're already in the timeline :)" },
-  { label: 'Other Projects', to: '/other-projects', targetId: null, message: "you're already in the lab :)" },
+  { label: 'Projects', to: '/other-projects', targetId: null, message: "you're already in the lab :)" },
   { label: 'Contact', to: '/contact', targetId: 'footer', message: "you're already at the signal flare :)" },
   { label: 'Blog', to: '/blog', targetId: null, message: "" },
   { label: 'About', to: '/about', targetId: 'infoPost', message: "you're already in the lore :)" },

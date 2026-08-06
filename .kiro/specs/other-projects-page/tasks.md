@@ -1,8 +1,8 @@
-# Implementation Plan: Other Projects Page
+# Implementation Plan: Projects Page
 
 ## Overview
 
-Transform the existing Projects section into a dedicated "Other Projects" page following the Blog component pattern. Most infrastructure exists — main work is creating the list component, adding categories to data, and rewiring routes/navigation.
+Transform the existing Projects section into a dedicated "Projects" page following the Blog component pattern. Most infrastructure exists — main work is creating the list component, adding categories to data, and rewiring routes/navigation.
 
 ## Tasks
 
@@ -38,7 +38,7 @@ Transform the existing Projects section into a dedicated "Other Projects" page f
 
 - [x] 5. Update navigation and clean up Home
   - [x] 5.1 Update Header navigation
-    - Change "Projects" label to "Other Projects" in navLinks array
+    - Change "Projects" label to "Projects" in navLinks array
     - Update `to` path to '/other-projects' (or keep as '/projects' — your call)
     - Remove targetId (no longer a scroll target on Home)
     - Update "already here" message

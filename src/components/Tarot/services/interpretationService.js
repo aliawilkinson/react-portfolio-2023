@@ -42,7 +42,7 @@ function buildSummary(cardSummaries, question) {
   let summary = ''
 
   if (question) {
-    summary += `Reflecting on your question — "${question}" — `
+    summary += `Reflecting on your question, "${question}": `
   } else {
     summary += 'In this reading, '
   }
@@ -79,7 +79,7 @@ function buildReflections(cardSummaries, question) {
   // Add a question-based reflection if provided
   if (question) {
     reflections.push(
-      `How does this reading relate to what you asked — "${question}"? What resonates most?`
+      `How does this reading relate to what you asked, "${question}"? What resonates most?`
     )
   }
 
@@ -97,7 +97,7 @@ function buildReflections(cardSummaries, question) {
 function buildConnections(cardSummaries) {
   if (cardSummaries.length === 1) {
     const card = cardSummaries[0]
-    return `${card.name} stands alone in this reading, offering a focused message. Its energy — ${extractMeaningCore(card.meaning)} — is the single thread to follow right now.`
+    return `${card.name} stands alone in this reading, offering a focused message. Its energy, ${extractMeaningCore(card.meaning)}, is the single thread to follow right now.`
   }
 
   const cardNames = cardSummaries.map(c => c.name)
@@ -113,7 +113,7 @@ function buildConnections(cardSummaries) {
     connections += `${current.name} brings the energy of ${currentTheme.toLowerCase()}, which flows into ${next.name}'s invitation toward ${nextTheme.toLowerCase()}. `
   }
 
-  connections += 'Notice how these themes echo or challenge each other — that tension or harmony is where your insight lives.'
+  connections += 'Notice how these themes echo or challenge each other. That tension or harmony is where your insight lives.'
 
   return connections
 }

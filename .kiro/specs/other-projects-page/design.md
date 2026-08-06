@@ -1,8 +1,8 @@
-# Design Document: Other Projects Page
+# Design Document: Projects Page
 
 ## Overview
 
-This design transforms the existing "Projects" section into a dedicated "Other Projects" page that follows the architectural pattern established by the Blog feature. The implementation reuses the existing component structure while adding category support and expanded media capabilities for showcasing creative work beyond professional software development.
+This design transforms the existing "Projects" section into a dedicated "Projects" page that follows the architectural pattern established by the Blog feature. The implementation reuses the existing component structure while adding category support and expanded media capabilities for showcasing creative work beyond professional software development.
 
 The key architectural decision is to model this feature after BlogList/BlogPost rather than creating a new pattern, ensuring consistency across the codebase and leveraging proven patterns for list-to-detail navigation.
 
@@ -30,7 +30,7 @@ graph TB
     end
     
     subgraph "Navigation"
-        NAV[Header] -->|"Other Projects"| R1
+        NAV[Header] -->|"Projects"| R1
         HOME[Home] -->|Remove Projects section| NAV
     end
 ```
@@ -210,7 +210,7 @@ Focus on specific examples and edge cases:
    - ProjectCard displays fallback when image fails
 
 3. **Navigation Tests**
-   - Header shows "Other Projects" label
+   - Header shows "Projects" label
    - "Already here" message displays when clicking nav while on page
    - Home page does not include Projects section
 

@@ -57,7 +57,7 @@ const OtherProjectsList = () => {
       className={`paddings ${css.wrapper}`}
     >
       <div className={`innerWidth ${css.container}`}>
-        <motion.h1 variants={textVariant(0.2)} className="primaryText">Other Projects</motion.h1>
+        <motion.h1 variants={textVariant(0.2)} className="primaryText">Projects</motion.h1>
         <motion.p variants={fadeIn("up", "tween", 0.3, 0.6)} className={css.intro}>
           Things I build, create, and ship for fun — music, art, and more.
         </motion.p>

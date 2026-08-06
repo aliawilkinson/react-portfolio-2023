@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This feature transforms the existing "Projects" section into a dedicated "Other Projects" page, similar to how the "About" page works. The page will showcase the user's creative work beyond professional software development, including music, art, and other creative projects. The navigation will be updated to reflect the new naming and routing pattern.
+This feature transforms the existing "Projects" section into a dedicated "Projects" page, similar to how the "About" page works. The page will showcase the user's creative work beyond professional software development, including music, art, and other creative projects. The navigation will be updated to reflect the new naming and routing pattern.
 
 ## Glossary
 
@@ -17,22 +17,22 @@ This feature transforms the existing "Projects" section into a dedicated "Other 
 
 ### Requirement 1: Navigation Renaming
 
-**User Story:** As a site visitor, I want the navigation to say "Other Projects" instead of "Projects", so that I understand these are creative side projects separate from professional case studies.
+**User Story:** As a site visitor, I want the navigation to say "Projects" instead of "Projects", so that I understand these are creative side projects separate from professional case studies.
 
 #### Acceptance Criteria
 
-1. WHEN the navigation menu is displayed, THE Navigation SHALL show "Other Projects" as the label for the projects link
-2. WHEN a user hovers over the "Other Projects" link, THE Navigation SHALL maintain the existing hover styling
-3. WHEN a user is already on the Other Projects page and clicks the link, THE Navigation SHALL display the "already here" message
+1. WHEN the navigation menu is displayed, THE Navigation SHALL show "Projects" as the label for the projects link
+2. WHEN a user hovers over the "Projects" link, THE Navigation SHALL maintain the existing hover styling
+3. WHEN a user is already on the Projects page and clicks the link, THE Navigation SHALL display the "already here" message
 
-### Requirement 2: Dedicated Other Projects Page
+### Requirement 2: Dedicated Projects Page
 
-**User Story:** As a site visitor, I want to access Other Projects as a separate dedicated page (like About), so that I can browse creative projects without scrolling through the entire home page.
+**User Story:** As a site visitor, I want to access Projects as a separate dedicated page (like About), so that I can browse creative projects without scrolling through the entire home page.
 
 #### Acceptance Criteria
 
-1. WHEN a user navigates to /other-projects, THE Portfolio_Site SHALL render a dedicated page for Other Projects
-2. WHEN the Other Projects page loads, THE Other_Projects_Page SHALL display a heading, subheading, and grid of project cards
+1. WHEN a user navigates to /other-projects, THE Portfolio_Site SHALL render a dedicated page for Projects
+2. WHEN the Projects page loads, THE Other_Projects_Page SHALL display a heading, subheading, and grid of project cards
 3. THE Other_Projects_Page SHALL NOT be embedded within the Home page scroll
 4. WHEN a user clicks on a project card, THE Other_Projects_Page SHALL navigate to the project's detail page
 
@@ -59,18 +59,18 @@ This feature transforms the existing "Projects" section into a dedicated "Other 
 
 ### Requirement 5: Route and URL Structure
 
-**User Story:** As a site visitor, I want clean URLs for the Other Projects page and individual projects, so that I can bookmark and share them.
+**User Story:** As a site visitor, I want clean URLs for the Projects page and individual projects, so that I can bookmark and share them.
 
 #### Acceptance Criteria
 
-1. THE Portfolio_Site SHALL serve the Other Projects page at the /other-projects route
+1. THE Portfolio_Site SHALL serve the Projects page at the /other-projects route
 2. THE Portfolio_Site SHALL serve individual project detail pages at /other-projects/:slug routes
 3. WHEN the old /projects route is accessed, THE Portfolio_Site SHALL redirect to /other-projects for backward compatibility
 4. WHEN navigating between project detail pages and the main page, THE Navigation SHALL maintain correct active state indicators
 
 ### Requirement 6: Visual Consistency
 
-**User Story:** As a site visitor, I want the Other Projects page to match the visual style of the rest of the site, so that the experience feels cohesive.
+**User Story:** As a site visitor, I want the Projects page to match the visual style of the rest of the site, so that the experience feels cohesive.
 
 #### Acceptance Criteria
 
@@ -81,7 +81,7 @@ This feature transforms the existing "Projects" section into a dedicated "Other 
 
 ### Requirement 7: Home Page Cleanup
 
-**User Story:** As the site owner, I want the Projects section removed from the home page, so that visitors are directed to the dedicated Other Projects page instead.
+**User Story:** As the site owner, I want the Projects section removed from the home page, so that visitors are directed to the dedicated Projects page instead.
 
 #### Acceptance Criteria
 

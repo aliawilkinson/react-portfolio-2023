@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 import css from './Tarot.module.scss'
+import Tooltip from './Tooltip'
 
 const QuestionInput = ({ question, onQuestionChange, onAnalyze, onSubmitQuestion, onReset }) => {
   const [showHint, setShowHint] = useState(false)
@@ -53,8 +54,12 @@ const QuestionInput = ({ question, onQuestionChange, onAnalyze, onSubmitQuestion
         />
       </div>
       <div className={css.analyzeWrapper}>
-        <button onClick={handleAnalyzeClick}>Analyze</button>
-        <button className={css.resetBtn} onClick={onReset}>Reset</button>
+        <Tooltip text="Interpret your drawn cards (or draw 3 if none)">
+          <button onClick={handleAnalyzeClick}>Analyze</button>
+        </Tooltip>
+        <Tooltip text="Clear everything and start over">
+          <button className={css.resetBtn} onClick={onReset}>Reset</button>
+        </Tooltip>
         {showHint && (
           <span className={css.questionHint}>
             feel free to ask a question and we will analyze :)

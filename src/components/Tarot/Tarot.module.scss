@@ -23,31 +23,28 @@
 }
 
 .largeText {
-    .cardDesc { font-size: 1rem; }
-    .cardMeaning { font-size: 1.05rem; }
-    .cardName { font-size: 1.2rem; }
-    .pulledMessage { font-size: 1.1rem; }
+    font-size: 1.4rem;
+
+    .title { font-size: 3.5rem; }
+    .subtitle { font-size: 1.5rem; }
+    .cardDesc { font-size: 1.3rem; }
+    .cardMeaning { font-size: 1.3rem; }
+    .cardName { font-size: 1.5rem; }
+    .pulledMessage { font-size: 1.4rem; }
+    .positionLabel { font-size: 1.1rem; }
+    .autoLabel { font-size: 1.2rem; }
+
+    textarea { font-size: 1.3rem; }
+    button { font-size: 1.2rem; }
+
     .interpretation p,
-    .interpretation li { font-size: 1.1rem; }
-    .interpretation h3 { font-size: 1.5rem; }
-    .interpretation h4 { font-size: 1.2rem; }
-}
+    .interpretation li { font-size: 1.3rem; }
+    .interpretation h3 { font-size: 1.8rem; }
+    .interpretation h4 { font-size: 1.5rem; }
 
-.textSizeBtn {
-    margin-top: 0.3rem;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid rgba(13, 47, 63, 0.2);
-    border-radius: 6px;
-    background: transparent;
-    color: $primary;
-    font-size: 0.85rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 150ms ease;
-
-    &:hover {
-        background: rgba(13, 47, 63, 0.06);
-    }
+    .collapsibleHeader { font-size: 1.4rem; }
+    .deckCount { font-size: 1.4rem; }
+    .deckEmptyLabel { font-size: 1.3rem; }
 }
 
 // ============================================
@@ -191,6 +188,42 @@
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+// ============================================
+// TOOLTIPS
+// ============================================
+
+.tooltipWrapper {
+    position: relative;
+    display: inline-flex;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6D4B8A;
+    color: white;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    animation: fadeInHint 0.15s ease;
+    pointer-events: none;
+    z-index: 10;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #6D4B8A;
+    }
+}
+
 
 // ============================================
 // DECK AREA
@@ -292,24 +325,24 @@
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    width: 180px;
+    width: 160px;
+    flex-shrink: 0;
 
-    @media (max-width: 480px) {
-        width: 140px;
+    @media (min-width: 481px) and (max-width: 1024px) {
+        width: 150px;
+    }
+
+    @media (min-width: 1025px) {
+        width: 180px;
     }
 }
 
 .spreadCardImage {
-    width: 180px;
-    height: 310px;
+    width: 100%;
+    aspect-ratio: 7 / 12;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-
-    @media (max-width: 480px) {
-        width: 140px;
-        height: 240px;
-    }
 
     img {
         width: 100%;
@@ -320,7 +353,7 @@
 
 .spreadCardInfo {
     text-align: center;
-    max-width: 180px;
+    width: 100%;
 }
 
 .cardMeaning {
@@ -446,7 +479,8 @@
     justify-content: center;
 
     button {
-        padding: 0.5rem 1rem;
+        padding: 0.65rem 1.1rem;
+        min-height: 44px;
         border: 2px solid rgba(13, 47, 63, 0.2);
         border-radius: 8px;
         background: transparent;
@@ -477,7 +511,8 @@
     justify-content: center;
 
     button {
-        padding: 0.5rem 1rem;
+        padding: 0.65rem 1.1rem;
+        min-height: 44px;
         border: 2px solid rgba(109, 75, 138, 0.25);
         border-radius: 8px;
         background: transparent;
@@ -550,4 +585,69 @@
 
 .summary {
     margin-bottom: 0.5rem;
+}
+
+// ============================================
+// COLLAPSIBLE SECTIONS
+// ============================================
+
+.collapsibleHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.7rem 0;
+    min-height: 44px;
+    border: none;
+    background: transparent;
+    color: $primary;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: color 150ms ease;
+
+    &:hover {
+        color: #6D4B8A;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #6D4B8A;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+}
+
+.collapsibleChevron {
+    font-size: 0.9rem;
+    width: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.collapsibleContent {
+    padding: 0.25rem 0 0.75rem 1.5rem;
+}
+
+.collapseControls {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    button {
+        padding: 0.5rem 0.9rem;
+        min-height: 44px;
+        border: 1px solid rgba(13, 47, 63, 0.2);
+        border-radius: 6px;
+        background: transparent;
+        color: $primary;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 150ms ease;
+
+        &:hover {
+            background: rgba(13, 47, 63, 0.06);
+        }
+    }
 }
