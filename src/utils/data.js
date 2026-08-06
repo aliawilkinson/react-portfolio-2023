@@ -309,6 +309,7 @@ export const projects = [
     description: "A tarot card reading app for fun and reflection.",
     category: "Apps",
     bg: "#4A90A4",
+    imgSrc: "./tarot-cover.png",
     externalUrl: "/tarot",
   },
   {
