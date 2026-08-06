@@ -68,7 +68,7 @@ Incremental implementation of 8 UX improvements to the Tarot app. Each task buil
 - [x] 6. Update Controls component with "Bigger Letters" button
   - [x] 6.1 Modify `src/components/Tarot/Controls.jsx`
     - Add new props: largeText, onToggleTextSize
-    - Add "Bigger Letters" / "Normal Letters" button in the actions row
+    - Add "Bigger Letters" / "Smaller Letters" button in the actions row
     - Wrap in Tooltip with descriptive text
     - Add aria-pressed={largeText} on the button
     - _Requirements: 1.1, 1.2, 1.3, 10.4_

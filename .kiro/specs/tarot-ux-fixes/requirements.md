@@ -27,7 +27,7 @@ A set of UI/UX improvements to the existing Tarot app within the React + Vite po
 
 1. WHEN the Tarot_App renders, THE Controls SHALL display a button labeled "Bigger Letters" alongside the other action buttons.
 2. WHEN the user clicks "Bigger Letters", THE Tarot_App SHALL toggle Text_Size_Mode, visibly increasing font sizes for card names, descriptions, meanings, and Interpretation text.
-3. WHEN Text_Size_Mode is active, THE button label SHALL change to indicate the current enlarged state (e.g., "Normal Letters").
+3. WHEN Text_Size_Mode is active, THE button label SHALL change to indicate the current enlarged state (e.g., "Smaller Letters").
 4. THE Tarot_App SHALL NOT display the previous "A+" / "Aa" button in the header area.
 5. WHILE Text_Size_Mode is active, THE Tarot_App SHALL persist the selection for the duration of the browser session using session storage.
 6. THE Text_Size_Mode SHALL produce consistent visual results on mobile, tablet, and desktop viewports.

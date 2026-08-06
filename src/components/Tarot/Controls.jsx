@@ -19,7 +19,7 @@ const Controls = ({ onReset, onShuffle, onAutoMode, onPreset, isShuffling, hasDr
             onClick={onToggleTextSize}
             aria-pressed={largeText}
           >
-            {largeText ? 'Normal Letters' : 'Bigger Letters'}
+            {largeText ? 'Smaller Letters' : 'Bigger Letters'}
           </button>
         </Tooltip>
       </div>

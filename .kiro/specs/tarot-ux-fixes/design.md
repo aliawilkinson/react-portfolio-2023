@@ -101,7 +101,7 @@ const Interpretation = ({ reading, isGenerating }) => {
 
 **File:** `src/components/Tarot/Controls.jsx`
 
-- Add "Bigger Letters" / "Normal Letters" toggle button to the actions row
+- Add "Bigger Letters" / "Smaller Letters" toggle button to the actions row
 - Props: receives `largeText` state and `onToggleTextSize` callback from parent
 - Button uses `aria-pressed={largeText}` for screen reader state communication
 
