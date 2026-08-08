@@ -22,10 +22,13 @@ const ConversationMode = () => {
   } = useConversation({ resetAndDraw })
 
   const [activePreset] = useState(SPREAD_PRESETS.three)
-  const messagesEndRef = useRef(null)
+  const messagesContainerRef = useRef(null)
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const container = messagesContainerRef.current
+    if (container) {
+      container.scrollTop = container.scrollHeight
+    }
   }, [turns.length, isLoading])
 
   const handleSubmit = (questionText) => {
@@ -39,7 +42,7 @@ const ConversationMode = () => {
         <Link to="/tarot" className={css.convBackLink}>← Back to Tarot</Link>
       </div>
 
-      <div className={css.convMessages}>
+      <div className={css.convMessages} ref={messagesContainerRef}>
         {turns.length === 0 && !isLoading && (
           <div className={css.convEmpty}>
             <img src={tarotCover} alt="Tarot deck" className={css.convEmptyImg} />
@@ -65,8 +68,6 @@ const ConversationMode = () => {
             <button onClick={retryLastInterpretation}>Retry</button>
           </div>
         )}
-
-        <div ref={messagesEndRef} />
       </div>
 
       <div className={css.convInputBar}>

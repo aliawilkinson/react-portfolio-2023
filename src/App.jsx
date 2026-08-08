@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import Home from './components/Home/Home'
 import css from './styles/app.module.scss'
-import { Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom'
 import InfoPost from './components/InfoPost/InfoPost'
 import OtherProjectsList from './components/OtherProjects/OtherProjectsList'
 import OtherProjectDetail from './components/OtherProjects/OtherProjectDetail'
@@ -21,6 +21,9 @@ const ProjectSlugRedirect = () => {
 }
 
 const App = () => {
+  const { pathname } = useLocation()
+  const hideFooter = pathname === '/tarot' || pathname === '/conversation'
+
   return (
     <div className={`bg-primary ${css.container}`}>
       <Header />
@@ -51,7 +54,7 @@ const App = () => {
         <Route path='/cognitoIdentityArchitecture' element={<InfoPost post='cognitoIdentityArchitecture' />} />
         <Route path='/almModernization' element={<InfoPost post='almModernization' />} />
       </Routes>
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   );
 };

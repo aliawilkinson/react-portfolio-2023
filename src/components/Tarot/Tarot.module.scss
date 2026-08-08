@@ -848,7 +848,36 @@
         font-size: 0.95rem;
         color: $primary;
         line-height: 1.6;
-        white-space: pre-wrap;
+        margin: 0.3rem 0;
+    }
+
+    ul, ol {
+        padding-left: 1.5rem;
+        margin: 0.5rem 0;
+
+        li {
+            font-size: 0.95rem;
+            color: $primary;
+            line-height: 1.6;
+            margin-bottom: 0.3rem;
+        }
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    b, strong {
+        font-weight: 600;
+        color: $primary;
+    }
+
+    em {
+        font-style: italic;
     }
 }
 
