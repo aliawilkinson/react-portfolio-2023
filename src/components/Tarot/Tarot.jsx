@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import css from './Tarot.module.scss'
 import { staggerChildren, fadeIn } from '../../utils/motion'
@@ -122,6 +123,9 @@ const Tarot = () => {
         <motion.div className={css.header} variants={fadeIn('up', 'tween', 0, 0.5)}>
           <h1 className={css.title}>TAROT</h1>
           <p className={css.subtitle}>Ask a question for reflection or draw cards.</p>
+          <Link to="/conversation" className={css.convModeBtn} title="Start an ongoing tarot conversation. Draw fresh cards for each question and receive AI-powered interpretations.">
+            Conversation Mode
+          </Link>
         </motion.div>
 
         <QuestionInput

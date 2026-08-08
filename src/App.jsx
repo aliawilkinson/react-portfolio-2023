@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer'
 import RouteScroller from './components/RouteScroller/RouteScroller'
 
 const Tarot = lazy(() => import('./components/Tarot/Tarot'))
+const ConversationMode = lazy(() => import('./components/Tarot/ConversationMode'))
 
 // Redirect wrapper for /projects/:slug -> /other-projects/:slug
 const ProjectSlugRedirect = () => {
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/blog' element={<BlogList />} />
         <Route path='/blog/:slug' element={<BlogPost />} />
         <Route path='/tarot' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><Tarot /></Suspense>} />
+        <Route path='/conversation' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><ConversationMode /></Suspense>} />
         <Route path='/testimonials' element={<Home />} />
         <Route path='/experience' element={<Home />} />
         <Route path='/contact' element={<Home />} />

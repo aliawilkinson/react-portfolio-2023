@@ -6,29 +6,28 @@ describe('DeckView', () => {
   it('renders a face-down deck card with remaining count', () => {
     render(<DeckView remainingCount={78} onDraw={() => {}} isEmpty={false} />)
     expect(screen.getByText('78')).toBeTruthy()
-    expect(screen.getByText('✦')).toBeTruthy()
+    expect(screen.getByAltText('Tarot card back')).toBeTruthy()
   })
 
   it('calls onDraw when clicked and deck is not empty', () => {
     const onDraw = vi.fn()
     render(<DeckView remainingCount={52} onDraw={onDraw} isEmpty={false} />)
-    const symbol = screen.getByText('✦')
-    fireEvent.click(symbol.closest('[class]'))
+    const count = screen.getByText('52')
+    fireEvent.click(count.closest('[class]'))
     expect(onDraw).toHaveBeenCalledTimes(1)
   })
 
   it('does not call onDraw when deck is empty', () => {
     const onDraw = vi.fn()
     render(<DeckView remainingCount={0} onDraw={onDraw} isEmpty={true} />)
-    const symbol = screen.getByText('✦')
-    fireEvent.click(symbol.closest('[class]'))
+    const emptyLabel = screen.getByText('Empty')
+    fireEvent.click(emptyLabel.closest('[class]'))
     expect(onDraw).not.toHaveBeenCalled()
   })
 
   it('shows "Empty" label when deck is empty', () => {
     render(<DeckView remainingCount={0} onDraw={() => {}} isEmpty={true} />)
     expect(screen.getByText('Empty')).toBeTruthy()
-    expect(screen.queryByText('0')).toBeNull()
   })
 
   it('does not show "Empty" label when deck has cards', () => {

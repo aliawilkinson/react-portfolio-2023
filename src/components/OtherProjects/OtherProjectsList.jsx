@@ -70,17 +70,33 @@ const OtherProjectsList = () => {
           >
             <h2 className={css.categoryHeading}>{category}</h2>
             <div className={css.projectGrid}>
-              {groupedProjects[category].map((project, i) => (
-                <motion.div key={project.slug} variants={fadeIn("up", "tween", 0.5 + i * 0.1, 0.6)}>
-                  <Link to={getProjectLink(project)} className={css.cardWrap}>
-                    <ProjectCard project={project} />
-                    <div className={css.cardLabel}>
-                      <span>{project.title}</span>
-                      <span>{project.subtitle}</span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+              {groupedProjects[category].map((project, i) => {
+                const projectLink = getProjectLink(project)
+                const isExternal = projectLink.startsWith('http')
+                const isInternalRoute = projectLink.startsWith('/')
+
+                return (
+                  <motion.div key={project.slug} variants={fadeIn("up", "tween", 0.5 + i * 0.1, 0.6)}>
+                    {isExternal ? (
+                      <a href={projectLink} target="_blank" rel="noopener noreferrer" className={css.cardWrap}>
+                        <ProjectCard project={project} />
+                        <div className={css.cardLabel}>
+                          <span>{project.title}</span>
+                          <span>{project.subtitle}</span>
+                        </div>
+                      </a>
+                    ) : (
+                      <Link to={projectLink} className={css.cardWrap}>
+                        <ProjectCard project={project} />
+                        <div className={css.cardLabel}>
+                          <span>{project.title}</span>
+                          <span>{project.subtitle}</span>
+                        </div>
+                      </Link>
+                    )}
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
         ))}
