@@ -3,7 +3,7 @@ const TIMEOUT_MS = 30000
 
 /**
  * Calls the server-side Gemini API route.
- * @param {{ question: string, cards: Array<{name: string, reversed: boolean}>, spreadType: string }} payload
+ * @param {{ question: string, cards: Array<{name: string, reversed: boolean}>, spreadType: string, history?: Array<{role: string, parts: Array<{text: string}>}> }} payload
  * @returns {Promise<Object>} Parsed interpretation object
  */
 export const callGemini = async (payload) => {

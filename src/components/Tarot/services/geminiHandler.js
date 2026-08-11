@@ -51,6 +51,24 @@ export function parseSections(text) {
   return sections
 }
 
+/**
+ * Constructs the current message with cards and question for sendMessage().
+ * @param {string} question - The user's question
+ * @param {Array<{name: string, reversed: boolean}>} cards - Cards drawn
+ * @param {string} spreadType - The spread type name
+ * @returns {string} Formatted message
+ */
+export function buildCurrentMessage(question, cards, spreadType) {
+  return `Question: "${question}"
+
+Spread Type: ${spreadType || 'General'}
+
+Cards drawn:
+${cards.map((c, i) => `${i + 1}. ${c.name}${c.reversed ? ' (Reversed)' : ' (Upright)'}`).join('\n')}
+
+Please interpret these cards in relation to the question.`
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
@@ -63,20 +81,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Gemini API key not configured' })
   }
 
-  const { question, cards, spreadType } = req.body
+  const { question, cards, spreadType, history } = req.body
 
   if (!question || !cards || !Array.isArray(cards)) {
     return res.status(400).json({ error: 'Missing required fields: question, cards' })
   }
 
-  const userPrompt = `Question: "${question}"
-
-Spread Type: ${spreadType || 'General'}
-
-Cards drawn:
-${cards.map((c, i) => `${i + 1}. ${c.name}${c.reversed ? ' (Reversed)' : ' (Upright)'}`).join('\n')}
-
-Please interpret these cards in relation to the question.`
+  const currentMessage = buildCurrentMessage(question, cards, spreadType)
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
@@ -86,7 +97,10 @@ Please interpret these cards in relation to the question.`
     })
 
     console.log(`[Gemini] Using model: ${model}`)
-    const result = await genModel.generateContent(userPrompt)
+
+    // Use startChat with provided history for multi-turn conversation
+    const chat = genModel.startChat({ history: history || [] })
+    const result = await chat.sendMessage(currentMessage)
     const text = result.response.text()
     const interpretation = parseSections(text)
 

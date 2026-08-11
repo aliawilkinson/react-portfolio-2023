@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Home from './components/Home/Home'
 import css from './styles/app.module.scss'
 import { Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom'
@@ -10,6 +11,8 @@ import BlogPost from './components/Blog/BlogPost'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import RouteScroller from './components/RouteScroller/RouteScroller'
+import { MusicPlayerProvider } from './context/MusicPlayerContext'
+import SoundCloudPlayer from './components/MusicPlayer/SoundCloudPlayer'
 
 const Tarot = lazy(() => import('./components/Tarot/Tarot'))
 const ConversationMode = lazy(() => import('./components/Tarot/ConversationMode'))
@@ -23,12 +26,15 @@ const ProjectSlugRedirect = () => {
 const App = () => {
   const { pathname } = useLocation()
   const hideFooter = pathname === '/tarot' || pathname === '/conversation'
+  const isOnMusicPage = pathname === '/other-projects/music'
 
   return (
-    <div className={`bg-primary ${css.container}`}>
-      <Header />
-      <RouteScroller />
-      <Routes>
+    <MusicPlayerProvider>
+      <div className={`bg-primary ${css.container}`}>
+        <Analytics />
+        <Header />
+        <RouteScroller />
+        <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/hero' element={<Home />} />
         <Route path='/expertise' element={<Home />} />
@@ -54,8 +60,10 @@ const App = () => {
         <Route path='/cognitoIdentityArchitecture' element={<InfoPost post='cognitoIdentityArchitecture' />} />
         <Route path='/almModernization' element={<InfoPost post='almModernization' />} />
       </Routes>
+      <SoundCloudPlayer isOnMusicPage={false} />
       {!hideFooter && <Footer />}
     </div>
+    </MusicPlayerProvider>
   );
 };
 

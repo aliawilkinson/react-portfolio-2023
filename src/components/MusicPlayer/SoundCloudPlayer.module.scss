@@ -1,0 +1,80 @@
+@use '../../styles/constants.scss' as *;
+
+// ============================================
+// FULL PLAYER — shown on /other-projects/music
+// ============================================
+
+.fullPlayer {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: $sm) {
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  iframe {
+    width: 100%;
+    display: block;
+    border: none;
+    height: 166px;
+
+    @media (min-width: $sm) {
+      height: 250px;
+    }
+
+    @media (min-width: $md) {
+      height: 300px;
+    }
+
+    @media (min-width: $lg) {
+      height: 350px;
+    }
+  }
+}
+
+// ============================================
+// MINI BAR — fixed bottom bar on other pages when music is playing
+// ============================================
+
+.miniBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #1a1a2e;
+  border-top: 1px solid rgba(109, 75, 138, 0.3);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  iframe {
+    width: 100%;
+    display: block;
+    border: none;
+    height: 80px;
+
+    @media (min-width: $sm) {
+      height: 100px;
+    }
+
+    @media (min-width: $md) {
+      height: 120px;
+    }
+  }
+}
+
+// ============================================
+// HIDDEN — before music has ever been started
+// ============================================
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  pointer-events: none;
+}

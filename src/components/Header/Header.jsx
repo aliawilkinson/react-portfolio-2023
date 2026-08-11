@@ -8,6 +8,8 @@ import useOutsideAlerter from "../../hooks/useOutsideAlerter"
 import { Link, useLocation } from 'react-router-dom'
 import linkedin from '../../assets/linkedin-svg.svg'
 import github from '../../assets/github-mark.svg'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
+import { useMusicPlayer } from '../../context/MusicPlayerContext'
 
 const navLinks = [
   { label: 'Home', to: '/', targetId: 'hero', message: "you're already home :)" },
@@ -30,6 +32,7 @@ const Header = () => {
   const menuRef = useRef(null);
   const noteTimerRef = useRef(null);
   const containerRef = useRef(null);
+  const { isPlaying, hasStarted, toggle } = useMusicPlayer();
 
   useOutsideAlerter({ menuRef, setMenuOpened });
 
@@ -111,16 +114,30 @@ const Header = () => {
             </li>
           ))}
           <li>
-            <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.LINKEDIN_LINK_CLICKED)}>
               LinkedIn <img className={css.navIcon} src={linkedin} alt="LinkedIn" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.GITHUB_LINK_CLICKED)}>
               GitHub <img className={css.navIcon} src={github} alt="GitHub" />
             </a>
           </li>
         </ul>
+
+        {hasStarted && (
+          <button
+            className={css.musicToggle}
+            onClick={toggle}
+            aria-label={isPlaying ? 'Pause music' : 'Play music'}
+          >
+            <span className={`${css.eqBars} ${isPlaying ? css.eqPlaying : ''}`}>
+              <span className={css.eqBar} />
+              <span className={css.eqBar} />
+              <span className={css.eqBar} />
+            </span>
+          </button>
+        )}
 
         <button
           className={css.menuIcon}

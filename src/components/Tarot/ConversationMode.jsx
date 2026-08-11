@@ -9,6 +9,7 @@ import ConversationTurn from './ConversationTurn'
 import ConversationInput from './ConversationInput'
 import LoadingIndicator from './LoadingIndicator'
 import tarotCover from './assets/tarot-cover.png'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
 
 const ConversationMode = () => {
   const { resetAndDraw } = useTarotDeck()
@@ -32,6 +33,7 @@ const ConversationMode = () => {
   }, [turns.length, isLoading])
 
   const handleSubmit = (questionText) => {
+    analytics.trackEvent(ANALYTICS_EVENTS.FOLLOW_UP_QUESTION_ASKED)
     submitQuestion(questionText, activePreset)
   }
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { footerVariants, staggerChildren } from "../../utils/motion"
 import css from "./Footer.module.scss"
 import { motion } from 'framer-motion'
@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import linkedin from '../../assets/linkedin-svg.svg'
 import github from '../../assets/github-mark.svg'
 import lagunaBeach from '../../assets/free-photo-of-sunny-laguna-beach-coastline-with-palm-trees.jpeg'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
 
 const footerLinks = [
   { label: 'Home', to: '/' },
@@ -18,8 +19,29 @@ const footerLinks = [
 ]
 
 const Footer = () => {
+  const sectionRef = useRef(null)
+  const hasTrackedView = useRef(false)
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasTrackedView.current) {
+          hasTrackedView.current = true
+          analytics.trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_OPENED)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <motion.section
+      ref={sectionRef}
       variants={staggerChildren}
       initial="hidden"
       whileInView="show"
@@ -38,7 +60,7 @@ const Footer = () => {
             that compounds.
           </span>
           <span className="primaryText">
-            Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">reaching out</a>
+            Start by <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMITTED)}>reaching out</a>
           </span>
         </div>
 
@@ -56,12 +78,12 @@ const Footer = () => {
               <li key={link.to}><Link to={link.to}>{link.label}</Link></li>
             ))}
             <li>
-              <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/aliawilkinson/" target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.LINKEDIN_LINK_CLICKED)}>
                 LinkedIn <img className={css.navIcon} src={linkedin} alt="LinkedIn" />
               </a>
             </li>
             <li>
-              <a href="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/aliawilkinson" target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.GITHUB_LINK_CLICKED)}>
                 GitHub <img className={css.navIcon} src={github} alt="GitHub" />
               </a>
             </li>

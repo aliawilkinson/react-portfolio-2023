@@ -11,6 +11,7 @@ import DeckView from './DeckView'
 import Spread from './Spread'
 import Controls from './Controls'
 import Interpretation from './Interpretation'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
 
 const getInitialTextSize = () => {
   try {
@@ -63,7 +64,9 @@ const Tarot = () => {
     clearInterpretation()
     setActivePreset(null)
     const newCards = resetAndDraw(3)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_STARTED)
     analyze(newCards, question)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_GENERATED)
   }
 
   // Enter with a question — same as Analyze (fresh 3-card reading)
@@ -71,7 +74,9 @@ const Tarot = () => {
     clearInterpretation()
     setActivePreset(null)
     const newCards = resetAndDraw(3)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_STARTED)
     analyze(newCards, question)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_GENERATED)
   }
 
   // Reset clears everything including the question field
@@ -92,7 +97,9 @@ const Tarot = () => {
     clearInterpretation()
     setActivePreset(null)
     const newCards = resetAndDraw(count)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_STARTED)
     analyze(newCards, question)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_GENERATED)
     scrollToTop()
   }
 
@@ -102,7 +109,9 @@ const Tarot = () => {
     clearInterpretation()
     setActivePreset(preset)
     const newCards = resetAndDraw(preset.cardCount)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_STARTED)
     analyze(newCards, question)
+    analytics.trackEvent(ANALYTICS_EVENTS.TAROT_READING_GENERATED)
     scrollToTop()
   }
 

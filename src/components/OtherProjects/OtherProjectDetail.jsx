@@ -1,12 +1,21 @@
 import { useParams, Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import { projects } from '../../utils/data'
 import css from './OtherProjectDetail.module.scss'
 import { motion } from 'framer-motion'
 import { staggerChildren, fadeIn } from '../../utils/motion'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
+import SoundCloudPlayer from '../MusicPlayer/SoundCloudPlayer'
 
 const OtherProjectDetail = () => {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
+
+  useEffect(() => {
+    if (project?.soundcloudUrl) {
+      analytics.trackEvent(ANALYTICS_EVENTS.MUSIC_PAGE_VIEWED, { project: project.title })
+    }
+  }, [project])
 
   if (!project) {
     return (
@@ -40,16 +49,8 @@ const OtherProjectDetail = () => {
         </motion.p>
 
         {project.soundcloudUrl && (
-          <motion.div variants={fadeIn("up", "tween", 0.5, 0.6)} className={css.player}>
-            <iframe
-              width="100%"
-              height="300"
-              scrolling="no"
-              frameBorder="no"
-              allow="autoplay"
-              src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(project.soundcloudUrl)}&color=%236D4B8A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true`}
-              title={`${project.title} - SoundCloud Player`}
-            />
+          <motion.div variants={fadeIn("up", "tween", 0.5, 0.6)}>
+            <SoundCloudPlayer isOnMusicPage={true} />
           </motion.div>
         )}
 

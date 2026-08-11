@@ -6,8 +6,8 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
 
 ## Tasks
 
-- [ ] 1. Create MusicPlayerContext and Provider
-  - [ ] 1.1 Create `src/context/MusicPlayerContext.jsx` with context and provider
+- [x] 1. Create MusicPlayerContext and Provider
+  - [x] 1.1 Create `src/context/MusicPlayerContext.jsx` with context and provider
     - Define context with `isPlaying`, `hasStarted`, `toggle`, and `iframeRef`
     - Provider manages state and exposes toggle function
     - Initialize SoundCloud Widget API (SC.Widget) from iframe ref
@@ -23,8 +23,8 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
     - **Property 3: Mini-player visibility reflects hasStarted**
     - **Validates: Requirements 2.1, 2.2, 2.3**
 
-- [ ] 2. Create SoundCloudPlayer component
-  - [ ] 2.1 Create `src/components/MusicPlayer/SoundCloudPlayer.jsx`
+- [x] 2. Create SoundCloudPlayer component
+  - [x] 2.1 Create `src/components/MusicPlayer/SoundCloudPlayer.jsx`
     - Render iframe with the SoundCloud embed URL pattern
     - Accept `isOnMusicPage` prop to control visible vs hidden styling
     - When visible: full width, 300px height, existing `.player` styling
@@ -40,8 +40,8 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
     - **Property 6: SoundCloud URL construction**
     - **Validates: Requirements 5.3**
 
-- [ ] 3. Create MiniPlayer component with equalizer bars
-  - [ ] 3.1 Create `src/components/MusicPlayer/MiniPlayer.jsx`
+- [x] 3. Create MiniPlayer component with equalizer bars
+  - [x] 3.1 Create `src/components/MusicPlayer/MiniPlayer.jsx`
     - Consume MusicPlayerContext
     - Render only when `hasStarted` is true
     - Fixed position bottom-right (bottom: 24px, right: 24px)
@@ -51,7 +51,7 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
     - Use framer-motion for entrance/exit animation (AnimatePresence)
     - _Requirements: 2.1, 2.2, 2.3, 3.1, 3.2, 3.3, 4.1, 4.2, 7.3_
 
-  - [ ] 3.2 Create `src/components/MusicPlayer/MiniPlayer.module.scss`
+  - [x] 3.2 Create `src/components/MusicPlayer/MiniPlayer.module.scss`
     - Purple-to-teal gradient background (#6D4B8A to #4A90A4)
     - Box-shadow glow effect
     - Border-radius: 50%
@@ -63,15 +63,15 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
     - **Property 4: Equalizer animation reflects isPlaying**
     - **Validates: Requirements 3.1, 3.2**
 
-- [ ] 4. Integrate into App.jsx and update OtherProjectDetail
-  - [ ] 4.1 Wrap App content with MusicPlayerProvider in `src/App.jsx`
+- [x] 4. Integrate into App.jsx and update OtherProjectDetail
+  - [x] 4.1 Wrap App content with MusicPlayerProvider in `src/App.jsx`
     - Add SoundCloudPlayer component outside Routes
     - Add MiniPlayer component outside Routes
     - Use `useLocation` to determine if current route is the music page
     - Pass `isOnMusicPage` prop to SoundCloudPlayer
     - _Requirements: 1.1, 1.2, 1.4, 6.1_
 
-  - [ ] 4.2 Update `src/components/OtherProjects/OtherProjectDetail.jsx`
+  - [x] 4.2 Update `src/components/OtherProjects/OtherProjectDetail.jsx`
     - Remove the inline SoundCloud iframe rendering
     - When on the music page, the App-level SoundCloudPlayer shows in full mode
     - Keep all other content (gallery, links, description) unchanged
@@ -81,12 +81,12 @@ Lift the SoundCloud iframe to App-level with a React context for playback state,
     - **Property 1: Iframe persistence across routes**
     - **Validates: Requirements 1.1**
 
-- [ ] 5. Load SoundCloud Widget API script
-  - [ ] 5.1 Add SoundCloud Widget API script (`https://w.soundcloud.com/player/api.js`) to `index.html` or load it dynamically in the provider
+- [x] 5. Load SoundCloud Widget API script
+  - [x] 5.1 Add SoundCloud Widget API script (`https://w.soundcloud.com/player/api.js`) to `index.html` or load it dynamically in the provider
     - Ensure script loads before widget initialization attempts
     - _Requirements: 4.1, 4.2_
 
-- [ ] 6. Final checkpoint
+- [x] 6. Final checkpoint
   - Ensure all tests pass, ask the user if questions arise.
   - Verify music page still renders correctly
   - Verify navigation between pages does not cause errors

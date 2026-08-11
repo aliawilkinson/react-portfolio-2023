@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { callGemini } from '../services/geminiClient'
+import ReadingMemoryService from '../services/readingMemoryService'
 
 const useConversation = ({ resetAndDraw }) => {
   const [turns, setTurns] = useState([])
@@ -8,6 +9,7 @@ const useConversation = ({ resetAndDraw }) => {
   const [error, setError] = useState(null)
   const [pendingQuestion, setPendingQuestion] = useState(null)
   const [pendingPreset, setPendingPreset] = useState(null)
+  const [memoryService] = useState(() => new ReadingMemoryService())
 
   const submitQuestion = useCallback(async (questionText, spreadPreset) => {
     if (!questionText || questionText.trim() === '') return
@@ -21,11 +23,37 @@ const useConversation = ({ resetAndDraw }) => {
     const cards = resetAndDraw(spreadPreset.cardCount)
     setCurrentCards(cards)
 
+    // Add user turn to memory service
+    memoryService.addTurn('user', questionText)
+
+    // Build history for multi-turn conversation
+    const history = memoryService.buildGeminiHistory()
+
     try {
       const interpretation = await callGemini({
         question: questionText,
         cards: cards.map(c => ({ name: c.card.name, reversed: c.isReversed })),
-        spreadType: spreadPreset.name
+        spreadType: spreadPreset.name,
+        history
+      })
+
+      // Build the full interpretation text for memory service
+      const interpretationText = [
+        interpretation.summary,
+        interpretation.detailed,
+        interpretation.themes,
+        interpretation.reflectionQuestions,
+        interpretation.actionableInsights
+      ].filter(Boolean).join(' ')
+
+      // Add model turn to memory service
+      memoryService.addTurn('model', interpretationText)
+
+      // Save reading summary
+      memoryService.saveReading({
+        question: questionText,
+        cards: cards.map(c => ({ name: c.card.name, reversed: c.isReversed })),
+        interpretationText
       })
 
       const turn = {
@@ -42,11 +70,14 @@ const useConversation = ({ resetAndDraw }) => {
       setPendingQuestion(null)
       setPendingPreset(null)
     } catch (err) {
+      // Remove the user turn that was added before the failed call
+      memoryService.turns.pop()
+      memoryService._persistToStorage()
       setError(err.message || 'For AI interpretation, please contact support.')
     } finally {
       setIsLoading(false)
     }
-  }, [resetAndDraw])
+  }, [resetAndDraw, memoryService])
 
   const retryLastInterpretation = useCallback(async () => {
     if (!pendingQuestion || !pendingPreset || currentCards.length === 0) return
@@ -54,11 +85,37 @@ const useConversation = ({ resetAndDraw }) => {
     setError(null)
     setIsLoading(true)
 
+    // Add user turn back for retry
+    memoryService.addTurn('user', pendingQuestion)
+
+    // Build history for multi-turn conversation
+    const history = memoryService.buildGeminiHistory()
+
     try {
       const interpretation = await callGemini({
         question: pendingQuestion,
         cards: currentCards.map(c => ({ name: c.card.name, reversed: c.isReversed })),
-        spreadType: pendingPreset.name
+        spreadType: pendingPreset.name,
+        history
+      })
+
+      // Build the full interpretation text for memory service
+      const interpretationText = [
+        interpretation.summary,
+        interpretation.detailed,
+        interpretation.themes,
+        interpretation.reflectionQuestions,
+        interpretation.actionableInsights
+      ].filter(Boolean).join(' ')
+
+      // Add model turn to memory service
+      memoryService.addTurn('model', interpretationText)
+
+      // Save reading summary
+      memoryService.saveReading({
+        question: pendingQuestion,
+        cards: currentCards.map(c => ({ name: c.card.name, reversed: c.isReversed })),
+        interpretationText
       })
 
       const turn = {
@@ -75,11 +132,14 @@ const useConversation = ({ resetAndDraw }) => {
       setPendingQuestion(null)
       setPendingPreset(null)
     } catch (err) {
+      // Remove the user turn that was added before the failed call
+      memoryService.turns.pop()
+      memoryService._persistToStorage()
       setError(err.message || 'For AI interpretation, please contact support.')
     } finally {
       setIsLoading(false)
     }
-  }, [pendingQuestion, pendingPreset, currentCards])
+  }, [pendingQuestion, pendingPreset, currentCards, memoryService])
 
   return {
     turns,

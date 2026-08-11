@@ -27,6 +27,7 @@ const ConversationInput = ({ onSubmit, disabled }) => {
         onKeyDown={handleKeyDown}
         disabled={disabled}
         aria-label="Tarot question input"
+        data-clarity-mask="true"
       />
       <button
         onClick={handleSubmit}

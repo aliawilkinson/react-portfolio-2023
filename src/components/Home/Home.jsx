@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import css from '../../styles/app.module.scss'
 import Hero from '../Hero/Hero'
 import Expertise from '../Expertise/Expertise'
@@ -6,8 +7,13 @@ import CaseStudies from '../CaseStudies/CaseStudies'
 import Testimonials from '../Testimonials/Testimonials'
 import SEO from '../SEO/SEO'
 import { seoData } from '../../utils/seoData'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
 
 const Home = () => {
+  useEffect(() => {
+    analytics.trackEvent(ANALYTICS_EVENTS.PORTFOLIO_VIEWED)
+  }, [])
+
   return (
     <div className={`bg-primary ${css.container}`}>
       <SEO

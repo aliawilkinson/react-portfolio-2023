@@ -4,6 +4,7 @@ import { fadeIn, staggerChildren, textVariant, textVariant2 } from '../../utils/
 import ReCAPTCHA from 'react-google-recaptcha';
 import css from './Resume.module.scss';
 import resumePdf from '../../assets/Resume.pdf'
+import { analytics, ANALYTICS_EVENTS } from '../../utils/analytics'
 
 const Resume = () => {
     const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -29,7 +30,7 @@ const Resume = () => {
                 <div>pdf for computer systems</div>
                 <div>.docx version</div>
                 {captchaVerified ? (
-                    <a href={resumePdf} target="_blank" rel="noopener noreferrer">
+                    <a href={resumePdf} target="_blank" rel="noopener noreferrer" onClick={() => analytics.trackEvent(ANALYTICS_EVENTS.RESUME_DOWNLOADED)}>
                         Download Pdf
                     </a>
                 ) : (
