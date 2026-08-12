@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Product Review",
+  "description": "Evaluates a feature proposal through three lenses: architecture feasibility, UI/UX design quality, and testability/review readiness. Use when designing a new feature or making product decisions.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review the current feature discussion or proposal through three perspectives:\n\n1. ARCHITECT: Is this technically sound? Does it fit the existing architecture? What are the dependencies, risks, and integration points? What's the simplest implementation path?\n\n2. UI/UX DESIGNER: Is the user experience clear and intuitive? Does the flow make sense? Are there edge cases in the interaction? How does it look on mobile vs desktop? What might confuse a user?\n\n3. TESTER/REVIEWER: What needs to be tested? What could break? Are there regression risks? What are the acceptance criteria?\n\nPresent each perspective clearly, then give a final recommendation on whether to proceed, iterate on the design, or rethink the approach."
+  }
+}

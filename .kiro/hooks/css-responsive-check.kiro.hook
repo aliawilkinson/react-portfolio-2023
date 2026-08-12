@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Responsive CSS Check",
+  "description": "Checks that new or modified SCSS files follow the project's responsive design standards: mobile-first, proper breakpoints, no inline styles, flexbox layout.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.scss"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Check the edited SCSS file for responsive design issues:\n- Are styles mobile-first (base styles for small screens, @media min-width for larger)?\n- Are breakpoints using the project variables ($sm, $md, $lg, $xl)?\n- Is flexbox/grid used for layout?\n- Are there hardcoded pixel widths without responsive alternatives?\n- Are touch targets at least 44px on mobile?\nIf there are issues, fix them. If it looks good, move on silently."
+  }
+}

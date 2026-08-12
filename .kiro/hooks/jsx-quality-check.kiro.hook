@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "JSX Quality Check",
+  "description": "After writing JSX files, checks for common issues: external links missing target=_blank, missing aria-labels on buttons, inline styles that should be in SCSS modules.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.jsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Quick check on the edited JSX file:\n- External links (http/https) have target=\"_blank\" rel=\"noopener noreferrer\"?\n- Buttons have aria-labels?\n- No inline style objects (should be SCSS modules)?\n- Images have alt text?\nIf there are issues, fix them. If it looks good, move on silently."
+  }
+}
