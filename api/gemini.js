@@ -51,7 +51,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY
-  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash'
+  const model = process.env.GEMINI_MODEL || 'gemini-flash-latest'
 
   if (!apiKey) {
     return res.status(500).json({ error: 'Gemini API key not configured' })

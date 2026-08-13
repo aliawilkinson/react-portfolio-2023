@@ -1,5 +1,5 @@
 const GEMINI_ENDPOINT = '/api/gemini'
-const TIMEOUT_MS = 30000
+const TIMEOUT_MS = 60000
 const MAX_RETRIES = 2
 const RETRY_DELAY_MS = 1500
 
@@ -38,7 +38,7 @@ export const callGemini = async (payload) => {
       return await response.json()
     } catch (err) {
       if (err.name === 'AbortError') {
-        lastError = new Error('The oracle took too long to respond. Try again in a moment.')
+        lastError = new Error('The oracle has refused to awaken. Feel free to do a manual spread in the core tarot app.')
         continue
       }
       lastError = err
@@ -50,5 +50,5 @@ export const callGemini = async (payload) => {
     }
   }
 
-  throw lastError || new Error('Unable to reach the oracle right now.')
+  throw lastError || new Error('The oracle has refused to awaken. Feel free to do a manual spread in the core tarot app.')
 }

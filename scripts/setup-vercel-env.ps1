@@ -5,17 +5,29 @@
 # Usage: .\scripts\setup-vercel-env.ps1
 # Prereqs: npm i -g vercel && vercel login && vercel link
 
+Write-Host "Setting up Vercel environment variables..." -ForegroundColor Cyan
+Write-Host ""
+
+# Secrets (prompted)
+$geminiKey = Read-Host "GEMINI_API_KEY"
+
+# Defaults (edit these if you change services)
 $vars = @{
-    "GEMINI_API_KEY" = Read-Host "GEMINI_API_KEY"
-    "GEMINI_MODEL"   = "gemini-3.5-flash"
-    "NTFY_TOPIC"     = "aliawilkinson-tarot"
+    "GEMINI_API_KEY"           = $geminiKey
+    "GEMINI_MODEL"             = "gemini-flash-latest"
+    "NTFY_TOPIC"               = "aliawilkinson-tarot"
+    "VITE_CLARITY_PROJECT_ID"  = "xzenxh0biq"
 }
 
 foreach ($key in $vars.Keys) {
     $value = $vars[$key]
+    if ([string]::IsNullOrEmpty($value)) {
+        Write-Host "Skipping $key (empty)" -ForegroundColor Yellow
+        continue
+    }
     Write-Host "Setting $key..." -ForegroundColor Cyan
-    echo $value | vercel env add $key production
+    echo $value | vercel env add $key production --force
 }
 
 Write-Host ""
-Write-Host "Done. Deploy with: vercel --prod" -ForegroundColor Green
+Write-Host "All env vars set. Deploy with: vercel --prod" -ForegroundColor Green

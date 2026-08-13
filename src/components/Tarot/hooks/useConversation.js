@@ -73,7 +73,7 @@ const useConversation = ({ resetAndDraw }) => {
       // Remove the user turn that was added before the failed call
       memoryService.turns.pop()
       memoryService._persistToStorage()
-      setError(err.message || 'The oracle is offline. Responding with an intuitive spread now.')
+      setError(err.message || 'The oracle has refused to awaken. Feel free to do a manual spread in the core tarot app.')
     } finally {
       setIsLoading(false)
     }
@@ -135,7 +135,7 @@ const useConversation = ({ resetAndDraw }) => {
       // Remove the user turn that was added before the failed call
       memoryService.turns.pop()
       memoryService._persistToStorage()
-      setError(err.message || 'The oracle is offline, responding with an intuitive spread now.')
+      setError(err.message || 'The oracle has refused to awaken. Feel free to do a manual spread in the core tarot app.')
     } finally {
       setIsLoading(false)
     }
