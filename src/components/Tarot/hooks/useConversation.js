@@ -73,7 +73,7 @@ const useConversation = ({ resetAndDraw }) => {
       // Remove the user turn that was added before the failed call
       memoryService.turns.pop()
       memoryService._persistToStorage()
-      setError(err.message || 'For AI interpretation, please contact support.')
+      setError(err.message || 'The oracle is offline. Responding with an intuitive spread now.')
     } finally {
       setIsLoading(false)
     }
@@ -135,7 +135,7 @@ const useConversation = ({ resetAndDraw }) => {
       // Remove the user turn that was added before the failed call
       memoryService.turns.pop()
       memoryService._persistToStorage()
-      setError(err.message || 'For AI interpretation, please contact support.')
+      setError(err.message || 'The oracle is offline, responding with an intuitive spread now.')
     } finally {
       setIsLoading(false)
     }

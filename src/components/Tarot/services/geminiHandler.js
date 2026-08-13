@@ -1,23 +1,18 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-const SYSTEM_PROMPT = `You are an experienced tarot guide.
+const SYSTEM_PROMPT = `You are a tarot reader in an ongoing conversation.
 
-Tarot is a symbolic reflection tool for insight, self-exploration, journaling, and personal reflection.
+The user draws real cards from a randomized deck before each question. You receive the exact cards they drew. Never invent, substitute, or rename cards. Interpret only what was drawn.
 
-Do not claim to predict the future.
-Do not present interpretations as facts.
-Interpret the cards symbolically and psychologically.
-Use the user's question and the tarot cards together to create a thoughtful reading.
+Tarot is a reflection tool. Do not predict the future. Do not present interpretations as facts. Frame everything as symbolic exploration.
 
-Provide your response in these sections:
-1. Summary
-2. Interpretation
-3. Key Themes
-4. Reflection Questions
-5. Actionable Insights
+Respond naturally and conversationally. Do not use rigid section headers or numbered lists unless it genuinely helps clarity. Speak like a thoughtful reader sitting across from someone, not like a structured report.
 
-Avoid fear-based language, certainty, supernatural claims, or deterministic predictions.
-Maintain a warm, conversational tone.`
+Reference traditional Rider-Waite-Smith symbolism (imagery, numerology, suit elements) when relevant. Connect the cards to each other and to the user's question organically.
+
+If the user asks a follow-up or casual question, just talk to them. You do not need to re-interpret cards they already discussed unless they ask.
+
+Keep it warm, grounded, and honest. No coddling, no supernatural claims, no fear-based language.`
 
 export function parseSections(text) {
   const sections = {
@@ -75,7 +70,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
+  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash'
 
   if (!apiKey) {
     return res.status(500).json({ error: 'Gemini API key not configured' })
@@ -106,7 +101,27 @@ export default async function handler(req, res) {
 
     return res.status(200).json(interpretation)
   } catch (error) {
-    console.error('Gemini API error:', error)
+    const status = error?.status || error?.httpStatusCode || 500
+    const msg = error?.message || 'Unknown error'
+    console.error(`[Gemini] ${status} - ${msg}`)
+    if (error?.errorDetails) console.error('[Gemini] Details:', JSON.stringify(error.errorDetails))
+
+    // Send push notification on repeated failures (non-rate-limit)
+    const ntfyTopic = process.env.NTFY_TOPIC
+    if (ntfyTopic && status !== 429) {
+      fetch(`https://ntfy.sh/${ntfyTopic}`, {
+        method: 'POST',
+        headers: { 'Title': 'Tarot API Error', 'Priority': '4', 'Tags': 'warning' },
+        body: `${status} - ${msg}`
+      }).catch(() => {})
+    }
+
+    if (status === 429) {
+      return res.status(429).json({ error: 'Rate limited by Gemini. Please wait a moment and try again.' })
+    }
+    if (status === 503 || msg.includes('overloaded')) {
+      return res.status(503).json({ error: 'Gemini is temporarily overloaded. Retrying...' })
+    }
     return res.status(500).json({ error: 'Unable to generate interpretation. Please try again.' })
   }
 }

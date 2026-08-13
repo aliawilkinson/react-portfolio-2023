@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import css from './Tarot.module.scss'
 
 const ConversationInput = ({ onSubmit, disabled }) => {
   const [text, setText] = useState('')
+  const inputRef = useRef(null)
 
   const handleSubmit = () => {
     if (text.trim() === '' || disabled) return
@@ -17,14 +18,22 @@ const ConversationInput = ({ onSubmit, disabled }) => {
     }
   }
 
+  const handleFocus = () => {
+    // On iOS, scroll input into view after keyboard opens
+    setTimeout(() => {
+      inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    }, 300)
+  }
+
   return (
-    <div className={css.convInput}>
+    <div className={css.convInput} ref={inputRef}>
       <input
         type="text"
         placeholder="Ask a question for your tarot reading..."
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
         disabled={disabled}
         aria-label="Tarot question input"
         data-clarity-mask="true"

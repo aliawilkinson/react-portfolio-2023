@@ -9,8 +9,15 @@ const QuestionInput = ({ question, onQuestionChange, onAnalyze, onSubmitQuestion
   const autoResize = useCallback(() => {
     const el = textareaRef.current
     if (el) {
+      const wrapper = el.parentElement
+      const prevHeight = el.offsetHeight
       el.style.height = 'auto'
-      el.style.height = el.scrollHeight + 'px'
+      const newHeight = el.scrollHeight
+      el.style.height = newHeight + 'px'
+      // Scroll the page down by the growth amount so it appears to expand upward
+      if (wrapper && newHeight > prevHeight) {
+        window.scrollBy(0, newHeight - prevHeight)
+      }
     }
   }, [])
 

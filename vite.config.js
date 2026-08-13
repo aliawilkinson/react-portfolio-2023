@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => {
   // Make GEMINI env vars available to server-side code via process.env
   process.env.GEMINI_API_KEY = env.GEMINI_API_KEY || process.env.GEMINI_API_KEY || ''
   process.env.GEMINI_MODEL = env.GEMINI_MODEL || process.env.GEMINI_MODEL || ''
+  process.env.NTFY_TOPIC = env.NTFY_TOPIC || process.env.NTFY_TOPIC || ''
 
   return {
     plugins: [react(), localApiPlugin()],

@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "Build check on file delete",
+  "description": "Runs a Vite build check after any source file is deleted to catch broken imports immediately",
+  "version": "1",
+  "when": {
+    "type": "fileDeleted",
+    "patterns": [
+      "src/**/*.jsx",
+      "src/**/*.js",
+      "src/**/*.tsx",
+      "src/**/*.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A source file was just deleted. Run `npx vite build --mode development 2>&1 | Select-String -Pattern \"Failed to resolve import\"` to check for broken imports. If any are found, fix them immediately."
+  }
+}
