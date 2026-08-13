@@ -72,9 +72,7 @@ const ConversationMode = () => {
         )}
       </div>
 
-      <div className={css.convInputBar}>
-        <ConversationInput onSubmit={handleSubmit} disabled={isLoading} />
-      </div>
+      <ConversationInput onSubmit={handleSubmit} disabled={isLoading} />
     </section>
   )
 }
