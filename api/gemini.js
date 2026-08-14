@@ -72,6 +72,8 @@ ${cards.map((c, i) => `${i + 1}. ${c.name}${c.reversed ? ' (Reversed)' : ' (Upri
 
 Please interpret these cards in relation to the question.`
 
+  const SERVER_TIMEOUT_MS = 55000
+
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
     const genModel = genAI.getGenerativeModel({
@@ -82,13 +84,61 @@ Please interpret these cards in relation to the question.`
     console.log(`[Gemini] Using model: ${model}`)
 
     const chat = genModel.startChat({ history: history || [] })
-    const result = await chat.sendMessage(currentMessage)
+
+    const result = await Promise.race([
+      chat.sendMessage(currentMessage),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Server-side timeout waiting for Gemini')), SERVER_TIMEOUT_MS)
+      )
+    ])
+
     const text = result.response.text()
     const interpretation = parseSections(text)
 
     return res.status(200).json(interpretation)
   } catch (error) {
-    console.error('Gemini API error:', error)
-    return res.status(500).json({ error: 'Unable to generate interpretation. Please try again.' })
+    const status = error?.status || error?.httpStatusCode || 500
+    const msg = error?.message || 'Unknown error'
+    console.error(`[Gemini] ${status} - ${msg}`)
+    if (error?.errorDetails) console.error('[Gemini] Details:', JSON.stringify(error.errorDetails))
+
+    // Classify the error
+    let ntfyTitle, userMessage, httpStatus
+    if (status === 429) {
+      const isDaily = msg.includes('quota') || msg.includes('exceeded')
+      ntfyTitle = isDaily ? 'Gemini Daily Quota Hit' : 'Gemini Per-Minute Limit'
+      userMessage = isDaily
+        ? 'The oracle has reached its daily limit. AI readings return at midnight Pacific time.'
+        : 'The oracle needs a moment to rest. Try again in about a minute.'
+      httpStatus = 429
+    } else if (status === 401 || status === 403) {
+      ntfyTitle = 'Gemini Auth Error'
+      userMessage = 'The oracle cannot authenticate. API key may be invalid.'
+      httpStatus = status
+    } else if (status === 503 || msg.includes('overloaded')) {
+      ntfyTitle = 'Gemini Overloaded'
+      userMessage = 'The oracle is overwhelmed right now. Try again in a moment.'
+      httpStatus = 503
+    } else if (msg.includes('timeout') || msg.includes('Server-side timeout')) {
+      ntfyTitle = 'Gemini Timeout'
+      userMessage = 'The oracle took too long to respond. Try again.'
+      httpStatus = 504
+    } else {
+      ntfyTitle = `Gemini Error (${status})`
+      userMessage = 'Something unexpected happened. The oracle will return.'
+      httpStatus = 500
+    }
+
+    // Always notify
+    const ntfyTopic = process.env.NTFY_TOPIC
+    if (ntfyTopic) {
+      fetch(`https://ntfy.sh/${ntfyTopic}`, {
+        method: 'POST',
+        headers: { 'Title': ntfyTitle, 'Priority': '4', 'Tags': 'warning' },
+        body: `${status} - ${msg.slice(0, 200)}`
+      }).catch(() => {})
+    }
+
+    return res.status(httpStatus).json({ error: userMessage })
   }
 }
