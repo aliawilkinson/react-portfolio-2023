@@ -19,7 +19,7 @@ const navLinks = [
   { label: 'Experience', to: '/experience', targetId: 'experience', message: "you're already in the timeline :)" },
   { label: 'Projects', to: '/other-projects', targetId: null, message: "you're already in the lab :)" },
   { label: 'Contact', to: '/contact', targetId: 'footer', message: "you're already at the signal flare :)" },
-  { label: 'Blog', to: '/blog', targetId: null, message: "" },
+  { label: 'Blog', to: '/blog', targetId: null, message: "you're already reading the blog :)" },
   { label: 'About', to: '/about', targetId: 'infoPost', message: "you're already in the lore :)" },
 ]
 
@@ -57,19 +57,27 @@ const Header = () => {
   };
 
   const isAlreadyAtTarget = (link) => {
-    if (link.to !== location.pathname) {
+    // Standalone pages (no scroll target): just check pathname
+    if (!link.targetId) {
+      return link.to === location.pathname;
+    }
+
+    // Homepage sections: must be on homepage AND scrolled to the section
+    if (link.to !== '/' && link.to !== location.pathname) {
+      return false;
+    }
+
+    // For homepage scroll sections, check if we're on homepage
+    if (location.pathname !== '/' && link.targetId) {
       return false;
     }
 
     if (link.targetId === 'hero') {
-      return window.scrollY < 80;
+      return location.pathname === '/' && window.scrollY < 80;
     }
 
     const target = document.getElementById(link.targetId);
-
-    if (!target) {
-      return false;
-    }
+    if (!target) return false;
 
     const targetRect = target.getBoundingClientRect();
     return targetRect.top <= 140 && targetRect.bottom >= -20;

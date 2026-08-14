@@ -72,6 +72,8 @@ const renderMarkdown = (text) => {
 }
 
 const ConversationTurn = ({ turn }) => {
+  const hasFallback = !turn.interpretation && turn.fallbackInterpretation
+
   return (
     <div className={css.convTurn}>
       <div className={css.convTurnQuestion}>
@@ -79,35 +81,49 @@ const ConversationTurn = ({ turn }) => {
       </div>
       <Spread drawnCards={turn.cards} spreadPreset={turn.spreadPreset} />
       <div className={css.convTurnInterpretation}>
-        {turn.interpretation.summary && (
-          <section>
-            <h4>Summary</h4>
-            {renderMarkdown(turn.interpretation.summary)}
-          </section>
+        {hasFallback && (
+          <>
+            <p><em>The oracle is sleeping. Here is a manual interpretation instead:</em></p>
+            <p>{turn.fallbackInterpretation.summary}</p>
+            <h4>Reflections</h4>
+            <ul>{turn.fallbackInterpretation.reflections.map((r, i) => <li key={i}>{r}</li>)}</ul>
+            <h4>Connections</h4>
+            <p>{turn.fallbackInterpretation.connections}</p>
+          </>
         )}
-        {turn.interpretation.detailed && (
-          <section>
-            <h4>Interpretation</h4>
-            {renderMarkdown(turn.interpretation.detailed)}
-          </section>
-        )}
-        {turn.interpretation.themes && (
-          <section>
-            <h4>Key Themes</h4>
-            {renderMarkdown(turn.interpretation.themes)}
-          </section>
-        )}
-        {turn.interpretation.reflectionQuestions && (
-          <section>
-            <h4>Reflection Questions</h4>
-            {renderMarkdown(turn.interpretation.reflectionQuestions)}
-          </section>
-        )}
-        {turn.interpretation.actionableInsights && (
-          <section>
-            <h4>Actionable Insights</h4>
-            {renderMarkdown(turn.interpretation.actionableInsights)}
-          </section>
+        {turn.interpretation && (
+          <>
+            {turn.interpretation.summary && (
+              <section>
+                <h4>Summary</h4>
+                {renderMarkdown(turn.interpretation.summary)}
+              </section>
+            )}
+            {turn.interpretation.detailed && (
+              <section>
+                <h4>Interpretation</h4>
+                {renderMarkdown(turn.interpretation.detailed)}
+              </section>
+            )}
+            {turn.interpretation.themes && (
+              <section>
+                <h4>Key Themes</h4>
+                {renderMarkdown(turn.interpretation.themes)}
+              </section>
+            )}
+            {turn.interpretation.reflectionQuestions && (
+              <section>
+                <h4>Reflection Questions</h4>
+                {renderMarkdown(turn.interpretation.reflectionQuestions)}
+              </section>
+            )}
+            {turn.interpretation.actionableInsights && (
+              <section>
+                <h4>Actionable Insights</h4>
+                {renderMarkdown(turn.interpretation.actionableInsights)}
+              </section>
+            )}
+          </>
         )}
       </div>
     </div>

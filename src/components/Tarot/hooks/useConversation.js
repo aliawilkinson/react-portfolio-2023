@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { callGemini } from '../services/geminiClient'
+import { generateInterpretation } from '../services/interpretationService'
 import ReadingMemoryService from '../services/readingMemoryService'
 
 const useConversation = ({ resetAndDraw }) => {
@@ -73,7 +74,25 @@ const useConversation = ({ resetAndDraw }) => {
       // Remove the user turn that was added before the failed call
       memoryService.turns.pop()
       memoryService._persistToStorage()
-      setError(err.message || 'The oracle has refused to awaken. Feel free to do a manual spread in the core tarot app.')
+
+      // Generate fallback interpretation and add turn to history anyway
+      const fallback = generateInterpretation(cards, questionText)
+      const turn = {
+        id: crypto.randomUUID(),
+        timestamp: new Date().toISOString(),
+        question: questionText,
+        cards,
+        spreadPreset,
+        interpretation: null,
+        fallbackInterpretation: fallback,
+        error: err.message || 'The oracle is sleeping.'
+      }
+
+      setTurns(prev => [...prev, turn])
+      setCurrentCards([])
+      setPendingQuestion(null)
+      setPendingPreset(null)
+      setError(null)
     } finally {
       setIsLoading(false)
     }

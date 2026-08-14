@@ -4,7 +4,6 @@ import css from './Tarot.module.scss'
 import useTarotDeck from './hooks/useTarotDeck'
 import useConversation from './hooks/useConversation'
 import { SPREAD_PRESETS } from './data/spreadPresets'
-import { generateInterpretation } from './services/interpretationService'
 import Spread from './Spread'
 import ConversationTurn from './ConversationTurn'
 import ConversationInput from './ConversationInput'
@@ -18,10 +17,8 @@ const ConversationMode = () => {
     turns,
     currentCards,
     isLoading,
-    error,
     pendingQuestion,
     submitQuestion,
-    retryLastInterpretation
   } = useConversation({ resetAndDraw })
 
   const [activePreset] = useState(SPREAD_PRESETS.three)
@@ -64,38 +61,6 @@ const ConversationMode = () => {
             <div className={css.convTurnQuestion}><strong>You:</strong> {pendingQuestion}</div>
             <Spread drawnCards={currentCards} spreadPreset={activePreset} />
             <LoadingIndicator />
-          </div>
-        )}
-
-        {currentCards.length > 0 && error && (
-          <div className={css.convTurn}>
-            <div className={css.convTurnQuestion}><strong>You:</strong> {pendingQuestion}</div>
-            <Spread drawnCards={currentCards} spreadPreset={activePreset} />
-            <div className={css.convTurnInterpretation}>
-              <p><em>The oracle is sleeping. Here is a manual interpretation instead:</em></p>
-              {(() => {
-                const fallback = generateInterpretation(currentCards)
-                return (
-                  <>
-                    <p>{fallback.summary}</p>
-                    <h4>Reflection Points</h4>
-                    <ul>{fallback.reflections.map((r, i) => <li key={i}>{r}</li>)}</ul>
-                    <h4>Card Connections</h4>
-                    <p>{fallback.connections}</p>
-                  </>
-                )
-              })()}
-              <button className={css.retryBtn} onClick={retryLastInterpretation}>
-                Retry AI Reading
-              </button>
-            </div>
-          </div>
-        )}
-
-        {error && !currentCards.length && (
-          <div className={css.convError}>
-            <p>{error}</p>
-            <button onClick={retryLastInterpretation}>Retry</button>
           </div>
         )}
       </div>
