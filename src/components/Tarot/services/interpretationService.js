@@ -43,19 +43,18 @@ function buildSummary(cardSummaries, question) {
 }
 
 /**
- * Reflections: One question per card to sit with. Not the meaning again.
+ * Reflections: One pointed question per card. Short.
  */
 function buildReflections(cardSummaries, question) {
   const prompts = cardSummaries.map(card => {
-    const core = getFirstSentence(card.meaning)
     if (card.isReversed) {
-      return `Where in your life might "${core.toLowerCase()}" be showing up?`
+      return `${card.name}: Where is this pattern showing up for you?`
     }
-    return `What would it look like to fully embrace "${core.toLowerCase()}"?`
+    return `${card.name}: What would acting on this look like right now?`
   })
 
   if (question) {
-    prompts.push(`Looking at all three cards together: what do they say about "${question}"?`)
+    prompts.push(`Together, what do these cards say about "${question}"?`)
   }
 
   return prompts
