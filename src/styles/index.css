@@ -5,6 +5,11 @@
     scroll-behavior: smooth;
     font-family: "Eudoxus Sans", sans-serif;
     cursor: default;
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   a, button, [role="button"] {

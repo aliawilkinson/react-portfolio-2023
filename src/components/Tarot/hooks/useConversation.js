@@ -146,6 +146,7 @@ const useConversation = ({ resetAndDraw }) => {
     currentCards,
     isLoading,
     error,
+    pendingQuestion,
     submitQuestion,
     retryLastInterpretation
   }

@@ -83,6 +83,7 @@ export default async function handler(req, res) {
   }
 
   const currentMessage = buildCurrentMessage(question, cards, spreadType)
+  const SERVER_TIMEOUT_MS = 55000
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
@@ -95,7 +96,15 @@ export default async function handler(req, res) {
 
     // Use startChat with provided history for multi-turn conversation
     const chat = genModel.startChat({ history: history || [] })
-    const result = await chat.sendMessage(currentMessage)
+
+    // Race against a timeout so we always hit the catch block
+    const result = await Promise.race([
+      chat.sendMessage(currentMessage),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Server-side timeout waiting for Gemini')), SERVER_TIMEOUT_MS)
+      )
+    ])
+
     const text = result.response.text()
     const interpretation = parseSections(text)
 
@@ -106,22 +115,43 @@ export default async function handler(req, res) {
     console.error(`[Gemini] ${status} - ${msg}`)
     if (error?.errorDetails) console.error('[Gemini] Details:', JSON.stringify(error.errorDetails))
 
-    // Send push notification on repeated failures (non-rate-limit)
+    // Classify the error
+    let ntfyTitle, userMessage, httpStatus
+    if (status === 429) {
+      const isDaily = msg.includes('quota') || msg.includes('exceeded')
+      ntfyTitle = isDaily ? 'Gemini Daily Quota Hit' : 'Gemini Per-Minute Limit'
+      userMessage = isDaily
+        ? 'The oracle has reached its daily limit. AI readings return at midnight Pacific time.'
+        : 'The oracle needs a moment to rest. Try again in about a minute.'
+      httpStatus = 429
+    } else if (status === 401 || status === 403) {
+      ntfyTitle = 'Gemini Auth Error'
+      userMessage = 'The oracle cannot authenticate. API key may be invalid.'
+      httpStatus = status
+    } else if (status === 503 || msg.includes('overloaded')) {
+      ntfyTitle = 'Gemini Overloaded'
+      userMessage = 'The oracle is overwhelmed right now. Try again in a moment.'
+      httpStatus = 503
+    } else if (msg.includes('timeout') || msg.includes('Server-side timeout')) {
+      ntfyTitle = 'Gemini Timeout'
+      userMessage = 'The oracle took too long to respond. Try again.'
+      httpStatus = 504
+    } else {
+      ntfyTitle = `Gemini Error (${status})`
+      userMessage = 'Something unexpected happened. The oracle will return.'
+      httpStatus = 500
+    }
+
+    // Always notify
     const ntfyTopic = process.env.NTFY_TOPIC
-    if (ntfyTopic && status !== 429) {
+    if (ntfyTopic) {
       fetch(`https://ntfy.sh/${ntfyTopic}`, {
         method: 'POST',
-        headers: { 'Title': 'Tarot API Error', 'Priority': '4', 'Tags': 'warning' },
-        body: `${status} - ${msg}`
+        headers: { 'Title': ntfyTitle, 'Priority': '4', 'Tags': 'warning' },
+        body: `${status} - ${msg.slice(0, 200)}`
       }).catch(() => {})
     }
 
-    if (status === 429) {
-      return res.status(429).json({ error: 'Rate limited by Gemini. Please wait a moment and try again.' })
-    }
-    if (status === 503 || msg.includes('overloaded')) {
-      return res.status(503).json({ error: 'Gemini is temporarily overloaded. Retrying...' })
-    }
-    return res.status(500).json({ error: 'Unable to generate interpretation. Please try again.' })
+    return res.status(httpStatus).json({ error: userMessage })
   }
 }

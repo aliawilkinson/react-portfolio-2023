@@ -30,9 +30,9 @@ export const callGemini = async (payload) => {
       if (!response.ok) {
         const body = await response.json().catch(() => ({}))
         lastError = new Error(body.error || `Request failed (${response.status})`)
-        // Retry on 5xx, don't retry on 4xx
-        if (response.status < 500) throw lastError
-        continue
+        // Retry on 5xx only, don't retry on 4xx (including 429 rate limit)
+        if (response.status >= 500) continue
+        throw lastError
       }
 
       return await response.json()

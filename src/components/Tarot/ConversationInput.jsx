@@ -21,7 +21,7 @@ const ConversationInput = ({ onSubmit, disabled }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
-      handleSubmit()
+      if (!disabled) handleSubmit()
     }
   }
 
@@ -66,7 +66,7 @@ const ConversationInput = ({ onSubmit, disabled }) => {
           value={text}
           onChange={handleInput}
           onKeyDown={handleKeyDown}
-          disabled={disabled}
+          disabled={false}
           aria-label="Tarot question input"
           data-clarity-mask="true"
           rows={1}

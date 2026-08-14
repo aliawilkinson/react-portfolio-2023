@@ -3,7 +3,7 @@
  *
  * Generates tarot reading interpretations from drawn cards.
  * All output is framed as self-reflection (not prediction).
- * This is a synchronous service — no API calls.
+ * This is a synchronous service, no API calls.
  *
  * @module interpretationService
  */
@@ -16,9 +16,9 @@
  * @returns {{summary: string, reflections: string[], connections: string}}
  */
 export const generateInterpretation = (cards, question = '') => {
-  const cardSummaries = cards.map((drawn, i) => {
+  const cardSummaries = cards.map((drawn) => {
     const meaning = drawn.isReversed ? drawn.card.meaning_rev : drawn.card.meaning_up
-    return { name: drawn.card.name, meaning, isReversed: drawn.isReversed, position: i }
+    return { name: drawn.card.name, meaning, isReversed: drawn.isReversed }
   })
 
   const summary = buildSummary(cardSummaries, question)
@@ -29,109 +29,62 @@ export const generateInterpretation = (cards, question = '') => {
 }
 
 /**
- * Builds an overall reading summary incorporating card names and optional question.
+ * Summary: Each card, its orientation, and its meaning. Just the facts.
  */
 function buildSummary(cardSummaries, question) {
-  const cardDescriptions = cardSummaries.map(c => {
-    const orientation = c.isReversed ? '(reversed)' : '(upright)'
-    return `${c.name} ${orientation}`
+  let summary = question ? `Question: "${question}"\n\n` : ''
+
+  cardSummaries.forEach(c => {
+    const orientation = c.isReversed ? 'Reversed' : 'Upright'
+    summary += `${c.name} (${orientation})\n${c.meaning}\n\n`
   })
 
-  const cardList = cardDescriptions.join(', ')
-
-  let summary = ''
-
-  if (question) {
-    summary += `Reflecting on your question, "${question}": `
-  } else {
-    summary += 'In this reading, '
-  }
-
-  if (cardSummaries.length === 1) {
-    const card = cardSummaries[0]
-    summary += `the card drawn is ${cardList}. ${card.meaning}`
-  } else {
-    summary += `the cards drawn are ${cardList}. `
-    summary += 'Together, they invite you to consider the themes present in your life right now. '
-    summary += cardSummaries.map(c => c.meaning.split('.')[0] + '.').join(' ')
-  }
-
-  return summary
+  return summary.trim()
 }
 
 /**
- * Builds reflection prompts derived from card meanings.
- * Each reflection is a question or prompt for self-inquiry.
+ * Reflections: One question per card to sit with. Not the meaning again.
  */
 function buildReflections(cardSummaries, question) {
-  const reflections = []
-
-  cardSummaries.forEach(card => {
-    const orientation = card.isReversed ? 'reversed' : 'upright'
-
-    // Extract core theme from meaning and turn it into a reflective prompt
-    const meaningCore = extractMeaningCore(card.meaning)
-    reflections.push(
-      `${card.name} (${orientation}) asks you to consider: ${meaningCore}`
-    )
+  const prompts = cardSummaries.map(card => {
+    const core = getFirstSentence(card.meaning)
+    if (card.isReversed) {
+      return `Where in your life might "${core.toLowerCase()}" be showing up?`
+    }
+    return `What would it look like to fully embrace "${core.toLowerCase()}"?`
   })
 
-  // Add a question-based reflection if provided
   if (question) {
-    reflections.push(
-      `How does this reading relate to what you asked, "${question}"? What resonates most?`
-    )
+    prompts.push(`Looking at all three cards together: what do they say about "${question}"?`)
   }
 
-  // Always add a closing reflection prompt
-  reflections.push(
-    'What feels true in your body as you read these reflections? That response is worth exploring.'
-  )
-
-  return reflections
+  return prompts
 }
 
 /**
- * Builds a connections narrative linking the cards together.
+ * Connections: A short narrative linking the cards as a story arc.
  */
 function buildConnections(cardSummaries) {
   if (cardSummaries.length === 1) {
-    const card = cardSummaries[0]
-    return `${card.name} stands alone in this reading, offering a focused message. Its energy, ${extractMeaningCore(card.meaning)}, is the single thread to follow right now.`
+    return `${cardSummaries[0].name} stands alone. Its message is your entire focus.`
   }
 
-  const cardNames = cardSummaries.map(c => c.name)
-  let connections = `The thread connecting ${cardNames.join(', ')} speaks to a journey unfolding in your inner landscape. `
-
-  // Build pairwise connections
-  for (let i = 0; i < cardSummaries.length - 1; i++) {
-    const current = cardSummaries[i]
-    const next = cardSummaries[i + 1]
-    const currentTheme = extractMeaningCore(current.meaning)
-    const nextTheme = extractMeaningCore(next.meaning)
-
-    connections += `${current.name} brings the energy of ${currentTheme.toLowerCase()}, which flows into ${next.name}'s invitation toward ${nextTheme.toLowerCase()}. `
+  if (cardSummaries.length === 2) {
+    return `${cardSummaries[0].name} sets the scene. ${cardSummaries[1].name} is where it's heading.`
   }
 
-  connections += 'Notice how these themes echo or challenge each other. That tension or harmony is where your insight lives.'
+  // 3+ cards: beginning, middle, end arc
+  const first = cardSummaries[0]
+  const middle = cardSummaries[Math.floor(cardSummaries.length / 2)]
+  const last = cardSummaries[cardSummaries.length - 1]
 
-  return connections
+  return `${first.name} is where you're coming from. ${middle.name} is what you're moving through. ${last.name} is what's emerging.`
 }
 
 /**
- * Extracts the core theme from a card meaning string.
- * Takes the first sentence or meaningful clause.
+ * Gets the first sentence from a meaning string.
  */
-function extractMeaningCore(meaning) {
-  // Get the first sentence (before first period followed by space or end)
-  const firstSentence = meaning.split(/\.\s/)[0]
-
-  // If the sentence is too long, trim to a reasonable length
-  if (firstSentence.length > 120) {
-    const trimmed = firstSentence.substring(0, 120)
-    // Cut at last space to avoid mid-word cuts
-    return trimmed.substring(0, trimmed.lastIndexOf(' ')) + '...'
-  }
-
-  return firstSentence.endsWith('.') ? firstSentence : firstSentence + '.'
+function getFirstSentence(meaning) {
+  const match = meaning.match(/^[^.!?]+[.!?]/)
+  return match ? match[0].trim() : meaning.split('.')[0].trim()
 }

@@ -25,7 +25,7 @@ const ProjectSlugRedirect = () => {
 
 const App = () => {
   const { pathname } = useLocation()
-  const hideFooter = pathname === '/tarot' || pathname === '/conversation'
+  const hideFooter = pathname === '/tarot' || pathname === '/tarot/conversation'
   const isOnMusicPage = pathname === '/other-projects/music'
 
   return (
@@ -47,7 +47,8 @@ const App = () => {
         <Route path='/blog' element={<BlogList />} />
         <Route path='/blog/:slug' element={<BlogPost />} />
         <Route path='/tarot' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><Tarot /></Suspense>} />
-        <Route path='/conversation' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><ConversationMode /></Suspense>} />
+        <Route path='/tarot/conversation' element={<Suspense fallback={<div style={{ minHeight: '60vh' }} />}><ConversationMode /></Suspense>} />
+        <Route path='/conversation' element={<Navigate to="/tarot/conversation" replace />} />
         <Route path='/testimonials' element={<Home />} />
         <Route path='/experience' element={<Home />} />
         <Route path='/contact' element={<Home />} />
