@@ -1,5 +1,10 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
+// Vercel function config - extend timeout for slow Gemini responses
+export const config = {
+  maxDuration: 60
+}
+
 const SYSTEM_PROMPT = `You are a tarot reader in an ongoing conversation.
 
 The user draws real cards from a randomized deck before each question. You receive the exact cards they drew. Never invent, substitute, or rename cards. Interpret only what was drawn.
@@ -72,26 +77,48 @@ ${cards.map((c, i) => `${i + 1}. ${c.name}${c.reversed ? ' (Reversed)' : ' (Upri
 
 Please interpret these cards in relation to the question.`
 
-  const SERVER_TIMEOUT_MS = 55000
+  const SERVER_TIMEOUT_MS = 50000
+  const MODEL_FALLBACKS = [model, 'gemini-3.5-flash', 'gemini-3.5-flash-lite']
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
-    const genModel = genAI.getGenerativeModel({
-      model,
-      systemInstruction: SYSTEM_PROMPT
-    })
+    let result = null
+    let usedModel = model
 
-    console.log(`[Gemini] Using model: ${model}`)
+    for (const tryModel of MODEL_FALLBACKS) {
+      try {
+        const genModel = genAI.getGenerativeModel({
+          model: tryModel,
+          systemInstruction: SYSTEM_PROMPT
+        })
 
-    const chat = genModel.startChat({ history: history || [] })
+        console.log(`[Gemini] Trying model: ${tryModel}`)
 
-    const result = await Promise.race([
-      chat.sendMessage(currentMessage),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Server-side timeout waiting for Gemini')), SERVER_TIMEOUT_MS)
-      )
-    ])
+        const chat = genModel.startChat({ history: history || [] })
+        result = await Promise.race([
+          chat.sendMessage(currentMessage),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Server-side timeout')), SERVER_TIMEOUT_MS)
+          )
+        ])
+        usedModel = tryModel
+        break
+      } catch (modelErr) {
+        const code = modelErr?.status || modelErr?.httpStatusCode || 0
+        // Only fallback on model-not-found (404) or overloaded (503). Other errors are real failures.
+        if (code === 404 || code === 503) {
+          console.warn(`[Gemini] Model ${tryModel} failed (${code}), trying next...`)
+          continue
+        }
+        throw modelErr
+      }
+    }
 
+    if (!result) {
+      throw new Error('All models exhausted')
+    }
+
+    console.log(`[Gemini] Success with model: ${usedModel}`)
     const text = result.response.text()
     const interpretation = parseSections(text)
 
