@@ -1,5 +1,5 @@
 {
-  "name": "alia-wilkinson-portfolio-2023",
+  "name": "alia-wilkinson-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -28,7 +28,8 @@
     "react-icons": "4.12.0",
     "react-router-dom": "6.30.3",
     "react-slick": "0.31.0",
-    "sass": "1.99.0"
+    "sass": "1.99.0",
+    "vercel": "^59.1.4"
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.2",

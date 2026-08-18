@@ -51,8 +51,8 @@ nvm use       # switches to it
 ### Install and run locally
 
 ```bash
-git clone https://github.com/aliawilkinson/react-portfolio-2023.git
-cd react-portfolio-2023
+git clone https://github.com/aliawilkinson/react-portfolio.git
+cd react-portfolio
 npm install
 npm run dev
 ```
@@ -110,6 +110,51 @@ cat .vercel/project.json
 
 Add `.vercel/` to `.gitignore` - don't commit those IDs.
 
+### Syncing environment variables
+
+The site uses a Gemini API key for the Tarot conversation feature. Environment variables are managed via a sync script.
+
+```powershell
+# Sync .env.local to Vercel
+.\scripts\setup-vercel-env.ps1
+```
+
+This script:
+- Reads vars from `.env.local`
+- Creates/updates them in Vercel via API
+- Handles sensitive vars (API keys) securely - they show as masked in the Vercel dashboard
+
+### Rotating the Gemini API key
+
+Google AI Studio doesn't support programmatic key rotation, so this is a manual process. Do this quarterly or if the key is compromised.
+
+**Step 1: Generate a new key**
+1. Go to [Google AI Studio API Keys](https://aistudio.google.com/app/apikey)
+2. Click "Create API key"
+3. Copy the new key (you won't see it again)
+
+**Step 2: Update locally**
+```powershell
+# Edit .env.local and replace GEMINI_API_KEY value
+notepad .env.local
+```
+
+**Step 3: Push to Vercel**
+```powershell
+.\scripts\setup-vercel-env.ps1
+```
+
+**Step 4: Verify it works**
+1. Visit [aliawilkinson.com/tarot](https://aliawilkinson.com/tarot)
+2. Draw cards and ask a question
+3. Confirm you get an AI interpretation (not an error)
+
+**Step 5: Delete the old key**
+1. Go back to [Google AI Studio API Keys](https://aistudio.google.com/app/apikey)
+2. Find the old key and delete it
+
+> **Note:** Vercel sensitive vars show as masked (dots) in the dashboard - this is expected. You can't view the value after setting it.
+
 ---
 
 ## External CDN links (referenced in index.html)
@@ -118,6 +163,31 @@ Add `.vercel/` to `.gitignore` - don't commit those IDs.
 - **Slick carousel CSS:**
   - `https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css`
   - `https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css`
+
+---
+
+## Testing
+
+### Unit tests
+
+```bash
+npm test          # run once
+npm run test:watch  # watch mode
+```
+
+### Post-deploy smoke tests
+
+After deploying, the GitHub Actions workflow runs smoke tests against the live site to verify:
+- Homepage loads and renders
+- All main routes are accessible (/, /tarot, /case-studies, etc.)
+- No console errors on page load
+- Tarot page loads the deck UI
+
+These run automatically on production deploys. To run manually against any URL:
+
+```bash
+node scripts/smoke-test.js https://aliawilkinson.com
+```
 
 ---
 
