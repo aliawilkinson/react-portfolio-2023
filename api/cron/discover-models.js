@@ -109,6 +109,29 @@ export default async function handler(req, res) {
       }
 
       console.log(`[ModelDiscovery] Updated ${envVarName} with ${flashModels.length} models`)
+
+      // Also update the last discovery timestamp (for cooldown logic)
+      const timestampVar = envData.envs?.find(e => e.key === 'GEMINI_LAST_DISCOVERY')
+      if (timestampVar) {
+        await fetch(
+          `https://api.vercel.com/v10/projects/${projectId}/env/${timestampVar.id}`,
+          { method: 'DELETE', headers: { Authorization: `Bearer ${vercelToken}` } }
+        )
+      }
+      await fetch(
+        `https://api.vercel.com/v10/projects/${projectId}/env`,
+        {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${vercelToken}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            key: 'GEMINI_LAST_DISCOVERY',
+            value: String(Date.now()),
+            target: ['production', 'preview', 'development'],
+            type: 'plain'
+          })
+        }
+      )
+      console.log('[ModelDiscovery] Updated discovery timestamp')
     } else {
       console.log('[ModelDiscovery] Skipping Vercel update (missing token or project ID)')
     }

@@ -50,13 +50,104 @@ function parseSections(text) {
   return sections
 }
 
+/**
+ * Update the GEMINI_MODEL env var when we successfully fallback to a different model.
+ * This "caches" the working model so future requests try it first.
+ * Fire and forget - don't block the response.
+ */
+async function cacheWorkingModel(newModel, currentConfiguredModel) {
+  // Only cache if we actually fell back to a different model
+  if (newModel === currentConfiguredModel) return
+
+  const token = process.env.VERCEL_API_TOKEN
+  const projectId = process.env.VERCEL_PROJECT_ID
+  if (!token || !projectId) {
+    console.log('[Gemini] Cannot cache model - missing VERCEL_API_TOKEN or VERCEL_PROJECT_ID')
+    return
+  }
+
+  try {
+    // Get existing env var ID
+    const listResp = await fetch(
+      `https://api.vercel.com/v10/projects/${projectId}/env`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+    const envData = await listResp.json()
+    const existingVar = envData.envs?.find(e => e.key === 'GEMINI_MODEL')
+
+    if (existingVar) {
+      // Delete old
+      await fetch(
+        `https://api.vercel.com/v10/projects/${projectId}/env/${existingVar.id}`,
+        { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
+      )
+    }
+
+    // Create new with working model
+    await fetch(
+      `https://api.vercel.com/v10/projects/${projectId}/env`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'GEMINI_MODEL',
+          value: newModel,
+          target: ['production', 'preview', 'development'],
+          type: 'plain'
+        })
+      }
+    )
+
+    console.log(`[Gemini] Cached working model: ${newModel} (was: ${currentConfiguredModel})`)
+  } catch (err) {
+    console.error('[Gemini] Failed to cache working model:', err.message)
+  }
+}
+
+/**
+ * Trigger model discovery when the default model fails.
+ * Uses a cooldown via env var to avoid spamming during outages.
+ * Fire and forget.
+ */
+async function triggerModelDiscovery() {
+  const lastDiscovery = parseInt(process.env.GEMINI_LAST_DISCOVERY || '0', 10)
+  const cooldownMs = 30 * 60 * 1000 // 30 minutes
+  
+  if (Date.now() - lastDiscovery < cooldownMs) {
+    console.log('[Gemini] Skipping discovery - cooldown active')
+    return
+  }
+
+  const cronSecret = process.env.CRON_SECRET
+  if (!cronSecret) {
+    console.log('[Gemini] Cannot trigger discovery - missing CRON_SECRET')
+    return
+  }
+
+  try {
+    // Call our own discovery endpoint
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'https://aliawilkinson.com'
+    
+    fetch(`${baseUrl}/api/cron/discover-models`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${cronSecret}` }
+    }).catch(() => {}) // Fire and forget
+
+    console.log('[Gemini] Triggered model discovery')
+  } catch (err) {
+    console.error('[Gemini] Failed to trigger discovery:', err.message)
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
   const apiKey = process.env.GEMINI_API_KEY
-  const model = process.env.GEMINI_MODEL || 'gemini-flash-latest'
+  const configuredModel = process.env.GEMINI_MODEL || 'gemini-flash-latest'
 
   if (!apiKey) {
     return res.status(500).json({ error: 'Gemini API key not configured' })
@@ -79,18 +170,20 @@ Please interpret these cards in relation to the question.`
 
   const SERVER_TIMEOUT_MS = 50000
   
-  // Build fallback chain: configured model first, then discovered models from env
+  // Build fallback chain: configured model first, then discovered models from env, then hardcoded defaults
   const discoveredModels = (process.env.GEMINI_FLASH_MODELS || '').split(',').filter(Boolean)
   const defaultFallbacks = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash']
-  const MODEL_FALLBACKS = [model, ...discoveredModels, ...defaultFallbacks]
+  const MODEL_FALLBACKS = [configuredModel, ...discoveredModels, ...defaultFallbacks]
     .filter((m, i, arr) => m && arr.indexOf(m) === i) // dedupe and remove empty
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
     let result = null
-    let usedModel = model
+    let usedModel = configuredModel
+    let hadToFallback = false
 
-    for (const tryModel of MODEL_FALLBACKS) {
+    for (let i = 0; i < MODEL_FALLBACKS.length; i++) {
+      const tryModel = MODEL_FALLBACKS[i]
       try {
         const genModel = genAI.getGenerativeModel({
           model: tryModel,
@@ -107,6 +200,7 @@ Please interpret these cards in relation to the question.`
           )
         ])
         usedModel = tryModel
+        hadToFallback = i > 0 // First model is the configured one
         break
       } catch (modelErr) {
         const code = modelErr?.status || modelErr?.httpStatusCode || 0
@@ -124,6 +218,14 @@ Please interpret these cards in relation to the question.`
     }
 
     console.log(`[Gemini] Success with model: ${usedModel}`)
+
+    // If we had to fallback, cache the working model and trigger discovery
+    if (hadToFallback) {
+      // Fire and forget - don't block the response
+      cacheWorkingModel(usedModel, configuredModel).catch(() => {})
+      triggerModelDiscovery().catch(() => {})
+    }
+
     const text = result.response.text()
     const interpretation = parseSections(text)
 
@@ -133,6 +235,9 @@ Please interpret these cards in relation to the question.`
     const msg = error?.message || 'Unknown error'
     console.error(`[Gemini] ${status} - ${msg}`)
     if (error?.errorDetails) console.error('[Gemini] Details:', JSON.stringify(error.errorDetails))
+
+    // Trigger discovery on total failure too
+    triggerModelDiscovery().catch(() => {})
 
     // Classify the error
     let ntfyTitle, userMessage, httpStatus
