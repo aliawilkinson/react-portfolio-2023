@@ -78,7 +78,12 @@ ${cards.map((c, i) => `${i + 1}. ${c.name}${c.reversed ? ' (Reversed)' : ' (Upri
 Please interpret these cards in relation to the question.`
 
   const SERVER_TIMEOUT_MS = 50000
-  const MODEL_FALLBACKS = [model, 'gemini-3.5-flash', 'gemini-3.5-flash-lite']
+  
+  // Build fallback chain: configured model first, then discovered models from env
+  const discoveredModels = (process.env.GEMINI_FLASH_MODELS || '').split(',').filter(Boolean)
+  const defaultFallbacks = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash']
+  const MODEL_FALLBACKS = [model, ...discoveredModels, ...defaultFallbacks]
+    .filter((m, i, arr) => m && arr.indexOf(m) === i) // dedupe and remove empty
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey)
@@ -105,8 +110,8 @@ Please interpret these cards in relation to the question.`
         break
       } catch (modelErr) {
         const code = modelErr?.status || modelErr?.httpStatusCode || 0
-        // Only fallback on model-not-found (404) or overloaded (503). Other errors are real failures.
-        if (code === 404 || code === 503) {
+        // Fallback on: model not found (404), overloaded (503), or rate limited (429)
+        if (code === 404 || code === 503 || code === 429) {
           console.warn(`[Gemini] Model ${tryModel} failed (${code}), trying next...`)
           continue
         }
