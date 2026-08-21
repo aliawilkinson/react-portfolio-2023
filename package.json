@@ -12,7 +12,10 @@
     "build:validate": "vite build && node scripts/prerender.js && node scripts/generate-sitemap.js && node scripts/validate-seo.js",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:fast": "vitest run --project fast",
+    "test:full": "vitest run --project full",
     "test:watch": "vitest",
+    "test:install-hooks": "node scripts/install-hooks.js",
     "validate": "node scripts/validate-seo.js"
   },
   "dependencies": {

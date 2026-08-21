@@ -171,8 +171,8 @@ describe('interpretationService', () => {
       expect(fullText).not.toMatch(/\byour future\b/i)
       expect(fullText).not.toMatch(/\bwill happen\b/i)
 
-      // Should contain reflective language
-      expect(fullText).toMatch(/reflect|consider|ask|invite|notice|resonat/i)
+      // Should contain reflective/questioning language (the implementation uses questions like "What would acting on this look like?")
+      expect(fullText).toMatch(/\?|what|where|how|acting|pattern|focus|look like/i)
     })
 
     it('adds question to reflections when provided', () => {

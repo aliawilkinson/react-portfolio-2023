@@ -21,7 +21,8 @@ const ConversationMode = () => {
     submitQuestion,
   } = useConversation({ resetAndDraw })
 
-  const [activePreset] = useState(SPREAD_PRESETS.three)
+  const [activePresetKey, setActivePresetKey] = useState('three')
+  const activePreset = SPREAD_PRESETS[activePresetKey]
   const messagesContainerRef = useRef(null)
 
   useEffect(() => {
@@ -41,6 +42,22 @@ const ConversationMode = () => {
       <div className={css.convTopBar}>
         <h1 className={css.convTitle}>Conversation Mode</h1>
         <Link to="/tarot" className={css.convBackLink}>← Back to Tarot</Link>
+      </div>
+
+      <div className={css.convSpreadSelector}>
+        <span className={css.convSpreadLabel}>Spread:</span>
+        <div className={css.convSpreadOptions}>
+          {Object.entries(SPREAD_PRESETS).map(([key, preset]) => (
+            <button
+              key={key}
+              className={`${css.convSpreadBtn} ${activePresetKey === key ? css.convSpreadBtnActive : ''}`}
+              onClick={() => setActivePresetKey(key)}
+              disabled={isLoading}
+            >
+              {preset.name} ({preset.cardCount})
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={css.convMessages} ref={messagesContainerRef}>

@@ -6,39 +6,39 @@ Implements a two-tier test architecture with file-suffix-based tier assignment, 
 
 ## Tasks
 
-- [ ] 1. Configure Vitest workspace and scripts
-  - [ ] 1.1 Update vitest.config.js to define `fast` and `full` projects using include patterns (`.fast.test.{js,jsx}` for fast, all patterns for full)
+- [x] 1. Configure Vitest workspace and scripts
+  - [x] 1.1 Update vitest.config.js to define `fast` and `full` projects using include patterns (`.fast.test.{js,jsx}` for fast, all patterns for full)
     - _Requirements: 1.1, 1.2, 1.4, 1.5_
-  - [ ] 1.2 Update package.json scripts: add `test:fast`, `test:full`, and `test:install-hooks`
+  - [x] 1.2 Update package.json scripts: add `test:fast`, `test:full`, and `test:install-hooks`
     - _Requirements: 1.1, 1.2_
 
-- [ ] 2. Create test helpers and fix existing tests
-  - [ ] 2.1 Create `tests/helpers/renderWithProviders.jsx` with MemoryRouter wrapper utility
+- [x] 2. Create test helpers and fix existing tests
+  - [x] 2.1 Create `tests/helpers/renderWithProviders.jsx` with MemoryRouter wrapper utility
     - _Requirements: 3.3_
-  - [ ] 2.2 Fix `tests/unit/interpretationService.test.js` to match current implementation (remove the "frames output as self-reflection" test that asserts reflective language not present in current code, fix any other assertion mismatches)
+  - [x] 2.2 Fix `tests/unit/interpretationService.test.js` to match current implementation (remove the "frames output as self-reflection" test that asserts reflective language not present in current code, fix any other assertion mismatches)
     - _Requirements: 7.1, 7.2_
 
-- [ ] 3. Extract deck utility for testability
-  - [ ] 3.1 Create `src/components/Tarot/utils/deckUtils.js` exporting `shuffleArray` as a pure function
+- [x] 3. Extract deck utility for testability
+  - [x] 3.1 Create `src/components/Tarot/utils/deckUtils.js` exporting `shuffleArray` as a pure function
     - _Requirements: 5.1_
-  - [ ] 3.2 Update `src/components/Tarot/hooks/useTarotDeck.js` to import `shuffleArray` from `deckUtils.js` instead of defining it inline
+  - [x] 3.2 Update `src/components/Tarot/hooks/useTarotDeck.js` to import `shuffleArray` from `deckUtils.js` instead of defining it inline
     - _Requirements: 5.1_
 
-- [ ] 4. Implement smoke tests (FAST tier)
-  - [ ] 4.1 Create `tests/smoke/Tarot.fast.test.jsx` — verify Tarot component renders without crashing (mock geminiClient module, provide MemoryRouter)
+- [x] 4. Implement smoke tests (FAST tier)
+  - [x] 4.1 Create `tests/smoke/Tarot.fast.test.jsx` — verify Tarot component renders without crashing (mock geminiClient module, provide MemoryRouter)
     - _Requirements: 3.2, 3.4, 3.5_
-  - [ ] 4.2 Create `tests/smoke/ConversationMode.fast.test.jsx` — verify ConversationMode renders without crashing (mock geminiClient, provide MemoryRouter)
+  - [x] 4.2 Create `tests/smoke/ConversationMode.fast.test.jsx` — verify ConversationMode renders without crashing (mock geminiClient, provide MemoryRouter)
     - _Requirements: 3.1, 3.4, 3.5_
 
-- [ ] 5. Implement critical logic tests (FAST tier)
-  - [ ] 5.1 Create `tests/unit/interpretationService.fast.test.js` — test output shape, orientation-correct meaning selection, handles 1/2/3+ cards
+- [x] 5. Implement critical logic tests (FAST tier)
+  - [x] 5.1 Create `tests/unit/interpretationService.fast.test.js` — test output shape, orientation-correct meaning selection, handles 1/2/3+ cards
     - _Requirements: 4.1, 4.2, 4.3_
-  - [ ] 5.2 Create `tests/unit/geminiClient.fast.test.js` — test 5xx retry, 4xx no-retry, timeout retry, retry exhaustion throws (mock globalThis.fetch)
+  - [x] 5.2 Create `tests/unit/geminiClient.fast.test.js` — test 5xx retry, 4xx no-retry, timeout retry, retry exhaustion throws (mock globalThis.fetch)
     - _Requirements: 4.4, 4.5, 4.6, 4.7_
-  - [ ] 5.3 Create `tests/unit/useConversation.fast.test.js` — test successful turn append, error fallback turn, whitespace rejection (mock callGemini module, use renderHook)
+  - [x] 5.3 Create `tests/unit/useConversation.fast.test.js` — test successful turn append, error fallback turn, whitespace rejection (mock callGemini module, use renderHook)
     - _Requirements: 6.1, 6.2, 6.3, 6.4_
 
-- [ ] 6. Checkpoint
+- [x] 6. Checkpoint
   - Ensure all FAST tier tests pass with `npm run test:fast`. Verify execution time is under 10 seconds. Ask the user if questions arise.
 
 - [ ] 7. Implement property-based tests (FULL tier)
@@ -61,13 +61,13 @@ Implements a two-tier test architecture with file-suffix-based tier assignment, 
     - **Property 5: Retry exhaustion throws last error**
     - **Validates: Requirements 4.4, 4.6, 4.7**
 
-- [ ] 8. Implement pre-push hook
-  - [ ] 8.1 Create `.githooks/pre-push` shell script that runs `npm run test:fast` and exits non-zero on failure
+- [x] 8. Implement pre-push hook
+  - [x] 8.1 Create `.githooks/pre-push` shell script that runs `npm run test:fast` and exits non-zero on failure
     - _Requirements: 2.1, 2.2, 2.3_
-  - [ ] 8.2 Create `scripts/install-hooks.js` that copies `.githooks/pre-push` to `.git/hooks/pre-push` and sets executable permission
+  - [x] 8.2 Create `scripts/install-hooks.js` that copies `.githooks/pre-push` to `.git/hooks/pre-push` and sets executable permission
     - _Requirements: 2.5_
 
-- [ ] 9. Final checkpoint
+- [x] 9. Final checkpoint
   - Run `npm run test:fast` (should pass in <10s) and `npm run test:full` (should pass all tests including property tests). Ensure all tests pass, ask the user if questions arise.
 
 ## Notes

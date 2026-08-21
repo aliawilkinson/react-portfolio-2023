@@ -50,9 +50,68 @@ function parseSections(text) {
   return sections
 }
 
+// Default fallback model - used when GEMINI_MODEL isn't set
+const DEFAULT_MODEL = 'gemini-2.5-flash'
+
+// Cache cooldown: only update cached model once per day (24 hours)
+const CACHE_COOLDOWN_MS = 24 * 60 * 60 * 1000
+
+// Local model cache - populated on first request when GEMINI_FLASH_MODELS env is empty
+let localModelCache = null
+let localCacheTimestamp = 0
+const LOCAL_CACHE_TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
+
+/**
+ * Fetch flash models from Gemini API for local development.
+ * Caches results for 24 hours to avoid excessive API calls.
+ */
+async function getLocalFlashModels(apiKey) {
+  const now = Date.now()
+  
+  // Return cached if still valid
+  if (localModelCache && (now - localCacheTimestamp) < LOCAL_CACHE_TTL_MS) {
+    return localModelCache
+  }
+
+  try {
+    console.log('[Gemini] Fetching model list for local development...')
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`
+    )
+
+    if (!response.ok) {
+      console.warn(`[Gemini] Failed to fetch models: ${response.status}`)
+      return []
+    }
+
+    const data = await response.json()
+    const flashModels = data.models
+      .filter(m =>
+        m.name.includes('flash') &&
+        m.supportedGenerationMethods?.includes('generateContent') &&
+        !m.name.includes('preview') &&
+        !m.name.includes('tts') &&
+        !m.name.includes('image')
+      )
+      .map(m => m.name.replace('models/', ''))
+      .sort((a, b) => b.localeCompare(a)) // Newest first
+
+    console.log(`[Gemini] Cached ${flashModels.length} flash models locally:`, flashModels.slice(0, 5))
+    
+    localModelCache = flashModels
+    localCacheTimestamp = now
+    return flashModels
+  } catch (err) {
+    console.error('[Gemini] Error fetching models:', err.message)
+    return []
+  }
+}
+
 /**
  * Update the GEMINI_MODEL env var when we successfully fallback to a different model.
  * This "caches" the working model so future requests try it first.
+ * 
+ * Respects a 24-hour cooldown to avoid excessive Vercel API calls.
  * Fire and forget - don't block the response.
  */
 async function cacheWorkingModel(newModel, currentConfiguredModel) {
@@ -67,18 +126,30 @@ async function cacheWorkingModel(newModel, currentConfiguredModel) {
   }
 
   try {
-    // Get existing env var ID
+    // Get existing env vars
     const listResp = await fetch(
       `https://api.vercel.com/v10/projects/${projectId}/env`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
     const envData = await listResp.json()
-    const existingVar = envData.envs?.find(e => e.key === 'GEMINI_MODEL')
+    
+    // Check cooldown - only cache once per day
+    const cachedAtVar = envData.envs?.find(e => e.key === 'GEMINI_MODEL_CACHED_AT')
+    if (cachedAtVar) {
+      const lastCacheTime = parseInt(cachedAtVar.value, 10)
+      const elapsed = Date.now() - lastCacheTime
+      if (elapsed < CACHE_COOLDOWN_MS) {
+        console.log(`[Gemini] Cache cooldown active (${Math.round(elapsed / 3600000)}h elapsed, need 24h). Skipping.`)
+        return
+      }
+    }
 
-    if (existingVar) {
-      // Delete old
+    const existingModelVar = envData.envs?.find(e => e.key === 'GEMINI_MODEL')
+
+    // Delete old model var if exists
+    if (existingModelVar) {
       await fetch(
-        `https://api.vercel.com/v10/projects/${projectId}/env/${existingVar.id}`,
+        `https://api.vercel.com/v10/projects/${projectId}/env/${existingModelVar.id}`,
         { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
       )
     }
@@ -98,46 +169,30 @@ async function cacheWorkingModel(newModel, currentConfiguredModel) {
       }
     )
 
+    // Update the cache timestamp
+    if (cachedAtVar) {
+      await fetch(
+        `https://api.vercel.com/v10/projects/${projectId}/env/${cachedAtVar.id}`,
+        { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
+      )
+    }
+    await fetch(
+      `https://api.vercel.com/v10/projects/${projectId}/env`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: 'GEMINI_MODEL_CACHED_AT',
+          value: String(Date.now()),
+          target: ['production', 'preview', 'development'],
+          type: 'plain'
+        })
+      }
+    )
+
     console.log(`[Gemini] Cached working model: ${newModel} (was: ${currentConfiguredModel})`)
   } catch (err) {
     console.error('[Gemini] Failed to cache working model:', err.message)
-  }
-}
-
-/**
- * Trigger model discovery when the default model fails.
- * Uses a cooldown via env var to avoid spamming during outages.
- * Fire and forget.
- */
-async function triggerModelDiscovery() {
-  const lastDiscovery = parseInt(process.env.GEMINI_LAST_DISCOVERY || '0', 10)
-  const cooldownMs = 30 * 60 * 1000 // 30 minutes
-  
-  if (Date.now() - lastDiscovery < cooldownMs) {
-    console.log('[Gemini] Skipping discovery - cooldown active')
-    return
-  }
-
-  const cronSecret = process.env.CRON_SECRET
-  if (!cronSecret) {
-    console.log('[Gemini] Cannot trigger discovery - missing CRON_SECRET')
-    return
-  }
-
-  try {
-    // Call our own discovery endpoint
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'https://aliawilkinson.com'
-    
-    fetch(`${baseUrl}/api/cron/discover-models`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${cronSecret}` }
-    }).catch(() => {}) // Fire and forget
-
-    console.log('[Gemini] Triggered model discovery')
-  } catch (err) {
-    console.error('[Gemini] Failed to trigger discovery:', err.message)
   }
 }
 
@@ -147,7 +202,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY
-  const configuredModel = process.env.GEMINI_MODEL || 'gemini-flash-latest'
+  const configuredModel = process.env.GEMINI_MODEL || DEFAULT_MODEL
 
   if (!apiKey) {
     return res.status(500).json({ error: 'Gemini API key not configured' })
@@ -170,9 +225,17 @@ Please interpret these cards in relation to the question.`
 
   const SERVER_TIMEOUT_MS = 50000
   
-  // Build fallback chain: configured model first, then discovered models from env, then hardcoded defaults
-  const discoveredModels = (process.env.GEMINI_FLASH_MODELS || '').split(',').filter(Boolean)
-  const defaultFallbacks = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash']
+  // Build fallback chain: configured model first, then discovered models, then hardcoded defaults
+  // In production: use GEMINI_FLASH_MODELS env var (populated by cron job)
+  // Locally: fetch models directly from Gemini API (cached for 24h)
+  let discoveredModels = (process.env.GEMINI_FLASH_MODELS || '').split(',').filter(Boolean)
+  
+  // If no discovered models in env (local dev), fetch them
+  if (discoveredModels.length === 0) {
+    discoveredModels = await getLocalFlashModels(apiKey)
+  }
+  
+  const defaultFallbacks = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash']
   const MODEL_FALLBACKS = [configuredModel, ...discoveredModels, ...defaultFallbacks]
     .filter((m, i, arr) => m && arr.indexOf(m) === i) // dedupe and remove empty
 
@@ -219,11 +282,10 @@ Please interpret these cards in relation to the question.`
 
     console.log(`[Gemini] Success with model: ${usedModel}`)
 
-    // If we had to fallback, cache the working model and trigger discovery
+    // If we had to fallback, cache the working model for future requests
     if (hadToFallback) {
       // Fire and forget - don't block the response
       cacheWorkingModel(usedModel, configuredModel).catch(() => {})
-      triggerModelDiscovery().catch(() => {})
     }
 
     const text = result.response.text()
@@ -235,9 +297,6 @@ Please interpret these cards in relation to the question.`
     const msg = error?.message || 'Unknown error'
     console.error(`[Gemini] ${status} - ${msg}`)
     if (error?.errorDetails) console.error('[Gemini] Details:', JSON.stringify(error.errorDetails))
-
-    // Trigger discovery on total failure too
-    triggerModelDiscovery().catch(() => {})
 
     // Classify the error
     let ntfyTitle, userMessage, httpStatus

@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Pre-push hook: Run fast test tier before pushing
+# Blocks push if any test fails
+#
+# Install with: npm run test:install-hooks
+
+echo "Running fast tests before push..."
+
+npm run test:fast
+
+# Capture exit code
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "❌ Fast tests failed. Push aborted."
+  echo "Fix the failing tests and try again."
+  exit 1
+fi
+
+echo "✅ Fast tests passed. Proceeding with push."
+exit 0

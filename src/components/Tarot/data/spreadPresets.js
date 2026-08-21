@@ -5,9 +5,24 @@ export const SPREAD_PRESETS = {
     labels: ['Core Message']
   },
   three: {
-    name: 'Three Card Spread',
+    name: 'Three Card',
     cardCount: 3,
     labels: ['Past', 'Present', 'Future']
+  },
+  mindBodySpirit: {
+    name: 'Mind-Body-Spirit',
+    cardCount: 3,
+    labels: ['Mind', 'Body', 'Spirit']
+  },
+  situation: {
+    name: 'Situation',
+    cardCount: 3,
+    labels: ['Situation', 'Action', 'Outcome']
+  },
+  fiveCard: {
+    name: 'Five Card',
+    cardCount: 5,
+    labels: ['Past', 'Present', 'Hidden', 'Advice', 'Outcome']
   },
   celtic: {
     name: 'Celtic Cross',
